@@ -8,7 +8,7 @@ namespace BRAHO_Project
         {
             InitializeComponent();
         }
-        //Adios
+        
 
         //Codigo para mover el formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -28,7 +28,7 @@ namespace BRAHO_Project
 
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void BotonMininizar_Click(object sender, EventArgs e)
