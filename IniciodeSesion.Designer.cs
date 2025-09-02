@@ -32,15 +32,14 @@
             MoverVentanaInicioSesion = new Panel();
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
-            UsuarioSesion = new TextBox();
-            ContrasenaSesion = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            label4 = new Label();
-            label3 = new Label();
             pictureBox1 = new PictureBox();
             BotonLoguear = new Button();
             BotonRegistrarUsuario = new Button();
+            txtUsuario = new BRAHO_Project.RJControls.RJtextbox();
+            txtContraseña = new BRAHO_Project.RJControls.RJtextbox();
+            linkLabel1 = new LinkLabel();
             MoverVentanaInicioSesion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
@@ -54,8 +53,9 @@
             MoverVentanaInicioSesion.Controls.Add(BotonCerrar);
             MoverVentanaInicioSesion.Dock = DockStyle.Top;
             MoverVentanaInicioSesion.Location = new Point(0, 0);
+            MoverVentanaInicioSesion.Margin = new Padding(4);
             MoverVentanaInicioSesion.Name = "MoverVentanaInicioSesion";
-            MoverVentanaInicioSesion.Size = new Size(473, 45);
+            MoverVentanaInicioSesion.Size = new Size(591, 56);
             MoverVentanaInicioSesion.TabIndex = 0;
             MoverVentanaInicioSesion.MouseDown += MoverVentanaInicioSesion_MouseDown;
             // 
@@ -64,9 +64,10 @@
             BotonMininizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonMininizar.Cursor = Cursors.Hand;
             BotonMininizar.Image = (Image)resources.GetObject("BotonMininizar.Image");
-            BotonMininizar.Location = new Point(398, 9);
+            BotonMininizar.Location = new Point(498, 11);
+            BotonMininizar.Margin = new Padding(4);
             BotonMininizar.Name = "BotonMininizar";
-            BotonMininizar.Size = new Size(29, 33);
+            BotonMininizar.Size = new Size(36, 41);
             BotonMininizar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonMininizar.TabIndex = 2;
             BotonMininizar.TabStop = false;
@@ -77,44 +78,24 @@
             BotonCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonCerrar.Cursor = Cursors.Hand;
             BotonCerrar.Image = (Image)resources.GetObject("BotonCerrar.Image");
-            BotonCerrar.Location = new Point(441, 9);
+            BotonCerrar.Location = new Point(551, 11);
+            BotonCerrar.Margin = new Padding(4);
             BotonCerrar.Name = "BotonCerrar";
-            BotonCerrar.Size = new Size(29, 33);
+            BotonCerrar.Size = new Size(36, 41);
             BotonCerrar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonCerrar.TabIndex = 1;
             BotonCerrar.TabStop = false;
             BotonCerrar.Click += BotonCerrar_Click;
-            // 
-            // UsuarioSesion
-            // 
-            UsuarioSesion.BackColor = Color.FromArgb(127, 127, 127);
-            UsuarioSesion.BorderStyle = BorderStyle.None;
-            UsuarioSesion.Cursor = Cursors.IBeam;
-            UsuarioSesion.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            UsuarioSesion.Location = new Point(48, 246);
-            UsuarioSesion.Name = "UsuarioSesion";
-            UsuarioSesion.Size = new Size(375, 25);
-            UsuarioSesion.TabIndex = 1;
-            UsuarioSesion.TextChanged += UsuarioSesion_TextChanged;
-            // 
-            // ContrasenaSesion
-            // 
-            ContrasenaSesion.BackColor = Color.FromArgb(127, 127, 127);
-            ContrasenaSesion.BorderStyle = BorderStyle.None;
-            ContrasenaSesion.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ContrasenaSesion.Location = new Point(48, 387);
-            ContrasenaSesion.Name = "ContrasenaSesion";
-            ContrasenaSesion.Size = new Size(375, 25);
-            ContrasenaSesion.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(45, 209);
+            label1.Location = new Point(56, 261);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(95, 27);
+            label1.Size = new Size(112, 34);
             label1.TabIndex = 3;
             label1.Text = "Usuario";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -124,41 +105,21 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(45, 354);
+            label2.Location = new Point(56, 412);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(145, 27);
+            label2.Size = new Size(175, 34);
             label2.TabIndex = 4;
             label2.Text = "Contraseña";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Showcard Gothic", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(255, 165, 11);
-            label4.Location = new Point(45, 246);
-            label4.Name = "label4";
-            label4.Size = new Size(390, 35);
-            label4.TabIndex = 6;
-            label4.Text = "_________________________";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Showcard Gothic", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(255, 165, 11);
-            label3.Location = new Point(44, 387);
-            label3.Name = "label3";
-            label3.Size = new Size(390, 35);
-            label3.TabIndex = 7;
-            label3.Text = "_________________________";
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(111, 51);
+            pictureBox1.Location = new Point(139, 77);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(245, 101);
+            pictureBox1.Size = new Size(306, 126);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
@@ -170,9 +131,10 @@
             BotonLoguear.FlatStyle = FlatStyle.Flat;
             BotonLoguear.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonLoguear.ForeColor = Color.White;
-            BotonLoguear.Location = new Point(48, 460);
+            BotonLoguear.Location = new Point(60, 575);
+            BotonLoguear.Margin = new Padding(4);
             BotonLoguear.Name = "BotonLoguear";
-            BotonLoguear.Size = new Size(379, 29);
+            BotonLoguear.Size = new Size(474, 36);
             BotonLoguear.TabIndex = 9;
             BotonLoguear.Text = "Iniciar Sesión";
             BotonLoguear.UseVisualStyleBackColor = false;
@@ -184,34 +146,83 @@
             BotonRegistrarUsuario.FlatStyle = FlatStyle.Flat;
             BotonRegistrarUsuario.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BotonRegistrarUsuario.ForeColor = Color.FromArgb(255, 165, 11);
-            BotonRegistrarUsuario.Location = new Point(48, 527);
+            BotonRegistrarUsuario.Location = new Point(65, 646);
+            BotonRegistrarUsuario.Margin = new Padding(4);
             BotonRegistrarUsuario.Name = "BotonRegistrarUsuario";
-            BotonRegistrarUsuario.Size = new Size(375, 29);
+            BotonRegistrarUsuario.Size = new Size(469, 36);
             BotonRegistrarUsuario.TabIndex = 10;
             BotonRegistrarUsuario.Text = "Registrarse";
             BotonRegistrarUsuario.UseVisualStyleBackColor = false;
             // 
+            // txtUsuario
+            // 
+            txtUsuario.BackColor = Color.FromArgb(127, 127, 127);
+            txtUsuario.BorderColor = Color.FromArgb(255, 165, 11);
+            txtUsuario.BorderFocusColor = SystemColors.HotTrack;
+            txtUsuario.BorderSize = 6;
+            txtUsuario.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtUsuario.ForeColor = Color.Black;
+            txtUsuario.Location = new Point(60, 303);
+            txtUsuario.Multiline = false;
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Padding = new Padding(7);
+            txtUsuario.PasswordChar = false;
+            txtUsuario.Size = new Size(474, 41);
+            txtUsuario.TabIndex = 11;
+            txtUsuario.Texts = "";
+            txtUsuario.UnderlinedStyle = true;
+            // 
+            // txtContraseña
+            // 
+            txtContraseña.BackColor = Color.FromArgb(127, 127, 127);
+            txtContraseña.BorderColor = Color.FromArgb(255, 165, 11);
+            txtContraseña.BorderFocusColor = SystemColors.HotTrack;
+            txtContraseña.BorderSize = 6;
+            txtContraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtContraseña.ForeColor = Color.Black;
+            txtContraseña.Location = new Point(60, 454);
+            txtContraseña.Multiline = false;
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Padding = new Padding(7);
+            txtContraseña.PasswordChar = true;
+            txtContraseña.Size = new Size(474, 41);
+            txtContraseña.TabIndex = 12;
+            txtContraseña.Texts = "";
+            txtContraseña.UnderlinedStyle = true;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.LinkColor = Color.Black;
+            linkLabel1.Location = new Point(191, 714);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(214, 25);
+            linkLabel1.TabIndex = 13;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "¿Olvidaste tu contraseña?";
+            // 
             // IniciodeSesion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(127, 127, 127);
-            ClientSize = new Size(473, 620);
+            ClientSize = new Size(591, 775);
+            Controls.Add(linkLabel1);
+            Controls.Add(txtContraseña);
+            Controls.Add(txtUsuario);
             Controls.Add(BotonRegistrarUsuario);
             Controls.Add(BotonLoguear);
-            Controls.Add(ContrasenaSesion);
-            Controls.Add(UsuarioSesion);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(MoverVentanaInicioSesion);
-            Controls.Add(label4);
-            Controls.Add(label3);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "IniciodeSesion";
             Opacity = 0.85D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IniciodeSesion";
+            Load += IniciodeSesion_Load;
             MoverVentanaInicioSesion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
@@ -225,14 +236,13 @@
         private Panel MoverVentanaInicioSesion;
         private PictureBox BotonCerrar;
         private PictureBox BotonMininizar;
-        private TextBox UsuarioSesion;
-        private TextBox ContrasenaSesion;
         private Label label1;
         private Label label2;
-        private Label label4;
-        private Label label3;
         private PictureBox pictureBox1;
         private Button BotonLoguear;
         private Button BotonRegistrarUsuario;
+        private RJControls.RJtextbox txtUsuario;
+        private RJControls.RJtextbox txtContraseña;
+        private LinkLabel linkLabel1;
     }
 }

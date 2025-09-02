@@ -8,6 +8,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.RJControls;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace BRAHO_Project
 {
@@ -24,11 +27,6 @@ namespace BRAHO_Project
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void UsuarioSesion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -43,6 +41,24 @@ namespace BRAHO_Project
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void IniciodeSesion_Load(object sender, EventArgs e)
+        {
+            int radio = 30; // Ajusta el nivel de redondeado
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                path.StartFigure();
+
+                // Esquinas redondeadas
+                path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+                path.AddArc(new Rectangle(this.Width - radio, 0, radio, radio), 270, 90);
+                path.AddArc(new Rectangle(this.Width - radio, this.Height - radio, radio, radio), 0, 90);
+                path.AddArc(new Rectangle(0, this.Height - radio, radio, radio), 90, 90);
+
+                path.CloseFigure();
+                this.Region = new Region(path);
+            }
         }
     }
 }
