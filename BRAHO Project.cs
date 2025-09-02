@@ -8,7 +8,7 @@ namespace BRAHO_Project
         {
             InitializeComponent();
         }
-        //HOla
+        //Adios
 
         //Codigo para mover el formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
