@@ -48,7 +48,7 @@ namespace BRAHO_Project
             {
                 // Reducir el ancho hasta llegar a 70
                 MenuVertical.Width -= 10;
-                if (MenuVertical.Width <= 70)
+                if (MenuVertical.Width <= 60)
                 {
                     menuExpandido = false;
                     timer1.Stop();
