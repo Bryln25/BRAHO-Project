@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             MenuVertical = new Panel();
             BotonVentas = new Button();
@@ -39,6 +40,7 @@
             BotonCerrar = new PictureBox();
             BotonSlide = new PictureBox();
             Contenedor = new Panel();
+            timer1 = new System.Windows.Forms.Timer(components);
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             BarraTitulo.SuspendLayout();
@@ -187,6 +189,11 @@
             Contenedor.Size = new Size(1313, 750);
             Contenedor.TabIndex = 2;
             // 
+            // timer1
+            // 
+            timer1.Interval = 10;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -221,5 +228,6 @@
         private Button BotonRegistrarObra;
         private Button BotonClientes;
         private Button BotonVentas;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -8,7 +8,7 @@ namespace BRAHO_Project
         {
             InitializeComponent();
         }
-        
+
 
         //Codigo para mover el formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -16,15 +16,14 @@ namespace BRAHO_Project
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        bool menuExpandido = true;
+
         private void BotonSlide_Click(object sender, EventArgs e)
         {
-            if (MenuVertical.Width == 250)
-            {
-                MenuVertical.Width = 70;
-            }
-            else
-                MenuVertical.Width = 250;
+            timer1.Start();
         }
+
+
 
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
@@ -41,6 +40,30 @@ namespace BRAHO_Project
 
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (menuExpandido)
+            {
+                // Reducir el ancho hasta llegar a 70
+                MenuVertical.Width -= 10;
+                if (MenuVertical.Width <= 70)
+                {
+                    menuExpandido = false;
+                    timer1.Stop();
+                }
+            }
+            else
+            {
+                // Aumentar el ancho hasta llegar a 250
+                MenuVertical.Width += 10;
+                if (MenuVertical.Width >= 250)
+                {
+                    menuExpandido = true;
+                    timer1.Stop();
+                }
+            }
         }
     }
 }
