@@ -33,20 +33,20 @@
             MenuVertical = new Panel();
             BotonVentas = new Button();
             BotonRegistrarObra = new Button();
+            BotonSlide = new PictureBox();
             BotonClientes = new Button();
             pictureBox1 = new PictureBox();
             BarraTitulo = new Panel();
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
-            BotonSlide = new PictureBox();
             Contenedor = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
             MenuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             SuspendLayout();
             // 
             // MenuVertical
@@ -95,6 +95,18 @@
             BotonRegistrarObra.Text = "Obras";
             BotonRegistrarObra.UseVisualStyleBackColor = true;
             // 
+            // BotonSlide
+            // 
+            BotonSlide.Cursor = Cursors.Hand;
+            BotonSlide.Image = (Image)resources.GetObject("BotonSlide.Image");
+            BotonSlide.Location = new Point(11, 8);
+            BotonSlide.Name = "BotonSlide";
+            BotonSlide.Size = new Size(35, 35);
+            BotonSlide.SizeMode = PictureBoxSizeMode.Zoom;
+            BotonSlide.TabIndex = 0;
+            BotonSlide.TabStop = false;
+            BotonSlide.Click += BotonSlide_Click;
+            // 
             // BotonClientes
             // 
             BotonClientes.FlatAppearance.BorderSize = 0;
@@ -114,9 +126,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(52, 57);
+            pictureBox1.Location = new Point(0, 57);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(189, 86);
+            pictureBox1.Size = new Size(250, 86);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -159,18 +171,6 @@
             BotonCerrar.TabStop = false;
             BotonCerrar.Click += BotonCerrar_Click;
             // 
-            // BotonSlide
-            // 
-            BotonSlide.Cursor = Cursors.Hand;
-            BotonSlide.Image = (Image)resources.GetObject("BotonSlide.Image");
-            BotonSlide.Location = new Point(14, 8);
-            BotonSlide.Name = "BotonSlide";
-            BotonSlide.Size = new Size(35, 35);
-            BotonSlide.SizeMode = PictureBoxSizeMode.Zoom;
-            BotonSlide.TabIndex = 0;
-            BotonSlide.TabStop = false;
-            BotonSlide.Click += BotonSlide_Click;
-            // 
             // Contenedor
             // 
             Contenedor.Dock = DockStyle.Fill;
@@ -197,11 +197,11 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             MenuVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)BotonSlide).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)BotonSlide).EndInit();
             ResumeLayout(false);
         }
 
