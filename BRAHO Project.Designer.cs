@@ -56,8 +56,9 @@
             MenuVertical.Controls.Add(pictureBox1);
             MenuVertical.Dock = DockStyle.Left;
             MenuVertical.Location = new Point(0, 0);
+            MenuVertical.Margin = new Padding(4, 4, 4, 4);
             MenuVertical.Name = "MenuVertical";
-            MenuVertical.Size = new Size(250, 650);
+            MenuVertical.Size = new Size(312, 812);
             MenuVertical.TabIndex = 0;
             // 
             // BotonVentas
@@ -69,9 +70,10 @@
             BotonVentas.ForeColor = Color.White;
             BotonVentas.Image = (Image)resources.GetObject("BotonVentas.Image");
             BotonVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonVentas.Location = new Point(0, 286);
+            BotonVentas.Location = new Point(0, 358);
+            BotonVentas.Margin = new Padding(4, 4, 4, 4);
             BotonVentas.Name = "BotonVentas";
-            BotonVentas.Size = new Size(250, 52);
+            BotonVentas.Size = new Size(312, 65);
             BotonVentas.TabIndex = 4;
             BotonVentas.Text = "Ventas";
             BotonVentas.UseVisualStyleBackColor = true;
@@ -85,9 +87,10 @@
             BotonRegistrarObra.ForeColor = Color.White;
             BotonRegistrarObra.Image = (Image)resources.GetObject("BotonRegistrarObra.Image");
             BotonRegistrarObra.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonRegistrarObra.Location = new Point(0, 228);
+            BotonRegistrarObra.Location = new Point(0, 285);
+            BotonRegistrarObra.Margin = new Padding(4, 4, 4, 4);
             BotonRegistrarObra.Name = "BotonRegistrarObra";
-            BotonRegistrarObra.Size = new Size(250, 52);
+            BotonRegistrarObra.Size = new Size(312, 65);
             BotonRegistrarObra.TabIndex = 2;
             BotonRegistrarObra.Text = "Obras";
             BotonRegistrarObra.UseVisualStyleBackColor = true;
@@ -101,9 +104,10 @@
             BotonClientes.ForeColor = Color.White;
             BotonClientes.Image = (Image)resources.GetObject("BotonClientes.Image");
             BotonClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonClientes.Location = new Point(0, 170);
+            BotonClientes.Location = new Point(0, 212);
+            BotonClientes.Margin = new Padding(4, 4, 4, 4);
             BotonClientes.Name = "BotonClientes";
-            BotonClientes.Size = new Size(250, 52);
+            BotonClientes.Size = new Size(312, 65);
             BotonClientes.TabIndex = 3;
             BotonClientes.Text = "Clientes";
             BotonClientes.UseVisualStyleBackColor = true;
@@ -111,9 +115,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-24, 12);
+            pictureBox1.Location = new Point(-30, 15);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(251, 89);
+            pictureBox1.Size = new Size(314, 111);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -125,9 +130,10 @@
             BarraTitulo.Controls.Add(BotonCerrar);
             BarraTitulo.Controls.Add(BotonSlide);
             BarraTitulo.Dock = DockStyle.Top;
-            BarraTitulo.Location = new Point(250, 0);
+            BarraTitulo.Location = new Point(312, 0);
+            BarraTitulo.Margin = new Padding(4, 4, 4, 4);
             BarraTitulo.Name = "BarraTitulo";
-            BarraTitulo.Size = new Size(1050, 50);
+            BarraTitulo.Size = new Size(1313, 62);
             BarraTitulo.TabIndex = 1;
             BarraTitulo.MouseDown += BarraTitulo_MouseDown;
             // 
@@ -136,9 +142,10 @@
             BotonMininizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonMininizar.Cursor = Cursors.Hand;
             BotonMininizar.Image = (Image)resources.GetObject("BotonMininizar.Image");
-            BotonMininizar.Location = new Point(969, 9);
+            BotonMininizar.Location = new Point(1212, 11);
+            BotonMininizar.Margin = new Padding(4, 4, 4, 4);
             BotonMininizar.Name = "BotonMininizar";
-            BotonMininizar.Size = new Size(29, 33);
+            BotonMininizar.Size = new Size(36, 41);
             BotonMininizar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonMininizar.TabIndex = 1;
             BotonMininizar.TabStop = false;
@@ -149,9 +156,10 @@
             BotonCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonCerrar.Cursor = Cursors.Hand;
             BotonCerrar.Image = (Image)resources.GetObject("BotonCerrar.Image");
-            BotonCerrar.Location = new Point(1010, 9);
+            BotonCerrar.Location = new Point(1263, 11);
+            BotonCerrar.Margin = new Padding(4, 4, 4, 4);
             BotonCerrar.Name = "BotonCerrar";
-            BotonCerrar.Size = new Size(29, 33);
+            BotonCerrar.Size = new Size(36, 41);
             BotonCerrar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonCerrar.TabIndex = 0;
             BotonCerrar.TabStop = false;
@@ -161,9 +169,10 @@
             // 
             BotonSlide.Cursor = Cursors.Hand;
             BotonSlide.Image = (Image)resources.GetObject("BotonSlide.Image");
-            BotonSlide.Location = new Point(6, 9);
+            BotonSlide.Location = new Point(8, 11);
+            BotonSlide.Margin = new Padding(4, 4, 4, 4);
             BotonSlide.Name = "BotonSlide";
-            BotonSlide.Size = new Size(35, 35);
+            BotonSlide.Size = new Size(44, 44);
             BotonSlide.SizeMode = PictureBoxSizeMode.Zoom;
             BotonSlide.TabIndex = 0;
             BotonSlide.TabStop = false;
@@ -172,20 +181,22 @@
             // Contenedor
             // 
             Contenedor.Dock = DockStyle.Fill;
-            Contenedor.Location = new Point(250, 50);
+            Contenedor.Location = new Point(312, 62);
+            Contenedor.Margin = new Padding(4, 4, 4, 4);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(1050, 600);
+            Contenedor.Size = new Size(1313, 750);
             Contenedor.TabIndex = 2;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1300, 650);
+            ClientSize = new Size(1625, 812);
             Controls.Add(Contenedor);
             Controls.Add(BarraTitulo);
             Controls.Add(MenuVertical);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

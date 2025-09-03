@@ -10,7 +10,8 @@ using System.ComponentModel;
 
 namespace BRAHO_Project.RJControls
 {
-    internal class RJButton : Button
+    [ToolboxItem(true)]
+    public partial class RJButton : Button
     {
         //Fields
         private int borderSize = 0;
