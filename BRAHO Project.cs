@@ -21,6 +21,8 @@ namespace BRAHO_Project
         private void BotonSlide_Click(object sender, EventArgs e)
         {
             timer1.Start();
+
+            pictureBox1.Visible = !pictureBox1.Visible;
         }
 
 
