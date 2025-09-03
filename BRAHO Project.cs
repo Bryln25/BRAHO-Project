@@ -7,6 +7,12 @@ namespace BRAHO_Project
         public Form1()
         {
             InitializeComponent();
+
+            // Desactivar la escala automática
+            this.AutoScaleMode = AutoScaleMode.None;
+
+            // Establecer un tamaño fijo
+            this.ClientSize = new Size(1312, 750);
         }
 
 
