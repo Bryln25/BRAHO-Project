@@ -77,13 +77,16 @@ namespace BRAHO_Project
 
         private void logueo()
         {
+
             try
             {
                 using (SqlConnection cn = ConexionBRAHOBD.ConexionCOALogin.ObtenerConexion())
                 {
+                    string query = "SELECT Usuario, Contraseña FROM Usuarios WHERE Usuario = @usuario AND Contraseña = @contraseña";
 
-
-                    SqlCommand cm = new SqlCommand("select Usuario, Contrasena from Usuarioss where Usuario='" + txtUsuario.Text + "' and Contrasena='" + txtContraseña.Text + "'", cn);
+                    SqlCommand cm = new SqlCommand(query, cn);
+                    cm.Parameters.AddWithValue("@usuario", txtUsuario.Texts.Trim());
+                    cm.Parameters.AddWithValue("@contraseña", txtContraseña.Texts.Trim());
 
                     SqlDataReader dr = cm.ExecuteReader();
 
@@ -94,17 +97,14 @@ namespace BRAHO_Project
                         m.ShowDialog();
                         this.Show();
                     }
-                    else
-                    {
-                        MessageBox.Show("Usuario o Contraseña Incorrecta");
-                    }
-                } 
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void BotonLoguear_Click(object sender, EventArgs e)
         {
