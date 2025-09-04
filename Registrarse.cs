@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using static BRAHO_Project.ConexionBRAHOBD;
 
 namespace BRAHO_Project
 {
@@ -27,6 +29,8 @@ namespace BRAHO_Project
 
         private void BotonCerrarRegistrarse_Click(object sender, EventArgs e)
         {
+            Form iniciodesesion = new IniciodeSesion();
+            iniciodesesion.Show();
             this.Close();
         }
 
@@ -57,6 +61,54 @@ namespace BRAHO_Project
                 path.CloseFigure();
                 this.Region = new Region(path);
             }
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            Form iniciodesesion = new IniciodeSesion();
+            iniciodesesion.Show();
+            this.Close();
+        }
+
+        private void BotonCrearCuenta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int retorna = 0;
+
+                using (SqlConnection conexion = ConexionCOALogin.ObtenerConexion())
+                {
+                    string query = "INSERT INTO Usuarios (Usuario, NombreApellido, Contraseña, Email) " +
+                                   "VALUES (@Usuario, @NombreApellido, @Contraseña, @Email)";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+
+                    comando.Parameters.AddWithValue("@Usuario", txtUsuario.Texts.Trim());
+                    comando.Parameters.AddWithValue("@NombreApellido", txtnombreapellido.Texts.Trim());
+                    comando.Parameters.AddWithValue("@Contraseña", txtcontraseña.Texts.Trim()); // ahora string
+                    comando.Parameters.AddWithValue("@Email", txtcorreo.Texts.Trim());
+
+                    // Ejecutar la inserción
+                    retorna = comando.ExecuteNonQuery();
+                }
+
+                if (retorna > 0)
+                {
+                    MessageBox.Show("✅ Usuario registrado correctamente.");
+                    Form iniciodesesion = new IniciodeSesion();
+                    iniciodesesion.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("❌ No se insertó el usuario.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en la base de datos");
+            }
+
         }
     }
 }

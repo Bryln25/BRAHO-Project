@@ -171,6 +171,7 @@
             linkLabel1.TabIndex = 13;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "¿Olvidaste tu contraseña?";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // BotonLoguear
             // 

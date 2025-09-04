@@ -30,7 +30,7 @@ namespace BRAHO_Project
 
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void BotonMininizar_Click(object sender, EventArgs e)
@@ -70,6 +70,7 @@ namespace BRAHO_Project
         {
             Form registrarse = new Registrarse();
             registrarse.Show();
+            this.Hide();
 
 
 
@@ -97,6 +98,10 @@ namespace BRAHO_Project
                         m.ShowDialog();
                         this.Show();
                     }
+                    else
+                    {
+                        MessageBox.Show("Usuario o Contraseña incorrecta");
+                    }
                 }
             }
             catch (Exception ex)
@@ -109,6 +114,13 @@ namespace BRAHO_Project
         private void BotonLoguear_Click(object sender, EventArgs e)
         {
             logueo();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form recuperar = new RecuperarContraseña();
+            recuperar.Show();
+            this.Hide();
         }
     }
 }

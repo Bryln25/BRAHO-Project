@@ -37,12 +37,14 @@
             label2 = new Label();
             txtcorreo = new BRAHO_Project.RJControls.RJtextbox();
             label3 = new Label();
-            txtcedula = new BRAHO_Project.RJControls.RJtextbox();
+            txtnombreapellido = new BRAHO_Project.RJControls.RJtextbox();
             label4 = new Label();
             txtcontraseña = new BRAHO_Project.RJControls.RJtextbox();
             label5 = new Label();
             txtconfirmarcontraseña = new BRAHO_Project.RJControls.RJtextbox();
             pictureBox1 = new PictureBox();
+            BotonCrearCuenta = new BRAHO_Project.RJControls.RJButton();
+            rjButton1 = new BRAHO_Project.RJControls.RJButton();
             MoverVentanaRegistrarse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMinimizarRegistrarse).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrarRegistrarse).BeginInit();
@@ -164,24 +166,24 @@
             label3.Text = "Nombres y apellidos";
             label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtcedula
+            // txtnombreapellido
             // 
-            txtcedula.BackColor = Color.FromArgb(127, 127, 127);
-            txtcedula.BorderColor = Color.FromArgb(255, 165, 11);
-            txtcedula.BorderFocusColor = SystemColors.HotTrack;
-            txtcedula.BorderSize = 6;
-            txtcedula.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtcedula.ForeColor = Color.Black;
-            txtcedula.Location = new Point(35, 206);
-            txtcedula.Margin = new Padding(2);
-            txtcedula.Multiline = false;
-            txtcedula.Name = "txtcedula";
-            txtcedula.Padding = new Padding(5, 4, 5, 4);
-            txtcedula.PasswordChar = false;
-            txtcedula.Size = new Size(192, 27);
-            txtcedula.TabIndex = 16;
-            txtcedula.Texts = "";
-            txtcedula.UnderlinedStyle = true;
+            txtnombreapellido.BackColor = Color.FromArgb(127, 127, 127);
+            txtnombreapellido.BorderColor = Color.FromArgb(255, 165, 11);
+            txtnombreapellido.BorderFocusColor = SystemColors.HotTrack;
+            txtnombreapellido.BorderSize = 6;
+            txtnombreapellido.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtnombreapellido.ForeColor = Color.Black;
+            txtnombreapellido.Location = new Point(35, 206);
+            txtnombreapellido.Margin = new Padding(2);
+            txtnombreapellido.Multiline = false;
+            txtnombreapellido.Name = "txtnombreapellido";
+            txtnombreapellido.Padding = new Padding(5, 4, 5, 4);
+            txtnombreapellido.PasswordChar = false;
+            txtnombreapellido.Size = new Size(192, 27);
+            txtnombreapellido.TabIndex = 16;
+            txtnombreapellido.Texts = "";
+            txtnombreapellido.UnderlinedStyle = true;
             // 
             // label4
             // 
@@ -256,19 +258,61 @@
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
             // 
+            // BotonCrearCuenta
+            // 
+            BotonCrearCuenta.BackColor = Color.FromArgb(255, 165, 11);
+            BotonCrearCuenta.BackgroundColor = Color.FromArgb(255, 165, 11);
+            BotonCrearCuenta.BorderColor = Color.PaleVioletRed;
+            BotonCrearCuenta.BorderRadius = 20;
+            BotonCrearCuenta.BorderSize = 0;
+            BotonCrearCuenta.FlatAppearance.BorderSize = 0;
+            BotonCrearCuenta.FlatStyle = FlatStyle.Flat;
+            BotonCrearCuenta.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BotonCrearCuenta.ForeColor = Color.White;
+            BotonCrearCuenta.Location = new Point(313, 439);
+            BotonCrearCuenta.Name = "BotonCrearCuenta";
+            BotonCrearCuenta.Size = new Size(150, 40);
+            BotonCrearCuenta.TabIndex = 23;
+            BotonCrearCuenta.Text = "Crear cuenta";
+            BotonCrearCuenta.TextColor = Color.White;
+            BotonCrearCuenta.UseVisualStyleBackColor = false;
+            BotonCrearCuenta.Click += BotonCrearCuenta_Click;
+            // 
+            // rjButton1
+            // 
+            rjButton1.BackColor = Color.FromArgb(127, 127, 127);
+            rjButton1.BackgroundColor = Color.FromArgb(127, 127, 127);
+            rjButton1.BorderColor = Color.Red;
+            rjButton1.BorderRadius = 20;
+            rjButton1.BorderSize = 0;
+            rjButton1.FlatAppearance.BorderSize = 0;
+            rjButton1.FlatStyle = FlatStyle.Flat;
+            rjButton1.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rjButton1.ForeColor = Color.White;
+            rjButton1.Location = new Point(77, 439);
+            rjButton1.Name = "rjButton1";
+            rjButton1.Size = new Size(150, 40);
+            rjButton1.TabIndex = 24;
+            rjButton1.Text = "Cancelar";
+            rjButton1.TextColor = Color.White;
+            rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.Click += rjButton1_Click;
+            // 
             // Registrarse
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(127, 127, 127);
-            ClientSize = new Size(552, 463);
+            ClientSize = new Size(552, 491);
+            Controls.Add(rjButton1);
+            Controls.Add(BotonCrearCuenta);
             Controls.Add(pictureBox1);
             Controls.Add(label5);
             Controls.Add(txtconfirmarcontraseña);
             Controls.Add(label4);
             Controls.Add(txtcontraseña);
             Controls.Add(label3);
-            Controls.Add(txtcedula);
+            Controls.Add(txtnombreapellido);
             Controls.Add(label2);
             Controls.Add(txtcorreo);
             Controls.Add(label1);
@@ -277,6 +321,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Registrarse";
             Opacity = 0.8D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrarse";
             Load += Registrarse_Load;
             MoverVentanaRegistrarse.ResumeLayout(false);
@@ -297,11 +342,13 @@
         private Label label2;
         private RJControls.RJtextbox txtcorreo;
         private Label label3;
-        private RJControls.RJtextbox txtcedula;
+        private RJControls.RJtextbox txtnombreapellido;
         private Label label4;
         private RJControls.RJtextbox txtcontraseña;
         private Label label5;
         private RJControls.RJtextbox txtconfirmarcontraseña;
         private PictureBox pictureBox1;
+        private RJControls.RJButton BotonCrearCuenta;
+        private RJControls.RJButton rjButton1;
     }
 }
