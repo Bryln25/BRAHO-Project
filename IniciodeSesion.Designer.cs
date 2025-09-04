@@ -154,7 +154,7 @@
             txtContraseña.Multiline = false;
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Padding = new Padding(5, 4, 5, 4);
-            txtContraseña.PasswordChar = true;
+            txtContraseña.PasswordChar = false;
             txtContraseña.Size = new Size(332, 27);
             txtContraseña.TabIndex = 12;
             txtContraseña.Texts = "";
@@ -190,6 +190,7 @@
             BotonLoguear.Text = "Inicio Sesion";
             BotonLoguear.TextColor = Color.White;
             BotonLoguear.UseVisualStyleBackColor = false;
+            BotonLoguear.Click += BotonLoguear_Click;
             // 
             // BotonRegistrarse
             // 
@@ -209,6 +210,7 @@
             BotonRegistrarse.Text = "Registrase";
             BotonRegistrarse.TextColor = Color.FromArgb(255, 165, 11);
             BotonRegistrarse.UseVisualStyleBackColor = false;
+            BotonRegistrarse.Click += BotonRegistrarse_Click;
             // 
             // IniciodeSesion
             // 

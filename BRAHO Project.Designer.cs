@@ -1,6 +1,6 @@
 ﻿namespace BRAHO_Project
 {
-    partial class Form1
+    partial class PaginaPrincipal
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaginaPrincipal));
             MenuVertical = new Panel();
             BotonVentas = new Button();
             BotonRegistrarObra = new Button();
@@ -194,7 +194,7 @@
             timer1.Interval = 10;
             timer1.Tick += timer1_Tick;
             // 
-            // Form1
+            // PaginaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -204,7 +204,7 @@
             Controls.Add(MenuVertical);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "Form1";
+            Name = "PaginaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             MenuVertical.ResumeLayout(false);

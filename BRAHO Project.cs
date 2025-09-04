@@ -2,9 +2,9 @@ using System.Runtime.InteropServices;
 
 namespace BRAHO_Project
 {
-    public partial class Form1 : Form
+    public partial class PaginaPrincipal : Form
     {
-        public Form1()
+        public PaginaPrincipal()
         {
             InitializeComponent();
 

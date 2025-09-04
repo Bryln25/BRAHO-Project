@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BRAHO_Project.RJControls;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using BRAHO_Project.RJControls;
+using Microsoft.Data.SqlClient;
 
 namespace BRAHO_Project
 {
@@ -58,7 +59,56 @@ namespace BRAHO_Project
 
                 path.CloseFigure();
                 this.Region = new Region(path);
+
+
             }
+
+
+        }
+
+        private void BotonRegistrarse_Click(object sender, EventArgs e)
+        {
+            Form registrarse = new Registrarse();
+            registrarse.Show();
+
+
+
+        }
+
+        private void logueo()
+        {
+            try
+            {
+                using (SqlConnection cn = ConexionBRAHOBD.ConexionCOALogin.ObtenerConexion())
+                {
+
+
+                    SqlCommand cm = new SqlCommand("select Usuario, Contrasena from Usuarioss where Usuario='" + txtUsuario.Text + "' and Contrasena='" + txtContraseña.Text + "'", cn);
+
+                    SqlDataReader dr = cm.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        PaginaPrincipal m = new PaginaPrincipal();
+                        this.Hide();
+                        m.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o Contraseña Incorrecta");
+                    }
+                } 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void BotonLoguear_Click(object sender, EventArgs e)
+        {
+            logueo();
         }
     }
 }
