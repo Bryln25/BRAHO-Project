@@ -136,11 +136,11 @@
             BotonEnviarCodigo.FlatStyle = FlatStyle.Flat;
             BotonEnviarCodigo.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonEnviarCodigo.ForeColor = Color.White;
-            BotonEnviarCodigo.Location = new Point(174, 398);
+            BotonEnviarCodigo.Location = new Point(174, 385);
             BotonEnviarCodigo.Name = "BotonEnviarCodigo";
             BotonEnviarCodigo.Size = new Size(134, 40);
             BotonEnviarCodigo.TabIndex = 15;
-            BotonEnviarCodigo.Text = "Enviar código";
+            BotonEnviarCodigo.Text = "Recuperar";
             BotonEnviarCodigo.TextColor = Color.White;
             BotonEnviarCodigo.UseVisualStyleBackColor = false;
             BotonEnviarCodigo.Click += BotonEnviarCodigo_Click;
@@ -156,7 +156,7 @@
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(12, 398);
+            rjButton1.Location = new Point(12, 385);
             rjButton1.Name = "rjButton1";
             rjButton1.Size = new Size(124, 40);
             rjButton1.TabIndex = 16;

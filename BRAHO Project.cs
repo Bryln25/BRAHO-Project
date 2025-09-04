@@ -1,3 +1,4 @@
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
 namespace BRAHO_Project
@@ -13,6 +14,21 @@ namespace BRAHO_Project
 
             // Establecer un tamaño fijo
             //this.ClientSize = new Size(1312, 750);
+
+            int radio = 30; // Ajusta el nivel de redondeado
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                path.StartFigure();
+
+                // Esquinas redondeadas
+                path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+                path.AddArc(new Rectangle(this.Width - radio, 0, radio, radio), 270, 90);
+                path.AddArc(new Rectangle(this.Width - radio, this.Height - radio, radio, radio), 0, 90);
+                path.AddArc(new Rectangle(0, this.Height - radio, radio, radio), 90, 90);
+
+                path.CloseFigure();
+                this.Region = new Region(path);
+            }
         }
 
 
