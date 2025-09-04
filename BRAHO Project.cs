@@ -12,7 +12,7 @@ namespace BRAHO_Project
             this.AutoScaleMode = AutoScaleMode.None;
 
             // Establecer un tamaño fijo
-            this.ClientSize = new Size(1312, 750);
+            //this.ClientSize = new Size(1312, 750);
         }
 
 
