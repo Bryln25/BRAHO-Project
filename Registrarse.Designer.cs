@@ -35,20 +35,24 @@
             txtUsuario = new BRAHO_Project.RJControls.RJtextbox();
             label1 = new Label();
             label2 = new Label();
-            txtcorreo = new BRAHO_Project.RJControls.RJtextbox();
+            txtCorreo = new BRAHO_Project.RJControls.RJtextbox();
             label3 = new Label();
-            txtnombreapellido = new BRAHO_Project.RJControls.RJtextbox();
+            txtNombreApellido = new BRAHO_Project.RJControls.RJtextbox();
             label4 = new Label();
-            txtcontraseña = new BRAHO_Project.RJControls.RJtextbox();
+            txtContraseña = new BRAHO_Project.RJControls.RJtextbox();
             label5 = new Label();
-            txtconfirmarcontraseña = new BRAHO_Project.RJControls.RJtextbox();
+            txtConfirmarContraseña = new BRAHO_Project.RJControls.RJtextbox();
             pictureBox1 = new PictureBox();
             BotonCrearCuenta = new BRAHO_Project.RJControls.RJButton();
             rjButton1 = new BRAHO_Project.RJControls.RJButton();
+            BtnVerContraseña1 = new PictureBox();
+            BtnVerContraseña2 = new PictureBox();
             MoverVentanaRegistrarse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMinimizarRegistrarse).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrarRegistrarse).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BtnVerContraseña1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BtnVerContraseña2).BeginInit();
             SuspendLayout();
             // 
             // MoverVentanaRegistrarse
@@ -107,7 +111,7 @@
             txtUsuario.Padding = new Padding(5, 4, 5, 4);
             txtUsuario.PasswordChar = false;
             txtUsuario.Size = new Size(192, 27);
-            txtUsuario.TabIndex = 12;
+            txtUsuario.TabIndex = 1;
             txtUsuario.Texts = "";
             txtUsuario.UnderlinedStyle = true;
             // 
@@ -135,24 +139,24 @@
             label2.Text = "Email";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtcorreo
+            // txtCorreo
             // 
-            txtcorreo.BackColor = Color.FromArgb(127, 127, 127);
-            txtcorreo.BorderColor = Color.FromArgb(255, 165, 11);
-            txtcorreo.BorderFocusColor = SystemColors.HotTrack;
-            txtcorreo.BorderSize = 6;
-            txtcorreo.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtcorreo.ForeColor = Color.Black;
-            txtcorreo.Location = new Point(35, 357);
-            txtcorreo.Margin = new Padding(2);
-            txtcorreo.Multiline = false;
-            txtcorreo.Name = "txtcorreo";
-            txtcorreo.Padding = new Padding(5, 4, 5, 4);
-            txtcorreo.PasswordChar = false;
-            txtcorreo.Size = new Size(192, 27);
-            txtcorreo.TabIndex = 14;
-            txtcorreo.Texts = "";
-            txtcorreo.UnderlinedStyle = true;
+            txtCorreo.BackColor = Color.FromArgb(127, 127, 127);
+            txtCorreo.BorderColor = Color.FromArgb(255, 165, 11);
+            txtCorreo.BorderFocusColor = SystemColors.HotTrack;
+            txtCorreo.BorderSize = 6;
+            txtCorreo.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtCorreo.ForeColor = Color.Black;
+            txtCorreo.Location = new Point(35, 357);
+            txtCorreo.Margin = new Padding(2);
+            txtCorreo.Multiline = false;
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Padding = new Padding(5, 4, 5, 4);
+            txtCorreo.PasswordChar = false;
+            txtCorreo.Size = new Size(192, 27);
+            txtCorreo.TabIndex = 2;
+            txtCorreo.Texts = "";
+            txtCorreo.UnderlinedStyle = true;
             // 
             // label3
             // 
@@ -166,91 +170,91 @@
             label3.Text = "Nombres y apellidos";
             label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtnombreapellido
+            // txtNombreApellido
             // 
-            txtnombreapellido.BackColor = Color.FromArgb(127, 127, 127);
-            txtnombreapellido.BorderColor = Color.FromArgb(255, 165, 11);
-            txtnombreapellido.BorderFocusColor = SystemColors.HotTrack;
-            txtnombreapellido.BorderSize = 6;
-            txtnombreapellido.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtnombreapellido.ForeColor = Color.Black;
-            txtnombreapellido.Location = new Point(35, 206);
-            txtnombreapellido.Margin = new Padding(2);
-            txtnombreapellido.Multiline = false;
-            txtnombreapellido.Name = "txtnombreapellido";
-            txtnombreapellido.Padding = new Padding(5, 4, 5, 4);
-            txtnombreapellido.PasswordChar = false;
-            txtnombreapellido.Size = new Size(192, 27);
-            txtnombreapellido.TabIndex = 16;
-            txtnombreapellido.Texts = "";
-            txtnombreapellido.UnderlinedStyle = true;
+            txtNombreApellido.BackColor = Color.FromArgb(127, 127, 127);
+            txtNombreApellido.BorderColor = Color.FromArgb(255, 165, 11);
+            txtNombreApellido.BorderFocusColor = SystemColors.HotTrack;
+            txtNombreApellido.BorderSize = 6;
+            txtNombreApellido.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtNombreApellido.ForeColor = Color.Black;
+            txtNombreApellido.Location = new Point(35, 206);
+            txtNombreApellido.Margin = new Padding(2);
+            txtNombreApellido.Multiline = false;
+            txtNombreApellido.Name = "txtNombreApellido";
+            txtNombreApellido.Padding = new Padding(5, 4, 5, 4);
+            txtNombreApellido.PasswordChar = false;
+            txtNombreApellido.Size = new Size(192, 27);
+            txtNombreApellido.TabIndex = 0;
+            txtNombreApellido.Texts = "";
+            txtNombreApellido.UnderlinedStyle = true;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(313, 179);
+            label4.Location = new Point(267, 179);
             label4.Name = "label4";
             label4.Size = new Size(119, 22);
             label4.TabIndex = 19;
             label4.Text = "Contraseña";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtcontraseña
+            // txtContraseña
             // 
-            txtcontraseña.BackColor = Color.FromArgb(127, 127, 127);
-            txtcontraseña.BorderColor = Color.FromArgb(255, 165, 11);
-            txtcontraseña.BorderFocusColor = SystemColors.HotTrack;
-            txtcontraseña.BorderSize = 6;
-            txtcontraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtcontraseña.ForeColor = Color.Black;
-            txtcontraseña.Location = new Point(313, 206);
-            txtcontraseña.Margin = new Padding(2);
-            txtcontraseña.Multiline = false;
-            txtcontraseña.Name = "txtcontraseña";
-            txtcontraseña.Padding = new Padding(5, 4, 5, 4);
-            txtcontraseña.PasswordChar = true;
-            txtcontraseña.Size = new Size(211, 27);
-            txtcontraseña.TabIndex = 18;
-            txtcontraseña.Texts = "";
-            txtcontraseña.UnderlinedStyle = true;
+            txtContraseña.BackColor = Color.FromArgb(127, 127, 127);
+            txtContraseña.BorderColor = Color.FromArgb(255, 165, 11);
+            txtContraseña.BorderFocusColor = SystemColors.HotTrack;
+            txtContraseña.BorderSize = 6;
+            txtContraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtContraseña.ForeColor = Color.Black;
+            txtContraseña.Location = new Point(267, 206);
+            txtContraseña.Margin = new Padding(2);
+            txtContraseña.Multiline = false;
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Padding = new Padding(5, 4, 5, 4);
+            txtContraseña.PasswordChar = true;
+            txtContraseña.Size = new Size(211, 27);
+            txtContraseña.TabIndex = 3;
+            txtContraseña.Texts = "";
+            txtContraseña.UnderlinedStyle = true;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(313, 252);
+            label5.Location = new Point(267, 257);
             label5.Name = "label5";
             label5.Size = new Size(211, 22);
             label5.TabIndex = 21;
             label5.Text = "Confirmar contraseña";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtconfirmarcontraseña
+            // txtConfirmarContraseña
             // 
-            txtconfirmarcontraseña.BackColor = Color.FromArgb(127, 127, 127);
-            txtconfirmarcontraseña.BorderColor = Color.FromArgb(255, 165, 11);
-            txtconfirmarcontraseña.BorderFocusColor = SystemColors.HotTrack;
-            txtconfirmarcontraseña.BorderSize = 6;
-            txtconfirmarcontraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtconfirmarcontraseña.ForeColor = Color.Black;
-            txtconfirmarcontraseña.Location = new Point(313, 279);
-            txtconfirmarcontraseña.Margin = new Padding(2);
-            txtconfirmarcontraseña.Multiline = false;
-            txtconfirmarcontraseña.Name = "txtconfirmarcontraseña";
-            txtconfirmarcontraseña.Padding = new Padding(5, 4, 5, 4);
-            txtconfirmarcontraseña.PasswordChar = true;
-            txtconfirmarcontraseña.Size = new Size(211, 27);
-            txtconfirmarcontraseña.TabIndex = 20;
-            txtconfirmarcontraseña.Texts = "";
-            txtconfirmarcontraseña.UnderlinedStyle = true;
+            txtConfirmarContraseña.BackColor = Color.FromArgb(127, 127, 127);
+            txtConfirmarContraseña.BorderColor = Color.FromArgb(255, 165, 11);
+            txtConfirmarContraseña.BorderFocusColor = SystemColors.HotTrack;
+            txtConfirmarContraseña.BorderSize = 6;
+            txtConfirmarContraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtConfirmarContraseña.ForeColor = Color.Black;
+            txtConfirmarContraseña.Location = new Point(267, 284);
+            txtConfirmarContraseña.Margin = new Padding(2);
+            txtConfirmarContraseña.Multiline = false;
+            txtConfirmarContraseña.Name = "txtConfirmarContraseña";
+            txtConfirmarContraseña.Padding = new Padding(5, 4, 5, 4);
+            txtConfirmarContraseña.PasswordChar = true;
+            txtConfirmarContraseña.Size = new Size(211, 27);
+            txtConfirmarContraseña.TabIndex = 4;
+            txtConfirmarContraseña.Texts = "";
+            txtConfirmarContraseña.UnderlinedStyle = true;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(165, 38);
+            pictureBox1.Location = new Point(165, 46);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(214, 76);
@@ -267,12 +271,12 @@
             BotonCrearCuenta.BorderSize = 0;
             BotonCrearCuenta.FlatAppearance.BorderSize = 0;
             BotonCrearCuenta.FlatStyle = FlatStyle.Flat;
-            BotonCrearCuenta.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BotonCrearCuenta.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonCrearCuenta.ForeColor = Color.White;
-            BotonCrearCuenta.Location = new Point(313, 439);
+            BotonCrearCuenta.Location = new Point(302, 418);
             BotonCrearCuenta.Name = "BotonCrearCuenta";
-            BotonCrearCuenta.Size = new Size(150, 40);
-            BotonCrearCuenta.TabIndex = 23;
+            BotonCrearCuenta.Size = new Size(162, 40);
+            BotonCrearCuenta.TabIndex = 5;
             BotonCrearCuenta.Text = "Crear cuenta";
             BotonCrearCuenta.TextColor = Color.White;
             BotonCrearCuenta.UseVisualStyleBackColor = false;
@@ -287,16 +291,40 @@
             rjButton1.BorderSize = 0;
             rjButton1.FlatAppearance.BorderSize = 0;
             rjButton1.FlatStyle = FlatStyle.Flat;
-            rjButton1.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rjButton1.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(77, 439);
+            rjButton1.Location = new Point(78, 418);
             rjButton1.Name = "rjButton1";
             rjButton1.Size = new Size(150, 40);
-            rjButton1.TabIndex = 24;
+            rjButton1.TabIndex = 6;
             rjButton1.Text = "Cancelar";
             rjButton1.TextColor = Color.White;
             rjButton1.UseVisualStyleBackColor = false;
             rjButton1.Click += rjButton1_Click;
+            // 
+            // BtnVerContraseña1
+            // 
+            BtnVerContraseña1.Cursor = Cursors.Hand;
+            BtnVerContraseña1.Image = Properties.Resources.visible1;
+            BtnVerContraseña1.Location = new Point(490, 206);
+            BtnVerContraseña1.Name = "BtnVerContraseña1";
+            BtnVerContraseña1.Size = new Size(35, 35);
+            BtnVerContraseña1.SizeMode = PictureBoxSizeMode.Zoom;
+            BtnVerContraseña1.TabIndex = 25;
+            BtnVerContraseña1.TabStop = false;
+            BtnVerContraseña1.Click += BtnVerContraseña1_Click;
+            // 
+            // BtnVerContraseña2
+            // 
+            BtnVerContraseña2.Cursor = Cursors.Hand;
+            BtnVerContraseña2.Image = Properties.Resources.visible1;
+            BtnVerContraseña2.Location = new Point(490, 284);
+            BtnVerContraseña2.Name = "BtnVerContraseña2";
+            BtnVerContraseña2.Size = new Size(35, 35);
+            BtnVerContraseña2.SizeMode = PictureBoxSizeMode.Zoom;
+            BtnVerContraseña2.TabIndex = 26;
+            BtnVerContraseña2.TabStop = false;
+            BtnVerContraseña2.Click += BtnVerContraseña2_Click;
             // 
             // Registrarse
             // 
@@ -304,17 +332,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(127, 127, 127);
             ClientSize = new Size(552, 491);
+            Controls.Add(BtnVerContraseña2);
+            Controls.Add(BtnVerContraseña1);
             Controls.Add(rjButton1);
             Controls.Add(BotonCrearCuenta);
             Controls.Add(pictureBox1);
             Controls.Add(label5);
-            Controls.Add(txtconfirmarcontraseña);
+            Controls.Add(txtConfirmarContraseña);
             Controls.Add(label4);
-            Controls.Add(txtcontraseña);
+            Controls.Add(txtContraseña);
             Controls.Add(label3);
-            Controls.Add(txtnombreapellido);
+            Controls.Add(txtNombreApellido);
             Controls.Add(label2);
-            Controls.Add(txtcorreo);
+            Controls.Add(txtCorreo);
             Controls.Add(label1);
             Controls.Add(txtUsuario);
             Controls.Add(MoverVentanaRegistrarse);
@@ -328,6 +358,8 @@
             ((System.ComponentModel.ISupportInitialize)BotonMinimizarRegistrarse).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrarRegistrarse).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BtnVerContraseña1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BtnVerContraseña2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -340,15 +372,17 @@
         private RJControls.RJtextbox txtUsuario;
         private Label label1;
         private Label label2;
-        private RJControls.RJtextbox txtcorreo;
+        private RJControls.RJtextbox txtCorreo;
         private Label label3;
-        private RJControls.RJtextbox txtnombreapellido;
+        private RJControls.RJtextbox txtNombreApellido;
         private Label label4;
-        private RJControls.RJtextbox txtcontraseña;
+        private RJControls.RJtextbox txtContraseña;
         private Label label5;
-        private RJControls.RJtextbox txtconfirmarcontraseña;
+        private RJControls.RJtextbox txtConfirmarContraseña;
         private PictureBox pictureBox1;
         private RJControls.RJButton BotonCrearCuenta;
         private RJControls.RJButton rjButton1;
+        private PictureBox BtnVerContraseña1;
+        private PictureBox BtnVerContraseña2;
     }
 }

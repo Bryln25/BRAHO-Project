@@ -59,8 +59,6 @@ namespace BRAHO_Project
 
                 path.CloseFigure();
                 this.Region = new Region(path);
-
-
             }
 
 
@@ -71,13 +69,16 @@ namespace BRAHO_Project
             Form registrarse = new Registrarse();
             registrarse.Show();
             this.Hide();
-
-
-
         }
 
         private void logueo()
         {
+            // Validar que todos los campos estén completos
+            if (string.IsNullOrEmpty(txtUsuario.Texts) || string.IsNullOrEmpty(txtContraseña.Texts))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             try
             {
@@ -100,7 +101,10 @@ namespace BRAHO_Project
                     }
                     else
                     {
-                        MessageBox.Show("Usuario o Contraseña incorrecta");
+                        MessageBox.Show("Usuario o Contraseña incorrecta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtUsuario.Texts = string.Empty;
+                        txtContraseña.Texts = string.Empty;
+                        txtUsuario.Focus();
                     }
                 }
             }
@@ -121,6 +125,23 @@ namespace BRAHO_Project
             Form recuperar = new RecuperarContraseña();
             recuperar.Show();
             this.Hide();
+        }
+
+        // Mostrar u ocultar la contraseña al hacer clic en el botón
+        private void BtnVerContraseña_Click(object sender, EventArgs e)
+        {
+            if (txtContraseña.PasswordChar)
+            {
+                // Mostrar la contraseña
+                txtContraseña.PasswordChar = false;
+                BtnVerContraseña.Image = Properties.Resources.hide; // Cambia a imagen de ojo cerrado
+            }
+            else
+            {
+                // Ocultar la contraseña
+                txtContraseña.PasswordChar = true;
+                BtnVerContraseña.Image = Properties.Resources.visible; // Cambia a imagen de ojo abierto
+            }
         }
     }
 }

@@ -91,14 +91,14 @@
             txtRecuperarcion.BorderSize = 6;
             txtRecuperarcion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtRecuperarcion.ForeColor = Color.Black;
-            txtRecuperarcion.Location = new Point(12, 239);
+            txtRecuperarcion.Location = new Point(25, 239);
             txtRecuperarcion.Margin = new Padding(2);
             txtRecuperarcion.Multiline = false;
             txtRecuperarcion.Name = "txtRecuperarcion";
             txtRecuperarcion.Padding = new Padding(5, 4, 5, 4);
             txtRecuperarcion.PasswordChar = false;
-            txtRecuperarcion.Size = new Size(297, 27);
-            txtRecuperarcion.TabIndex = 13;
+            txtRecuperarcion.Size = new Size(270, 27);
+            txtRecuperarcion.TabIndex = 0;
             txtRecuperarcion.Texts = "";
             txtRecuperarcion.UnderlinedStyle = true;
             // 
@@ -107,7 +107,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 215);
+            label1.Location = new Point(22, 215);
             label1.Name = "label1";
             label1.Size = new Size(155, 22);
             label1.TabIndex = 12;
@@ -136,10 +136,10 @@
             BotonEnviarCodigo.FlatStyle = FlatStyle.Flat;
             BotonEnviarCodigo.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonEnviarCodigo.ForeColor = Color.White;
-            BotonEnviarCodigo.Location = new Point(174, 385);
+            BotonEnviarCodigo.Location = new Point(168, 381);
             BotonEnviarCodigo.Name = "BotonEnviarCodigo";
             BotonEnviarCodigo.Size = new Size(134, 40);
-            BotonEnviarCodigo.TabIndex = 15;
+            BotonEnviarCodigo.TabIndex = 2;
             BotonEnviarCodigo.Text = "Recuperar";
             BotonEnviarCodigo.TextColor = Color.White;
             BotonEnviarCodigo.UseVisualStyleBackColor = false;
@@ -156,10 +156,10 @@
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(12, 385);
+            rjButton1.Location = new Point(17, 381);
             rjButton1.Name = "rjButton1";
             rjButton1.Size = new Size(124, 40);
-            rjButton1.TabIndex = 16;
+            rjButton1.TabIndex = 1;
             rjButton1.Text = "Cancelar";
             rjButton1.TextColor = Color.White;
             rjButton1.UseVisualStyleBackColor = false;

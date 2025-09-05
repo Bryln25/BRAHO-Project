@@ -40,10 +40,12 @@
             linkLabel1 = new LinkLabel();
             BotonLoguear = new BRAHO_Project.RJControls.RJButton();
             BotonRegistrarse = new BRAHO_Project.RJControls.RJButton();
+            BtnVerContraseña = new PictureBox();
             MoverVentanaInicioSesion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BtnVerContraseña).BeginInit();
             SuspendLayout();
             // 
             // MoverVentanaInicioSesion
@@ -136,8 +138,8 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Padding = new Padding(5, 4, 5, 4);
             txtUsuario.PasswordChar = false;
-            txtUsuario.Size = new Size(332, 27);
-            txtUsuario.TabIndex = 11;
+            txtUsuario.Size = new Size(304, 27);
+            txtUsuario.TabIndex = 0;
             txtUsuario.Texts = "";
             txtUsuario.UnderlinedStyle = true;
             // 
@@ -154,9 +156,9 @@
             txtContraseña.Multiline = false;
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Padding = new Padding(5, 4, 5, 4);
-            txtContraseña.PasswordChar = false;
-            txtContraseña.Size = new Size(332, 27);
-            txtContraseña.TabIndex = 12;
+            txtContraseña.PasswordChar = true;
+            txtContraseña.Size = new Size(304, 27);
+            txtContraseña.TabIndex = 1;
             txtContraseña.Texts = "";
             txtContraseña.UnderlinedStyle = true;
             // 
@@ -164,11 +166,11 @@
             // 
             linkLabel1.AutoSize = true;
             linkLabel1.LinkColor = Color.Black;
-            linkLabel1.Location = new Point(137, 435);
+            linkLabel1.Location = new Point(137, 438);
             linkLabel1.Margin = new Padding(2, 0, 2, 0);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(141, 15);
-            linkLabel1.TabIndex = 13;
+            linkLabel1.TabIndex = 4;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "¿Olvidaste tu contraseña?";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
@@ -180,6 +182,7 @@
             BotonLoguear.BorderColor = Color.PaleVioletRed;
             BotonLoguear.BorderRadius = 20;
             BotonLoguear.BorderSize = 0;
+            BotonLoguear.Cursor = Cursors.Hand;
             BotonLoguear.FlatAppearance.BorderSize = 0;
             BotonLoguear.FlatStyle = FlatStyle.Flat;
             BotonLoguear.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -187,7 +190,7 @@
             BotonLoguear.Location = new Point(39, 332);
             BotonLoguear.Name = "BotonLoguear";
             BotonLoguear.Size = new Size(335, 40);
-            BotonLoguear.TabIndex = 14;
+            BotonLoguear.TabIndex = 2;
             BotonLoguear.Text = "Inicio Sesion";
             BotonLoguear.TextColor = Color.White;
             BotonLoguear.UseVisualStyleBackColor = false;
@@ -200,25 +203,39 @@
             BotonRegistrarse.BorderColor = Color.PaleVioletRed;
             BotonRegistrarse.BorderRadius = 20;
             BotonRegistrarse.BorderSize = 0;
+            BotonRegistrarse.Cursor = Cursors.Hand;
             BotonRegistrarse.FlatAppearance.BorderSize = 0;
             BotonRegistrarse.FlatStyle = FlatStyle.Flat;
             BotonRegistrarse.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BotonRegistrarse.ForeColor = Color.FromArgb(255, 165, 11);
+            BotonRegistrarse.ForeColor = Color.White;
             BotonRegistrarse.Location = new Point(42, 385);
             BotonRegistrarse.Name = "BotonRegistrarse";
             BotonRegistrarse.Size = new Size(332, 40);
-            BotonRegistrarse.TabIndex = 15;
+            BotonRegistrarse.TabIndex = 3;
             BotonRegistrarse.Text = "Registrase";
-            BotonRegistrarse.TextColor = Color.FromArgb(255, 165, 11);
+            BotonRegistrarse.TextColor = Color.White;
             BotonRegistrarse.UseVisualStyleBackColor = false;
             BotonRegistrarse.Click += BotonRegistrarse_Click;
+            // 
+            // BtnVerContraseña
+            // 
+            BtnVerContraseña.Cursor = Cursors.Hand;
+            BtnVerContraseña.Image = Properties.Resources.visible1;
+            BtnVerContraseña.Location = new Point(361, 270);
+            BtnVerContraseña.Name = "BtnVerContraseña";
+            BtnVerContraseña.Size = new Size(35, 35);
+            BtnVerContraseña.SizeMode = PictureBoxSizeMode.Zoom;
+            BtnVerContraseña.TabIndex = 16;
+            BtnVerContraseña.TabStop = false;
+            BtnVerContraseña.Click += BtnVerContraseña_Click;
             // 
             // IniciodeSesion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(127, 127, 127);
-            ClientSize = new Size(414, 475);
+            ClientSize = new Size(414, 481);
+            Controls.Add(BtnVerContraseña);
             Controls.Add(BotonRegistrarse);
             Controls.Add(BotonLoguear);
             Controls.Add(linkLabel1);
@@ -239,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BtnVerContraseña).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -256,5 +274,6 @@
         private LinkLabel linkLabel1;
         private RJControls.RJButton BotonLoguear;
         private RJControls.RJButton BotonRegistrarse;
+        private PictureBox BtnVerContraseña;
     }
 }
