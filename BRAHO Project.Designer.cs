@@ -49,6 +49,9 @@
             Contenedor = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -74,6 +77,9 @@
             MenuVertical.Controls.Add(BotonClientes);
             MenuVertical.Controls.Add(pictureBox3);
             MenuVertical.Controls.Add(label1);
+            MenuVertical.Controls.Add(label2);
+            MenuVertical.Controls.Add(label3);
+            MenuVertical.Controls.Add(label4);
             MenuVertical.Dock = DockStyle.Left;
             MenuVertical.Location = new Point(0, 34);
             MenuVertical.Name = "MenuVertical";
@@ -164,7 +170,7 @@
             BotonVentas.ForeColor = Color.White;
             BotonVentas.Image = (Image)resources.GetObject("BotonVentas.Image");
             BotonVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonVentas.Location = new Point(0, 343);
+            BotonVentas.Location = new Point(0, 356);
             BotonVentas.Name = "BotonVentas";
             BotonVentas.Size = new Size(250, 52);
             BotonVentas.TabIndex = 4;
@@ -180,7 +186,7 @@
             BotonRegistrarObra.ForeColor = Color.White;
             BotonRegistrarObra.Image = (Image)resources.GetObject("BotonRegistrarObra.Image");
             BotonRegistrarObra.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonRegistrarObra.Location = new Point(0, 285);
+            BotonRegistrarObra.Location = new Point(0, 283);
             BotonRegistrarObra.Name = "BotonRegistrarObra";
             BotonRegistrarObra.Size = new Size(250, 52);
             BotonRegistrarObra.TabIndex = 2;
@@ -196,7 +202,7 @@
             BotonClientes.ForeColor = Color.White;
             BotonClientes.Image = (Image)resources.GetObject("BotonClientes.Image");
             BotonClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonClientes.Location = new Point(0, 227);
+            BotonClientes.Location = new Point(0, 210);
             BotonClientes.Name = "BotonClientes";
             BotonClientes.Size = new Size(250, 52);
             BotonClientes.TabIndex = 3;
@@ -286,6 +292,39 @@
             timer1.Interval = 10;
             timer1.Tick += timer1_Tick;
             // 
+            // label2
+            // 
+            label2.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(102, 102, 102);
+            label2.Location = new Point(-17, 226);
+            label2.Name = "label2";
+            label2.Size = new Size(293, 54);
+            label2.TabIndex = 7;
+            label2.Text = "_____________";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(102, 102, 102);
+            label3.Location = new Point(-17, 299);
+            label3.Name = "label3";
+            label3.Size = new Size(293, 54);
+            label3.TabIndex = 8;
+            label3.Text = "_____________";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            label4.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(102, 102, 102);
+            label4.Location = new Point(-17, 372);
+            label4.Name = "label4";
+            label4.Size = new Size(293, 54);
+            label4.TabIndex = 8;
+            label4.Text = "_____________";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // PaginaPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -332,5 +371,8 @@
         private Label lblNombre;
         private System.Windows.Forms.Timer timer2;
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }
