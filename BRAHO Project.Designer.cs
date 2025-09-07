@@ -31,38 +31,129 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaginaPrincipal));
             MenuVertical = new Panel();
+            lblEmail = new Label();
+            lblPuesto = new Label();
+            BotonSlide = new PictureBox();
+            logouser = new PictureBox();
+            lblNombre = new Label();
+            BotonCerrarSesion = new Button();
             BotonVentas = new Button();
             BotonRegistrarObra = new Button();
-            BotonSlide = new PictureBox();
             BotonClientes = new Button();
+            pictureBox3 = new PictureBox();
+            label1 = new Label();
             pictureBox1 = new PictureBox();
             BarraTitulo = new Panel();
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
+            timer2 = new System.Windows.Forms.Timer(components);
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
+            Contenedor.SuspendLayout();
             SuspendLayout();
             // 
             // MenuVertical
             // 
             MenuVertical.BackColor = Color.FromArgb(127, 127, 127);
+            MenuVertical.Controls.Add(lblEmail);
+            MenuVertical.Controls.Add(lblPuesto);
+            MenuVertical.Controls.Add(BotonSlide);
+            MenuVertical.Controls.Add(logouser);
+            MenuVertical.Controls.Add(lblNombre);
+            MenuVertical.Controls.Add(BotonCerrarSesion);
             MenuVertical.Controls.Add(BotonVentas);
             MenuVertical.Controls.Add(BotonRegistrarObra);
-            MenuVertical.Controls.Add(BotonSlide);
             MenuVertical.Controls.Add(BotonClientes);
-            MenuVertical.Controls.Add(pictureBox1);
+            MenuVertical.Controls.Add(pictureBox3);
+            MenuVertical.Controls.Add(label1);
             MenuVertical.Dock = DockStyle.Left;
-            MenuVertical.Location = new Point(0, 0);
-            MenuVertical.Margin = new Padding(3, 2, 3, 2);
+            MenuVertical.Location = new Point(0, 34);
             MenuVertical.Name = "MenuVertical";
-            MenuVertical.Size = new Size(219, 488);
+            MenuVertical.Size = new Size(250, 617);
             MenuVertical.TabIndex = 0;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.BackColor = Color.FromArgb(64, 64, 64);
+            lblEmail.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmail.ForeColor = Color.White;
+            lblEmail.Location = new Point(102, 127);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(52, 21);
+            lblEmail.TabIndex = 6;
+            lblEmail.Text = "Email";
+            // 
+            // lblPuesto
+            // 
+            lblPuesto.AutoSize = true;
+            lblPuesto.BackColor = Color.FromArgb(64, 64, 64);
+            lblPuesto.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPuesto.ForeColor = Color.White;
+            lblPuesto.Location = new Point(102, 103);
+            lblPuesto.Name = "lblPuesto";
+            lblPuesto.Size = new Size(66, 21);
+            lblPuesto.TabIndex = 2;
+            lblPuesto.Text = "Puesto";
+            // 
+            // BotonSlide
+            // 
+            BotonSlide.Cursor = Cursors.Hand;
+            BotonSlide.Image = (Image)resources.GetObject("BotonSlide.Image");
+            BotonSlide.Location = new Point(12, 12);
+            BotonSlide.Name = "BotonSlide";
+            BotonSlide.Size = new Size(35, 35);
+            BotonSlide.SizeMode = PictureBoxSizeMode.Zoom;
+            BotonSlide.TabIndex = 0;
+            BotonSlide.TabStop = false;
+            BotonSlide.Click += BotonSlide_Click;
+            // 
+            // logouser
+            // 
+            logouser.BackColor = Color.FromArgb(64, 64, 64);
+            logouser.Image = (Image)resources.GetObject("logouser.Image");
+            logouser.Location = new Point(3, 76);
+            logouser.Name = "logouser";
+            logouser.Size = new Size(81, 71);
+            logouser.SizeMode = PictureBoxSizeMode.Zoom;
+            logouser.TabIndex = 1;
+            logouser.TabStop = false;
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.BackColor = Color.FromArgb(64, 64, 64);
+            lblNombre.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombre.ForeColor = Color.White;
+            lblNombre.Location = new Point(102, 76);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(77, 21);
+            lblNombre.TabIndex = 1;
+            lblNombre.Text = "Nombre";
+            // 
+            // BotonCerrarSesion
+            // 
+            BotonCerrarSesion.FlatAppearance.BorderSize = 0;
+            BotonCerrarSesion.FlatAppearance.MouseOverBackColor = Color.FromArgb(102, 102, 102);
+            BotonCerrarSesion.FlatStyle = FlatStyle.Flat;
+            BotonCerrarSesion.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BotonCerrarSesion.ForeColor = Color.White;
+            BotonCerrarSesion.Image = (Image)resources.GetObject("BotonCerrarSesion.Image");
+            BotonCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
+            BotonCerrarSesion.Location = new Point(0, 555);
+            BotonCerrarSesion.Name = "BotonCerrarSesion";
+            BotonCerrarSesion.Size = new Size(250, 52);
+            BotonCerrarSesion.TabIndex = 5;
+            BotonCerrarSesion.Text = "    Cerrar sesión";
+            BotonCerrarSesion.UseVisualStyleBackColor = true;
             // 
             // BotonVentas
             // 
@@ -73,10 +164,9 @@
             BotonVentas.ForeColor = Color.White;
             BotonVentas.Image = (Image)resources.GetObject("BotonVentas.Image");
             BotonVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonVentas.Location = new Point(0, 257);
-            BotonVentas.Margin = new Padding(3, 2, 3, 2);
+            BotonVentas.Location = new Point(0, 343);
             BotonVentas.Name = "BotonVentas";
-            BotonVentas.Size = new Size(219, 39);
+            BotonVentas.Size = new Size(250, 52);
             BotonVentas.TabIndex = 4;
             BotonVentas.Text = "Ventas";
             BotonVentas.UseVisualStyleBackColor = true;
@@ -90,26 +180,12 @@
             BotonRegistrarObra.ForeColor = Color.White;
             BotonRegistrarObra.Image = (Image)resources.GetObject("BotonRegistrarObra.Image");
             BotonRegistrarObra.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonRegistrarObra.Location = new Point(0, 214);
-            BotonRegistrarObra.Margin = new Padding(3, 2, 3, 2);
+            BotonRegistrarObra.Location = new Point(0, 285);
             BotonRegistrarObra.Name = "BotonRegistrarObra";
-            BotonRegistrarObra.Size = new Size(219, 39);
+            BotonRegistrarObra.Size = new Size(250, 52);
             BotonRegistrarObra.TabIndex = 2;
             BotonRegistrarObra.Text = "Obras";
             BotonRegistrarObra.UseVisualStyleBackColor = true;
-            // 
-            // BotonSlide
-            // 
-            BotonSlide.Cursor = Cursors.Hand;
-            BotonSlide.Image = (Image)resources.GetObject("BotonSlide.Image");
-            BotonSlide.Location = new Point(10, 6);
-            BotonSlide.Margin = new Padding(3, 2, 3, 2);
-            BotonSlide.Name = "BotonSlide";
-            BotonSlide.Size = new Size(31, 26);
-            BotonSlide.SizeMode = PictureBoxSizeMode.Zoom;
-            BotonSlide.TabIndex = 0;
-            BotonSlide.TabStop = false;
-            BotonSlide.Click += BotonSlide_Click;
             // 
             // BotonClientes
             // 
@@ -120,21 +196,40 @@
             BotonClientes.ForeColor = Color.White;
             BotonClientes.Image = (Image)resources.GetObject("BotonClientes.Image");
             BotonClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonClientes.Location = new Point(0, 170);
-            BotonClientes.Margin = new Padding(3, 2, 3, 2);
+            BotonClientes.Location = new Point(0, 227);
             BotonClientes.Name = "BotonClientes";
-            BotonClientes.Size = new Size(219, 39);
+            BotonClientes.Size = new Size(250, 52);
             BotonClientes.TabIndex = 3;
             BotonClientes.Text = "Clientes";
             BotonClientes.UseVisualStyleBackColor = true;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(64, 64, 64);
+            pictureBox3.Location = new Point(3, 53);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(244, 118);
+            pictureBox3.TabIndex = 1;
+            pictureBox3.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(102, 102, 102);
+            label1.Location = new Point(-17, 150);
+            label1.Name = "label1";
+            label1.Size = new Size(293, 54);
+            label1.TabIndex = 1;
+            label1.Text = "_____________";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 43);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(140, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(219, 64);
+            pictureBox1.Size = new Size(716, 85);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -145,10 +240,9 @@
             BarraTitulo.Controls.Add(BotonMininizar);
             BarraTitulo.Controls.Add(BotonCerrar);
             BarraTitulo.Dock = DockStyle.Top;
-            BarraTitulo.Location = new Point(219, 0);
-            BarraTitulo.Margin = new Padding(3, 2, 3, 2);
+            BarraTitulo.Location = new Point(0, 0);
             BarraTitulo.Name = "BarraTitulo";
-            BarraTitulo.Size = new Size(919, 38);
+            BarraTitulo.Size = new Size(1301, 34);
             BarraTitulo.TabIndex = 1;
             BarraTitulo.MouseDown += BarraTitulo_MouseDown;
             // 
@@ -157,10 +251,9 @@
             BotonMininizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonMininizar.Cursor = Cursors.Hand;
             BotonMininizar.Image = (Image)resources.GetObject("BotonMininizar.Image");
-            BotonMininizar.Location = new Point(849, 7);
-            BotonMininizar.Margin = new Padding(3, 2, 3, 2);
+            BotonMininizar.Location = new Point(1221, 3);
             BotonMininizar.Name = "BotonMininizar";
-            BotonMininizar.Size = new Size(25, 25);
+            BotonMininizar.Size = new Size(29, 28);
             BotonMininizar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonMininizar.TabIndex = 1;
             BotonMininizar.TabStop = false;
@@ -171,10 +264,9 @@
             BotonCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonCerrar.Cursor = Cursors.Hand;
             BotonCerrar.Image = (Image)resources.GetObject("BotonCerrar.Image");
-            BotonCerrar.Location = new Point(884, 7);
-            BotonCerrar.Margin = new Padding(3, 2, 3, 2);
+            BotonCerrar.Location = new Point(1260, 3);
             BotonCerrar.Name = "BotonCerrar";
-            BotonCerrar.Size = new Size(25, 25);
+            BotonCerrar.Size = new Size(29, 28);
             BotonCerrar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonCerrar.TabIndex = 0;
             BotonCerrar.TabStop = false;
@@ -182,11 +274,11 @@
             // 
             // Contenedor
             // 
+            Contenedor.Controls.Add(pictureBox1);
             Contenedor.Dock = DockStyle.Fill;
-            Contenedor.Location = new Point(219, 38);
-            Contenedor.Margin = new Padding(3, 2, 3, 2);
+            Contenedor.Location = new Point(250, 34);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(919, 450);
+            Contenedor.Size = new Size(1051, 617);
             Contenedor.TabIndex = 2;
             // 
             // timer1
@@ -196,23 +288,26 @@
             // 
             // PaginaPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1138, 488);
+            ClientSize = new Size(1301, 651);
             Controls.Add(Contenedor);
-            Controls.Add(BarraTitulo);
             Controls.Add(MenuVertical);
+            Controls.Add(BarraTitulo);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "PaginaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             MenuVertical.ResumeLayout(false);
+            MenuVertical.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).EndInit();
+            ((System.ComponentModel.ISupportInitialize)logouser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
+            Contenedor.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -229,5 +324,13 @@
         private Button BotonClientes;
         private Button BotonVentas;
         private System.Windows.Forms.Timer timer1;
+        private Button BotonCerrarSesion;
+        private PictureBox logouser;
+        private PictureBox pictureBox3;
+        private Label lblEmail;
+        private Label lblPuesto;
+        private Label lblNombre;
+        private System.Windows.Forms.Timer timer2;
+        private Label label1;
     }
 }

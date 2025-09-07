@@ -44,7 +44,6 @@ namespace BRAHO_Project
         {
             timer1.Start();
 
-            pictureBox1.Visible = !pictureBox1.Visible;
         }
 
 
@@ -71,23 +70,36 @@ namespace BRAHO_Project
             if (menuExpandido)
             {
                 // Reducir el ancho hasta llegar a 70
-                MenuVertical.Width -= 10;
+                MenuVertical.Width -= 6;
                 if (MenuVertical.Width <= 60)
                 {
                     menuExpandido = false;
+                    logouser.Visible = false;
+                    lblNombre.Visible = false;
+                    lblPuesto.Visible = false;
+                    lblEmail.Visible = false;
+                    pictureBox3.Visible = false;
                     timer1.Stop();
                 }
             }
             else
             {
                 // Aumentar el ancho hasta llegar a 250
-                MenuVertical.Width += 10;
+                MenuVertical.Width += 6;
                 if (MenuVertical.Width >= 250)
                 {
                     menuExpandido = true;
+                    menuExpandido = true;
+                    logouser.Visible = true;
+                    lblNombre.Visible = true;
+                    lblPuesto.Visible = true;
+                    lblEmail.Visible = true;
+                    pictureBox3 .Visible = true;
                     timer1.Stop();
                 }
             }
         }
+
+
     }
 }
