@@ -126,7 +126,7 @@
             // 
             logouser.BackColor = Color.FromArgb(64, 64, 64);
             logouser.Image = (Image)resources.GetObject("logouser.Image");
-            logouser.Location = new Point(12, 74);
+            logouser.Location = new Point(90, 66);
             logouser.Name = "logouser";
             logouser.Size = new Size(81, 71);
             logouser.SizeMode = PictureBoxSizeMode.Zoom;
