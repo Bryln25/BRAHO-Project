@@ -84,7 +84,7 @@ namespace BRAHO_Project
             {
                 using (SqlConnection cn = ConexionBRAHOBD.ConexionCOALogin.ObtenerConexion())
                 {
-                    string query = "SELECT Usuario, Contraseña FROM Usuarios WHERE Usuario = @usuario AND Contraseña = @contraseña";
+                    string query = "SELECT NombreApellido, Email FROM Usuarios WHERE Usuario = @usuario AND Contraseña = @contraseña";
 
                     SqlCommand cm = new SqlCommand(query, cn);
                     cm.Parameters.AddWithValue("@usuario", txtUsuario.Texts.Trim());
@@ -93,8 +93,14 @@ namespace BRAHO_Project
                     SqlDataReader dr = cm.ExecuteReader();
 
                     if (dr.Read())
-                    {
-                        PaginaPrincipal m = new PaginaPrincipal();
+                    {                        
+                        string nombre = dr["NombreApellido"].ToString();
+                        string puesto = "Administrador";
+                        string email = dr["Email"].ToString();
+
+                        Usuario usuarioLogueado = new Usuario(nombre, puesto, email);
+
+                        PaginaPrincipal m = new PaginaPrincipal(usuarioLogueado);
                         this.Hide();
                         m.ShowDialog();
                         this.Show();

@@ -5,15 +5,20 @@ namespace BRAHO_Project
 {
     public partial class PaginaPrincipal : Form
     {
-        public PaginaPrincipal()
+        private Usuario usuario;
+
+        public PaginaPrincipal(Usuario usuarioLogueado)
         {
             InitializeComponent();
+            usuario = usuarioLogueado;
+        }
 
-            // Desactivar la escala automática
-            this.AutoScaleMode = AutoScaleMode.None;
 
-            // Establecer un tamaño fijo
-            //this.ClientSize = new Size(1312, 750);
+        private void PaginaPrincipal_Load(object sender, EventArgs e)
+        {
+            lblNombre.Text = $"Bienvenido, {usuario.Nombre}";
+            lblPuesto.Text = $"Rol: {usuario.Puesto}";
+            lblEmail.Text = $"Email: {usuario.Email}";
 
             int radio = 30; // Ajusta el nivel de redondeado
             using (GraphicsPath path = new GraphicsPath())
@@ -30,7 +35,6 @@ namespace BRAHO_Project
                 this.Region = new Region(path);
             }
         }
-
 
         //Codigo para mover el formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -94,12 +98,15 @@ namespace BRAHO_Project
                     lblNombre.Visible = true;
                     lblPuesto.Visible = true;
                     lblEmail.Visible = true;
-                    pictureBox3 .Visible = true;
+                    pictureBox3.Visible = true;
                     timer1.Stop();
                 }
             }
         }
 
-
+        private void BotonCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
