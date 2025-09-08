@@ -51,7 +51,6 @@ namespace BRAHO_Project
         }
 
 
-
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -73,9 +72,9 @@ namespace BRAHO_Project
         {
             if (menuExpandido)
             {
-                // Reducir el ancho hasta llegar a 70
+                // Reducir el ancho hasta llegar a 65
                 MenuVertical.Width -= 6;
-                if (MenuVertical.Width <= 60)
+                if (MenuVertical.Width <= 65)
                 {
                     menuExpandido = false;
                     logouser.Visible = false;
@@ -88,9 +87,9 @@ namespace BRAHO_Project
             }
             else
             {
-                // Aumentar el ancho hasta llegar a 250
+                // Aumentar el ancho hasta llegar a 260
                 MenuVertical.Width += 6;
-                if (MenuVertical.Width >= 250)
+                if (MenuVertical.Width >= 260)
                 {
                     menuExpandido = true;
                     menuExpandido = true;

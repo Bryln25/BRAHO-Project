@@ -83,30 +83,30 @@
             MenuVertical.Dock = DockStyle.Left;
             MenuVertical.Location = new Point(0, 34);
             MenuVertical.Name = "MenuVertical";
-            MenuVertical.Size = new Size(250, 617);
+            MenuVertical.Size = new Size(260, 617);
             MenuVertical.TabIndex = 0;
             // 
             // lblEmail
             // 
-            lblEmail.AutoSize = true;
+            lblEmail.AutoEllipsis = true;
             lblEmail.BackColor = Color.FromArgb(64, 64, 64);
-            lblEmail.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmail.Font = new Font("Century Gothic", 9F);
             lblEmail.ForeColor = Color.White;
-            lblEmail.Location = new Point(102, 127);
+            lblEmail.Location = new Point(12, 190);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(52, 21);
+            lblEmail.Size = new Size(240, 20);
             lblEmail.TabIndex = 6;
             lblEmail.Text = "Email";
             // 
             // lblPuesto
             // 
-            lblPuesto.AutoSize = true;
+            lblPuesto.AutoEllipsis = true;
             lblPuesto.BackColor = Color.FromArgb(64, 64, 64);
-            lblPuesto.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPuesto.Font = new Font("Century Gothic", 9F);
             lblPuesto.ForeColor = Color.White;
-            lblPuesto.Location = new Point(102, 103);
+            lblPuesto.Location = new Point(12, 170);
             lblPuesto.Name = "lblPuesto";
-            lblPuesto.Size = new Size(66, 21);
+            lblPuesto.Size = new Size(240, 20);
             lblPuesto.TabIndex = 2;
             lblPuesto.Text = "Puesto";
             // 
@@ -126,7 +126,7 @@
             // 
             logouser.BackColor = Color.FromArgb(64, 64, 64);
             logouser.Image = (Image)resources.GetObject("logouser.Image");
-            logouser.Location = new Point(3, 76);
+            logouser.Location = new Point(12, 74);
             logouser.Name = "logouser";
             logouser.Size = new Size(81, 71);
             logouser.SizeMode = PictureBoxSizeMode.Zoom;
@@ -135,13 +135,13 @@
             // 
             // lblNombre
             // 
-            lblNombre.AutoSize = true;
+            lblNombre.AutoEllipsis = true;
             lblNombre.BackColor = Color.FromArgb(64, 64, 64);
-            lblNombre.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombre.Font = new Font("Century Gothic", 9F);
             lblNombre.ForeColor = Color.White;
-            lblNombre.Location = new Point(102, 76);
+            lblNombre.Location = new Point(12, 150);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(77, 21);
+            lblNombre.Size = new Size(240, 20);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre";
             // 
@@ -171,9 +171,9 @@
             BotonVentas.ForeColor = Color.White;
             BotonVentas.Image = (Image)resources.GetObject("BotonVentas.Image");
             BotonVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonVentas.Location = new Point(0, 356);
+            BotonVentas.Location = new Point(1, 444);
             BotonVentas.Name = "BotonVentas";
-            BotonVentas.Size = new Size(250, 52);
+            BotonVentas.Size = new Size(256, 52);
             BotonVentas.TabIndex = 4;
             BotonVentas.Text = "Ventas";
             BotonVentas.UseVisualStyleBackColor = true;
@@ -187,9 +187,9 @@
             BotonRegistrarObra.ForeColor = Color.White;
             BotonRegistrarObra.Image = (Image)resources.GetObject("BotonRegistrarObra.Image");
             BotonRegistrarObra.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonRegistrarObra.Location = new Point(0, 283);
+            BotonRegistrarObra.Location = new Point(1, 371);
             BotonRegistrarObra.Name = "BotonRegistrarObra";
-            BotonRegistrarObra.Size = new Size(250, 52);
+            BotonRegistrarObra.Size = new Size(256, 52);
             BotonRegistrarObra.TabIndex = 2;
             BotonRegistrarObra.Text = "Obras";
             BotonRegistrarObra.UseVisualStyleBackColor = true;
@@ -203,9 +203,9 @@
             BotonClientes.ForeColor = Color.White;
             BotonClientes.Image = (Image)resources.GetObject("BotonClientes.Image");
             BotonClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonClientes.Location = new Point(0, 210);
+            BotonClientes.Location = new Point(1, 298);
             BotonClientes.Name = "BotonClientes";
-            BotonClientes.Size = new Size(250, 52);
+            BotonClientes.Size = new Size(256, 52);
             BotonClientes.TabIndex = 3;
             BotonClientes.Text = "Clientes";
             BotonClientes.UseVisualStyleBackColor = true;
@@ -213,9 +213,9 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.FromArgb(64, 64, 64);
-            pictureBox3.Location = new Point(3, 53);
+            pictureBox3.Location = new Point(0, 53);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(244, 118);
+            pictureBox3.Size = new Size(264, 171);
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
             // 
@@ -223,9 +223,9 @@
             // 
             label1.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(102, 102, 102);
-            label1.Location = new Point(-17, 150);
+            label1.Location = new Point(-16, 238);
             label1.Name = "label1";
-            label1.Size = new Size(293, 54);
+            label1.Size = new Size(299, 54);
             label1.TabIndex = 1;
             label1.Text = "_____________";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -234,9 +234,9 @@
             // 
             label2.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(102, 102, 102);
-            label2.Location = new Point(-17, 223);
+            label2.Location = new Point(-16, 311);
             label2.Name = "label2";
-            label2.Size = new Size(293, 54);
+            label2.Size = new Size(299, 54);
             label2.TabIndex = 7;
             label2.Text = "_____________";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -245,9 +245,9 @@
             // 
             label3.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(102, 102, 102);
-            label3.Location = new Point(-17, 296);
+            label3.Location = new Point(-16, 384);
             label3.Name = "label3";
-            label3.Size = new Size(293, 54);
+            label3.Size = new Size(299, 54);
             label3.TabIndex = 8;
             label3.Text = "_____________";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -256,9 +256,9 @@
             // 
             label4.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(102, 102, 102);
-            label4.Location = new Point(-17, 369);
+            label4.Location = new Point(-16, 457);
             label4.Name = "label4";
-            label4.Size = new Size(293, 54);
+            label4.Size = new Size(299, 54);
             label4.TabIndex = 8;
             label4.Text = "_____________";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -267,7 +267,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(140, 3);
+            pictureBox1.Location = new Point(135, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(716, 85);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -316,9 +316,9 @@
             // 
             Contenedor.Controls.Add(pictureBox1);
             Contenedor.Dock = DockStyle.Fill;
-            Contenedor.Location = new Point(250, 34);
+            Contenedor.Location = new Point(260, 34);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(1051, 617);
+            Contenedor.Size = new Size(1041, 617);
             Contenedor.TabIndex = 2;
             // 
             // timer1
@@ -340,7 +340,6 @@
             Text = "BRAHO Project";
             Load += PaginaPrincipal_Load;
             MenuVertical.ResumeLayout(false);
-            MenuVertical.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).EndInit();
             ((System.ComponentModel.ISupportInitialize)logouser).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
