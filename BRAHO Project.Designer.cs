@@ -50,8 +50,11 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
+            lblFecha = new Label();
+            lblHora = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
+            horaFecha = new System.Windows.Forms.Timer(components);
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -314,6 +317,8 @@
             // 
             // Contenedor
             // 
+            Contenedor.Controls.Add(lblFecha);
+            Contenedor.Controls.Add(lblHora);
             Contenedor.Controls.Add(pictureBox1);
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Location = new Point(260, 34);
@@ -321,10 +326,39 @@
             Contenedor.Size = new Size(1041, 617);
             Contenedor.TabIndex = 2;
             // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.Font = new Font("Century Gothic", 18F);
+            lblFecha.ForeColor = Color.FromArgb(255, 165, 11);
+            lblFecha.Location = new Point(443, 515);
+            lblFecha.Margin = new Padding(4, 0, 4, 0);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(170, 43);
+            lblFecha.TabIndex = 2;
+            lblFecha.Text = "lblFecha";
+            // 
+            // lblHora
+            // 
+            lblHora.AutoSize = true;
+            lblHora.Font = new Font("Century Gothic", 40F);
+            lblHora.ForeColor = Color.FromArgb(255, 165, 11);
+            lblHora.Location = new Point(379, 403);
+            lblHora.Margin = new Padding(4, 0, 4, 0);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(315, 96);
+            lblHora.TabIndex = 1;
+            lblHora.Text = "lblHora";
+            // 
             // timer1
             // 
             timer1.Interval = 10;
             timer1.Tick += timer1_Tick;
+            // 
+            // horaFecha
+            // 
+            horaFecha.Enabled = true;
+            horaFecha.Tick += horaFecha_Tick;
             // 
             // PaginaPrincipal
             // 
@@ -348,6 +382,7 @@
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
             Contenedor.ResumeLayout(false);
+            Contenedor.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -375,5 +410,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private Label lblHora;
+        private Label lblFecha;
+        private System.Windows.Forms.Timer horaFecha;
     }
 }

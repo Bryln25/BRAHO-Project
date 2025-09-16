@@ -107,5 +107,13 @@ namespace BRAHO_Project
         {
             this.Close();
         }
+
+        private void horaFecha_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+            lblHora.Left = (this.ClientSize.Width - lblHora.Width) / 2;
+            lblFecha.Left = (this.ClientSize.Width - lblFecha.Width) / 2;
+        }
     }
 }
