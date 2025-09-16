@@ -112,8 +112,13 @@ namespace BRAHO_Project
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToLongDateString();
-            lblHora.Left = (this.ClientSize.Width - lblHora.Width) / 2;
-            lblFecha.Left = (this.ClientSize.Width - lblFecha.Width) / 2;
+            //lblHora.Left = (this.ClientSize.Width - lblHora.Width) / 2;
+            //lblFecha.Left = (this.ClientSize.Width - lblFecha.Width) / 2;
+        }
+
+        private void lblHora_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

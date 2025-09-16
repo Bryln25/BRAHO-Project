@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic.Logging;
-using static BRAHO_Project.ConexionBRAHOBD;
 
 namespace BRAHO_Project
 {
@@ -92,7 +91,7 @@ namespace BRAHO_Project
             }
 
             // Verificar si el nombre de usuario ya existe en la base de datos
-            using (SqlConnection conexion = ConexionCOALogin.ObtenerConexion())
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
                 string query = "SELECT COUNT(*) FROM usuarios WHERE usuario = @usuario";
 
@@ -111,7 +110,7 @@ namespace BRAHO_Project
             }
 
             // Verificar si el correo electrónico ya existe en la base de datos
-            using (SqlConnection conexion = ConexionCOALogin.ObtenerConexion())
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
                 string query = "SELECT COUNT(*) FROM usuarios WHERE email = @Email";
                 SqlCommand comando = new SqlCommand(query, conexion);
@@ -130,7 +129,7 @@ namespace BRAHO_Project
             {
                 int retorna = 0;
 
-                using (SqlConnection conexion = ConexionCOALogin.ObtenerConexion())
+                using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
                     string query = "INSERT INTO Usuarios (Usuario, NombreApellido, Contraseña, Email) " +
                                    "VALUES (@Usuario, @NombreApellido, @Contraseña, @Email)";

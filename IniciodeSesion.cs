@@ -66,9 +66,13 @@ namespace BRAHO_Project
 
         private void BotonRegistrarse_Click(object sender, EventArgs e)
         {
-            Form registrarse = new Registrarse();
-            registrarse.Show();
+            Form FrmAdmin = new FrmAdmin();
+            FrmAdmin.Show();
             this.Hide();
+
+            //Form registrarse = new Registrarse();
+            //registrarse.Show();
+            //
         }
 
         private void logueo()
@@ -82,9 +86,9 @@ namespace BRAHO_Project
 
             try
             {
-                using (SqlConnection cn = ConexionBRAHOBD.ConexionCOALogin.ObtenerConexion())
+                using (SqlConnection cn = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "SELECT NombreApellido, Email FROM Usuarios WHERE Usuario = @usuario AND Contraseña = @contraseña";
+                    string query = "SELECT NombreApellido, Email, Rol FROM Usuarios WHERE Usuario = @usuario AND Contraseña = @contraseña";
 
                     SqlCommand cm = new SqlCommand(query, cn);
                     cm.Parameters.AddWithValue("@usuario", txtUsuario.Texts.Trim());
@@ -95,13 +99,15 @@ namespace BRAHO_Project
                     if (dr.Read())
                     {                        
                         string nombre = dr["NombreApellido"].ToString();
-                        string puesto = "Administrador";
+                        string puesto = dr["Rol"].ToString();
                         string email = dr["Email"].ToString();
 
                         Usuario usuarioLogueado = new Usuario(nombre, puesto, email);
 
                         PaginaPrincipal m = new PaginaPrincipal(usuarioLogueado);
                         this.Hide();
+                        txtUsuario.Texts = string.Empty;
+                        txtContraseña.Texts = string.Empty;
                         m.ShowDialog();
                         this.Show();
                     }

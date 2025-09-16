@@ -76,7 +76,7 @@ namespace BRAHO_Project
         {
             string contrasena = null;
 
-            using (SqlConnection conexion = ConexionCOALogin.ObtenerConexion())
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
                 string query = "SELECT Contraseña FROM Usuarios WHERE Email = @Email";
                 SqlCommand cmd = new SqlCommand(query, conexion);

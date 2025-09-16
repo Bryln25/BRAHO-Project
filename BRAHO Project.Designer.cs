@@ -331,24 +331,25 @@
             lblFecha.AutoSize = true;
             lblFecha.Font = new Font("Century Gothic", 18F);
             lblFecha.ForeColor = Color.FromArgb(255, 165, 11);
-            lblFecha.Location = new Point(443, 515);
+            lblFecha.Location = new Point(866, 555);
             lblFecha.Margin = new Padding(4, 0, 4, 0);
             lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(170, 43);
+            lblFecha.Size = new Size(140, 37);
             lblFecha.TabIndex = 2;
             lblFecha.Text = "lblFecha";
             // 
             // lblHora
             // 
             lblHora.AutoSize = true;
-            lblHora.Font = new Font("Century Gothic", 40F);
+            lblHora.Font = new Font("Century Gothic", 20F);
             lblHora.ForeColor = Color.FromArgb(255, 165, 11);
-            lblHora.Location = new Point(379, 403);
+            lblHora.Location = new Point(866, 505);
             lblHora.Margin = new Padding(4, 0, 4, 0);
             lblHora.Name = "lblHora";
-            lblHora.Size = new Size(315, 96);
+            lblHora.Size = new Size(130, 40);
             lblHora.TabIndex = 1;
             lblHora.Text = "lblHora";
+            lblHora.Click += lblHora_Click;
             // 
             // timer1
             // 
