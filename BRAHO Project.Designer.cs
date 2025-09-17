@@ -212,6 +212,7 @@
             BotonClientes.TabIndex = 3;
             BotonClientes.Text = "Clientes";
             BotonClientes.UseVisualStyleBackColor = true;
+            BotonClientes.Click += BotonClientes_Click;
             // 
             // pictureBox3
             // 
@@ -329,26 +330,28 @@
             // lblFecha
             // 
             lblFecha.AutoSize = true;
-            lblFecha.Font = new Font("Century Gothic", 18F);
+            lblFecha.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFecha.ForeColor = Color.FromArgb(255, 165, 11);
-            lblFecha.Location = new Point(866, 555);
+            lblFecha.Location = new Point(11, 30);
             lblFecha.Margin = new Padding(4, 0, 4, 0);
             lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(140, 37);
+            lblFecha.Size = new Size(84, 21);
             lblFecha.TabIndex = 2;
             lblFecha.Text = "lblFecha";
+            lblFecha.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblHora
             // 
             lblHora.AutoSize = true;
-            lblHora.Font = new Font("Century Gothic", 20F);
+            lblHora.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHora.ForeColor = Color.FromArgb(255, 165, 11);
-            lblHora.Location = new Point(866, 505);
+            lblHora.Location = new Point(7, 3);
             lblHora.Margin = new Padding(4, 0, 4, 0);
             lblHora.Name = "lblHora";
-            lblHora.Size = new Size(130, 40);
+            lblHora.Size = new Size(94, 27);
             lblHora.TabIndex = 1;
             lblHora.Text = "lblHora";
+            lblHora.TextAlign = ContentAlignment.MiddleLeft;
             lblHora.Click += lblHora_Click;
             // 
             // timer1

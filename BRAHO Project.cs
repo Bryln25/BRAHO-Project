@@ -120,5 +120,25 @@ namespace BRAHO_Project
         {
 
         }
+
+        private Form formularioactivo = null;
+        private void abrirformhijo(Form formulariohijo)
+        {
+            if (formularioactivo != null)
+                formularioactivo.Close();
+            formularioactivo = formulariohijo;
+            formulariohijo.TopLevel = false;
+            formulariohijo.FormBorderStyle = FormBorderStyle.None;
+            formulariohijo.Dock = DockStyle.Fill;
+            Contenedor.Controls.Add(formulariohijo);
+            Contenedor.Tag = formulariohijo;
+            formulariohijo.BringToFront();
+            formulariohijo.Show();
+        }
+
+        private void BotonClientes_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmClientes());
+        }
     }
 }

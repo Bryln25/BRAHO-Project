@@ -18,6 +18,7 @@ namespace BRAHO_Project
         {
             InitializeComponent();
             MostrarClientes();
+            
         }
 
         //Codigo para mover el formulario
@@ -41,5 +42,17 @@ namespace BRAHO_Project
         {
             this.Close();
         }
+
+        private void BotonCerr_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmClientes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
