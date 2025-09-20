@@ -55,6 +55,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             horaFecha = new System.Windows.Forms.Timer(components);
+            timer3 = new System.Windows.Forms.Timer(components);
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -365,6 +366,10 @@
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick;
             // 
+            // timer3
+            // 
+            timer3.Tick += timer3_Tick;
+            // 
             // PaginaPrincipal
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -418,5 +423,6 @@
         private Label lblHora;
         private Label lblFecha;
         private System.Windows.Forms.Timer horaFecha;
+        private System.Windows.Forms.Timer timer3;
     }
 }

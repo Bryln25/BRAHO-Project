@@ -29,27 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmObras));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             BotonAgregarCliente = new BRAHO_Project.RJControls.RJButton();
             BotonCerr = new BRAHO_Project.RJControls.RJButton();
-            dgvBuscar = new DataGridView();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
+            panel1 = new Panel();
+            btnTerminado = new BRAHO_Project.RJControls.RJButton();
+            btnIniciado = new BRAHO_Project.RJControls.RJButton();
+            btnAgendado = new BRAHO_Project.RJControls.RJButton();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvBuscar).BeginInit();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -131,122 +126,107 @@
             BotonCerr.UseVisualStyleBackColor = false;
             BotonCerr.Click += BotonCerr_Click;
             // 
-            // dgvBuscar
+            // panel1
             // 
-            dgvBuscar.AllowUserToAddRows = false;
-            dgvBuscar.AllowUserToDeleteRows = false;
-            dgvBuscar.AllowUserToResizeColumns = false;
-            dgvBuscar.AllowUserToResizeRows = false;
-            dgvBuscar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvBuscar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvBuscar.BackgroundColor = Color.FromArgb(102, 102, 102);
-            dgvBuscar.BorderStyle = BorderStyle.None;
-            dgvBuscar.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvBuscar.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 165, 11);
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(255, 165, 11);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvBuscar.ColumnHeadersHeight = 35;
-            dgvBuscar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvBuscar.EnableHeadersVisualStyles = false;
-            dgvBuscar.Location = new Point(0, 0);
-            dgvBuscar.Margin = new Padding(4);
-            dgvBuscar.Name = "dgvBuscar";
-            dgvBuscar.ReadOnly = true;
-            dgvBuscar.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Transparent;
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(128, 255, 128);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvBuscar.RowHeadersVisible = false;
-            dgvBuscar.RowHeadersWidth = 51;
-            dgvBuscar.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(102, 102, 102);
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(127, 127, 127);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            dgvBuscar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBuscar.Size = new Size(972, 545);
-            dgvBuscar.TabIndex = 10;
-            dgvBuscar.TabStop = false;
+            panel1.Controls.Add(btnTerminado);
+            panel1.Controls.Add(btnIniciado);
+            panel1.Controls.Add(btnAgendado);
+            panel1.Controls.Add(panel2);
+            panel1.Location = new Point(29, 45);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(979, 542);
+            panel1.TabIndex = 14;
             // 
-            // tabControl1
+            // btnTerminado
             // 
-            tabControl1.Appearance = TabAppearance.FlatButtons;
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Controls.Add(tabPage3);
-            tabControl1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabControl1.Location = new Point(28, 28);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(980, 577);
-            tabControl1.TabIndex = 14;
+            btnTerminado.BackColor = Color.FromArgb(255, 165, 11);
+            btnTerminado.BackgroundColor = Color.FromArgb(255, 165, 11);
+            btnTerminado.BorderColor = Color.PaleVioletRed;
+            btnTerminado.BorderRadius = 20;
+            btnTerminado.BorderSize = 0;
+            btnTerminado.Cursor = Cursors.Hand;
+            btnTerminado.FlatAppearance.BorderSize = 0;
+            btnTerminado.FlatStyle = FlatStyle.Flat;
+            btnTerminado.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnTerminado.ForeColor = Color.White;
+            btnTerminado.Location = new Point(326, 9);
+            btnTerminado.Margin = new Padding(3, 4, 3, 4);
+            btnTerminado.Name = "btnTerminado";
+            btnTerminado.Size = new Size(151, 53);
+            btnTerminado.TabIndex = 13;
+            btnTerminado.Text = "Terminado";
+            btnTerminado.TextColor = Color.White;
+            btnTerminado.UseVisualStyleBackColor = false;
+            btnTerminado.Click += btnTerminado_Click;
             // 
-            // tabPage1
+            // btnIniciado
             // 
-            tabPage1.Controls.Add(dgvBuscar);
-            tabPage1.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabPage1.Location = new Point(4, 34);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(972, 539);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Registrado";
-            tabPage1.UseVisualStyleBackColor = true;
+            btnIniciado.BackColor = Color.FromArgb(255, 165, 11);
+            btnIniciado.BackgroundColor = Color.FromArgb(255, 165, 11);
+            btnIniciado.BorderColor = Color.PaleVioletRed;
+            btnIniciado.BorderRadius = 20;
+            btnIniciado.BorderSize = 0;
+            btnIniciado.Cursor = Cursors.Hand;
+            btnIniciado.FlatAppearance.BorderSize = 0;
+            btnIniciado.FlatStyle = FlatStyle.Flat;
+            btnIniciado.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnIniciado.ForeColor = Color.White;
+            btnIniciado.Location = new Point(169, 9);
+            btnIniciado.Margin = new Padding(3, 4, 3, 4);
+            btnIniciado.Name = "btnIniciado";
+            btnIniciado.Size = new Size(151, 53);
+            btnIniciado.TabIndex = 14;
+            btnIniciado.Text = "Iniciado";
+            btnIniciado.TextColor = Color.White;
+            btnIniciado.UseVisualStyleBackColor = false;
+            btnIniciado.Click += btnIniciado_Click;
             // 
-            // tabPage2
+            // btnAgendado
             // 
-            tabPage2.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabPage2.Location = new Point(4, 34);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(960, 545);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "En proceso";
-            tabPage2.UseVisualStyleBackColor = true;
+            btnAgendado.BackColor = Color.FromArgb(255, 165, 11);
+            btnAgendado.BackgroundColor = Color.FromArgb(255, 165, 11);
+            btnAgendado.BorderColor = Color.PaleVioletRed;
+            btnAgendado.BorderRadius = 20;
+            btnAgendado.BorderSize = 0;
+            btnAgendado.Cursor = Cursors.Hand;
+            btnAgendado.FlatAppearance.BorderSize = 0;
+            btnAgendado.FlatStyle = FlatStyle.Flat;
+            btnAgendado.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAgendado.ForeColor = Color.White;
+            btnAgendado.Location = new Point(12, 9);
+            btnAgendado.Margin = new Padding(3, 4, 3, 4);
+            btnAgendado.Name = "btnAgendado";
+            btnAgendado.Size = new Size(151, 53);
+            btnAgendado.TabIndex = 13;
+            btnAgendado.Text = "Agendado";
+            btnAgendado.TextColor = Color.White;
+            btnAgendado.UseVisualStyleBackColor = false;
+            btnAgendado.Click += btnAgendado_Click;
             // 
-            // tabPage3
+            // panel2
             // 
-            tabPage3.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabPage3.Location = new Point(4, 34);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(960, 545);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Terminado";
-            tabPage3.UseVisualStyleBackColor = true;
+            panel2.Location = new Point(0, 69);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(979, 471);
+            panel2.TabIndex = 0;
             // 
-            // FrmClientes
+            // FrmObras
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1041, 617);
-            Controls.Add(tabControl1);
+            Controls.Add(panel1);
             Controls.Add(BotonCerr);
             Controls.Add(BotonAgregarCliente);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FrmClientes";
+            Name = "FrmObras";
             Text = "FrmClientes";
-            Load += FrmClientes_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -259,10 +239,10 @@
         private PictureBox BtnSalir;
         private RJControls.RJButton BotonAgregarCliente;
         private RJControls.RJButton BotonCerr;
-        private DataGridView dgvBuscar;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
+        private Panel panel1;
+        private Panel panel2;
+        private RJControls.RJButton btnTerminado;
+        private RJControls.RJButton btnIniciado;
+        private RJControls.RJButton btnAgendado;
     }
 }

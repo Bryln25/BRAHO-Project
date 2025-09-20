@@ -94,7 +94,6 @@
             dgvBuscar.TabIndex = 11;
             dgvBuscar.TabStop = false;
             dgvBuscar.CellClick += dgvBuscar_CellClick;
-            dgvBuscar.CellFormatting += dgvBuscar_CellFormatting;
             // 
             // FrmClientes
             // 
@@ -107,7 +106,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmClientes";
             Text = "FrmClientes";
-            Load += FrmClientes_Load;
+            
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
             ResumeLayout(false);
         }

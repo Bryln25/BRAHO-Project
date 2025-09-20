@@ -5,7 +5,9 @@ namespace BRAHO_Project
 {
     public partial class PaginaPrincipal : Form
     {
+        private FrmClientes frmClientes;
         private Usuario usuario;
+        bool desplazar = false;
 
         public PaginaPrincipal(Usuario usuarioLogueado)
         {
@@ -34,6 +36,8 @@ namespace BRAHO_Project
                 path.CloseFigure();
                 this.Region = new Region(path);
             }
+
+            frmClientes = new FrmClientes();
         }
 
         //Codigo para mover el formulario
@@ -47,7 +51,7 @@ namespace BRAHO_Project
         private void BotonSlide_Click(object sender, EventArgs e)
         {
             timer1.Start();
-
+            desplazar = !desplazar;
         }
 
 
@@ -138,12 +142,44 @@ namespace BRAHO_Project
 
         private void BotonClientes_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmClientes());
+            abrirformhijo(frmClientes);
+
+            if (!desplazar)
+            {
+                timer1.Start();
+                desplazar = true;
+            }
         }
 
         private void BotonRegistrarObra_Click(object sender, EventArgs e)
         {
             abrirformhijo(new FrmObras());
+
+            if (!desplazar)
+            {
+                timer1.Start();
+                desplazar = true;
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (menuExpandido)
+            {
+                // Reducir el ancho hasta llegar a 65
+                MenuVertical.Width -= 6;
+                if (MenuVertical.Width <= 65)
+                {
+                    menuExpandido = false;
+                    logouser.Visible = false;
+                    lblNombre.Visible = false;
+                    lblPuesto.Visible = false;
+                    lblEmail.Visible = false;
+                    pictureBox3.Visible = false;
+                    timer1.Stop();
+                }
+            }
+
         }
     }
 }

@@ -16,42 +16,43 @@ namespace BRAHO_Project
         public FrmObras()
         {
             InitializeComponent();
-            MostrarClientes();
-            
+
+
         }
 
-        //Codigo para mover el formulario
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void MoverVentanaInicioSesion_MouseDown(object sender, MouseEventArgs e)
+        private Form formularioactivo = null;
+        private void abrirformhijo(Form formulariohijo)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            if (formularioactivo != null)
+                formularioactivo.Close();
+            formularioactivo = formulariohijo;
+            formulariohijo.TopLevel = false;
+            formulariohijo.FormBorderStyle = FormBorderStyle.None;
+            formulariohijo.Dock = DockStyle.Fill;
+            panel2.Controls.Add(formulariohijo);
+            panel2.Tag = formulariohijo;
+            formulariohijo.BringToFront();
+            formulariohijo.Show();
         }
 
-        private void MostrarClientes()
+        private void btnAgendado_Click(object sender, EventArgs e)
         {
-            dgvBuscar.DataSource = ClientesDAL.Mostrar();
+            abrirformhijo(new Frmagendado());
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void btnIniciado_Click(object sender, EventArgs e)
         {
-            this.Close();
+            abrirformhijo(new FrmIniciado());
+        }
+
+        private void btnTerminado_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmTerminado());
         }
 
         private void BotonCerr_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void FrmClientes_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

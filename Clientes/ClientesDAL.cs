@@ -80,7 +80,7 @@ namespace BRAHO_Project
             }
         }
 
-        public static int EliminarClientes(string Id)
+        public static int EliminarClientes(int Id)
         {
             try
             {
