@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
-namespace BRAHO_Project.Clientes
+namespace BRAHO_Project
 {
     public class ClientesDAL
     {

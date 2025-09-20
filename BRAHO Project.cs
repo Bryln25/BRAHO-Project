@@ -140,5 +140,10 @@ namespace BRAHO_Project
         {
             abrirformhijo(new FrmClientes());
         }
+
+        private void BotonRegistrarObra_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmObras());
+        }
     }
 }

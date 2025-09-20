@@ -18,6 +18,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Obras\FrmObras.cs">
+		  <SubType>Form</SubType>
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Compile>
 		<Compile Update="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>

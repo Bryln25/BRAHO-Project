@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BRAHO_Project.Clientes
+namespace BRAHO_Project
 {
     public class Clientes
     {
