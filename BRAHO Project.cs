@@ -5,7 +5,6 @@ namespace BRAHO_Project
 {
     public partial class PaginaPrincipal : Form
     {
-        private FrmClientes frmClientes;
         private Usuario usuario;
         bool desplazar = false;
 
@@ -36,8 +35,6 @@ namespace BRAHO_Project
                 path.CloseFigure();
                 this.Region = new Region(path);
             }
-
-            frmClientes = new FrmClientes();
         }
 
         //Codigo para mover el formulario
@@ -142,7 +139,7 @@ namespace BRAHO_Project
 
         private void BotonClientes_Click(object sender, EventArgs e)
         {
-            abrirformhijo(frmClientes);
+            abrirformhijo(new FrmClientes());
 
             if (!desplazar)
             {
