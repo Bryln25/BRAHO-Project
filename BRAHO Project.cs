@@ -20,9 +20,12 @@ namespace BRAHO_Project
         private void PaginaPrincipal_Load(object sender, EventArgs e)
         {
             // Cargar la foto de perfil desde la base de datos
-            using (MemoryStream ms = new MemoryStream(usuario.Foto))
+            if (usuario.Foto != null && usuario.Foto.Length > 0)
             {
-                logouser.Image = Image.FromStream(ms);
+                using (MemoryStream ms = new MemoryStream(usuario.Foto))
+                {
+                    logouser.Image = Image.FromStream(ms);
+                }
             }
             RedondearImagen(logouser);
 
