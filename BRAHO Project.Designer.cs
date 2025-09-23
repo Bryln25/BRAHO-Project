@@ -55,7 +55,6 @@
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             horaFecha = new System.Windows.Forms.Timer(components);
-            timer3 = new System.Windows.Forms.Timer(components);
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -130,12 +129,14 @@
             // 
             logouser.BackColor = Color.FromArgb(64, 64, 64);
             logouser.Image = (Image)resources.GetObject("logouser.Image");
-            logouser.Location = new Point(90, 66);
+            logouser.Location = new Point(81, 65);
             logouser.Name = "logouser";
-            logouser.Size = new Size(81, 71);
+            logouser.Size = new Size(80, 80);
             logouser.SizeMode = PictureBoxSizeMode.Zoom;
             logouser.TabIndex = 1;
             logouser.TabStop = false;
+            logouser.Click += logouser_Click;
+            logouser.Resize += logouser_Resize;
             // 
             // lblNombre
             // 
@@ -354,7 +355,6 @@
             lblHora.TabIndex = 1;
             lblHora.Text = "lblHora";
             lblHora.TextAlign = ContentAlignment.MiddleLeft;
-            lblHora.Click += lblHora_Click;
             // 
             // timer1
             // 
@@ -365,10 +365,6 @@
             // 
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick;
-            // 
-            // timer3
-            // 
-            timer3.Tick += timer3_Tick;
             // 
             // PaginaPrincipal
             // 
@@ -423,6 +419,5 @@
         private Label lblHora;
         private Label lblFecha;
         private System.Windows.Forms.Timer horaFecha;
-        private System.Windows.Forms.Timer timer3;
     }
 }

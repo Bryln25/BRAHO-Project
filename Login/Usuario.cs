@@ -8,15 +8,19 @@ namespace BRAHO_Project
 {
     public class Usuario
     {
+        public int IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string Puesto { get; set; }
         public string Email { get; set; }
+        public byte[] Foto { get; set; }
 
-        public Usuario(string nombre, string puesto, string email)
+        public Usuario(int id, string nombre, string puesto, string email, byte[] foto)
         {
+            IdUsuario = id;
             Nombre = nombre;
             Puesto = puesto;
             Email = email;
+            Foto = foto;
         }
     }
 }

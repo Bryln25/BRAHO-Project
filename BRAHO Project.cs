@@ -1,5 +1,6 @@
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using Microsoft.Data.SqlClient;
 
 namespace BRAHO_Project
 {
@@ -7,6 +8,7 @@ namespace BRAHO_Project
     {
         private Usuario usuario;
         bool desplazar = false;
+        bool menuExpandido = true;
 
         public PaginaPrincipal(Usuario usuarioLogueado)
         {
@@ -17,10 +19,19 @@ namespace BRAHO_Project
 
         private void PaginaPrincipal_Load(object sender, EventArgs e)
         {
+            // Cargar la foto de perfil desde la base de datos
+            using (MemoryStream ms = new MemoryStream(usuario.Foto))
+            {
+                logouser.Image = Image.FromStream(ms);
+            }
+            RedondearImagen(logouser);
+
+            // Mostrar la información del usuario
             lblNombre.Text = $"Bienvenido, {usuario.Nombre}";
             lblPuesto.Text = $"Rol: {usuario.Puesto}";
             lblEmail.Text = $"Email: {usuario.Email}";
 
+            // Redondear bordes del formulario
             int radio = 30; // Ajusta el nivel de redondeado
             using (GraphicsPath path = new GraphicsPath())
             {
@@ -43,7 +54,6 @@ namespace BRAHO_Project
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        bool menuExpandido = true;
 
         private void BotonSlide_Click(object sender, EventArgs e)
         {
@@ -117,11 +127,6 @@ namespace BRAHO_Project
             //lblFecha.Left = (this.ClientSize.Width - lblFecha.Width) / 2;
         }
 
-        private void lblHora_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private Form formularioactivo = null;
         private void abrirformhijo(Form formulariohijo)
         {
@@ -159,24 +164,42 @@ namespace BRAHO_Project
             }
         }
 
-        private void timer3_Tick(object sender, EventArgs e)
+        private void logouser_Click(object sender, EventArgs e)
         {
-            if (menuExpandido)
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                // Reducir el ancho hasta llegar a 65
-                MenuVertical.Width -= 6;
-                if (MenuVertical.Width <= 65)
+                byte[] fotoBytes = File.ReadAllBytes(ofd.FileName);
+
+                string query = "UPDATE Usuarios SET FotoPerfil = @foto WHERE IdUsuario = @id";
+                using (SqlConnection cn = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    menuExpandido = false;
-                    logouser.Visible = false;
-                    lblNombre.Visible = false;
-                    lblPuesto.Visible = false;
-                    lblEmail.Visible = false;
-                    pictureBox3.Visible = false;
-                    timer1.Stop();
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@foto", fotoBytes);
+                    cmd.Parameters.AddWithValue("@id", usuario.IdUsuario);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Mostrar en PictureBox
+                using (MemoryStream ms = new MemoryStream(fotoBytes))
+                {
+                    logouser.Image = Image.FromStream(ms);
                 }
             }
+        }
 
+        private void RedondearImagen(PictureBox pictureBox)
+        {
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, pictureBox.Width - 1, pictureBox.Height - 1);
+            pictureBox.Region = new Region(gp);
+        }
+
+        private void logouser_Resize(object sender, EventArgs e)
+        {
+            RedondearImagen(logouser);
         }
     }
 }
