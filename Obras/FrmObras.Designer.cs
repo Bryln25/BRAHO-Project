@@ -149,7 +149,7 @@
             btnTerminado.FlatStyle = FlatStyle.Flat;
             btnTerminado.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTerminado.ForeColor = Color.White;
-            btnTerminado.Location = new Point(326, 9);
+            btnTerminado.Location = new Point(327, 9);
             btnTerminado.Margin = new Padding(3, 4, 3, 4);
             btnTerminado.Name = "btnTerminado";
             btnTerminado.Size = new Size(151, 53);
