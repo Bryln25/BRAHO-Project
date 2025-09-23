@@ -101,6 +101,8 @@
             dgvBuscar.TabIndex = 11;
             dgvBuscar.TabStop = false;
             dgvBuscar.CellClick += dgvBuscar_CellClick;
+            dgvBuscar.CellMouseEnter += dgvBuscar_CellMouseEnter;
+            dgvBuscar.CellMouseLeave += dgvBuscar_CellMouseLeave;
             // 
             // BotonCerr
             // 

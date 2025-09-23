@@ -180,5 +180,31 @@ namespace BRAHO_Project
             FrmAgregarClientes formularioAgregar = new FrmAgregarClientes();
             formularioAgregar.ShowDialog();
         }
+
+        private void dgvBuscar_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string columnName = dgvBuscar.Columns[e.ColumnIndex].Name;
+
+                if (columnName == "Editar" || columnName == "Eliminar")
+                {
+                    Cursor.Current = Cursors.Hand; // Cambia solo el cursor visual
+                }
+            }
+        }
+
+        private void dgvBuscar_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string columnName = dgvBuscar.Columns[e.ColumnIndex].Name;
+
+                if (columnName == "Editar" || columnName == "Eliminar")
+                {
+                    Cursor.Current = Cursors.Default; // Vuelve al cursor normal
+                }
+            }
+        }
     }
 }
