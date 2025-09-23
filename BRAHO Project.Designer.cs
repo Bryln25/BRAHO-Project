@@ -335,7 +335,7 @@
             lblFecha.AutoSize = true;
             lblFecha.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFecha.ForeColor = Color.FromArgb(255, 165, 11);
-            lblFecha.Location = new Point(12, 34);
+            lblFecha.Location = new Point(15, 238);
             lblFecha.Margin = new Padding(4, 0, 4, 0);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(84, 21);
@@ -348,7 +348,7 @@
             lblHora.AutoSize = true;
             lblHora.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHora.ForeColor = Color.FromArgb(255, 165, 11);
-            lblHora.Location = new Point(8, 7);
+            lblHora.Location = new Point(11, 211);
             lblHora.Margin = new Padding(4, 0, 4, 0);
             lblHora.Name = "lblHora";
             lblHora.Size = new Size(94, 27);
