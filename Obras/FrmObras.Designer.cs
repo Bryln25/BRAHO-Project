@@ -33,18 +33,22 @@
             pictureBox2 = new PictureBox();
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
-            BotonAgregarCliente = new BRAHO_Project.RJControls.RJButton();
+            BotonAgendarObra = new BRAHO_Project.RJControls.RJButton();
             BotonCerr = new BRAHO_Project.RJControls.RJButton();
             panel1 = new Panel();
+            pictureBox3 = new PictureBox();
+            txtUsuario = new BRAHO_Project.RJControls.RJtextbox();
             btnTerminado = new BRAHO_Project.RJControls.RJButton();
             btnIniciado = new BRAHO_Project.RJControls.RJButton();
             btnAgendado = new BRAHO_Project.RJControls.RJButton();
             panel2 = new Panel();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -83,26 +87,27 @@
             BotonCerrar.TabIndex = 0;
             BotonCerrar.TabStop = false;
             // 
-            // BotonAgregarCliente
+            // BotonAgendarObra
             // 
-            BotonAgregarCliente.BackColor = Color.FromArgb(255, 165, 11);
-            BotonAgregarCliente.BackgroundColor = Color.FromArgb(255, 165, 11);
-            BotonAgregarCliente.BorderColor = Color.PaleVioletRed;
-            BotonAgregarCliente.BorderRadius = 20;
-            BotonAgregarCliente.BorderSize = 0;
-            BotonAgregarCliente.Cursor = Cursors.Hand;
-            BotonAgregarCliente.FlatAppearance.BorderSize = 0;
-            BotonAgregarCliente.FlatStyle = FlatStyle.Flat;
-            BotonAgregarCliente.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BotonAgregarCliente.ForeColor = Color.White;
-            BotonAgregarCliente.Location = new Point(1061, 167);
-            BotonAgregarCliente.Margin = new Padding(3, 4, 3, 4);
-            BotonAgregarCliente.Name = "BotonAgregarCliente";
-            BotonAgregarCliente.Size = new Size(151, 53);
-            BotonAgregarCliente.TabIndex = 12;
-            BotonAgregarCliente.Text = "Agregar";
-            BotonAgregarCliente.TextColor = Color.White;
-            BotonAgregarCliente.UseVisualStyleBackColor = false;
+            BotonAgendarObra.BackColor = Color.FromArgb(255, 165, 11);
+            BotonAgendarObra.BackgroundColor = Color.FromArgb(255, 165, 11);
+            BotonAgendarObra.BorderColor = Color.PaleVioletRed;
+            BotonAgendarObra.BorderRadius = 20;
+            BotonAgendarObra.BorderSize = 0;
+            BotonAgendarObra.Cursor = Cursors.Hand;
+            BotonAgendarObra.FlatAppearance.BorderSize = 0;
+            BotonAgendarObra.FlatStyle = FlatStyle.Flat;
+            BotonAgendarObra.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BotonAgendarObra.ForeColor = Color.White;
+            BotonAgendarObra.Location = new Point(1061, 207);
+            BotonAgendarObra.Margin = new Padding(3, 4, 3, 4);
+            BotonAgendarObra.Name = "BotonAgendarObra";
+            BotonAgendarObra.Size = new Size(151, 53);
+            BotonAgendarObra.TabIndex = 12;
+            BotonAgendarObra.Text = "Agregar";
+            BotonAgendarObra.TextColor = Color.White;
+            BotonAgendarObra.UseVisualStyleBackColor = false;
+            BotonAgendarObra.Click += BotonAgendarObra_Click;
             // 
             // BotonCerr
             // 
@@ -116,7 +121,7 @@
             BotonCerr.FlatStyle = FlatStyle.Flat;
             BotonCerr.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonCerr.ForeColor = Color.White;
-            BotonCerr.Location = new Point(1061, 320);
+            BotonCerr.Location = new Point(1061, 360);
             BotonCerr.Margin = new Padding(3, 4, 3, 4);
             BotonCerr.Name = "BotonCerr";
             BotonCerr.Size = new Size(151, 53);
@@ -128,14 +133,46 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(txtUsuario);
             panel1.Controls.Add(btnTerminado);
             panel1.Controls.Add(btnIniciado);
             panel1.Controls.Add(btnAgendado);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(29, 45);
+            panel1.Location = new Point(29, 60);
             panel1.Name = "panel1";
-            panel1.Size = new Size(979, 542);
+            panel1.Size = new Size(979, 527);
             panel1.TabIndex = 14;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(585, 9);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(40, 53);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 19;
+            pictureBox3.TabStop = false;
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.BackColor = Color.FromArgb(64, 64, 64);
+            txtUsuario.BorderColor = Color.FromArgb(255, 165, 11);
+            txtUsuario.BorderFocusColor = SystemColors.HotTrack;
+            txtUsuario.BorderSize = 6;
+            txtUsuario.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtUsuario.ForeColor = Color.Black;
+            txtUsuario.Location = new Point(630, 27);
+            txtUsuario.Margin = new Padding(2, 3, 2, 3);
+            txtUsuario.Multiline = false;
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Padding = new Padding(6, 5, 6, 5);
+            txtUsuario.PasswordChar = false;
+            txtUsuario.Size = new Size(347, 35);
+            txtUsuario.TabIndex = 18;
+            txtUsuario.Texts = "";
+            txtUsuario.UnderlinedStyle = true;
             // 
             // btnTerminado
             // 
@@ -210,15 +247,28 @@
             panel2.Size = new Size(979, 471);
             panel2.TabIndex = 0;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(12, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(143, 21);
+            label6.TabIndex = 15;
+            label6.Text = "Gestionar obras";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // FrmObras
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1041, 617);
+            Controls.Add(label6);
             Controls.Add(panel1);
             Controls.Add(BotonCerr);
-            Controls.Add(BotonAgregarCliente);
+            Controls.Add(BotonAgendarObra);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmObras";
             Text = "FrmClientes";
@@ -227,7 +277,9 @@
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -237,12 +289,15 @@
         private PictureBox pictureBox2;
         private PictureBox BtnMinimizar;
         private PictureBox BtnSalir;
-        private RJControls.RJButton BotonAgregarCliente;
+        private RJControls.RJButton BotonAgendarObra;
         private RJControls.RJButton BotonCerr;
         private Panel panel1;
         private Panel panel2;
         private RJControls.RJButton btnTerminado;
         private RJControls.RJButton btnIniciado;
         private RJControls.RJButton btnAgendado;
+        private PictureBox pictureBox3;
+        private RJControls.RJtextbox txtUsuario;
+        private Label label6;
     }
 }

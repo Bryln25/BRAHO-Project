@@ -24,11 +24,11 @@ namespace BRAHO_Project
 
         private void ConfigurarDataGridView()
         {
-           
+
             dgvBuscar.EnableHeadersVisualStyles = false;
             dgvBuscar.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
-            dgvBuscar.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;          
-            dgvBuscar.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;          
+            dgvBuscar.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvBuscar.AlternatingRowsDefaultCellStyle.BackColor = Color.Gray;
             dgvBuscar.GridColor = Color.Silver;
             dgvBuscar.RowHeadersVisible = false;
             dgvBuscar.BorderStyle = BorderStyle.FixedSingle;
@@ -104,7 +104,7 @@ namespace BRAHO_Project
                         ));
                     }
                 }
-            }          
+            }
 
             ActualizarDataGridView();
         }
@@ -126,12 +126,14 @@ namespace BRAHO_Project
                 // Asignar imágenes a las columnas de botones
                 if (dgvBuscar.Rows[rowIndex].Cells["Editar"] is DataGridViewImageCell editarCell)
                 {
+                    dgvBuscar.Cursor = Cursors.Hand;
                     editarCell.Value = Properties.Resources.editar; // Tu imagen de editar
                     editarCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 }
 
                 if (dgvBuscar.Rows[rowIndex].Cells["Eliminar"] is DataGridViewImageCell eliminarCell)
                 {
+                    dgvBuscar.Cursor = Cursors.Hand;
                     eliminarCell.Value = Properties.Resources.cerrar; // Tu imagen de eliminar
                     eliminarCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 }
@@ -142,7 +144,7 @@ namespace BRAHO_Project
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var cliente = listaClientes[e.RowIndex];                
+                var cliente = listaClientes[e.RowIndex];
 
                 switch (dgvBuscar.Columns[e.ColumnIndex].Name)
                 {
@@ -166,6 +168,17 @@ namespace BRAHO_Project
                         break;
                 }
             }
+        }
+
+        private void BotonCerr_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BotonAgregarCliente_Click(object sender, EventArgs e)
+        {
+            FrmAgregarClientes formularioAgregar = new FrmAgregarClientes();
+            formularioAgregar.ShowDialog();
         }
     }
 }
