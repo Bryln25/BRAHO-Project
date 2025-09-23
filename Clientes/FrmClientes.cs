@@ -183,13 +183,13 @@ namespace BRAHO_Project
 
         private void dgvBuscar_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0) // Evita encabezados
             {
                 string columnName = dgvBuscar.Columns[e.ColumnIndex].Name;
 
                 if (columnName == "Editar" || columnName == "Eliminar")
                 {
-                    Cursor.Current = Cursors.Hand; // Cambia solo el cursor visual
+                    dgvBuscar.Cursor = Cursors.Hand; // cambia a mano SOLO en esas celdas
                 }
             }
         }
@@ -202,7 +202,7 @@ namespace BRAHO_Project
 
                 if (columnName == "Editar" || columnName == "Eliminar")
                 {
-                    Cursor.Current = Cursors.Default; // Vuelve al cursor normal
+                    dgvBuscar.Cursor = Cursors.Default; // vuelve al cursor normal
                 }
             }
         }
