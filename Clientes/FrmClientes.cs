@@ -83,7 +83,7 @@ namespace BRAHO_Project
             });
         }
 
-        private void MostrarClientes()
+        public void MostrarClientes()
         {
             listaClientes = new List<Clientes>();
 
@@ -109,7 +109,7 @@ namespace BRAHO_Project
             ActualizarDataGridView();
         }
 
-        private void ActualizarDataGridView()
+        public void ActualizarDataGridView()
         {
             dgvBuscar.Rows.Clear();
 
@@ -148,10 +148,8 @@ namespace BRAHO_Project
 
                 switch (dgvBuscar.Columns[e.ColumnIndex].Name)
                 {
-                    case "Editar":
-                        // Aquí puedes abrir un formulario para editar el cliente
-                        MessageBox.Show($"Editar cliente: {cliente.NombreApellido}\nID: {cliente.IDCliente}",
-                            "Editar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    case "Editar": 
+                        // dale tu puede
                         break;
 
                     case "Eliminar":
@@ -159,9 +157,18 @@ namespace BRAHO_Project
                             "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             // Eliminar de la base de datos
-                            ClientesDAL.EliminarClientes(cliente.IDCliente);
+                            int resultado = ClientesDAL.EliminarCliente(cliente.IDCliente);
 
-                            // Eliminar de la lista local
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
                             listaClientes.RemoveAt(e.RowIndex);
                             ActualizarDataGridView();
                         }
@@ -177,8 +184,9 @@ namespace BRAHO_Project
 
         private void BotonAgregarCliente_Click(object sender, EventArgs e)
         {
-            FrmAgregarClientes formularioAgregar = new FrmAgregarClientes();
+            FrmAgregarClientes formularioAgregar = new FrmAgregarClientes(dgvBuscar);
             formularioAgregar.ShowDialog();
+            MostrarClientes(); // Refrescar la lista después de agregar
         }
 
         private void dgvBuscar_CellMouseEnter(object sender, DataGridViewCellEventArgs e)

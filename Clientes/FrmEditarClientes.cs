@@ -12,13 +12,10 @@ using System.Windows.Forms;
 
 namespace BRAHO_Project
 {
-    public partial class FrmAgregarClientes : Form
+    public partial class FrmEditarClientes : Form
     {
-        private DataGridView dgvBuscar;
-
-        public FrmAgregarClientes(DataGridView dataGridView)
+        public FrmEditarClientes()
         {
-            dgvBuscar = dataGridView;
             InitializeComponent();
         }
 
@@ -51,6 +48,8 @@ namespace BRAHO_Project
                 path.CloseFigure();
                 this.Region = new Region(path);
             }
+
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -72,7 +71,6 @@ namespace BRAHO_Project
             if (resultado > 0)
             {
                 MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgvBuscar.Refresh(); // Refresca el DataGridView para mostrar el nuevo cliente
                 this.Close(); // Cierra el formulario después de agregar el cliente
             }
             else

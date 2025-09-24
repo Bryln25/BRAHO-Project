@@ -1,6 +1,6 @@
 ﻿namespace BRAHO_Project
 {
-    partial class FrmAgregarClientes
+    partial class FrmEditarClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             txtCedula = new BRAHO_Project.RJControls.RJtextbox();
             label5 = new Label();
             label6 = new Label();
-            btnAgregarCliente = new BRAHO_Project.RJControls.RJButton();
+            btnEditarCliente = new BRAHO_Project.RJControls.RJButton();
             btnCancelar = new BRAHO_Project.RJControls.RJButton();
             SuspendLayout();
             // 
@@ -205,32 +205,32 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(12, 9);
             label6.Name = "label6";
-            label6.Size = new Size(139, 21);
+            label6.Size = new Size(119, 21);
             label6.TabIndex = 14;
-            label6.Text = "Agregar cliente";
+            label6.Text = "Editar cliente";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnAgregarCliente
+            // btnEditarCliente
             // 
-            btnAgregarCliente.BackColor = Color.FromArgb(255, 165, 11);
-            btnAgregarCliente.BackgroundColor = Color.FromArgb(255, 165, 11);
-            btnAgregarCliente.BorderColor = Color.PaleVioletRed;
-            btnAgregarCliente.BorderRadius = 20;
-            btnAgregarCliente.BorderSize = 0;
-            btnAgregarCliente.Cursor = Cursors.Hand;
-            btnAgregarCliente.FlatAppearance.BorderSize = 0;
-            btnAgregarCliente.FlatStyle = FlatStyle.Flat;
-            btnAgregarCliente.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAgregarCliente.ForeColor = Color.White;
-            btnAgregarCliente.Location = new Point(694, 337);
-            btnAgregarCliente.Margin = new Padding(3, 4, 3, 4);
-            btnAgregarCliente.Name = "btnAgregarCliente";
-            btnAgregarCliente.Size = new Size(194, 53);
-            btnAgregarCliente.TabIndex = 15;
-            btnAgregarCliente.Text = "Guardar";
-            btnAgregarCliente.TextColor = Color.White;
-            btnAgregarCliente.UseVisualStyleBackColor = false;
-            btnAgregarCliente.Click += btnAgregarCliente_Click;
+            btnEditarCliente.BackColor = Color.FromArgb(255, 165, 11);
+            btnEditarCliente.BackgroundColor = Color.FromArgb(255, 165, 11);
+            btnEditarCliente.BorderColor = Color.PaleVioletRed;
+            btnEditarCliente.BorderRadius = 20;
+            btnEditarCliente.BorderSize = 0;
+            btnEditarCliente.Cursor = Cursors.Hand;
+            btnEditarCliente.FlatAppearance.BorderSize = 0;
+            btnEditarCliente.FlatStyle = FlatStyle.Flat;
+            btnEditarCliente.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEditarCliente.ForeColor = Color.White;
+            btnEditarCliente.Location = new Point(694, 337);
+            btnEditarCliente.Margin = new Padding(3, 4, 3, 4);
+            btnEditarCliente.Name = "btnEditarCliente";
+            btnEditarCliente.Size = new Size(194, 53);
+            btnEditarCliente.TabIndex = 15;
+            btnEditarCliente.Text = "Guardar";
+            btnEditarCliente.TextColor = Color.White;
+            btnEditarCliente.UseVisualStyleBackColor = false;
+            btnEditarCliente.Click += btnAgregarCliente_Click;
             // 
             // btnCancelar
             // 
@@ -254,14 +254,14 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // FrmAgregarClientes
+            // FrmEditarClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(127, 127, 127);
             ClientSize = new Size(957, 498);
             Controls.Add(btnCancelar);
-            Controls.Add(btnAgregarCliente);
+            Controls.Add(btnEditarCliente);
             Controls.Add(label6);
             Controls.Add(txtCedula);
             Controls.Add(label5);
@@ -274,7 +274,7 @@
             Controls.Add(txtNombre);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FrmAgregarClientes";
+            Name = "FrmEditarClientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmAgregarClientes";
             Load += FrmAgregarClientes_Load;
@@ -296,7 +296,7 @@
         private RJControls.RJtextbox txtCedula;
         private Label label5;
         private Label label6;
-        private RJControls.RJButton btnAgregarCliente;
+        private RJControls.RJButton btnEditarCliente;
         private RJControls.RJButton btnCancelar;
     }
 }

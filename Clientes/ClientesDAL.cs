@@ -80,14 +80,14 @@ namespace BRAHO_Project
             }
         }
 
-        public static int EliminarClientes(int Id)
+        public static int EliminarCliente(int Id)
         {
             try
             {
                 int retorna = 0;
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "DELETE FROM Clientes WHERE IdClientes = @Id";
+                    string query = "DELETE FROM Clientes WHERE IdCliente = @Id";
                     SqlCommand comando = new SqlCommand(query, conexion);
                     comando.Parameters.AddWithValue("@Id", Id);
                     retorna = comando.ExecuteNonQuery();
