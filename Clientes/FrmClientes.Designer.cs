@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientes));
             dgvBuscar = new DataGridView();
             BotonCerr = new BRAHO_Project.RJControls.RJButton();
             BotonAgregarCliente = new BRAHO_Project.RJControls.RJButton();
             txtBuscar = new BRAHO_Project.RJControls.RJtextbox();
-            pictureBox1 = new PictureBox();
+            btnLupa = new PictureBox();
             label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnLupa).BeginInit();
             SuspendLayout();
             // 
             // dgvBuscar
@@ -55,47 +55,47 @@
             dgvBuscar.BorderStyle = BorderStyle.None;
             dgvBuscar.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBuscar.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle5.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvBuscar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvBuscar.ColumnHeadersHeight = 35;
             dgvBuscar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvBuscar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvBuscar.DefaultCellStyle = dataGridViewCellStyle2;
             dgvBuscar.EnableHeadersVisualStyles = false;
             dgvBuscar.Location = new Point(34, 100);
             dgvBuscar.Margin = new Padding(4);
             dgvBuscar.Name = "dgvBuscar";
             dgvBuscar.ReadOnly = true;
             dgvBuscar.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.Transparent;
-            dataGridViewCellStyle7.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.Transparent;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Transparent;
+            dataGridViewCellStyle3.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvBuscar.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvBuscar.RowHeadersVisible = false;
             dgvBuscar.RowHeadersWidth = 51;
             dgvBuscar.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(102, 102, 102);
-            dataGridViewCellStyle8.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 165, 11);
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(102, 102, 102);
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 165, 11);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvBuscar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBuscar.Size = new Size(972, 481);
             dgvBuscar.TabIndex = 11;
@@ -168,16 +168,16 @@
             txtBuscar.UnderlinedStyle = true;
             txtBuscar._TextChanged += txtBuscar__TextChanged;
             // 
-            // pictureBox1
+            // btnLupa
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(611, 46);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(43, 47);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 17;
-            pictureBox1.TabStop = false;
+            btnLupa.Cursor = Cursors.Hand;
+            btnLupa.Image = (Image)resources.GetObject("btnLupa.Image");
+            btnLupa.Location = new Point(611, 46);
+            btnLupa.Name = "btnLupa";
+            btnLupa.Size = new Size(43, 47);
+            btnLupa.SizeMode = PictureBoxSizeMode.Zoom;
+            btnLupa.TabIndex = 17;
+            btnLupa.TabStop = false;
             // 
             // label6
             // 
@@ -198,7 +198,7 @@
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1041, 617);
             Controls.Add(label6);
-            Controls.Add(pictureBox1);
+            Controls.Add(btnLupa);
             Controls.Add(txtBuscar);
             Controls.Add(BotonCerr);
             Controls.Add(BotonAgregarCliente);
@@ -208,7 +208,7 @@
             Name = "FrmClientes";
             Text = "FrmClientes";
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnLupa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -219,7 +219,7 @@
         private RJControls.RJButton BotonCerr;
         private RJControls.RJButton BotonAgregarCliente;
         private RJControls.RJtextbox txtBuscar;
-        private PictureBox pictureBox1;
+        private PictureBox btnLupa;
         private Label label6;
     }
 }

@@ -14,6 +14,7 @@ namespace BRAHO_Project
     public partial class FrmClientes : Form
     {
         private List<Clientes> listaClientes;
+        private List<Clientes> listaClientesOriginal = new List<Clientes>();
 
         public FrmClientes()
         {
@@ -86,6 +87,15 @@ namespace BRAHO_Project
         public void MostrarClientes()
         {
             listaClientes = ClientesDAL.Mostrar();
+
+            if (listaClientes != null)
+            {
+                listaClientesOriginal = new List<Clientes>(listaClientes);
+            }
+            else
+            {
+                listaClientesOriginal = new List<Clientes>();
+            }
 
             ActualizarDataGridView();
         }
@@ -229,19 +239,50 @@ namespace BRAHO_Project
             }
         }
 
+        private void FiltrarClientes(string filtro)
+        {
+            if (string.IsNullOrWhiteSpace(filtro))
+            {
+                // Si no hay filtro, mostrar todos los clientes originales
+                listaClientes = new List<Clientes>(listaClientesOriginal);
+            }
+            else
+            {
+                // Filtrar clientes que coincidan con el texto
+                listaClientes = listaClientesOriginal.Where(c =>
+                    c.NombreApellido.ToLower().Contains(filtro.ToLower()) ||
+                    c.Telefono.ToLower().Contains(filtro.ToLower()) ||
+                    c.Email.ToLower().Contains(filtro.ToLower()) ||
+                    c.Direccion.ToLower().Contains(filtro.ToLower()) ||
+                    c.Cedula.ToLower().Contains(filtro.ToLower())
+                ).ToList();
+            }
+
+            ActualizarDataGridView();
+        }
+
         private void txtBuscar__TextChanged(object sender, EventArgs e)
         {
-            //Filtro para buscar clientes
-            string filtro = txtBuscar.Texts.ToLower();
-            var clientesFiltrados = listaClientes.Where(c =>
-                c.NombreApellido.ToLower().Contains(filtro) ||
-                c.Telefono.ToLower().Contains(filtro) ||
-                c.Email.ToLower().Contains(filtro) ||
-                c.Direccion.ToLower().Contains(filtro) ||
-                c.Cedula.ToLower().Contains(filtro)
-            ).ToList();
-            
+            string filtro = txtBuscar.Texts.Trim();
 
+            if (string.IsNullOrEmpty(filtro))
+            {
+                // Volver a todos los datos originales
+                listaClientes = new List<Clientes>(listaClientesOriginal);
+            }
+            else
+            {
+                // Filtrar por cualquier campo
+                listaClientes = listaClientesOriginal.Where(c =>
+                    c.NombreApellido?.ToLower().Contains(filtro.ToLower()) == true ||
+                    c.Telefono?.ToLower().Contains(filtro.ToLower()) == true ||
+                    c.Email?.ToLower().Contains(filtro.ToLower()) == true ||
+                    c.Direccion?.ToLower().Contains(filtro.ToLower()) == true ||
+                    c.Cedula?.ToLower().Contains(filtro.ToLower()) == true
+                ).ToList();
+            }
+
+            ActualizarDataGridView();
         }
     }
 }
