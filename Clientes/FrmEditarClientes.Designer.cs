@@ -230,7 +230,7 @@
             btnEditarCliente.Text = "Guardar";
             btnEditarCliente.TextColor = Color.White;
             btnEditarCliente.UseVisualStyleBackColor = false;
-            btnEditarCliente.Click += btnAgregarCliente_Click;
+            btnEditarCliente.Click += btnEditarCliente_Click;
             // 
             // btnCancelar
             // 

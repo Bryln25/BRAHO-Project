@@ -14,9 +14,24 @@ namespace BRAHO_Project
 {
     public partial class FrmEditarClientes : Form
     {
-        public FrmEditarClientes()
+        Clientes clientes = new Clientes();
+        private DataGridView dgvBuscar;
+        public FrmEditarClientes(Clientes clientes, DataGridView dataGridView)
         {
             InitializeComponent();
+            this.clientes = clientes;
+            txtNombre.Texts = clientes.NombreApellido;
+            txtTelefono.Texts = clientes.Telefono;
+            txtEmail.Texts = clientes.Email;
+            txtDireccion.Texts = clientes.Direccion;
+            txtCedula.Texts = clientes.Cedula;
+
+            dgvBuscar = dataGridView;
+
+
+
+
+            //txtNombre.Texts = nombre;
         }
 
         //Codigo para mover el formulario
@@ -57,26 +72,32 @@ namespace BRAHO_Project
             this.Close();
         }
 
-        private void btnAgregarCliente_Click(object sender, EventArgs e)
+       
+
+        private void btnEditarCliente_Click(object sender, EventArgs e)
         {
             Clientes cliente = new Clientes();
-
+            
+            cliente.IDCliente = clientes.IDCliente;
             cliente.NombreApellido = txtNombre.Texts.Trim();
             cliente.Telefono = txtTelefono.Texts.Trim();
             cliente.Email = txtEmail.Texts.Trim();
             cliente.Direccion = txtDireccion.Texts.Trim();
             cliente.Cedula = txtCedula.Texts.Trim();
-            int resultado = ClientesDAL.AgregarClientes(cliente);
+            int resultado = ClientesDAL.EditarClientes(cliente);
 
             if (resultado > 0)
             {
-                MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+                MessageBox.Show("Cliente modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close(); // Cierra el formulario después de agregar el cliente
             }
             else
             {
-                MessageBox.Show("Error al agregar el cliente. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al editar el cliente. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
 

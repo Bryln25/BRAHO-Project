@@ -43,16 +43,34 @@ namespace BRAHO_Project
             }
         }
 
-        public static DataTable Mostrar()
+        public static List<Clientes> Mostrar()
         {
+            List<Clientes> Lista = new List<Clientes>();
             using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
-                SqlCommand comando = new SqlCommand("SELECT NombreApellido, Telefono, Email, Direccion, Cedula FROM Clientes", conexion);
-                SqlDataAdapter adapter = new SqlDataAdapter(comando);
-                DataTable tabla = new DataTable();
-                adapter.Fill(tabla);
-                return tabla;
+                string query = "SELECT *FROM Clientes";
+                SqlCommand comando = new SqlCommand(query, conexion);
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Clientes clientes = new Clientes();
+                   clientes.IDCliente = reader.GetInt32(0);
+                    clientes.NombreApellido = reader.GetString(1);
+                    clientes.Telefono = reader.GetString(2);
+                    clientes.Email = reader.GetString(3);
+                    clientes.Direccion = reader.GetString(4);
+                    clientes.Cedula = reader.GetString(5);
+                    Lista.Add(clientes);
+                }
+
+                conexion.Close();
+                return Lista;
+
             }
+
+            
         }
 
         public static int EditarClientes(Clientes cliente)
@@ -62,8 +80,10 @@ namespace BRAHO_Project
                 int retorna = 0;
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "UPDATE Clientes SET NombreApellido = @NombreApellido, Telefono = @Telefono, Email = @Email, Direccion = @Direccion WHERE Cedula = @Cedula";
+                    string query = "UPDATE Clientes SET NombreApellido = @NombreApellido, Telefono = @Telefono, Email = @Email, Direccion = @Direccion, Cedula = @Cedula WHERE IDCliente = @IDCliente";
                     SqlCommand comando = new SqlCommand(query, conexion);
+                    
+                    comando.Parameters.AddWithValue("@IDCliente", cliente.IDCliente); 
                     comando.Parameters.AddWithValue("@NombreApellido", cliente.NombreApellido);
                     comando.Parameters.AddWithValue("@Telefono", cliente.Telefono);
                     comando.Parameters.AddWithValue("@Email", cliente.Email);
@@ -71,6 +91,7 @@ namespace BRAHO_Project
                     comando.Parameters.AddWithValue("@Cedula", cliente.Cedula);
                     retorna = comando.ExecuteNonQuery();
                 }
+               
                 return retorna;
             }
             catch (Exception ex)

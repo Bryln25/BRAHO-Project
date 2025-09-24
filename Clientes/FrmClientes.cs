@@ -85,26 +85,7 @@ namespace BRAHO_Project
 
         public void MostrarClientes()
         {
-            listaClientes = new List<Clientes>();
-
-            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
-            {
-                var command = new SqlCommand("SELECT * FROM Clientes", conexion);
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        listaClientes.Add(new Clientes(
-                            reader.GetInt32("IDCliente"),
-                            reader.GetString("NombreApellido"),
-                            reader.GetString("Telefono"),
-                            reader.GetString("Email"),
-                            reader.GetString("Direccion"),
-                            reader.GetString("Cedula")
-                        ));
-                    }
-                }
-            }
+            listaClientes = ClientesDAL.Mostrar();
 
             ActualizarDataGridView();
         }
@@ -112,6 +93,7 @@ namespace BRAHO_Project
         public void ActualizarDataGridView()
         {
             dgvBuscar.Rows.Clear();
+            Clientes clientes = new Clientes();
 
             foreach (var cliente in listaClientes)
             {
@@ -138,6 +120,8 @@ namespace BRAHO_Project
                     eliminarCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 }
             }
+
+
         }
 
         private void dgvBuscar_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -148,8 +132,38 @@ namespace BRAHO_Project
 
                 switch (dgvBuscar.Columns[e.ColumnIndex].Name)
                 {
-                    case "Editar": 
+                    case "Editar":
                         // dale tu puede
+                        if (dgvBuscar.CurrentRow != null) // valida que haya fila seleccionada
+                        {
+                            DataGridViewRow fila = dgvBuscar.CurrentRow;
+
+                            // Crear el formulario destino
+
+                            FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar);
+                            Clientes clientes = new Clientes();
+
+
+                            // Pasar valores
+
+                            cliente.NombreApellido = fila.Cells["NombreApellido"].Value?.ToString();
+                            cliente.Telefono = fila.Cells["Telefono"].Value?.ToString();
+                            cliente.Email = fila.Cells["Email"].Value?.ToString();
+                            cliente.Direccion = fila.Cells["Direccion"].Value?.ToString();
+                            cliente.Cedula = fila.Cells["Cedula"].Value?.ToString();
+
+
+                            // Mostrar el formulario
+                            frm.ShowDialog();
+                            MostrarClientes(); // Refrescar la lista después de editar
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+
+
                         break;
 
                     case "Eliminar":
@@ -213,6 +227,21 @@ namespace BRAHO_Project
                     dgvBuscar.Cursor = Cursors.Default; // vuelve al cursor normal
                 }
             }
+        }
+
+        private void txtBuscar__TextChanged(object sender, EventArgs e)
+        {
+            //Filtro para buscar clientes
+            string filtro = txtBuscar.Texts.ToLower();
+            var clientesFiltrados = listaClientes.Where(c =>
+                c.NombreApellido.ToLower().Contains(filtro) ||
+                c.Telefono.ToLower().Contains(filtro) ||
+                c.Email.ToLower().Contains(filtro) ||
+                c.Direccion.ToLower().Contains(filtro) ||
+                c.Cedula.ToLower().Contains(filtro)
+            ).ToList();
+            
+
         }
     }
 }
