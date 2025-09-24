@@ -239,46 +239,25 @@ namespace BRAHO_Project
             }
         }
 
-        private void FiltrarClientes(string filtro)
-        {
-            if (string.IsNullOrWhiteSpace(filtro))
-            {
-                // Si no hay filtro, mostrar todos los clientes originales
-                listaClientes = new List<Clientes>(listaClientesOriginal);
-            }
-            else
-            {
-                // Filtrar clientes que coincidan con el texto
-                listaClientes = listaClientesOriginal.Where(c =>
-                    c.NombreApellido.ToLower().Contains(filtro.ToLower()) ||
-                    c.Telefono.ToLower().Contains(filtro.ToLower()) ||
-                    c.Email.ToLower().Contains(filtro.ToLower()) ||
-                    c.Direccion.ToLower().Contains(filtro.ToLower()) ||
-                    c.Cedula.ToLower().Contains(filtro.ToLower())
-                ).ToList();
-            }
 
-            ActualizarDataGridView();
-        }
 
         private void txtBuscar__TextChanged(object sender, EventArgs e)
         {
-            string filtro = txtBuscar.Texts.Trim();
+            string filtro = txtBuscar.Texts.Trim().ToLower(); // ToLower una sola vez
 
             if (string.IsNullOrEmpty(filtro))
             {
-                // Volver a todos los datos originales
                 listaClientes = new List<Clientes>(listaClientesOriginal);
             }
             else
             {
-                // Filtrar por cualquier campo
+                // Más eficiente - evita múltiples ToLower()
                 listaClientes = listaClientesOriginal.Where(c =>
-                    c.NombreApellido?.ToLower().Contains(filtro.ToLower()) == true ||
-                    c.Telefono?.ToLower().Contains(filtro.ToLower()) == true ||
-                    c.Email?.ToLower().Contains(filtro.ToLower()) == true ||
-                    c.Direccion?.ToLower().Contains(filtro.ToLower()) == true ||
-                    c.Cedula?.ToLower().Contains(filtro.ToLower()) == true
+                    (c.NombreApellido?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Telefono?.ToLower().Replace("-","") ?? "").Contains(filtro) ||
+                    (c.Email?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Direccion?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Cedula?.ToLower() ?? "").Contains(filtro)
                 ).ToList();
             }
 
