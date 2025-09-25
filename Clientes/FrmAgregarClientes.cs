@@ -81,6 +81,23 @@ namespace BRAHO_Project
             }
         }
 
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+            // Tomamos solo los dígitos del texto
+            string numero = new string(txtTelefono.Texts.Where(char.IsDigit).ToArray());
 
+            if (numero.Length == 10)
+            {
+                string codigoArea = numero.Substring(0, 3);
+                string parte1 = numero.Substring(3, 3);
+                string parte2 = numero.Substring(6, 4);
+
+                txtTelefono.Texts = $"+1 ({codigoArea}) {parte1} {parte2}";
+            }
+            else
+            {
+                MessageBox.Show("El numero de teléfono debe tener 10 dígitos.", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

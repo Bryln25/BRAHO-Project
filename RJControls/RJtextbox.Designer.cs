@@ -41,8 +41,8 @@
             textBox1.TabIndex = 0;
             textBox1.TextChanged += textBox1_TextChanged;
             textBox1.Enter += textBox1_Enter;
+            textBox1.KeyPress += textBox1_KeyPress;
             textBox1.Leave += textBox1_Leave;
-            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // RJtextbox
             // 

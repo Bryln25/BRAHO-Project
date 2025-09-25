@@ -53,8 +53,10 @@
             txtNombre.ForeColor = Color.Black;
             txtNombre.Location = new Point(111, 120);
             txtNombre.Margin = new Padding(2, 3, 2, 3);
+            txtNombre.MaxLength = 32767;
             txtNombre.Multiline = false;
             txtNombre.Name = "txtNombre";
+            txtNombre.OnlyNumbers = false;
             txtNombre.Padding = new Padding(6, 5, 6, 5);
             txtNombre.PasswordChar = false;
             txtNombre.Size = new Size(347, 35);
@@ -84,14 +86,17 @@
             txtTelefono.ForeColor = Color.Black;
             txtTelefono.Location = new Point(108, 230);
             txtTelefono.Margin = new Padding(2, 3, 2, 3);
+            txtTelefono.MaxLength = 10;
             txtTelefono.Multiline = false;
             txtTelefono.Name = "txtTelefono";
+            txtTelefono.OnlyNumbers = true;
             txtTelefono.Padding = new Padding(6, 5, 6, 5);
             txtTelefono.PasswordChar = false;
             txtTelefono.Size = new Size(347, 35);
             txtTelefono.TabIndex = 6;
             txtTelefono.Texts = "";
             txtTelefono.UnderlinedStyle = true;
+            txtTelefono.Leave += txtTelefono_Leave;
             // 
             // label2
             // 
@@ -115,8 +120,10 @@
             txtEmail.ForeColor = Color.Black;
             txtEmail.Location = new Point(111, 342);
             txtEmail.Margin = new Padding(2, 3, 2, 3);
+            txtEmail.MaxLength = 50;
             txtEmail.Multiline = false;
             txtEmail.Name = "txtEmail";
+            txtEmail.OnlyNumbers = false;
             txtEmail.Padding = new Padding(6, 5, 6, 5);
             txtEmail.PasswordChar = false;
             txtEmail.Size = new Size(347, 35);
@@ -146,8 +153,10 @@
             txtDireccion.ForeColor = Color.Black;
             txtDireccion.Location = new Point(557, 120);
             txtDireccion.Margin = new Padding(2, 3, 2, 3);
+            txtDireccion.MaxLength = 32767;
             txtDireccion.Multiline = false;
             txtDireccion.Name = "txtDireccion";
+            txtDireccion.OnlyNumbers = false;
             txtDireccion.Padding = new Padding(6, 5, 6, 5);
             txtDireccion.PasswordChar = false;
             txtDireccion.Size = new Size(347, 35);
@@ -177,8 +186,10 @@
             txtCedula.ForeColor = Color.Black;
             txtCedula.Location = new Point(557, 230);
             txtCedula.Margin = new Padding(2, 3, 2, 3);
+            txtCedula.MaxLength = 11;
             txtCedula.Multiline = false;
             txtCedula.Name = "txtCedula";
+            txtCedula.OnlyNumbers = true;
             txtCedula.Padding = new Padding(6, 5, 6, 5);
             txtCedula.PasswordChar = false;
             txtCedula.Size = new Size(347, 35);

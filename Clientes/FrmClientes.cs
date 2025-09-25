@@ -47,7 +47,7 @@ namespace BRAHO_Project
             DataGridViewTextBoxColumn colTelefono = new DataGridViewTextBoxColumn();
             colTelefono.Name = "Telefono";
             colTelefono.HeaderText = "TELÉFONO";
-            colTelefono.FillWeight = 15;
+            colTelefono.FillWeight = 18;
 
             DataGridViewTextBoxColumn colEmail = new DataGridViewTextBoxColumn();
             colEmail.Name = "Email";
@@ -57,25 +57,25 @@ namespace BRAHO_Project
             DataGridViewTextBoxColumn colDireccion = new DataGridViewTextBoxColumn();
             colDireccion.Name = "Direccion";
             colDireccion.HeaderText = "DIRECCIÓN";
-            colDireccion.FillWeight = 25;
+            colDireccion.FillWeight = 20;
 
             DataGridViewTextBoxColumn colCedula = new DataGridViewTextBoxColumn();
             colCedula.Name = "Cedula";
             colCedula.HeaderText = "CÉDULA";
-            colCedula.FillWeight = 15;
+            colCedula.FillWeight = 13;
 
             // Columnas de botones (usaremos imágenes)
             DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
             colEditar.Name = "Editar";
             colEditar.HeaderText = "";
             colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            colEditar.FillWeight = 10;
+            colEditar.FillWeight = 8;
 
             DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
             colEliminar.Name = "Eliminar";
             colEliminar.HeaderText = "";
             colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            colEliminar.FillWeight = 10;
+            colEliminar.FillWeight = 8;
 
             // Agregar todas las columnas
             dgvBuscar.Columns.AddRange(new DataGridViewColumn[] {
@@ -254,10 +254,10 @@ namespace BRAHO_Project
                 // Más eficiente - evita múltiples ToLower()
                 listaClientes = listaClientesOriginal.Where(c =>
                     (c.NombreApellido?.ToLower() ?? "").Contains(filtro) ||
-                    (c.Telefono?.ToLower().Replace("-","") ?? "").Contains(filtro) ||
+                    (c.Telefono?.ToLower().Replace(" ","").Replace(")", "") ?? "").Contains(filtro) ||
                     (c.Email?.ToLower() ?? "").Contains(filtro) ||
                     (c.Direccion?.ToLower() ?? "").Contains(filtro) ||
-                    (c.Cedula?.ToLower() ?? "").Contains(filtro)
+                    (c.Cedula?.ToLower().Replace("-", "") ?? "").Contains(filtro)
                 ).ToList();
             }
 

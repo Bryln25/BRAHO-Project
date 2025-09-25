@@ -154,12 +154,15 @@
             txtBuscar.BorderColor = Color.FromArgb(255, 165, 11);
             txtBuscar.BorderFocusColor = SystemColors.HotTrack;
             txtBuscar.BorderSize = 6;
+            txtBuscar.CaretColor = Color.Black;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtBuscar.ForeColor = Color.Black;
             txtBuscar.Location = new Point(659, 58);
             txtBuscar.Margin = new Padding(2, 3, 2, 3);
+            txtBuscar.MaxLength = 32767;
             txtBuscar.Multiline = false;
             txtBuscar.Name = "txtBuscar";
+            txtBuscar.OnlyNumbers = false;
             txtBuscar.Padding = new Padding(6, 5, 6, 5);
             txtBuscar.PasswordChar = false;
             txtBuscar.Size = new Size(347, 35);

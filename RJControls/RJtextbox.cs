@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,10 @@ namespace BRAHO_Project.RJControls
         public RJtextbox()
         {
             InitializeComponent();
+            textBox1.KeyUp += (s, ev) => textBox1.Invalidate();
+            textBox1.MouseUp += (s, ev) => textBox1.Invalidate();
+
+            textBox1.TextChanged += (s, ev) => textBox1.Invalidate();
         }
 
 
@@ -121,6 +126,22 @@ namespace BRAHO_Project.RJControls
             set { borderFocusColor = value; }
         }
 
+        [Category("RJ Code Advance")]
+        public int MaxLength
+        {
+            get { return textBox1.MaxLength; }
+            set { textBox1.MaxLength = value; }
+        }
+
+        [Category("RJ Code Advance")]
+        public bool OnlyNumbers { get; set; } = false;
+
+        [Category("RJ Code Advance")]
+        public bool CaretCustom { get; set; } = false;
+
+        [Category("RJ Code Advance")]
+        public Color CaretColor { get; set; } = Color.Black;
+
 
         //Private methods
         private void UpdateControlHeight()
@@ -134,7 +155,6 @@ namespace BRAHO_Project.RJControls
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
             }
         }
-
 
         //Overridden methods
         protected override void OnPaint(PaintEventArgs e)
@@ -179,22 +199,76 @@ namespace BRAHO_Project.RJControls
             UpdateControlHeight();
         }
 
+        [DllImport("user32.dll")]
+        private static extern bool CreateCaret(IntPtr hWnd, IntPtr hBitmap, int nWidth, int nHeight);
 
-        //Change border color in focus mode
+        [DllImport("user32.dll")]
+        private static extern bool ShowCaret(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool DestroyCaret();
+
+        public event EventHandler _Enter;
         private void textBox1_Enter(object sender, EventArgs e)
         {
+            if (_Enter != null)
+                _Enter.Invoke(sender, e);
+
             isFocused = true;
             this.Invalidate();
-        }
-        
 
+            if (CaretCustom)
+            {
+                // Crear caret con ancho fijo (2px) y alto de la fuente
+                CreateCaret(textBox1.Handle, IntPtr.Zero, 2, textBox1.Font.Height);
+                ShowCaret(textBox1.Handle);
+
+                // Usar un timer para repintar el caret con el color deseado
+                System.Windows.Forms.Timer caretTimer = new System.Windows.Forms.Timer();
+                caretTimer.Interval = 50;
+                caretTimer.Tick += (s, ev) =>
+                {
+                    using (Graphics g = textBox1.CreateGraphics())
+                    {
+                        // Obtener la posición actual del caret (donde está SelectionStart)
+                        int x = textBox1.GetPositionFromCharIndex(textBox1.SelectionStart).X;
+                        int y = textBox1.GetPositionFromCharIndex(textBox1.SelectionStart).Y;
+
+                        // Dibujar el caret en esa posición
+                        using (Brush b = new SolidBrush(CaretColor))
+                        {
+                            g.FillRectangle(b, new Rectangle(x, y, 2, textBox1.Font.Height));
+                        }
+                    }
+                };
+                caretTimer.Start();
+
+                // Guardamos el timer en Tag para poder detenerlo luego
+                textBox1.Tag = caretTimer;
+            }            
+        }
+
+        public event EventHandler _Leave;
         private void textBox1_Leave(object sender, EventArgs e)
         {
+            if (_Leave != null)
+                _Leave.Invoke(sender, e);
+
             isFocused = false;
             this.Invalidate();
 
-            // Propaga el evento Leave del control correctamente
-            this.OnLeave(e);
+            if (CaretCustom)
+            {
+                // Detener el caret personalizado
+                if (textBox1.Tag is System.Windows.Forms.Timer caretTimer)
+                {
+                    caretTimer.Stop();
+                    caretTimer.Dispose();
+                }
+
+                DestroyCaret();
+            }
+            
         }
 
 
@@ -226,10 +300,22 @@ namespace BRAHO_Project.RJControls
             this.OnMouseLeave(e);
         }
 
+        public event KeyPressEventHandler _KeyPress;
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.OnKeyPress(e);
+            if (OnlyNumbers)
+            {
+                // Solo permitir dígitos y teclas de control (ej: backspace)
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            if (_KeyPress != null)
+                _KeyPress.Invoke(sender, e);
         }
-        
+
+
     }
 }
