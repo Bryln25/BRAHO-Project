@@ -186,11 +186,15 @@ namespace BRAHO_Project.RJControls
             isFocused = true;
             this.Invalidate();
         }
+        
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
             isFocused = false;
             this.Invalidate();
+
+            // Propaga el evento Leave del control correctamente
+            this.OnLeave(e);
         }
 
 
@@ -226,17 +230,6 @@ namespace BRAHO_Project.RJControls
         {
             this.OnKeyPress(e);
         }
-
-        private void textBox1_Enter_1(object sender, EventArgs e)
-        {
-            isFocused = true;
-            this.Invalidate();
-        }
-
-        private void textBox1_Leave_1(object sender, EventArgs e)
-        {
-            isFocused = false;
-            this.Invalidate();
-        }
+        
     }
 }

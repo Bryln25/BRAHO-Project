@@ -92,6 +92,7 @@
             txtTelefono.TabIndex = 6;
             txtTelefono.Texts = "";
             txtTelefono.UnderlinedStyle = true;
+            txtTelefono.Leave += txtTelefono_Leave;
             // 
             // label2
             // 

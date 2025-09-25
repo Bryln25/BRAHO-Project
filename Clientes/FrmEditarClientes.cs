@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.RJControls;
 
 namespace BRAHO_Project
 {
@@ -62,7 +63,9 @@ namespace BRAHO_Project
 
                 path.CloseFigure();
                 this.Region = new Region(path);
-            }
+
+                
+                }
 
 
         }
@@ -72,12 +75,12 @@ namespace BRAHO_Project
             this.Close();
         }
 
-       
+
 
         private void btnEditarCliente_Click(object sender, EventArgs e)
         {
             Clientes cliente = new Clientes();
-            
+
             cliente.IDCliente = clientes.IDCliente;
             cliente.NombreApellido = txtNombre.Texts.Trim();
             cliente.Telefono = txtTelefono.Texts.Trim();
@@ -88,7 +91,7 @@ namespace BRAHO_Project
 
             if (resultado > 0)
             {
-               
+
                 MessageBox.Show("Cliente modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close(); // Cierra el formulario después de agregar el cliente
             }
@@ -100,6 +103,25 @@ namespace BRAHO_Project
 
         }
 
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+            // Tomamos solo los dígitos del texto
+            string numero = new string(txtTelefono.Texts.Where(char.IsDigit).ToArray());
 
+            if (numero.Length == 10)
+            {
+                string codigoArea = numero.Substring(0, 3);
+                string parte1 = numero.Substring(3, 3);
+                string parte2 = numero.Substring(6, 4);
+
+                txtTelefono.Texts = $"+1 ({codigoArea}) {parte1} {parte2}";
+            }
+            else
+            {
+                MessageBox.Show("El numero de teléfono debe tener 10 dígitos.", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+                txtTelefono.Focus();
+            }
+        }
     }
 }
