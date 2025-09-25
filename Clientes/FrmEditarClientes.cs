@@ -127,7 +127,8 @@ namespace BRAHO_Project
         }
 
         private void txtCedula_Leave(object sender, EventArgs e)
-        {// Tomamos solo los dígitos
+        {
+            // Tomamos solo los dígitos
             string numero = new string(txtCedula.Texts.Where(char.IsDigit).ToArray());
 
             if (numero.Length == 11)
@@ -141,6 +142,7 @@ namespace BRAHO_Project
             else
             {
                 MessageBox.Show("La cédula debe tener 11 dígitos.", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCedula.Focus();
             }
 
         }
@@ -149,6 +151,12 @@ namespace BRAHO_Project
         {
             string numero = new string(txtTelefono.Texts.Replace("+1", "").Where(char.IsDigit).ToArray());
             txtTelefono.Texts = numero;
+        }
+
+        private void txtCedula__Enter(object sender, EventArgs e)
+        {
+            string numero = new string(txtCedula.Texts.Replace("+1", "").Where(char.IsDigit).ToArray());
+            txtCedula.Texts = numero;
         }
     }
 }

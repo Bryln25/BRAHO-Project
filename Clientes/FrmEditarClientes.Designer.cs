@@ -45,10 +45,12 @@
             // 
             // txtNombre
             // 
-            txtNombre.BackColor = Color.FromArgb(127, 127, 127);
+            txtNombre.BackColor = Color.FromArgb(64, 64, 64);
             txtNombre.BorderColor = Color.FromArgb(255, 165, 11);
             txtNombre.BorderFocusColor = SystemColors.HotTrack;
             txtNombre.BorderSize = 6;
+            txtNombre.CaretColor = Color.Black;
+            txtNombre.CaretCustom = false;
             txtNombre.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtNombre.ForeColor = Color.Black;
             txtNombre.Location = new Point(111, 120);
@@ -78,10 +80,12 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.BackColor = Color.FromArgb(127, 127, 127);
+            txtTelefono.BackColor = Color.FromArgb(64, 64, 64);
             txtTelefono.BorderColor = Color.FromArgb(255, 165, 11);
             txtTelefono.BorderFocusColor = SystemColors.HotTrack;
             txtTelefono.BorderSize = 6;
+            txtTelefono.CaretColor = Color.Black;
+            txtTelefono.CaretCustom = false;
             txtTelefono.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTelefono.ForeColor = Color.Black;
             txtTelefono.Location = new Point(108, 230);
@@ -113,10 +117,12 @@
             // 
             // txtEmail
             // 
-            txtEmail.BackColor = Color.FromArgb(127, 127, 127);
+            txtEmail.BackColor = Color.FromArgb(64, 64, 64);
             txtEmail.BorderColor = Color.FromArgb(255, 165, 11);
             txtEmail.BorderFocusColor = SystemColors.HotTrack;
             txtEmail.BorderSize = 6;
+            txtEmail.CaretColor = Color.Black;
+            txtEmail.CaretCustom = false;
             txtEmail.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtEmail.ForeColor = Color.Black;
             txtEmail.Location = new Point(111, 342);
@@ -146,10 +152,12 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.BackColor = Color.FromArgb(127, 127, 127);
+            txtDireccion.BackColor = Color.FromArgb(64, 64, 64);
             txtDireccion.BorderColor = Color.FromArgb(255, 165, 11);
             txtDireccion.BorderFocusColor = SystemColors.HotTrack;
             txtDireccion.BorderSize = 6;
+            txtDireccion.CaretColor = Color.Black;
+            txtDireccion.CaretCustom = false;
             txtDireccion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDireccion.ForeColor = Color.Black;
             txtDireccion.Location = new Point(557, 120);
@@ -179,10 +187,12 @@
             // 
             // txtCedula
             // 
-            txtCedula.BackColor = Color.FromArgb(127, 127, 127);
+            txtCedula.BackColor = Color.FromArgb(64, 64, 64);
             txtCedula.BorderColor = Color.FromArgb(255, 165, 11);
             txtCedula.BorderFocusColor = SystemColors.HotTrack;
             txtCedula.BorderSize = 6;
+            txtCedula.CaretColor = Color.Black;
+            txtCedula.CaretCustom = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtCedula.ForeColor = Color.Black;
             txtCedula.Location = new Point(557, 230);
@@ -197,6 +207,7 @@
             txtCedula.TabIndex = 12;
             txtCedula.Texts = "";
             txtCedula.UnderlinedStyle = true;
+            txtCedula._Enter += txtCedula__Enter;
             txtCedula.Leave += txtCedula_Leave;
             // 
             // label5
@@ -271,7 +282,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(127, 127, 127);
+            BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(957, 498);
             Controls.Add(btnCancelar);
             Controls.Add(btnEditarCliente);

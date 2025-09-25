@@ -13,6 +13,11 @@ namespace BRAHO_Project
 {
     public partial class FrmClientes : Form
     {
+        private bool barraExpandida = false;
+        private int posOriginal = 10;
+        private int posFinal = 200;  
+        private int velocidad = 4;
+
         private List<Clientes> listaClientes;
         private List<Clientes> listaClientesOriginal = new List<Clientes>();
 
@@ -254,7 +259,7 @@ namespace BRAHO_Project
                 // Más eficiente - evita múltiples ToLower()
                 listaClientes = listaClientesOriginal.Where(c =>
                     (c.NombreApellido?.ToLower() ?? "").Contains(filtro) ||
-                    (c.Telefono?.ToLower().Replace(" ","").Replace(")", "") ?? "").Contains(filtro) ||
+                    (c.Telefono?.ToLower().Replace(" ", "").Replace(")", "") ?? "").Contains(filtro) ||
                     (c.Email?.ToLower() ?? "").Contains(filtro) ||
                     (c.Direccion?.ToLower() ?? "").Contains(filtro) ||
                     (c.Cedula?.ToLower().Replace("-", "") ?? "").Contains(filtro)
@@ -262,6 +267,49 @@ namespace BRAHO_Project
             }
 
             ActualizarDataGridView();
+        }
+
+        private void btnLupa_Click(object sender, EventArgs e)
+        {
+            
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!barraExpandida)
+            {
+                // Mover hacia la derecha hasta posFinal
+                txtBuscar.Left += velocidad;
+
+                if (txtBuscar.Left >= posFinal)
+                {
+                    txtBuscar.Left = posFinal;
+                    barraExpandida = true;
+                    txtBuscar.Visible = true;
+                    timer1.Stop();
+                }
+            }
+            else
+            {
+                // Mover hacia la izquierda hasta posOriginal
+                txtBuscar.Left -= velocidad;
+
+                if (txtBuscar.Left <= posOriginal)
+                {
+                    txtBuscar.Left = posOriginal;
+                    barraExpandida = false;
+                    txtBuscar.Visible = false;
+                    timer1.Stop();
+                }
+            }
+        }
+
+        private void FrmClientes_Load(object sender, EventArgs e)
+        {
+            txtBuscar.Visible = false;
+            posOriginal = txtBuscar.Left; // posición inicial
+            posFinal = dgvBuscar.Left + dgvBuscar.Width - txtBuscar.Width;
         }
     }
 }

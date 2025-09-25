@@ -228,11 +228,14 @@ namespace BRAHO_Project.RJControls
                 caretTimer.Interval = 50;
                 caretTimer.Tick += (s, ev) =>
                 {
+
                     using (Graphics g = textBox1.CreateGraphics())
                     {
                         // Obtener la posición actual del caret (donde está SelectionStart)
                         int x = textBox1.GetPositionFromCharIndex(textBox1.SelectionStart).X;
                         int y = textBox1.GetPositionFromCharIndex(textBox1.SelectionStart).Y;
+
+                        
 
                         // Dibujar el caret en esa posición
                         using (Brush b = new SolidBrush(CaretColor))

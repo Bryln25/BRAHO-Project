@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -39,6 +40,7 @@
             txtBuscar = new BRAHO_Project.RJControls.RJtextbox();
             btnLupa = new PictureBox();
             label6 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).BeginInit();
             SuspendLayout();
@@ -155,9 +157,10 @@
             txtBuscar.BorderFocusColor = SystemColors.HotTrack;
             txtBuscar.BorderSize = 6;
             txtBuscar.CaretColor = Color.Black;
+            txtBuscar.CaretCustom = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtBuscar.ForeColor = Color.Black;
-            txtBuscar.Location = new Point(659, 58);
+            txtBuscar.Location = new Point(1014, 58);
             txtBuscar.Margin = new Padding(2, 3, 2, 3);
             txtBuscar.MaxLength = 32767;
             txtBuscar.Multiline = false;
@@ -175,12 +178,13 @@
             // 
             btnLupa.Cursor = Cursors.Hand;
             btnLupa.Image = (Image)resources.GetObject("btnLupa.Image");
-            btnLupa.Location = new Point(611, 46);
+            btnLupa.Location = new Point(963, 46);
             btnLupa.Name = "btnLupa";
             btnLupa.Size = new Size(43, 47);
             btnLupa.SizeMode = PictureBoxSizeMode.Zoom;
             btnLupa.TabIndex = 17;
             btnLupa.TabStop = false;
+            btnLupa.Click += btnLupa_Click;
             // 
             // label6
             // 
@@ -193,6 +197,10 @@
             label6.TabIndex = 18;
             label6.Text = "Gestionar clientes";
             label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // FrmClientes
             // 
@@ -210,6 +218,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmClientes";
             Text = "FrmClientes";
+            Load += FrmClientes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).EndInit();
             ResumeLayout(false);
@@ -224,5 +233,6 @@
         private RJControls.RJtextbox txtBuscar;
         private PictureBox btnLupa;
         private Label label6;
+        private System.Windows.Forms.Timer timer1;
     }
 }

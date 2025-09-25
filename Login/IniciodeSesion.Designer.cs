@@ -126,8 +126,8 @@
             txtUsuario.BorderColor = Color.FromArgb(255, 165, 11);
             txtUsuario.BorderFocusColor = SystemColors.HotTrack;
             txtUsuario.BorderSize = 6;
-            txtUsuario.CaretColor = Color.Black;
-            txtUsuario.CaretCustom = true;
+            txtUsuario.CaretColor = Color.Transparent;
+            txtUsuario.CaretCustom = false;
             txtUsuario.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtUsuario.ForeColor = Color.Black;
             txtUsuario.Location = new Point(48, 243);

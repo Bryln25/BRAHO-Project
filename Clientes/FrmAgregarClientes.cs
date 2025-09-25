@@ -97,7 +97,40 @@ namespace BRAHO_Project
             else
             {
                 MessageBox.Show("El numero de teléfono debe tener 10 dígitos.", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTelefono.Focus();
             }
+        }
+
+        private void txtCedula__Leave(object sender, EventArgs e)
+        {
+            // Tomamos solo los dígitos
+            string numero = new string(txtCedula.Texts.Where(char.IsDigit).ToArray());
+
+            if (numero.Length == 11)
+            {
+                string parte1 = numero.Substring(0, 3);
+                string parte2 = numero.Substring(3, 7);
+                string parte3 = numero.Substring(10, 1);
+
+                txtCedula.Texts = $"{parte1}-{parte2}-{parte3}";
+            }
+            else
+            {
+                MessageBox.Show("La cédula debe tener 11 dígitos.", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCedula.Focus();
+            }
+        }
+
+        private void txtTelefono__Enter(object sender, EventArgs e)
+        {
+            string numero = new string(txtTelefono.Texts.Replace("+1", "").Where(char.IsDigit).ToArray());
+            txtTelefono.Texts = numero;
+        }
+
+        private void txtCedula__Enter(object sender, EventArgs e)
+        {
+            string numero = new string(txtCedula.Texts.Replace("-", "").Where(char.IsDigit).ToArray());
+            txtCedula.Texts = numero;
         }
     }
 }
