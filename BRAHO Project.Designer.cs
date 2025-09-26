@@ -373,6 +373,7 @@
             Controls.Add(MenuVertical);
             Controls.Add(BarraTitulo);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PaginaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio - BRAHO Project";
