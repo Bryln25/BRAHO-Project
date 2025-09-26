@@ -79,15 +79,19 @@
             // 
             // txtClave
             // 
-            txtClave.BackColor = Color.FromArgb(127, 127, 127);
+            txtClave.BackColor = Color.FromArgb(64, 64, 64);
             txtClave.BorderColor = Color.Red;
-            txtClave.BorderFocusColor = Color.HotPink;
+            txtClave.BorderFocusColor = Color.Red;
             txtClave.BorderSize = 3;
+            txtClave.CaretColor = Color.Black;
+            txtClave.CaretCustom = false;
             txtClave.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtClave.ForeColor = Color.DimGray;
             txtClave.Location = new Point(67, 122);
+            txtClave.MaxLength = 32767;
             txtClave.Multiline = false;
             txtClave.Name = "txtClave";
+            txtClave.OnlyNumbers = false;
             txtClave.Padding = new Padding(7);
             txtClave.PasswordChar = true;
             txtClave.Size = new Size(312, 35);
@@ -133,7 +137,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(127, 127, 127);
+            BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(453, 248);
             Controls.Add(BtnVerificar);
             Controls.Add(label1);
