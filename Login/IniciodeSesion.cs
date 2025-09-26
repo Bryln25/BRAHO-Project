@@ -24,6 +24,7 @@ namespace BRAHO_Project
         }
 
         //Codigo para mover el formulario
+
         private void MoverVentanaInicioSesion_MouseDown(object sender, MouseEventArgs e)
         {
             Funciones.MoverForm(this);
