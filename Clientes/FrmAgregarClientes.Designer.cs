@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgregarClientes));
             txtNombre = new BRAHO_Project.RJControls.RJtextbox();
             label1 = new Label();
             txtTelefono = new BRAHO_Project.RJControls.RJtextbox();
@@ -41,6 +42,30 @@
             label6 = new Label();
             btnAgregarCliente = new BRAHO_Project.RJControls.RJButton();
             btnCancelar = new BRAHO_Project.RJControls.RJButton();
+            Diseñito = new Panel();
+            BotonMininizar = new PictureBox();
+            BotonCerrar = new PictureBox();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            panel2 = new Panel();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            panel3 = new Panel();
+            pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            Diseñito.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // txtNombre
@@ -227,7 +252,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(12, 9);
+            label6.Location = new Point(16, 19);
             label6.Name = "label6";
             label6.Size = new Size(139, 21);
             label6.TabIndex = 14;
@@ -278,12 +303,156 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // Diseñito
+            // 
+            Diseñito.BackColor = Color.FromArgb(255, 165, 11);
+            Diseñito.Controls.Add(BotonMininizar);
+            Diseñito.Controls.Add(BotonCerrar);
+            Diseñito.Dock = DockStyle.Bottom;
+            Diseñito.Location = new Point(0, 488);
+            Diseñito.Name = "Diseñito";
+            Diseñito.Size = new Size(957, 10);
+            Diseñito.TabIndex = 18;
+            // 
+            // BotonMininizar
+            // 
+            BotonMininizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BotonMininizar.Cursor = Cursors.Hand;
+            BotonMininizar.Image = (Image)resources.GetObject("BotonMininizar.Image");
+            BotonMininizar.Location = new Point(1812, 9);
+            BotonMininizar.Name = "BotonMininizar";
+            BotonMininizar.Size = new Size(29, 33);
+            BotonMininizar.SizeMode = PictureBoxSizeMode.Zoom;
+            BotonMininizar.TabIndex = 2;
+            BotonMininizar.TabStop = false;
+            // 
+            // BotonCerrar
+            // 
+            BotonCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BotonCerrar.Cursor = Cursors.Hand;
+            BotonCerrar.Image = (Image)resources.GetObject("BotonCerrar.Image");
+            BotonCerrar.Location = new Point(1848, 7);
+            BotonCerrar.Name = "BotonCerrar";
+            BotonCerrar.Size = new Size(29, 33);
+            BotonCerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            BotonCerrar.TabIndex = 1;
+            BotonCerrar.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(255, 165, 11);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(10, 488);
+            panel1.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(850, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(29, 33);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(886, 7);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(29, 33);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(255, 165, 11);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Controls.Add(pictureBox4);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(947, 10);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(10, 478);
+            panel2.TabIndex = 19;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(850, 9);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(29, 33);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox4.Cursor = Cursors.Hand;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(886, 7);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(29, 33);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 1;
+            pictureBox4.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(255, 165, 11);
+            panel3.Controls.Add(pictureBox5);
+            panel3.Controls.Add(pictureBox6);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(10, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(947, 10);
+            panel3.TabIndex = 19;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox5.Cursor = Cursors.Hand;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(1787, 9);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(29, 33);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 2;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox6.Cursor = Cursors.Hand;
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(1823, 7);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(29, 33);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 1;
+            pictureBox6.TabStop = false;
+            // 
             // FrmAgregarClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(957, 498);
+            Controls.Add(panel2);
+            Controls.Add(panel3);
+            Controls.Add(panel1);
+            Controls.Add(Diseñito);
             Controls.Add(btnCancelar);
             Controls.Add(btnAgregarCliente);
             Controls.Add(label6);
@@ -298,10 +467,23 @@
             Controls.Add(txtNombre);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmAgregarClientes";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmAgregarClientes";
+            Text = "Agregar un cliente";
             MouseDown += FrmAgregarClientes_MouseDown;
+            Diseñito.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -321,5 +503,17 @@
         private Label label6;
         private RJControls.RJButton btnAgregarCliente;
         private RJControls.RJButton btnCancelar;
+        private Panel Diseñito;
+        private PictureBox BotonMininizar;
+        private PictureBox BotonCerrar;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Panel panel2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private Panel panel3;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox6;
     }
 }

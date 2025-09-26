@@ -144,9 +144,10 @@
             Controls.Add(txtClave);
             Controls.Add(MoverVentana);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmAdmin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmAdmin";
+            Text = "Clave administrador";
             MoverVentana.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BtnMinimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BtnSalir).EndInit();

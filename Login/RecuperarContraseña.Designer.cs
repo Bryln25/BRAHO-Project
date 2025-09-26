@@ -50,9 +50,8 @@
             MoverVentanaRecuperarContraseña.Controls.Add(BotonCerrar);
             MoverVentanaRecuperarContraseña.Dock = DockStyle.Top;
             MoverVentanaRecuperarContraseña.Location = new Point(0, 0);
-            MoverVentanaRecuperarContraseña.Margin = new Padding(3, 2, 3, 2);
             MoverVentanaRecuperarContraseña.Name = "MoverVentanaRecuperarContraseña";
-            MoverVentanaRecuperarContraseña.Size = new Size(320, 34);
+            MoverVentanaRecuperarContraseña.Size = new Size(366, 45);
             MoverVentanaRecuperarContraseña.TabIndex = 1;
             MoverVentanaRecuperarContraseña.MouseDown += MoverVentanaRecuperarContraseña_MouseDown;
             // 
@@ -61,10 +60,9 @@
             BotonMininizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonMininizar.Cursor = Cursors.Hand;
             BotonMininizar.Image = (Image)resources.GetObject("BotonMininizar.Image");
-            BotonMininizar.Location = new Point(261, 7);
-            BotonMininizar.Margin = new Padding(3, 2, 3, 2);
+            BotonMininizar.Location = new Point(298, 9);
             BotonMininizar.Name = "BotonMininizar";
-            BotonMininizar.Size = new Size(25, 25);
+            BotonMininizar.Size = new Size(29, 33);
             BotonMininizar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonMininizar.TabIndex = 2;
             BotonMininizar.TabStop = false;
@@ -74,10 +72,9 @@
             BotonCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BotonCerrar.Cursor = Cursors.Hand;
             BotonCerrar.Image = (Image)resources.GetObject("BotonCerrar.Image");
-            BotonCerrar.Location = new Point(292, 5);
-            BotonCerrar.Margin = new Padding(3, 2, 3, 2);
+            BotonCerrar.Location = new Point(334, 7);
             BotonCerrar.Name = "BotonCerrar";
-            BotonCerrar.Size = new Size(25, 25);
+            BotonCerrar.Size = new Size(29, 33);
             BotonCerrar.SizeMode = PictureBoxSizeMode.Zoom;
             BotonCerrar.TabIndex = 1;
             BotonCerrar.TabStop = false;
@@ -89,15 +86,19 @@
             txtRecuperarcion.BorderColor = Color.FromArgb(255, 165, 11);
             txtRecuperarcion.BorderFocusColor = SystemColors.HotTrack;
             txtRecuperarcion.BorderSize = 6;
+            txtRecuperarcion.CaretColor = Color.Black;
+            txtRecuperarcion.CaretCustom = false;
             txtRecuperarcion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtRecuperarcion.ForeColor = Color.Black;
-            txtRecuperarcion.Location = new Point(25, 239);
-            txtRecuperarcion.Margin = new Padding(2);
+            txtRecuperarcion.Location = new Point(29, 319);
+            txtRecuperarcion.Margin = new Padding(2, 3, 2, 3);
+            txtRecuperarcion.MaxLength = 32767;
             txtRecuperarcion.Multiline = false;
             txtRecuperarcion.Name = "txtRecuperarcion";
-            txtRecuperarcion.Padding = new Padding(5, 4, 5, 4);
+            txtRecuperarcion.OnlyNumbers = false;
+            txtRecuperarcion.Padding = new Padding(6, 5, 6, 5);
             txtRecuperarcion.PasswordChar = false;
-            txtRecuperarcion.Size = new Size(270, 27);
+            txtRecuperarcion.Size = new Size(309, 35);
             txtRecuperarcion.TabIndex = 0;
             txtRecuperarcion.Texts = "";
             txtRecuperarcion.UnderlinedStyle = true;
@@ -107,9 +108,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(22, 215);
+            label1.Location = new Point(25, 287);
             label1.Name = "label1";
-            label1.Size = new Size(155, 22);
+            label1.Size = new Size(193, 27);
             label1.TabIndex = 12;
             label1.Text = "Ingresa tu email";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -117,10 +118,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(53, 48);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(61, 64);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(214, 76);
+            pictureBox1.Size = new Size(245, 101);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
@@ -136,9 +136,10 @@
             BotonEnviarCodigo.FlatStyle = FlatStyle.Flat;
             BotonEnviarCodigo.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonEnviarCodigo.ForeColor = Color.White;
-            BotonEnviarCodigo.Location = new Point(168, 381);
+            BotonEnviarCodigo.Location = new Point(192, 508);
+            BotonEnviarCodigo.Margin = new Padding(3, 4, 3, 4);
             BotonEnviarCodigo.Name = "BotonEnviarCodigo";
-            BotonEnviarCodigo.Size = new Size(134, 40);
+            BotonEnviarCodigo.Size = new Size(153, 53);
             BotonEnviarCodigo.TabIndex = 2;
             BotonEnviarCodigo.Text = "Recuperar";
             BotonEnviarCodigo.TextColor = Color.White;
@@ -156,9 +157,10 @@
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(17, 381);
+            rjButton1.Location = new Point(19, 508);
+            rjButton1.Margin = new Padding(3, 4, 3, 4);
             rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(124, 40);
+            rjButton1.Size = new Size(142, 53);
             rjButton1.TabIndex = 1;
             rjButton1.Text = "Cancelar";
             rjButton1.TextColor = Color.White;
@@ -167,10 +169,10 @@
             // 
             // RecuperarContraseña
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(127, 127, 127);
-            ClientSize = new Size(320, 450);
+            ClientSize = new Size(366, 600);
             Controls.Add(rjButton1);
             Controls.Add(BotonEnviarCodigo);
             Controls.Add(pictureBox1);
@@ -178,9 +180,11 @@
             Controls.Add(label1);
             Controls.Add(MoverVentanaRecuperarContraseña);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "RecuperarContraseña";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "RecuperarContraseña";
+            Text = "Recuperar contraseña";
             MoverVentanaRecuperarContraseña.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
