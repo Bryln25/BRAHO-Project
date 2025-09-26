@@ -254,7 +254,7 @@
             Controls.Add(MoverVentanaInicioSesion);
             FormBorderStyle = FormBorderStyle.None;
             Name = "IniciodeSesion";
-            Opacity = 0.85D;
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IniciodeSesion";
             Load += IniciodeSesion_Load;

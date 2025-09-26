@@ -12,7 +12,7 @@ namespace BRAHO_Project
         public static SqlConnection ObtenerConexion()
         {
             SqlConnection conexion = new SqlConnection(
-                @"Data Source=25.39.110.125,1433;Initial Catalog=BrahoDB;User ID=user1;Password=12345;Encrypt=False"
+                @"Data Source=25.39.110.125,1433;Initial Catalog=BrahoDB;User ID=user1;Password=12345;Encrypt=False;"
             );
 
             try
