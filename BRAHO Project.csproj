@@ -10,7 +10,12 @@
 
 		<!-- Opciones para DPI -->
 		<ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+		<ApplicationIcon>logobrahoo.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="logobrahoo.ico" />
+	</ItemGroup>
 
 
 	<ItemGroup>
