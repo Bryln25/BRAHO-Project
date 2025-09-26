@@ -136,7 +136,6 @@
             logouser.TabIndex = 1;
             logouser.TabStop = false;
             logouser.Click += logouser_Click;
-            logouser.Resize += logouser_Resize;
             // 
             // lblNombre
             // 

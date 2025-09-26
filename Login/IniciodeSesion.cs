@@ -20,13 +20,14 @@ namespace BRAHO_Project
         public IniciodeSesion()
         {
             InitializeComponent();
+            Funciones.RedondearForm(this);
         }
 
         //Codigo para mover el formulario
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void MoverVentanaInicioSesion_MouseDown(object sender, MouseEventArgs e)
+        {
+            Funciones.MoverForm(this);
+        }
 
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
@@ -38,41 +39,11 @@ namespace BRAHO_Project
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void MoverVentanaInicioSesion_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void IniciodeSesion_Load(object sender, EventArgs e)
-        {
-            int radio = 30; // Ajusta el nivel de redondeado
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                path.StartFigure();
-
-                // Esquinas redondeadas
-                path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
-                path.AddArc(new Rectangle(this.Width - radio, 0, radio, radio), 270, 90);
-                path.AddArc(new Rectangle(this.Width - radio, this.Height - radio, radio, radio), 0, 90);
-                path.AddArc(new Rectangle(0, this.Height - radio, radio, radio), 90, 90);
-
-                path.CloseFigure();
-                this.Region = new Region(path);
-            }
-
-
-        }
-
         private void BotonRegistrarse_Click(object sender, EventArgs e)
         {
             Form FrmAdmin = new FrmAdmin();
             FrmAdmin.Show();
             this.Hide();
-
-            //Form registrarse = new Registrarse();
-            //registrarse.Show();
-            //
         }
 
         private void logueo()

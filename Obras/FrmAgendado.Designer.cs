@@ -1,6 +1,6 @@
 ﻿namespace BRAHO_Project
 {
-    partial class Frmagendado
+    partial class FrmAgendado
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             dgvObrasAgendadas.Size = new Size(955, 447);
             dgvObrasAgendadas.TabIndex = 0;
             // 
-            // Frmagendado
+            // FrmAgendado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -49,7 +49,7 @@
             ClientSize = new Size(979, 471);
             Controls.Add(dgvObrasAgendadas);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Frmagendado";
+            Name = "FrmAgendado";
             Text = "Frmagendado";
             ((System.ComponentModel.ISupportInitialize)dgvObrasAgendadas).EndInit();
             ResumeLayout(false);

@@ -37,7 +37,7 @@ namespace BRAHO_Project
 
         private void btnAgendado_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new Frmagendado());
+            abrirformhijo(new FrmAgendado());
         }
 
         private void btnIniciado_Click(object sender, EventArgs e)

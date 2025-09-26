@@ -13,9 +13,9 @@ namespace BRAHO_Project
         public PaginaPrincipal(Usuario usuarioLogueado)
         {
             InitializeComponent();
+            Funciones.RedondearForm(this);
             usuario = usuarioLogueado;
         }
-
 
         private void PaginaPrincipal_Load(object sender, EventArgs e)
         {
@@ -27,43 +27,25 @@ namespace BRAHO_Project
                     logouser.Image = Image.FromStream(ms);
                 }
             }
-            RedondearImagen(logouser);
+            Funciones.RedondearImagen(logouser);
 
             // Mostrar la información del usuario
             lblNombre.Text = $"Bienvenido, {usuario.Nombre}";
             lblPuesto.Text = $"Rol: {usuario.Puesto}";
             lblEmail.Text = $"Email: {usuario.Email}";
-
-            // Redondear bordes del formulario
-            int radio = 30; // Ajusta el nivel de redondeado
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                path.StartFigure();
-
-                // Esquinas redondeadas
-                path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
-                path.AddArc(new Rectangle(this.Width - radio, 0, radio, radio), 270, 90);
-                path.AddArc(new Rectangle(this.Width - radio, this.Height - radio, radio, radio), 0, 90);
-                path.AddArc(new Rectangle(0, this.Height - radio, radio, radio), 90, 90);
-
-                path.CloseFigure();
-                this.Region = new Region(path);
-            }
         }
 
         //Codigo para mover el formulario
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
+        private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            Funciones.MoverForm(this);
+        }
 
         private void BotonSlide_Click(object sender, EventArgs e)
         {
             timer1.Start();
             desplazar = !desplazar;
         }
-
 
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
@@ -73,13 +55,6 @@ namespace BRAHO_Project
         private void BotonMininizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
-        {
-
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -126,8 +101,6 @@ namespace BRAHO_Project
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
             lblFecha.Text = DateTime.Now.ToLongDateString();
-            //lblHora.Left = (this.ClientSize.Width - lblHora.Width) / 2;
-            //lblFecha.Left = (this.ClientSize.Width - lblFecha.Width) / 2;
         }
 
         private Form formularioactivo = null;
@@ -191,18 +164,8 @@ namespace BRAHO_Project
                     logouser.Image = Image.FromStream(ms);
                 }
             }
-        }
 
-        private void RedondearImagen(PictureBox pictureBox)
-        {
-            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
-            gp.AddEllipse(0, 0, pictureBox.Width - 1, pictureBox.Height - 1);
-            pictureBox.Region = new Region(gp);
-        }
-
-        private void logouser_Resize(object sender, EventArgs e)
-        {
-            RedondearImagen(logouser);
-        }
+            Funciones.RedondearImagen(logouser);
+        }        
     }
 }

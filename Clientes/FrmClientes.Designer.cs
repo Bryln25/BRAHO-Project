@@ -41,6 +41,7 @@
             btnLupa = new PictureBox();
             label6 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            mover = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).BeginInit();
             SuspendLayout();
@@ -160,7 +161,7 @@
             txtBuscar.CaretCustom = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtBuscar.ForeColor = Color.Black;
-            txtBuscar.Location = new Point(1014, 58);
+            txtBuscar.Location = new Point(659, 55);
             txtBuscar.Margin = new Padding(2, 3, 2, 3);
             txtBuscar.MaxLength = 32767;
             txtBuscar.Multiline = false;
@@ -168,7 +169,7 @@
             txtBuscar.OnlyNumbers = false;
             txtBuscar.Padding = new Padding(6, 5, 6, 5);
             txtBuscar.PasswordChar = false;
-            txtBuscar.Size = new Size(347, 35);
+            txtBuscar.Size = new Size(0, 35);
             txtBuscar.TabIndex = 16;
             txtBuscar.Texts = "";
             txtBuscar.UnderlinedStyle = true;
@@ -178,7 +179,7 @@
             // 
             btnLupa.Cursor = Cursors.Hand;
             btnLupa.Image = (Image)resources.GetObject("btnLupa.Image");
-            btnLupa.Location = new Point(963, 46);
+            btnLupa.Location = new Point(611, 49);
             btnLupa.Name = "btnLupa";
             btnLupa.Size = new Size(43, 47);
             btnLupa.SizeMode = PictureBoxSizeMode.Zoom;
@@ -200,6 +201,7 @@
             // 
             // timer1
             // 
+            timer1.Interval = 10;
             timer1.Tick += timer1_Tick;
             // 
             // FrmClientes
@@ -218,7 +220,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmClientes";
             Text = "FrmClientes";
-            Load += FrmClientes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).EndInit();
             ResumeLayout(false);
@@ -234,5 +235,6 @@
         private PictureBox btnLupa;
         private Label label6;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer mover;
     }
 }

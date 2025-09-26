@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BRAHO_Project
 {
-    public partial class Frmagendado : Form
+    public partial class FrmAgendado : Form
     {
-        public Frmagendado()
+        public FrmAgendado()
         {
             InitializeComponent();
         }

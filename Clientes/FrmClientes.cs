@@ -13,11 +13,6 @@ namespace BRAHO_Project
 {
     public partial class FrmClientes : Form
     {
-        private bool barraExpandida = false;
-        private int posOriginal = 10;
-        private int posFinal = 200;  
-        private int velocidad = 4;
-
         private List<Clientes> listaClientes;
         private List<Clientes> listaClientesOriginal = new List<Clientes>();
 
@@ -269,47 +264,40 @@ namespace BRAHO_Project
             ActualizarDataGridView();
         }
 
+
+        private bool barraExpandida = false;        
+
         private void btnLupa_Click(object sender, EventArgs e)
-        {
-            
+        {            
             timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (!barraExpandida)
+        {        
+            if (barraExpandida)
             {
-                // Mover hacia la derecha hasta posFinal
-                txtBuscar.Left += velocidad;
-
-                if (txtBuscar.Left >= posFinal)
+                txtBuscar.Width -= 20;
+                if (txtBuscar.Width <= 0)
                 {
-                    txtBuscar.Left = posFinal;
-                    barraExpandida = true;
-                    txtBuscar.Visible = true;
+                    txtBuscar.Width = 0;
+                    txtBuscar.ActiveControl = null;
+                    barraExpandida = false;
                     timer1.Stop();
                 }
             }
             else
             {
-                // Mover hacia la izquierda hasta posOriginal
-                txtBuscar.Left -= velocidad;
-
-                if (txtBuscar.Left <= posOriginal)
+                txtBuscar.Visible = true;
+                txtBuscar.Width += 20;
+                if (txtBuscar.Width >= 347)
                 {
-                    txtBuscar.Left = posOriginal;
-                    barraExpandida = false;
-                    txtBuscar.Visible = false;
+                    txtBuscar.Width = 347;
+                    barraExpandida = true;
                     timer1.Stop();
                 }
             }
-        }
 
-        private void FrmClientes_Load(object sender, EventArgs e)
-        {
-            txtBuscar.Visible = false;
-            posOriginal = txtBuscar.Left; // posición inicial
-            posFinal = dgvBuscar.Left + dgvBuscar.Width - txtBuscar.Width;
+            
         }
     }
 }

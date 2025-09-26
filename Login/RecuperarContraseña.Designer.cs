@@ -181,7 +181,6 @@
             Name = "RecuperarContraseña";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RecuperarContraseña";
-            Load += RecuperarContraseña_Load;
             MoverVentanaRecuperarContraseña.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();

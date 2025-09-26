@@ -353,7 +353,6 @@
             Opacity = 0.8D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrarse";
-            Load += Registrarse_Load;
             MoverVentanaRegistrarse.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMinimizarRegistrarse).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrarRegistrarse).EndInit();

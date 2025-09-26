@@ -257,7 +257,6 @@
             Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IniciodeSesion";
-            Load += IniciodeSesion_Load;
             MoverVentanaInicioSesion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();

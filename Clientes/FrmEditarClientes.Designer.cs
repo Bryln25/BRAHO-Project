@@ -301,7 +301,6 @@
             Name = "FrmEditarClientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmAgregarClientes";
-            Load += FrmAgregarClientes_Load;
             MouseDown += FrmAgregarClientes_MouseDown;
             ResumeLayout(false);
             PerformLayout();
