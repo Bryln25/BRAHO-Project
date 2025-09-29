@@ -369,10 +369,11 @@
             Controls.Add(txtUsuario);
             Controls.Add(MoverVentanaRegistrarse);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Registrarse";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrarse";
+            Text = "Registrar usuario - BRAHO Project";
             MoverVentanaRegistrarse.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BotonMinimizarRegistrarse).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrarRegistrarse).EndInit();
