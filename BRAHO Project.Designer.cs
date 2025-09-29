@@ -55,6 +55,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             horaFecha = new System.Windows.Forms.Timer(components);
+            pictureBox2 = new PictureBox();
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
             Contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // MenuVertical
@@ -320,6 +322,7 @@
             // 
             // Contenedor
             // 
+            Contenedor.Controls.Add(pictureBox2);
             Contenedor.Controls.Add(lblFecha);
             Contenedor.Controls.Add(lblHora);
             Contenedor.Controls.Add(pictureBox1);
@@ -365,6 +368,16 @@
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(158, 126);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(693, 421);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 3;
+            pictureBox2.TabStop = false;
+            // 
             // PaginaPrincipal
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -388,6 +401,7 @@
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
             Contenedor.ResumeLayout(false);
             Contenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -418,5 +432,6 @@
         private Label lblHora;
         private Label lblFecha;
         private System.Windows.Forms.Timer horaFecha;
+        private PictureBox pictureBox2;
     }
 }

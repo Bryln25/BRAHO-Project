@@ -160,7 +160,7 @@
             txtBuscar.CaretColor = Color.Black;
             txtBuscar.CaretCustom = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtBuscar.ForeColor = Color.Black;
+            txtBuscar.ForeColor = Color.Gainsboro;
             txtBuscar.Location = new Point(659, 55);
             txtBuscar.Margin = new Padding(2, 3, 2, 3);
             txtBuscar.MaxLength = 32767;
@@ -220,6 +220,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmClientes";
             Text = "FrmClientes";
+            Load += FrmClientes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).EndInit();
             ResumeLayout(false);

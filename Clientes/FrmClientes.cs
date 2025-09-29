@@ -243,7 +243,7 @@ namespace BRAHO_Project
 
         private void txtBuscar__TextChanged(object sender, EventArgs e)
         {
-            string filtro = txtBuscar.Texts.Trim().ToLower(); // ToLower una sola vez
+            string filtro = txtBuscar.Texts.Trim().ToLower();
 
             if (string.IsNullOrEmpty(filtro))
             {
@@ -251,7 +251,6 @@ namespace BRAHO_Project
             }
             else
             {
-                // Más eficiente - evita múltiples ToLower()
                 listaClientes = listaClientesOriginal.Where(c =>
                     (c.NombreApellido?.ToLower() ?? "").Contains(filtro) ||
                     (c.Telefono?.ToLower().Replace(" ", "").Replace(")", "") ?? "").Contains(filtro) ||
@@ -265,15 +264,15 @@ namespace BRAHO_Project
         }
 
 
-        private bool barraExpandida = false;        
+        private bool barraExpandida = false;
 
         private void btnLupa_Click(object sender, EventArgs e)
-        {            
+        {
             timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {        
+        {
             if (barraExpandida)
             {
                 txtBuscar.Width -= 20;
@@ -297,7 +296,12 @@ namespace BRAHO_Project
                 }
             }
 
-            
+
+        }
+
+        private void FrmClientes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
