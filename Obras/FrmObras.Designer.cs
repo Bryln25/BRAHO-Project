@@ -99,7 +99,7 @@
             BotonAgendarObra.FlatStyle = FlatStyle.Flat;
             BotonAgendarObra.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonAgendarObra.ForeColor = Color.White;
-            BotonAgendarObra.Location = new Point(1061, 207);
+            BotonAgendarObra.Location = new Point(1061, 445);
             BotonAgendarObra.Margin = new Padding(3, 4, 3, 4);
             BotonAgendarObra.Name = "BotonAgendarObra";
             BotonAgendarObra.Size = new Size(151, 53);
@@ -121,7 +121,7 @@
             BotonCerr.FlatStyle = FlatStyle.Flat;
             BotonCerr.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonCerr.ForeColor = Color.White;
-            BotonCerr.Location = new Point(1061, 360);
+            BotonCerr.Location = new Point(1061, 534);
             BotonCerr.Margin = new Padding(3, 4, 3, 4);
             BotonCerr.Name = "BotonCerr";
             BotonCerr.Size = new Size(151, 53);
@@ -161,12 +161,16 @@
             txtUsuario.BorderColor = Color.FromArgb(255, 165, 11);
             txtUsuario.BorderFocusColor = SystemColors.HotTrack;
             txtUsuario.BorderSize = 6;
+            txtUsuario.CaretColor = Color.Black;
+            txtUsuario.CaretCustom = false;
             txtUsuario.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtUsuario.ForeColor = Color.Black;
             txtUsuario.Location = new Point(630, 27);
             txtUsuario.Margin = new Padding(2, 3, 2, 3);
+            txtUsuario.MaxLength = 32767;
             txtUsuario.Multiline = false;
             txtUsuario.Name = "txtUsuario";
+            txtUsuario.OnlyNumbers = false;
             txtUsuario.Padding = new Padding(6, 5, 6, 5);
             txtUsuario.PasswordChar = false;
             txtUsuario.Size = new Size(347, 35);

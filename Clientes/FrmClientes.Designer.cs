@@ -119,7 +119,7 @@
             BotonCerr.FlatStyle = FlatStyle.Flat;
             BotonCerr.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonCerr.ForeColor = Color.White;
-            BotonCerr.Location = new Point(1055, 357);
+            BotonCerr.Location = new Point(1055, 528);
             BotonCerr.Margin = new Padding(3, 4, 3, 4);
             BotonCerr.Name = "BotonCerr";
             BotonCerr.Size = new Size(151, 53);
@@ -141,7 +141,7 @@
             BotonAgregarCliente.FlatStyle = FlatStyle.Flat;
             BotonAgregarCliente.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonAgregarCliente.ForeColor = Color.White;
-            BotonAgregarCliente.Location = new Point(1055, 204);
+            BotonAgregarCliente.Location = new Point(1055, 443);
             BotonAgregarCliente.Margin = new Padding(3, 4, 3, 4);
             BotonAgregarCliente.Name = "BotonAgregarCliente";
             BotonAgregarCliente.Size = new Size(151, 53);

@@ -50,12 +50,12 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
+            pictureBox2 = new PictureBox();
             lblFecha = new Label();
             lblHora = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             horaFecha = new System.Windows.Forms.Timer(components);
-            pictureBox2 = new PictureBox();
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -332,6 +332,17 @@
             Contenedor.Size = new Size(1041, 617);
             Contenedor.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(135, 122);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(716, 421);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 3;
+            pictureBox2.TabStop = false;
+            // 
             // lblFecha
             // 
             lblFecha.AutoSize = true;
@@ -367,16 +378,6 @@
             // 
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(158, 126);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(693, 421);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
             // 
             // PaginaPrincipal
             // 
