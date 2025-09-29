@@ -247,6 +247,7 @@ namespace BRAHO_Project
 
             if (string.IsNullOrEmpty(filtro))
             {
+                listaClientes.Sort();
                 listaClientes = new List<Clientes>(listaClientesOriginal);
             }
             else

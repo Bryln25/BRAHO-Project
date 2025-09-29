@@ -77,7 +77,7 @@
             txtNombre.CaretColor = Color.Black;
             txtNombre.CaretCustom = false;
             txtNombre.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtNombre.ForeColor = Color.White;
+            txtNombre.ForeColor = Color.Gainsboro;
             txtNombre.Location = new Point(111, 120);
             txtNombre.Margin = new Padding(2, 3, 2, 3);
             txtNombre.MaxLength = 32767;
@@ -112,7 +112,7 @@
             txtTelefono.CaretColor = Color.Black;
             txtTelefono.CaretCustom = false;
             txtTelefono.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtTelefono.ForeColor = Color.White;
+            txtTelefono.ForeColor = Color.Gainsboro;
             txtTelefono.Location = new Point(108, 230);
             txtTelefono.Margin = new Padding(2, 3, 2, 3);
             txtTelefono.MaxLength = 10;
@@ -149,7 +149,7 @@
             txtEmail.CaretColor = Color.Black;
             txtEmail.CaretCustom = false;
             txtEmail.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtEmail.ForeColor = Color.White;
+            txtEmail.ForeColor = Color.Gainsboro;
             txtEmail.Location = new Point(111, 342);
             txtEmail.Margin = new Padding(2, 3, 2, 3);
             txtEmail.MaxLength = 50;
@@ -184,7 +184,7 @@
             txtDireccion.CaretColor = Color.Black;
             txtDireccion.CaretCustom = false;
             txtDireccion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtDireccion.ForeColor = Color.White;
+            txtDireccion.ForeColor = Color.Gainsboro;
             txtDireccion.Location = new Point(557, 120);
             txtDireccion.Margin = new Padding(2, 3, 2, 3);
             txtDireccion.MaxLength = 32767;
@@ -219,7 +219,7 @@
             txtCedula.CaretColor = Color.Black;
             txtCedula.CaretCustom = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtCedula.ForeColor = Color.White;
+            txtCedula.ForeColor = Color.Gainsboro;
             txtCedula.Location = new Point(557, 230);
             txtCedula.Margin = new Padding(2, 3, 2, 3);
             txtCedula.MaxLength = 11;
