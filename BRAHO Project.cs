@@ -13,6 +13,7 @@ namespace BRAHO_Project
         public PaginaPrincipal(Usuario usuarioLogueado)
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.Dpi;
             Funciones.RedondearForm(this);
             usuario = usuarioLogueado;
         }

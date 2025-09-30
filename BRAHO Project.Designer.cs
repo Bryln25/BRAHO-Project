@@ -381,7 +381,8 @@
             // 
             // PaginaPrincipal
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1301, 651);
             Controls.Add(Contenedor);
             Controls.Add(MenuVertical);
