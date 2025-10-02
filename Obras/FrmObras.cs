@@ -57,7 +57,8 @@ namespace BRAHO_Project
 
         private void BotonAgendarObra_Click(object sender, EventArgs e)
         {
-           
+            FrmAgregarObra frmAgregarObra = new FrmAgregarObra();
+            frmAgregarObra.ShowDialog();
         }
     }
 }
