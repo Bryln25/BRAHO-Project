@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BRAHO_Project
+namespace BRAHO_Project.RJControls
 {
     [DefaultEvent("OnSelectedIndexChanged")]
-    class RJComboBox : UserControl
+    public partial class RJComboBox : UserControl
     {
         //Fields
         private Color backColor = Color.WhiteSmoke;
@@ -28,6 +28,7 @@ namespace BRAHO_Project
         //Events
         public event EventHandler OnSelectedIndexChanged;//Default event
 
+        [ToolboxItem(true)]
         //Constructor
         public RJComboBox()
         {
