@@ -70,7 +70,7 @@ namespace BRAHO_Project.RJControls
             this.Controls.Add(lblText);//2
             this.Controls.Add(btnIcon);//1
             this.Controls.Add(cmbList);//0
-            this.MinimumSize = new Size(200, 30);
+            this.MinimumSize = new Size(100, 20);
             this.Size = new Size(200, 30);
             this.ForeColor = Color.DimGray;
             this.Padding = new Padding(borderSize);//Border Size
@@ -355,6 +355,12 @@ namespace BRAHO_Project.RJControls
         {
             this.OnMouseEnter(e);
         }
+
+        private void InitializeComponent()
+        {
+
+        }
+
         //::::+
 
         //Overridden methods
