@@ -50,6 +50,7 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
+            rJtextbox3 = new BRAHO_Project.RJControls.RJtextbox();
             rJtextbox2 = new BRAHO_Project.RJControls.RJtextbox();
             rJtextbox1 = new BRAHO_Project.RJControls.RJtextbox();
             pictureBox5 = new PictureBox();
@@ -60,7 +61,6 @@
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             horaFecha = new System.Windows.Forms.Timer(components);
-            rJtextbox3 = new BRAHO_Project.RJControls.RJtextbox();
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -346,8 +346,33 @@
             Contenedor.Size = new Size(1041, 617);
             Contenedor.TabIndex = 2;
             // 
+            // rJtextbox3
+            // 
+            rJtextbox3.Anchor = AnchorStyles.Top;
+            rJtextbox3.AutoSize = true;
+            rJtextbox3.BackColor = SystemColors.Window;
+            rJtextbox3.BorderColor = Color.FromArgb(255, 165, 11);
+            rJtextbox3.BorderFocusColor = Color.HotPink;
+            rJtextbox3.BorderSize = 2;
+            rJtextbox3.CaretColor = Color.Black;
+            rJtextbox3.CaretCustom = false;
+            rJtextbox3.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rJtextbox3.ForeColor = Color.DimGray;
+            rJtextbox3.Location = new Point(204, 457);
+            rJtextbox3.MaxLength = 32767;
+            rJtextbox3.Multiline = false;
+            rJtextbox3.Name = "rJtextbox3";
+            rJtextbox3.OnlyNumbers = false;
+            rJtextbox3.Padding = new Padding(7);
+            rJtextbox3.PasswordChar = false;
+            rJtextbox3.Size = new Size(727, 37);
+            rJtextbox3.TabIndex = 8;
+            rJtextbox3.Texts = "El respeto: Valoramos y respetamos las ideas y convicciones a cada socio, colaborador y cliente. ";
+            rJtextbox3.UnderlinedStyle = false;
+            // 
             // rJtextbox2
             // 
+            rJtextbox2.Anchor = AnchorStyles.Top;
             rJtextbox2.AutoSize = true;
             rJtextbox2.BackColor = SystemColors.Window;
             rJtextbox2.BorderColor = Color.FromArgb(255, 165, 11);
@@ -357,7 +382,7 @@
             rJtextbox2.CaretCustom = false;
             rJtextbox2.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox2.ForeColor = Color.DimGray;
-            rJtextbox2.Location = new Point(204, 245);
+            rJtextbox2.Location = new Point(204, 313);
             rJtextbox2.MaxLength = 32767;
             rJtextbox2.Multiline = false;
             rJtextbox2.Name = "rJtextbox2";
@@ -366,11 +391,12 @@
             rJtextbox2.PasswordChar = false;
             rJtextbox2.Size = new Size(727, 37);
             rJtextbox2.TabIndex = 7;
-            rJtextbox2.Texts = "Ser exitosos y distintivos, enfocados en crecimiento sostenido y ganancias justas. ";
+            rJtextbox2.Texts = "Convertir sueños en realidades inmobiliarias que agregan valor a cada cliente.";
             rJtextbox2.UnderlinedStyle = false;
             // 
             // rJtextbox1
             // 
+            rJtextbox1.Anchor = AnchorStyles.Top;
             rJtextbox1.AutoSize = true;
             rJtextbox1.BackColor = SystemColors.Window;
             rJtextbox1.BorderColor = Color.FromArgb(255, 165, 11);
@@ -380,7 +406,7 @@
             rJtextbox1.CaretCustom = false;
             rJtextbox1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox1.ForeColor = Color.DimGray;
-            rJtextbox1.Location = new Point(204, 153);
+            rJtextbox1.Location = new Point(204, 173);
             rJtextbox1.MaxLength = 32767;
             rJtextbox1.Multiline = false;
             rJtextbox1.Name = "rJtextbox1";
@@ -396,7 +422,7 @@
             // 
             pictureBox5.Anchor = AnchorStyles.Top;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(135, 325);
+            pictureBox5.Location = new Point(135, 446);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(63, 57);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -407,7 +433,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.Top;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(135, 235);
+            pictureBox4.Location = new Point(135, 303);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(63, 57);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -418,7 +444,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(135, 142);
+            pictureBox2.Location = new Point(135, 162);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(63, 57);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -460,29 +486,6 @@
             // 
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick;
-            // 
-            // rJtextbox3
-            // 
-            rJtextbox3.AutoSize = true;
-            rJtextbox3.BackColor = SystemColors.Window;
-            rJtextbox3.BorderColor = Color.FromArgb(255, 165, 11);
-            rJtextbox3.BorderFocusColor = Color.HotPink;
-            rJtextbox3.BorderSize = 2;
-            rJtextbox3.CaretColor = Color.Black;
-            rJtextbox3.CaretCustom = false;
-            rJtextbox3.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rJtextbox3.ForeColor = Color.DimGray;
-            rJtextbox3.Location = new Point(204, 336);
-            rJtextbox3.MaxLength = 32767;
-            rJtextbox3.Multiline = false;
-            rJtextbox3.Name = "rJtextbox3";
-            rJtextbox3.OnlyNumbers = false;
-            rJtextbox3.Padding = new Padding(7);
-            rJtextbox3.PasswordChar = false;
-            rJtextbox3.Size = new Size(727, 37);
-            rJtextbox3.TabIndex = 8;
-            rJtextbox3.Texts = "Ser exitosos y distintivos, enfocados en crecimiento sostenido y ganancias justas. ";
-            rJtextbox3.UnderlinedStyle = false;
             // 
             // PaginaPrincipal
             // 
