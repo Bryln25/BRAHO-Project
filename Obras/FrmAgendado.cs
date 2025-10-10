@@ -19,6 +19,7 @@ namespace BRAHO_Project
         {
             InitializeComponent();
             ConfigurarDataGridView();
+            MostrarObras();
         }
 
         private void ConfigurarDataGridView()
@@ -60,7 +61,7 @@ namespace BRAHO_Project
             DataGridViewComboBoxColumn colEstado = new DataGridViewComboBoxColumn();
             colEstado.Name = "Estado";
             colEstado.HeaderText = "ESTADO";
-            colEstado.FillWeight = 10;
+            colEstado.FillWeight = 20;
 
             // Columnas de botones (usaremos imágenes)
             DataGridViewImageColumn colVer = new DataGridViewImageColumn();
@@ -118,16 +119,15 @@ namespace BRAHO_Project
 
         public void ActualizarDataGridView()
         {
-            dgvObrasAgendadas.Rows.Clear();
-            Obras obras = new Obras();
+            dgvObrasAgendadas.Rows.Clear();         
 
-            foreach (var cliente in listaObras)
+            foreach (var obra in listaObras)
             {
                 int rowIndex = dgvObrasAgendadas.Rows.Add(
-                    obras.TipoObra,
-                    obras.Ubicacion,
-                    obras.FechaInicio,
-                    obras.FechaFinal
+                    obra.TipoObra,
+                    obra.Ubicacion,
+                    obra.FechaInicio,
+                    obra.FechaFinal
                 );
 
                 // Asignar imágenes a las columnas de botones

@@ -103,7 +103,6 @@ namespace BRAHO_Project
         public void ActualizarDataGridView()
         {
             dgvBuscar.Rows.Clear();
-            Clientes clientes = new Clientes();
 
             foreach (var cliente in listaClientes)
             {
