@@ -66,9 +66,11 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvObrasAgendadas.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvObrasAgendadas.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvObrasAgendadas.EnableHeadersVisualStyles = false;
             dgvObrasAgendadas.Location = new Point(13, 16);
-            dgvObrasAgendadas.Margin = new Padding(5, 5, 5, 5);
+            dgvObrasAgendadas.Margin = new Padding(5);
+            dgvObrasAgendadas.MultiSelect = false;
             dgvObrasAgendadas.Name = "dgvObrasAgendadas";
             dgvObrasAgendadas.ReadOnly = true;
             dgvObrasAgendadas.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -93,7 +95,6 @@
             dgvObrasAgendadas.Size = new Size(1146, 536);
             dgvObrasAgendadas.TabIndex = 12;
             dgvObrasAgendadas.TabStop = false;
-            dgvObrasAgendadas.EditingControlShowing += dgvObrasAgendadas_EditingControlShowing;
             // 
             // FrmAgendado
             // 
@@ -103,7 +104,7 @@
             ClientSize = new Size(1175, 565);
             Controls.Add(dgvObrasAgendadas);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FrmAgendado";
             Text = "Frmagendado";
             ((System.ComponentModel.ISupportInitialize)dgvObrasAgendadas).EndInit();

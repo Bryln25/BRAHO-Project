@@ -18,7 +18,7 @@ namespace BRAHO_Project
         public string FechaFinal { get; set; }
         public string CondicionPago { get; set; }
         public string Recordatorio { get; set; }
-        public string Estado { get; set; }
+        public string Estado { get; set; } = "AGENDADO";
 
 
 

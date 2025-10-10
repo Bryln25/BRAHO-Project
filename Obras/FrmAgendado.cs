@@ -24,7 +24,6 @@ namespace BRAHO_Project
 
         private void ConfigurarDataGridView()
         {
-
             dgvObrasAgendadas.EnableHeadersVisualStyles = false;
             dgvObrasAgendadas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
             dgvObrasAgendadas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -58,7 +57,7 @@ namespace BRAHO_Project
             colFechaFinal.HeaderText = "FECHA FINAL";
             colFechaFinal.FillWeight = 20;
 
-            DataGridViewComboBoxColumn colEstado = new DataGridViewComboBoxColumn();
+            DataGridViewTextBoxColumn colEstado = new DataGridViewTextBoxColumn();
             colEstado.Name = "Estado";
             colEstado.HeaderText = "ESTADO";
             colEstado.FillWeight = 20;
@@ -82,21 +81,10 @@ namespace BRAHO_Project
             colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             colEliminar.FillWeight = 8;
 
-            // Añadir valores al ComboBox
-            colEstado.Items.Add("AGENDADO");
-            colEstado.Items.Add("INICIADO");
-            colEstado.Items.Add("TERMINADO");
-
-            // Asegurar que sea editable
-            colEstado.DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton;
-
-            // Insertar la columna donde quieras (antes de los botones)
-            //dgvObrasAgendadas.Columns.Insert(5, colEstado); // Insertar en posición 5 (antes de botones)
-
             // Agregar todas las columnas
             dgvObrasAgendadas.Columns.AddRange(new DataGridViewColumn[] {
                 colTipo, colUbicacion, colFechaInicio, colFechaFinal,
-                colVer, colEditar, colEliminar, colEstado
+                colEstado, colVer, colEditar, colEliminar
             });
         }
 
@@ -123,14 +111,12 @@ namespace BRAHO_Project
 
             foreach (var obra in listaObras)
             {
+
                 int rowIndex = dgvObrasAgendadas.Rows.Add(
                     obra.TipoObra,
                     obra.Ubicacion,
                     obra.FechaInicio,
                     obra.FechaFinal,
-                    null, // ← Aquí va el valor del boton ver
-                    null, // ← Aquí va el valor del botón Editar
-                    null, // ← Aquí va el valor del botón Eliminar
                     obra.Estado
                 );
 
@@ -227,19 +213,5 @@ namespace BRAHO_Project
             }
         }
 
-        private void dgvObrasAgendadas_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (dgvObrasAgendadas.CurrentCell.ColumnIndex == dgvObrasAgendadas.Columns["Estado"].Index)
-            {
-                if (e.Control is ComboBox combo)
-                {
-                    // Aquí puedes llenar dinámicamente el ComboBox según la fila
-                    combo.Items.Clear();
-                    combo.Items.Add("ACTIVO");
-                    combo.Items.Add("INACTIVO");
-                    combo.Items.Add("PENDIENTE");
-                }
-            }
-        }
     }
 }
