@@ -356,6 +356,7 @@
             rJtextbox3.BorderSize = 2;
             rJtextbox3.CaretColor = Color.Black;
             rJtextbox3.CaretCustom = false;
+            rJtextbox3.Enabled = false;
             rJtextbox3.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox3.ForeColor = Color.DimGray;
             rJtextbox3.Location = new Point(204, 457);
@@ -380,6 +381,7 @@
             rJtextbox2.BorderSize = 2;
             rJtextbox2.CaretColor = Color.Black;
             rJtextbox2.CaretCustom = false;
+            rJtextbox2.Enabled = false;
             rJtextbox2.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox2.ForeColor = Color.DimGray;
             rJtextbox2.Location = new Point(204, 313);
@@ -404,6 +406,7 @@
             rJtextbox1.BorderSize = 2;
             rJtextbox1.CaretColor = Color.Black;
             rJtextbox1.CaretCustom = false;
+            rJtextbox1.Enabled = false;
             rJtextbox1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox1.ForeColor = Color.DimGray;
             rJtextbox1.Location = new Point(204, 173);
