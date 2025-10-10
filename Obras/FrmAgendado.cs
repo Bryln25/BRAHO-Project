@@ -119,7 +119,7 @@ namespace BRAHO_Project
 
         public void ActualizarDataGridView()
         {
-            dgvObrasAgendadas.Rows.Clear();         
+            dgvObrasAgendadas.Rows.Clear();
 
             foreach (var obra in listaObras)
             {
@@ -127,7 +127,11 @@ namespace BRAHO_Project
                     obra.TipoObra,
                     obra.Ubicacion,
                     obra.FechaInicio,
-                    obra.FechaFinal
+                    obra.FechaFinal,
+                    null, // ← Aquí va el valor del boton ver
+                    null, // ← Aquí va el valor del botón Editar
+                    null, // ← Aquí va el valor del botón Eliminar
+                    obra.Estado
                 );
 
                 // Asignar imágenes a las columnas de botones
@@ -223,5 +227,19 @@ namespace BRAHO_Project
             }
         }
 
+        private void dgvObrasAgendadas_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvObrasAgendadas.CurrentCell.ColumnIndex == dgvObrasAgendadas.Columns["Estado"].Index)
+            {
+                if (e.Control is ComboBox combo)
+                {
+                    // Aquí puedes llenar dinámicamente el ComboBox según la fila
+                    combo.Items.Clear();
+                    combo.Items.Add("ACTIVO");
+                    combo.Items.Add("INACTIVO");
+                    combo.Items.Add("PENDIENTE");
+                }
+            }
+        }
     }
 }
