@@ -50,6 +50,7 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
+            rJtextbox2 = new BRAHO_Project.RJControls.RJtextbox();
             rJtextbox1 = new BRAHO_Project.RJControls.RJtextbox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -59,6 +60,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             horaFecha = new System.Windows.Forms.Timer(components);
+            rJtextbox3 = new BRAHO_Project.RJControls.RJtextbox();
             MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
@@ -327,6 +329,9 @@
             // 
             // Contenedor
             // 
+            Contenedor.BackColor = SystemColors.Window;
+            Contenedor.Controls.Add(rJtextbox3);
+            Contenedor.Controls.Add(rJtextbox2);
             Contenedor.Controls.Add(rJtextbox1);
             Contenedor.Controls.Add(pictureBox5);
             Contenedor.Controls.Add(pictureBox4);
@@ -335,10 +340,34 @@
             Contenedor.Controls.Add(lblHora);
             Contenedor.Controls.Add(pictureBox1);
             Contenedor.Dock = DockStyle.Fill;
+            Contenedor.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Contenedor.Location = new Point(260, 34);
             Contenedor.Name = "Contenedor";
             Contenedor.Size = new Size(1041, 617);
             Contenedor.TabIndex = 2;
+            // 
+            // rJtextbox2
+            // 
+            rJtextbox2.AutoSize = true;
+            rJtextbox2.BackColor = SystemColors.Window;
+            rJtextbox2.BorderColor = Color.FromArgb(255, 165, 11);
+            rJtextbox2.BorderFocusColor = Color.HotPink;
+            rJtextbox2.BorderSize = 2;
+            rJtextbox2.CaretColor = Color.Black;
+            rJtextbox2.CaretCustom = false;
+            rJtextbox2.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rJtextbox2.ForeColor = Color.DimGray;
+            rJtextbox2.Location = new Point(204, 245);
+            rJtextbox2.MaxLength = 32767;
+            rJtextbox2.Multiline = false;
+            rJtextbox2.Name = "rJtextbox2";
+            rJtextbox2.OnlyNumbers = false;
+            rJtextbox2.Padding = new Padding(7);
+            rJtextbox2.PasswordChar = false;
+            rJtextbox2.Size = new Size(727, 37);
+            rJtextbox2.TabIndex = 7;
+            rJtextbox2.Texts = "Ser exitosos y distintivos, enfocados en crecimiento sostenido y ganancias justas. ";
+            rJtextbox2.UnderlinedStyle = false;
             // 
             // rJtextbox1
             // 
@@ -349,25 +378,25 @@
             rJtextbox1.BorderSize = 2;
             rJtextbox1.CaretColor = Color.Black;
             rJtextbox1.CaretCustom = false;
-            rJtextbox1.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rJtextbox1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox1.ForeColor = Color.DimGray;
-            rJtextbox1.Location = new Point(216, 164);
+            rJtextbox1.Location = new Point(204, 153);
             rJtextbox1.MaxLength = 32767;
             rJtextbox1.Multiline = false;
             rJtextbox1.Name = "rJtextbox1";
             rJtextbox1.OnlyNumbers = false;
             rJtextbox1.Padding = new Padding(7);
             rJtextbox1.PasswordChar = false;
-            rJtextbox1.Size = new Size(312, 35);
+            rJtextbox1.Size = new Size(727, 37);
             rJtextbox1.TabIndex = 6;
-            rJtextbox1.Texts = "";
+            rJtextbox1.Texts = "Ser exitosos y distintivos, enfocados en crecimiento sostenido y ganancias justas. ";
             rJtextbox1.UnderlinedStyle = false;
             // 
             // pictureBox5
             // 
             pictureBox5.Anchor = AnchorStyles.Top;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(135, 326);
+            pictureBox5.Location = new Point(135, 325);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(63, 57);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -432,6 +461,29 @@
             horaFecha.Enabled = true;
             horaFecha.Tick += horaFecha_Tick;
             // 
+            // rJtextbox3
+            // 
+            rJtextbox3.AutoSize = true;
+            rJtextbox3.BackColor = SystemColors.Window;
+            rJtextbox3.BorderColor = Color.FromArgb(255, 165, 11);
+            rJtextbox3.BorderFocusColor = Color.HotPink;
+            rJtextbox3.BorderSize = 2;
+            rJtextbox3.CaretColor = Color.Black;
+            rJtextbox3.CaretCustom = false;
+            rJtextbox3.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rJtextbox3.ForeColor = Color.DimGray;
+            rJtextbox3.Location = new Point(204, 336);
+            rJtextbox3.MaxLength = 32767;
+            rJtextbox3.Multiline = false;
+            rJtextbox3.Name = "rJtextbox3";
+            rJtextbox3.OnlyNumbers = false;
+            rJtextbox3.Padding = new Padding(7);
+            rJtextbox3.PasswordChar = false;
+            rJtextbox3.Size = new Size(727, 37);
+            rJtextbox3.TabIndex = 8;
+            rJtextbox3.Texts = "Ser exitosos y distintivos, enfocados en crecimiento sostenido y ganancias justas. ";
+            rJtextbox3.UnderlinedStyle = false;
+            // 
             // PaginaPrincipal
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -493,5 +545,7 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
         private RJControls.RJtextbox rJtextbox1;
+        private RJControls.RJtextbox rJtextbox2;
+        private RJControls.RJtextbox rJtextbox3;
     }
 }
