@@ -50,6 +50,9 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
+            rJtextbox1 = new BRAHO_Project.RJControls.RJtextbox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
             pictureBox2 = new PictureBox();
             lblFecha = new Label();
             lblHora = new Label();
@@ -65,6 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
             Contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -322,6 +327,9 @@
             // 
             // Contenedor
             // 
+            Contenedor.Controls.Add(rJtextbox1);
+            Contenedor.Controls.Add(pictureBox5);
+            Contenedor.Controls.Add(pictureBox4);
             Contenedor.Controls.Add(pictureBox2);
             Contenedor.Controls.Add(lblFecha);
             Contenedor.Controls.Add(lblHora);
@@ -332,13 +340,58 @@
             Contenedor.Size = new Size(1041, 617);
             Contenedor.TabIndex = 2;
             // 
+            // rJtextbox1
+            // 
+            rJtextbox1.AutoSize = true;
+            rJtextbox1.BackColor = SystemColors.Window;
+            rJtextbox1.BorderColor = Color.FromArgb(255, 165, 11);
+            rJtextbox1.BorderFocusColor = Color.HotPink;
+            rJtextbox1.BorderSize = 2;
+            rJtextbox1.CaretColor = Color.Black;
+            rJtextbox1.CaretCustom = false;
+            rJtextbox1.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rJtextbox1.ForeColor = Color.DimGray;
+            rJtextbox1.Location = new Point(216, 164);
+            rJtextbox1.MaxLength = 32767;
+            rJtextbox1.Multiline = false;
+            rJtextbox1.Name = "rJtextbox1";
+            rJtextbox1.OnlyNumbers = false;
+            rJtextbox1.Padding = new Padding(7);
+            rJtextbox1.PasswordChar = false;
+            rJtextbox1.Size = new Size(312, 35);
+            rJtextbox1.TabIndex = 6;
+            rJtextbox1.Texts = "";
+            rJtextbox1.UnderlinedStyle = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = AnchorStyles.Top;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(135, 326);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(63, 57);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 5;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Top;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(135, 235);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(63, 57);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 4;
+            pictureBox4.TabStop = false;
+            // 
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.Top;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(135, 122);
+            pictureBox2.Location = new Point(135, 142);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(716, 421);
+            pictureBox2.Size = new Size(63, 57);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
@@ -403,6 +456,8 @@
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
             Contenedor.ResumeLayout(false);
             Contenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
@@ -435,5 +490,8 @@
         private Label lblFecha;
         private System.Windows.Forms.Timer horaFecha;
         private PictureBox pictureBox2;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
+        private RJControls.RJtextbox rJtextbox1;
     }
 }

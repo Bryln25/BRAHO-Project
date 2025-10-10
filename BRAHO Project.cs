@@ -167,6 +167,8 @@ namespace BRAHO_Project
             }
 
             Funciones.RedondearImagen(logouser);
-        }        
+        }
+
+
     }
 }

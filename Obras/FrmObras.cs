@@ -16,6 +16,7 @@ namespace BRAHO_Project
         public FrmObras()
         {
             InitializeComponent();
+            
 
 
         }
@@ -60,5 +61,7 @@ namespace BRAHO_Project
             FrmAgregarObra frmAgregarObra = new FrmAgregarObra();
             frmAgregarObra.ShowDialog();
         }
+
+
     }
 }
