@@ -9,8 +9,9 @@ namespace BRAHO_Project
     public class Obras
     {
         public int IdObra { get; set; }
+        public int IDCliente { get; set; }
+        public string NombreObra { get; set; }
         public string TipoObra { get; set; }
-        public string AlcanceObra { get; set; }
         public string Ubicacion { get; set; }
         public string MetrosCuadrados { get; set; }
         public string Presupuesto { get; set; }
@@ -25,17 +26,17 @@ namespace BRAHO_Project
         {
         }
 
-        public Obras(int idobra, string tipoobra, string alcanceobra, string ubicacion, string metroscuadrados, string presupuesto, string fechaInicio, string fechaFinal, string recordatorio, string estado)
+        public Obras(int idobra, int idCliente, string nombreObra, string tipoobra, string ubicacion, string metroscuadrados, string presupuesto, string fechaInicio, string fechaFinal, string recordatorio, string estado)
         {
             IdObra = idobra;
+            IDCliente = idCliente;
+            NombreObra = nombreObra;
             TipoObra = tipoobra;
-            AlcanceObra = alcanceobra;
             Ubicacion = ubicacion;
             MetrosCuadrados = metroscuadrados;
             Presupuesto = presupuesto;
             FechaInicio = fechaInicio;
-            FechaFinal = fechaFinal;
-           
+            FechaFinal = fechaFinal;           
             Recordatorio = recordatorio;
             Estado = estado;
         }

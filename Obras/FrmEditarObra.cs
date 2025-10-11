@@ -17,16 +17,26 @@ namespace BRAHO_Project
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
+
+
+            cbCliente.DataSource = ObrasDAL.CargarClientes();
+            cbCliente.DisplayMember = "NombreApellido";
+            cbCliente.ValueMember = "IDCliente";
+            cbCliente.SelectedIndex = -1;
+            txtNombre.Texts = obras.NombreObra;
+            cbCliente.SelectedValue = obras.IDCliente;
             cbTipo.Texts = obras.TipoObra;
             txtUbicacion.Texts = obras.Ubicacion;
             txtMetros.Texts = obras.MetrosCuadrados;
             txtPresupuesto.Texts = obras.Presupuesto;
             dtpFechaInicio.Value = DateTime.Parse(obras.FechaInicio);
             dtpFechaFinal.Value = DateTime.Parse(obras.FechaFinal);
-            txtAlcance.Texts = obras.AlcanceObra;
             txtRecordatorio.Texts = obras.Recordatorio;
             cbEstado.Texts = obras.Estado;
+        }
 
+        private void FrmEditarObra_Load(object sender, EventArgs e)
+        {
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)
@@ -44,8 +54,9 @@ namespace BRAHO_Project
             Obras obra = new Obras();
 
             obra.IdObra = obras.IdObra;
+            obra.IDCliente = (int)cbCliente.SelectedValue;
+            obra.NombreObra = txtNombre.Texts.Trim();
             obra.TipoObra = cbTipo.Texts.Trim();
-            obra.AlcanceObra = txtAlcance.Texts.Trim();
             obra.Ubicacion = txtUbicacion.Texts.Trim();
             obra.MetrosCuadrados = txtMetros.Texts.Trim();
             obra.Presupuesto = txtPresupuesto.Texts.Trim();
@@ -59,12 +70,13 @@ namespace BRAHO_Project
             {
 
                 MessageBox.Show("Obra modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Cierra el formulario después de agregar el cliente
+                this.Close(); 
             }
             else
             {
                 MessageBox.Show("Error al editar la obra. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

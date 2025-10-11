@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,23 +18,21 @@ namespace BRAHO_Project
 
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "INSERT INTO Obras (TipoObra, AlcanceObra, Ubicacion, MetrosCuadrados, Presupuesto, FechaInicio, FechaFinal, Recordatorio, Estado) " +
-                                   "VALUES (@TipoObra, @AlcanceObra, @Ubicacion, @MetrosCuadrados, @Presupuesto, @FechaInicio, @FechaFinal, @Recordatorio, @Estado)";
+                    string query = "INSERT INTO Obras (IDCliente, NombreObra, TipoObra, Ubicacion, MetrosCuadrados, Presupuesto, FechaInicio, FechaFinal, Recordatorio, Estado) " +
+                                   "VALUES (@IDCliente, @NombreObra, @TipoObra, @Ubicacion, @MetrosCuadrados, @Presupuesto, @FechaInicio, @FechaFinal, @Recordatorio, @Estado)";
 
                     SqlCommand comando = new SqlCommand(query, conexion);
 
-
+                    comando.Parameters.AddWithValue("@IDCliente", obras.IDCliente);
+                    comando.Parameters.AddWithValue("@NombreObra", obras.NombreObra);
                     comando.Parameters.AddWithValue("@TipoObra", obras.TipoObra);
-                    comando.Parameters.AddWithValue("@AlcanceObra", obras.AlcanceObra);
                     comando.Parameters.AddWithValue("@Ubicacion", obras.Ubicacion);
                     comando.Parameters.AddWithValue("@MetrosCuadrados", obras.MetrosCuadrados);
                     comando.Parameters.AddWithValue("@Presupuesto", obras.Presupuesto);
                     comando.Parameters.AddWithValue("@FechaInicio", obras.FechaInicio);
-                    comando.Parameters.AddWithValue("@FechaFinal", obras.FechaFinal);
-                    
+                    comando.Parameters.AddWithValue("@FechaFinal", obras.FechaFinal);                    
                     comando.Parameters.AddWithValue("@Recordatorio", obras.Recordatorio);
                     comando.Parameters.AddWithValue("@Estado", obras.Estado);
-
 
                     retorna = comando.ExecuteNonQuery();
                 }
@@ -61,15 +60,16 @@ namespace BRAHO_Project
                 {
                     Obras obras = new Obras();
                     obras.IdObra = reader.GetInt32(0);
-                    obras.TipoObra = reader.GetString(1);
-                    obras.AlcanceObra = reader.GetString(2);
-                    obras.Ubicacion = reader.GetString(3);
-                    obras.MetrosCuadrados = reader.GetString(4);
-                    obras.Presupuesto = reader.GetString(5);
-                    obras.FechaInicio = reader.GetString(6);
-                    obras.FechaFinal = reader.GetString(7);
-                    obras.Recordatorio = reader.GetString(8);
-                    obras.Estado = reader.GetString(9);
+                    obras.IDCliente = reader.GetInt32(1);
+                    obras.NombreObra = reader.GetString(2);
+                    obras.TipoObra = reader.GetString(3);
+                    obras.Ubicacion = reader.GetString(4);
+                    obras.MetrosCuadrados = reader.GetString(5);
+                    obras.Presupuesto = reader.GetString(6);
+                    obras.FechaInicio = reader.GetString(7);
+                    obras.FechaFinal = reader.GetString(8);
+                    obras.Recordatorio = reader.GetString(9);
+                    obras.Estado = reader.GetString(10);
                     Lista.Add(obras);
                 }
 
@@ -88,12 +88,13 @@ namespace BRAHO_Project
                 int retorna = 0;
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "UPDATE Obras SET TipoObra = @TipoObra, AlcanceObra = @AlcanceObra, Ubicacion = @Ubicacion, MetrosCuadrados = @MetrosCuadrados, Presupuesto = @Presupuesto, FechaInicio = @FechaInicio, FechaFinal = @FechaFinal, Recordatorio = @Recordatorio, Estado = @Estado WHERE IdObra = @IdObra";
+                    string query = "UPDATE Obras SET IDCliente = @IDCliente, NombreObra = @NombreObra, TipoObra = @TipoObra, Ubicacion = @Ubicacion, MetrosCuadrados = @MetrosCuadrados, Presupuesto = @Presupuesto, FechaInicio = @FechaInicio, FechaFinal = @FechaFinal, Recordatorio = @Recordatorio, Estado = @Estado WHERE IdObra = @IdObra";
                     SqlCommand comando = new SqlCommand(query, conexion);
 
+                    comando.Parameters.AddWithValue("@IDCliente", obras.IDCliente);
+                    comando.Parameters.AddWithValue("@NombreObra", obras.NombreObra);
                     comando.Parameters.AddWithValue("@IdObra", obras.IdObra);
                     comando.Parameters.AddWithValue("@TipoObra", obras.TipoObra);
-                    comando.Parameters.AddWithValue("@AlcanceObra", obras.AlcanceObra);
                     comando.Parameters.AddWithValue("@Ubicacion", obras.Ubicacion);
                     comando.Parameters.AddWithValue("@MetrosCuadrados", obras.MetrosCuadrados);
                     comando.Parameters.AddWithValue("@Presupuesto", obras.Presupuesto);
@@ -122,7 +123,7 @@ namespace BRAHO_Project
                 {
                     string query = "DELETE FROM Obras WHERE IdObra = @IdObra";
                     SqlCommand comando = new SqlCommand(query, conexion);
-                    comando.Parameters.AddWithValue("@Id", Id);
+                    comando.Parameters.AddWithValue("@IdObra", Id);
                     retorna = comando.ExecuteNonQuery();
                 }
                 return retorna;
@@ -133,6 +134,31 @@ namespace BRAHO_Project
                 return 0;
             }
 
+        }
+
+        public static DataTable CargarClientes()
+        {
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                DataTable tb = new DataTable();
+                try
+                {
+                    string consulta = "SELECT IDCliente, NombreApellido FROM Clientes";
+
+                    SqlCommand cmd = new SqlCommand(consulta, conexion);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    tb.Load(reader);
+
+                    return tb;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar clientes: " + ex.Message);
+                }
+
+                return tb;
+            }
         }
     }
 }

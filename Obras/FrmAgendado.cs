@@ -44,6 +44,11 @@ namespace BRAHO_Project
             // Crear columnas para tus datos de clientes
             dgvObrasAgendadas.Columns.Clear();
 
+            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
+            colNombre.Name = "Nombre";
+            colNombre.HeaderText = "NOMBRE";
+            colNombre.FillWeight = 20;
+
             DataGridViewTextBoxColumn colTipo = new DataGridViewTextBoxColumn();
             colTipo.Name = "TipoObra";
             colTipo.HeaderText = "TIPO";
@@ -92,7 +97,7 @@ namespace BRAHO_Project
 
             // Agregar todas las columnas
             dgvObrasAgendadas.Columns.AddRange(new DataGridViewColumn[] {
-                colTipo, colUbicacion, colFechaInicio, colFechaFinal,
+                colNombre, colTipo, colUbicacion, colFechaInicio, colFechaFinal,
                 colEstado, colVer, colEditar, colEliminar
             });
         }
@@ -122,6 +127,7 @@ namespace BRAHO_Project
             {
 
                 int rowIndex = dgvObrasAgendadas.Rows.Add(
+                    obra.NombreObra,
                     obra.TipoObra,
                     obra.Ubicacion,
                     obra.FechaInicio,
@@ -173,16 +179,6 @@ namespace BRAHO_Project
                             // Crear el formulario destino
 
                             FrmEditarObra frm = new FrmEditarObra(obra, dgvObrasAgendadas);
-                            //Obras obras = new Obras();
-
-
-                            // Pasar valores
-
-                            
-                            
-
-
-                            // Mostrar el formulario
                             frm.ShowDialog();
                             MostrarObras(); // Refrescar la lista después de editar
                         }

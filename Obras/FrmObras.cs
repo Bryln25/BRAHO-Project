@@ -13,12 +13,10 @@ namespace BRAHO_Project
 {
     public partial class FrmObras : Form
     {
-        
         public FrmObras()
         {
             InitializeComponent();
             abrirformhijo(new FrmAgendado());
-            
         }
 
         private Form formularioactivo = null;

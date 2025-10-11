@@ -345,6 +345,16 @@ namespace BRAHO_Project.RJControls
             set { cmbList.ValueMember = value; }
         }
 
+        [Category("RJ Code - Data")]
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public object SelectedValue
+        {
+            get { return cmbList.SelectedValue; }
+            set { cmbList.SelectedValue = value; }
+        }
+
+
         //->Attach label events to user control event
         private void Surface_MouseLeave(object sender, EventArgs e)
         {
