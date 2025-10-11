@@ -58,6 +58,13 @@ namespace BRAHO_Project
         {
             FrmAgregarObra frmAgregarObra = new FrmAgregarObra();
             frmAgregarObra.ShowDialog();
+
+            FrmAgendado frmAgendado = Application.OpenForms["FrmAgendado"] as FrmAgendado;
+
+            if (frmAgendado != null)
+            {
+                frmAgendado.MostrarObras(); 
+            }
         }
 
 
