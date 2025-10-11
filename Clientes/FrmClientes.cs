@@ -150,16 +150,12 @@ namespace BRAHO_Project
                             // Crear el formulario destino
 
                             FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar);
-                            Clientes clientes = new Clientes();
+                            //Clientes clientes = new Clientes();
 
 
                             // Pasar valores
 
-                            cliente.NombreApellido = fila.Cells["NombreApellido"].Value?.ToString();
-                            cliente.Telefono = fila.Cells["Telefono"].Value?.ToString();
-                            cliente.Email = fila.Cells["Email"].Value?.ToString();
-                            cliente.Direccion = fila.Cells["Direccion"].Value?.ToString();
-                            cliente.Cedula = fila.Cells["Cedula"].Value?.ToString();
+                            
 
 
                             // Mostrar el formulario

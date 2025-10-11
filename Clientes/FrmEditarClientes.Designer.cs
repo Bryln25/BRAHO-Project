@@ -276,7 +276,7 @@
             btnEditarCliente.Name = "btnEditarCliente";
             btnEditarCliente.Size = new Size(194, 53);
             btnEditarCliente.TabIndex = 15;
-            btnEditarCliente.Text = "Guardar";
+            btnEditarCliente.Text = "Guardar cambios";
             btnEditarCliente.TextColor = Color.White;
             btnEditarCliente.UseVisualStyleBackColor = false;
             btnEditarCliente.Click += btnEditarCliente_Click;

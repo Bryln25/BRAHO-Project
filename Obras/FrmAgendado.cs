@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.RJControls;
 
 namespace BRAHO_Project
 {
     public partial class FrmAgendado : Form
     {
+        
         private List<Obras> listaObras;
         private List<Obras> listaObrasOriginal = new List<Obras>();
 
@@ -20,6 +22,11 @@ namespace BRAHO_Project
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarObras();
+        }
+
+        public DataGridView dgv
+        {
+            get { return dgvObrasAgendadas; }
         }
 
         private void ConfigurarDataGridView()
@@ -61,6 +68,8 @@ namespace BRAHO_Project
             colEstado.Name = "Estado";
             colEstado.HeaderText = "ESTADO";
             colEstado.FillWeight = 20;
+            
+
 
             // Columnas de botones (usaremos imágenes)
             DataGridViewImageColumn colVer = new DataGridViewImageColumn();
@@ -154,64 +163,65 @@ namespace BRAHO_Project
                 {
                     case "Ver":
                         break;
+                        //jodemos depue
 
                     case "Editar":
-                        //if (dgvObrasAgendadas.CurrentRow != null) // valida que haya fila seleccionada
-                        //{
-                        //    DataGridViewRow fila = dgvObrasAgendadas.CurrentRow;
+                        if (dgvObrasAgendadas.CurrentRow != null) // valida que haya fila seleccionada
+                        {
+                            DataGridViewRow fila = dgvObrasAgendadas.CurrentRow;
 
-                        //    // Crear el formulario destino
+                            // Crear el formulario destino
 
-                        //    FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvObrasAgendadas);
-                        //    Clientes clientes = new Clientes();
-
-
-                        //    // Pasar valores
-
-                        //    cliente.NombreApellido = fila.Cells["NombreApellido"].Value?.ToString();
-                        //    cliente.Telefono = fila.Cells["Telefono"].Value?.ToString();
-                        //    cliente.Email = fila.Cells["Email"].Value?.ToString();
-                        //    cliente.Direccion = fila.Cells["Direccion"].Value?.ToString();
-                        //    cliente.Cedula = fila.Cells["Cedula"].Value?.ToString();
+                            FrmEditarObra frm = new FrmEditarObra(obra, dgvObrasAgendadas);
+                            //Obras obras = new Obras();
 
 
-                        //    // Mostrar el formulario
-                        //    frm.ShowDialog();
-                        //    MostrarClientes(); // Refrescar la lista después de editar
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //}
+                            // Pasar valores
+
+                            
+                            
+
+
+                            // Mostrar el formulario
+                            frm.ShowDialog();
+                            MostrarObras(); // Refrescar la lista después de editar
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
 
 
 
                         break;
 
                     case "Eliminar":
-                        //if (MessageBox.Show($"¿Está seguro que desea eliminar a {cliente.NombreApellido}?",
-                        //    "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        //{
-                        //    // Eliminar de la base de datos
-                        //    int resultado = ClientesDAL.EliminarCliente(cliente.IDCliente);
+                        if (MessageBox.Show($"¿Está seguro que desea eliminar esta obra?",
+                            "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            // Eliminar de la base de datos
+                            int resultado = ObrasDAL.EliminarObra(obra.IdObra);
 
-                        //    if (resultado > 0)
-                        //    {
-                        //        MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    }
-                        //    else
-                        //    {
-                        //        MessageBox.Show("Error al eliminar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //        return;
-                        //    }
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Obra eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar la obra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
 
-                        //    listaClientes.RemoveAt(e.RowIndex);
-                        //    ActualizarDataGridView();
-                        //}
+                            listaObras.RemoveAt(e.RowIndex);
+                            ActualizarDataGridView();
+                        }
                         break;
                 }
             }
         }
+
+
+
 
     }
 }

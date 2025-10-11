@@ -62,6 +62,8 @@ namespace BRAHO_Project
             colEstado.Name = "Estado";
             colEstado.HeaderText = "ESTADO";
             colEstado.FillWeight = 20;
+            colEstado.DefaultCellStyle.BackColor = Color.LightYellow;
+            colEstado.DefaultCellStyle.ForeColor = Color.DarkBlue;
 
             // Columnas de botones (usaremos imágenes)
             DataGridViewImageColumn colVer = new DataGridViewImageColumn();

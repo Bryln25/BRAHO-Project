@@ -1,6 +1,6 @@
 ﻿namespace BRAHO_Project
 {
-    partial class FrmAgregarObra
+    partial class FrmEditarObra
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgregarObra));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarObra));
             panel3 = new Panel();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -42,7 +42,7 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             btnCancelar = new BRAHO_Project.RJControls.RJButton();
-            btnAgregarObra = new BRAHO_Project.RJControls.RJButton();
+            btnEditarObra = new BRAHO_Project.RJControls.RJButton();
             label6 = new Label();
             txtPresupuesto = new BRAHO_Project.RJControls.RJtextbox();
             label5 = new Label();
@@ -62,6 +62,8 @@
             cbCliente = new BRAHO_Project.RJControls.RJComboBox();
             label11 = new Label();
             txtAlcance = new BRAHO_Project.RJControls.RJtextbox();
+            cbEstado = new BRAHO_Project.RJControls.RJComboBox();
+            label9 = new Label();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -238,27 +240,27 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // btnAgregarObra
+            // btnEditarObra
             // 
-            btnAgregarObra.BackColor = Color.FromArgb(255, 165, 11);
-            btnAgregarObra.BackgroundColor = Color.FromArgb(255, 165, 11);
-            btnAgregarObra.BorderColor = Color.PaleVioletRed;
-            btnAgregarObra.BorderRadius = 20;
-            btnAgregarObra.BorderSize = 0;
-            btnAgregarObra.Cursor = Cursors.Hand;
-            btnAgregarObra.FlatAppearance.BorderSize = 0;
-            btnAgregarObra.FlatStyle = FlatStyle.Flat;
-            btnAgregarObra.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAgregarObra.ForeColor = Color.White;
-            btnAgregarObra.Location = new Point(798, 719);
-            btnAgregarObra.Margin = new Padding(3, 4, 3, 4);
-            btnAgregarObra.Name = "btnAgregarObra";
-            btnAgregarObra.Size = new Size(194, 53);
-            btnAgregarObra.TabIndex = 25;
-            btnAgregarObra.Text = "Guardar";
-            btnAgregarObra.TextColor = Color.White;
-            btnAgregarObra.UseVisualStyleBackColor = false;
-            btnAgregarObra.Click += btnAgregarObra_Click;
+            btnEditarObra.BackColor = Color.FromArgb(255, 165, 11);
+            btnEditarObra.BackgroundColor = Color.FromArgb(255, 165, 11);
+            btnEditarObra.BorderColor = Color.PaleVioletRed;
+            btnEditarObra.BorderRadius = 20;
+            btnEditarObra.BorderSize = 0;
+            btnEditarObra.Cursor = Cursors.Hand;
+            btnEditarObra.FlatAppearance.BorderSize = 0;
+            btnEditarObra.FlatStyle = FlatStyle.Flat;
+            btnEditarObra.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEditarObra.ForeColor = Color.White;
+            btnEditarObra.Location = new Point(798, 719);
+            btnEditarObra.Margin = new Padding(3, 4, 3, 4);
+            btnEditarObra.Name = "btnEditarObra";
+            btnEditarObra.Size = new Size(194, 53);
+            btnEditarObra.TabIndex = 25;
+            btnEditarObra.Text = "Guardar cambios";
+            btnEditarObra.TextColor = Color.White;
+            btnEditarObra.UseVisualStyleBackColor = false;
+            btnEditarObra.Click += btnEditarObra_Click;
             // 
             // label6
             // 
@@ -561,12 +563,46 @@
             txtAlcance.Texts = "";
             txtAlcance.UnderlinedStyle = false;
             // 
-            // FrmAgregarObra
+            // cbEstado
+            // 
+            cbEstado.BackColor = Color.FromArgb(64, 64, 64);
+            cbEstado.BorderColor = Color.FromArgb(255, 165, 11);
+            cbEstado.BorderSize = 4;
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstado.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+            cbEstado.ForeColor = Color.Gainsboro;
+            cbEstado.IconColor = Color.White;
+            cbEstado.Items.AddRange(new object[] { "Iniciado", "Terminado" });
+            cbEstado.ListBackColor = Color.FromArgb(230, 228, 245);
+            cbEstado.ListTextColor = Color.DimGray;
+            cbEstado.Location = new Point(69, 735);
+            cbEstado.MinimumSize = new Size(200, 30);
+            cbEstado.Name = "cbEstado";
+            cbEstado.Padding = new Padding(4);
+            cbEstado.Size = new Size(344, 46);
+            cbEstado.TabIndex = 51;
+            cbEstado.Texts = "";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(69, 696);
+            label9.Name = "label9";
+            label9.Size = new Size(88, 27);
+            label9.TabIndex = 52;
+            label9.Text = "Estado";
+            label9.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // FrmEditarObra
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1060, 865);
+            Controls.Add(label9);
+            Controls.Add(cbEstado);
             Controls.Add(txtAlcance);
             Controls.Add(label11);
             Controls.Add(cbCliente);
@@ -586,14 +622,14 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(label6);
-            Controls.Add(btnAgregarObra);
+            Controls.Add(btnEditarObra);
             Controls.Add(btnCancelar);
             Controls.Add(Diseñito);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FrmAgregarObra";
+            Name = "FrmEditarObra";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar una obra - BRAHO Project";
             MouseDown += FrmAgregarObra_MouseDown;
@@ -628,7 +664,7 @@
         private PictureBox BotonMininizar;
         private PictureBox BotonCerrar;
         private RJControls.RJButton btnCancelar;
-        private RJControls.RJButton btnAgregarObra;
+        private RJControls.RJButton btnEditarObra;
         private Label label6;
         private RJControls.RJtextbox txtPresupuesto;
         private Label label5;
@@ -648,5 +684,7 @@
         private RJControls.RJComboBox cbCliente;
         private Label label11;
         private RJControls.RJtextbox txtAlcance;
+        private RJControls.RJComboBox cbEstado;
+        private Label label9;
     }
 }

@@ -29,6 +29,9 @@
 		<Compile Update="Clientes\FrmEditarClientes.cs">
 		  <SubType>Form</SubType>
 		</Compile>
+		<Compile Update="Obras\FrmEditarObra.cs">
+		  <SubType>Form</SubType>
+		</Compile>
 		<Compile Update="Obras\FrmObras.cs">
 		  <SubType>Form</SubType>
 		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>

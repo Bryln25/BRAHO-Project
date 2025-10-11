@@ -10,14 +10,23 @@ using System.Windows.Forms;
 
 namespace BRAHO_Project
 {
-    public partial class FrmAgregarObra : Form
+    public partial class FrmEditarObra : Form
     {
-       
-        public FrmAgregarObra()
+        Obras obras = new Obras();
+        public FrmEditarObra(Obras obras, DataGridView dataGridView)
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
-            
+            cbTipo.Texts = obras.TipoObra;
+            txtUbicacion.Texts = obras.Ubicacion;
+            txtMetros.Texts = obras.MetrosCuadrados;
+            txtPresupuesto.Texts = obras.Presupuesto;
+            dtpFechaInicio.Value = DateTime.Parse(obras.FechaInicio);
+            dtpFechaFinal.Value = DateTime.Parse(obras.FechaFinal);
+            txtAlcance.Texts = obras.AlcanceObra;
+            txtRecordatorio.Texts = obras.Recordatorio;
+            cbEstado.Texts = obras.Estado;
+
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)
@@ -30,10 +39,11 @@ namespace BRAHO_Project
             this.Close();
         }
 
-        private void btnAgregarObra_Click(object sender, EventArgs e)
+        private void btnEditarObra_Click(object sender, EventArgs e)
         {
             Obras obra = new Obras();
 
+            obra.IdObra = obras.IdObra;
             obra.TipoObra = cbTipo.Texts.Trim();
             obra.AlcanceObra = txtAlcance.Texts.Trim();
             obra.Ubicacion = txtUbicacion.Texts.Trim();
@@ -42,18 +52,18 @@ namespace BRAHO_Project
             obra.FechaInicio = dtpFechaInicio.Value.ToString("dd/MM/yyyy").Trim();
             obra.FechaFinal = dtpFechaFinal.Value.ToString("dd/MM/yyyy").Trim();
             obra.Recordatorio = txtRecordatorio.Texts.Trim();
-            
-            int resultado = ObrasDAL.AgregarObra(obra);
+            obra.Estado = cbEstado.Texts.Trim();
+            int resultado = ObrasDAL.EditarObras(obra);
 
             if (resultado > 0)
             {
-                MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               // dgv.Refresh(); // Refresca el DataGridView para mostrar el nuevo cliente
+
+                MessageBox.Show("Obra modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close(); // Cierra el formulario después de agregar el cliente
             }
             else
             {
-                MessageBox.Show("Error al agregar el cliente. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al editar la obra. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

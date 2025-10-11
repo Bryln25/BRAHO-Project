@@ -17,8 +17,8 @@ namespace BRAHO_Project
 
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "INSERT INTO Obras (TipoObra, AlcanceObra, Ubicacion, MetrosCuadrados, Presupuesto, FechaInicio, FechaFinal, CondicionPago, Recordatorio, Estado) " +
-                                   "VALUES (@TipoObra, @AlcanceObra, @Ubicacion, @MetrosCuadrados, @Presupuesto, @FechaInicio, @FechaFinal, @CondicionPago, @Recordatorio, @Estado)";
+                    string query = "INSERT INTO Obras (TipoObra, AlcanceObra, Ubicacion, MetrosCuadrados, Presupuesto, FechaInicio, FechaFinal, Recordatorio, Estado) " +
+                                   "VALUES (@TipoObra, @AlcanceObra, @Ubicacion, @MetrosCuadrados, @Presupuesto, @FechaInicio, @FechaFinal, @Recordatorio, @Estado)";
 
                     SqlCommand comando = new SqlCommand(query, conexion);
 
@@ -30,7 +30,7 @@ namespace BRAHO_Project
                     comando.Parameters.AddWithValue("@Presupuesto", obras.Presupuesto);
                     comando.Parameters.AddWithValue("@FechaInicio", obras.FechaInicio);
                     comando.Parameters.AddWithValue("@FechaFinal", obras.FechaFinal);
-                    comando.Parameters.AddWithValue("@CondicionPago", obras.CondicionPago);
+                    
                     comando.Parameters.AddWithValue("@Recordatorio", obras.Recordatorio);
                     comando.Parameters.AddWithValue("@Estado", obras.Estado);
 
@@ -68,9 +68,8 @@ namespace BRAHO_Project
                     obras.Presupuesto = reader.GetString(5);
                     obras.FechaInicio = reader.GetString(6);
                     obras.FechaFinal = reader.GetString(7);
-                    obras.CondicionPago = reader.GetString(8);
-                    obras.Recordatorio = reader.GetString(9);
-                    obras.Estado = reader.GetString(10);
+                    obras.Recordatorio = reader.GetString(8);
+                    obras.Estado = reader.GetString(9);
                     Lista.Add(obras);
                 }
 
@@ -89,7 +88,7 @@ namespace BRAHO_Project
                 int retorna = 0;
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "UPDATE Obras SET TipoObra = @TipoObra, AlcanceObra = @AlcanceObra, Ubicacion = @Ubicacion, MetrosCuadrados = @MetrosCuadrados, Presupuesto = @Presupuesto, FechaInicio = @FechaInicio, FechaFinal = @FechaFinal, CondicionPago = @CondicionPago, Recordatorio = @Recordatorio, Estado = @Estado WHERE IdObra = @IdObra";
+                    string query = "UPDATE Obras SET TipoObra = @TipoObra, AlcanceObra = @AlcanceObra, Ubicacion = @Ubicacion, MetrosCuadrados = @MetrosCuadrados, Presupuesto = @Presupuesto, FechaInicio = @FechaInicio, FechaFinal = @FechaFinal, Recordatorio = @Recordatorio, Estado = @Estado WHERE IdObra = @IdObra";
                     SqlCommand comando = new SqlCommand(query, conexion);
 
                     comando.Parameters.AddWithValue("@IdObra", obras.IdObra);
@@ -100,7 +99,6 @@ namespace BRAHO_Project
                     comando.Parameters.AddWithValue("@Presupuesto", obras.Presupuesto);
                     comando.Parameters.AddWithValue("@FechaInicio", obras.FechaInicio);
                     comando.Parameters.AddWithValue("@FechaFinal", obras.FechaFinal);
-                    comando.Parameters.AddWithValue("@CondicionPago", obras.CondicionPago);
                     comando.Parameters.AddWithValue("@Recordatorio", obras.Recordatorio);
                     comando.Parameters.AddWithValue("@Estado", obras.Estado);
                     retorna = comando.ExecuteNonQuery();
