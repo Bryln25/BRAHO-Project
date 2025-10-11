@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BRAHO_Project
 {
@@ -39,28 +40,39 @@ namespace BRAHO_Project
 
         private void btnAgregarObra_Click(object sender, EventArgs e)
         {
+
             Obras obra = new Obras();
 
-            obra.IDCliente = (int)cbCliente.SelectedValue;
-            obra.NombreObra = txtNombre.Texts.Trim();
-            obra.TipoObra = cbTipo.Texts.Trim();
-            obra.Ubicacion = txtUbicacion.Texts.Trim();
-            obra.MetrosCuadrados = txtMetros.Texts.Trim();
-            obra.Presupuesto = txtPresupuesto.Texts.Trim();
-            obra.FechaInicio = dtpFechaInicio.Value.ToString("dd/MM/yyyy").Trim();
-            obra.FechaFinal = dtpFechaFinal.Value.ToString("dd/MM/yyyy").Trim();
-            obra.Recordatorio = txtRecordatorio.Texts.Trim();
-
-            int resultado = ObrasDAL.AgregarObra(obra);
-
-            if (resultado > 0)
+            if (cbCliente.SelectedValue == null)
             {
-                MessageBox.Show("Obra agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                MessageBox.Show("Debe seleccionar un cliente antes de agregar la obra.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
-                MessageBox.Show("Error al agregar la Obra. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                obra.IDCliente = (int)cbCliente.SelectedValue;
+                obra.NombreObra = txtNombre.Texts.Trim();
+                obra.TipoObra = cbTipo.Texts.Trim();
+                obra.Ubicacion = txtUbicacion.Texts.Trim();
+                obra.MetrosCuadrados = txtMetros.Texts.Trim();
+                obra.Presupuesto = txtPresupuesto.Texts.Trim();
+                obra.FechaInicio = dtpFechaInicio.Value.ToString("dd/MM/yyyy").Trim();
+                obra.FechaFinal = dtpFechaFinal.Value.ToString("dd/MM/yyyy").Trim();
+                obra.Recordatorio = txtRecordatorio.Texts.Trim();
+
+                int resultado = ObrasDAL.AgregarObra(obra);
+
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Obra agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error al agregar la Obra. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
             }
         }
     }

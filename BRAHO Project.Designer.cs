@@ -101,7 +101,7 @@
             // lblEmail
             // 
             lblEmail.AutoEllipsis = true;
-            lblEmail.BackColor = Color.FromArgb(64, 64, 64);
+            lblEmail.BackColor = Color.FromArgb(102, 102, 102);
             lblEmail.Font = new Font("Century Gothic", 9F);
             lblEmail.ForeColor = Color.White;
             lblEmail.Location = new Point(12, 190);
@@ -113,7 +113,7 @@
             // lblPuesto
             // 
             lblPuesto.AutoEllipsis = true;
-            lblPuesto.BackColor = Color.FromArgb(64, 64, 64);
+            lblPuesto.BackColor = Color.FromArgb(102, 102, 102);
             lblPuesto.Font = new Font("Century Gothic", 9F);
             lblPuesto.ForeColor = Color.White;
             lblPuesto.Location = new Point(12, 170);
@@ -136,7 +136,7 @@
             // 
             // logouser
             // 
-            logouser.BackColor = Color.FromArgb(64, 64, 64);
+            logouser.BackColor = Color.FromArgb(102, 102, 102);
             logouser.Image = (Image)resources.GetObject("logouser.Image");
             logouser.Location = new Point(81, 65);
             logouser.Name = "logouser";
@@ -149,7 +149,7 @@
             // lblNombre
             // 
             lblNombre.AutoEllipsis = true;
-            lblNombre.BackColor = Color.FromArgb(64, 64, 64);
+            lblNombre.BackColor = Color.FromArgb(102, 102, 102);
             lblNombre.Font = new Font("Century Gothic", 9F);
             lblNombre.ForeColor = Color.White;
             lblNombre.Location = new Point(12, 150);
@@ -227,7 +227,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackColor = Color.FromArgb(64, 64, 64);
+            pictureBox3.BackColor = Color.FromArgb(102, 102, 102);
             pictureBox3.Location = new Point(0, 53);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(264, 171);
@@ -329,7 +329,7 @@
             // 
             // Contenedor
             // 
-            Contenedor.BackColor = SystemColors.Window;
+            Contenedor.BackColor = Color.FromArgb(64, 64, 64);
             Contenedor.Controls.Add(rJtextbox3);
             Contenedor.Controls.Add(rJtextbox2);
             Contenedor.Controls.Add(rJtextbox1);
@@ -350,7 +350,7 @@
             // 
             rJtextbox3.Anchor = AnchorStyles.Top;
             rJtextbox3.AutoSize = true;
-            rJtextbox3.BackColor = SystemColors.Window;
+            rJtextbox3.BackColor = Color.FromArgb(64, 64, 64);
             rJtextbox3.BorderColor = Color.FromArgb(255, 165, 11);
             rJtextbox3.BorderFocusColor = Color.HotPink;
             rJtextbox3.BorderSize = 2;
@@ -358,7 +358,7 @@
             rJtextbox3.CaretCustom = false;
             rJtextbox3.Enabled = false;
             rJtextbox3.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rJtextbox3.ForeColor = Color.DimGray;
+            rJtextbox3.ForeColor = Color.White;
             rJtextbox3.Location = new Point(204, 457);
             rJtextbox3.MaxLength = 32767;
             rJtextbox3.Multiline = false;
@@ -375,7 +375,7 @@
             // 
             rJtextbox2.Anchor = AnchorStyles.Top;
             rJtextbox2.AutoSize = true;
-            rJtextbox2.BackColor = SystemColors.Window;
+            rJtextbox2.BackColor = Color.FromArgb(64, 64, 64);
             rJtextbox2.BorderColor = Color.FromArgb(255, 165, 11);
             rJtextbox2.BorderFocusColor = Color.HotPink;
             rJtextbox2.BorderSize = 2;
@@ -383,7 +383,7 @@
             rJtextbox2.CaretCustom = false;
             rJtextbox2.Enabled = false;
             rJtextbox2.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rJtextbox2.ForeColor = Color.DimGray;
+            rJtextbox2.ForeColor = Color.White;
             rJtextbox2.Location = new Point(204, 313);
             rJtextbox2.MaxLength = 32767;
             rJtextbox2.Multiline = false;
@@ -400,7 +400,7 @@
             // 
             rJtextbox1.Anchor = AnchorStyles.Top;
             rJtextbox1.AutoSize = true;
-            rJtextbox1.BackColor = SystemColors.Window;
+            rJtextbox1.BackColor = Color.FromArgb(64, 64, 64);
             rJtextbox1.BorderColor = Color.FromArgb(255, 165, 11);
             rJtextbox1.BorderFocusColor = Color.HotPink;
             rJtextbox1.BorderSize = 2;
@@ -408,7 +408,7 @@
             rJtextbox1.CaretCustom = false;
             rJtextbox1.Enabled = false;
             rJtextbox1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rJtextbox1.ForeColor = Color.DimGray;
+            rJtextbox1.ForeColor = Color.White;
             rJtextbox1.Location = new Point(204, 173);
             rJtextbox1.MaxLength = 32767;
             rJtextbox1.Multiline = false;
@@ -459,7 +459,7 @@
             lblFecha.AutoSize = true;
             lblFecha.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFecha.ForeColor = Color.FromArgb(255, 165, 11);
-            lblFecha.Location = new Point(12, 34);
+            lblFecha.Location = new Point(18, 587);
             lblFecha.Margin = new Padding(4, 0, 4, 0);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(84, 21);
@@ -469,13 +469,14 @@
             // 
             // lblHora
             // 
+            lblHora.Anchor = AnchorStyles.None;
             lblHora.AutoSize = true;
-            lblHora.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHora.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHora.ForeColor = Color.FromArgb(255, 165, 11);
-            lblHora.Location = new Point(8, 7);
+            lblHora.Location = new Point(895, 587);
             lblHora.Margin = new Padding(4, 0, 4, 0);
             lblHora.Name = "lblHora";
-            lblHora.Size = new Size(94, 27);
+            lblHora.Size = new Size(68, 21);
             lblHora.TabIndex = 1;
             lblHora.Text = "lblHora";
             lblHora.TextAlign = ContentAlignment.MiddleLeft;

@@ -23,6 +23,7 @@ namespace BRAHO_Project
             cbCliente.DisplayMember = "NombreApellido";
             cbCliente.ValueMember = "IDCliente";
             cbCliente.SelectedIndex = -1;
+            this.obras = obras;
             txtNombre.Texts = obras.NombreObra;
             cbCliente.SelectedValue = obras.IDCliente;
             cbTipo.Texts = obras.TipoObra;
@@ -52,7 +53,7 @@ namespace BRAHO_Project
         private void btnEditarObra_Click(object sender, EventArgs e)
         {
             Obras obra = new Obras();
-
+            
             obra.IdObra = obras.IdObra;
             obra.IDCliente = (int)cbCliente.SelectedValue;
             obra.NombreObra = txtNombre.Texts.Trim();
