@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmObras));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -37,12 +38,13 @@
             BotonCerr = new BRAHO_Project.RJControls.RJButton();
             panel1 = new Panel();
             pictureBox3 = new PictureBox();
-            txtUsuario = new BRAHO_Project.RJControls.RJtextbox();
+            txtBuscar = new BRAHO_Project.RJControls.RJtextbox();
             btnTerminado = new BRAHO_Project.RJControls.RJButton();
             btnIniciado = new BRAHO_Project.RJControls.RJButton();
             btnAgendado = new BRAHO_Project.RJControls.RJButton();
             panel2 = new Panel();
             label6 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
@@ -134,7 +136,7 @@
             // panel1
             // 
             panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(txtUsuario);
+            panel1.Controls.Add(txtBuscar);
             panel1.Controls.Add(btnTerminado);
             panel1.Controls.Add(btnIniciado);
             panel1.Controls.Add(btnAgendado);
@@ -148,35 +150,37 @@
             // 
             pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(585, 9);
+            pictureBox3.Location = new Point(572, 22);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(40, 53);
+            pictureBox3.Size = new Size(40, 41);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 19;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
-            // txtUsuario
+            // txtBuscar
             // 
-            txtUsuario.BackColor = Color.FromArgb(64, 64, 64);
-            txtUsuario.BorderColor = Color.FromArgb(255, 165, 11);
-            txtUsuario.BorderFocusColor = SystemColors.HotTrack;
-            txtUsuario.BorderSize = 6;
-            txtUsuario.CaretColor = Color.Black;
-            txtUsuario.CaretCustom = false;
-            txtUsuario.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtUsuario.ForeColor = Color.Black;
-            txtUsuario.Location = new Point(630, 27);
-            txtUsuario.Margin = new Padding(2, 3, 2, 3);
-            txtUsuario.MaxLength = 32767;
-            txtUsuario.Multiline = false;
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.OnlyNumbers = false;
-            txtUsuario.Padding = new Padding(6, 5, 6, 5);
-            txtUsuario.PasswordChar = false;
-            txtUsuario.Size = new Size(347, 35);
-            txtUsuario.TabIndex = 18;
-            txtUsuario.Texts = "";
-            txtUsuario.UnderlinedStyle = true;
+            txtBuscar.BackColor = Color.FromArgb(64, 64, 64);
+            txtBuscar.BorderColor = Color.FromArgb(255, 165, 11);
+            txtBuscar.BorderFocusColor = SystemColors.HotTrack;
+            txtBuscar.BorderSize = 6;
+            txtBuscar.CaretColor = Color.Black;
+            txtBuscar.CaretCustom = false;
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtBuscar.ForeColor = Color.Black;
+            txtBuscar.Location = new Point(617, 27);
+            txtBuscar.Margin = new Padding(2, 3, 2, 3);
+            txtBuscar.MaxLength = 32767;
+            txtBuscar.Multiline = false;
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.OnlyNumbers = false;
+            txtBuscar.Padding = new Padding(6, 5, 6, 5);
+            txtBuscar.PasswordChar = false;
+            txtBuscar.Size = new Size(0, 35);
+            txtBuscar.TabIndex = 18;
+            txtBuscar.Texts = "";
+            txtBuscar.UnderlinedStyle = true;
+            txtBuscar._TextChanged += txtBuscar__TextChanged;
             // 
             // btnTerminado
             // 
@@ -263,6 +267,11 @@
             label6.Text = "Gestionar obras";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // timer1
+            // 
+            timer1.Interval = 10;
+            timer1.Tick += timer1_Tick;
+            // 
             // FrmObras
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -301,7 +310,8 @@
         private RJControls.RJButton btnIniciado;
         private RJControls.RJButton btnAgendado;
         private PictureBox pictureBox3;
-        private RJControls.RJtextbox txtUsuario;
+        private RJControls.RJtextbox txtBuscar;
         private Label label6;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -46,12 +46,82 @@ namespace BRAHO_Project
             }
         }
 
-        public static List<Obras> Mostrar()
+        public static List<Obras> MostrarAgendado()
         {
             List<Obras> Lista = new List<Obras>();
             using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
-                string query = "SELECT *FROM Obras";
+                string query = "SELECT *FROM Obras WHERE Estado = 'Agendado'";
+                SqlCommand comando = new SqlCommand(query, conexion);
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Obras obras = new Obras();
+                    obras.IdObra = reader.GetInt32(0);
+                    obras.IDCliente = reader.GetInt32(1);
+                    obras.NombreObra = reader.GetString(2);
+                    obras.TipoObra = reader.GetString(3);
+                    obras.Ubicacion = reader.GetString(4);
+                    obras.MetrosCuadrados = reader.GetString(5);
+                    obras.Presupuesto = reader.GetString(6);
+                    obras.FechaInicio = reader.GetString(7);
+                    obras.FechaFinal = reader.GetString(8);
+                    obras.Recordatorio = reader.GetString(9);
+                    obras.Estado = reader.GetString(10);
+                    Lista.Add(obras);
+                }
+
+                conexion.Close();
+                return Lista;
+
+            }
+
+
+        }
+
+        public static List<Obras> MostrarIniciado()
+        {
+            List<Obras> Lista = new List<Obras>();
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                string query = "SELECT *FROM Obras WHERE Estado = 'Iniciado'";
+                SqlCommand comando = new SqlCommand(query, conexion);
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Obras obras = new Obras();
+                    obras.IdObra = reader.GetInt32(0);
+                    obras.IDCliente = reader.GetInt32(1);
+                    obras.NombreObra = reader.GetString(2);
+                    obras.TipoObra = reader.GetString(3);
+                    obras.Ubicacion = reader.GetString(4);
+                    obras.MetrosCuadrados = reader.GetString(5);
+                    obras.Presupuesto = reader.GetString(6);
+                    obras.FechaInicio = reader.GetString(7);
+                    obras.FechaFinal = reader.GetString(8);
+                    obras.Recordatorio = reader.GetString(9);
+                    obras.Estado = reader.GetString(10);
+                    Lista.Add(obras);
+                }
+
+                conexion.Close();
+                return Lista;
+
+            }
+
+
+        }
+
+        public static List<Obras> MostrarTerminado()
+        {
+            List<Obras> Lista = new List<Obras>();
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                string query = "SELECT *FROM Obras WHERE Estado = 'Terminado'";
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 SqlDataReader reader = comando.ExecuteReader();

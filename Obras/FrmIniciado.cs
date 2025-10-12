@@ -20,11 +20,16 @@ namespace BRAHO_Project
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarObras();
+
+        }
+
+        public DataGridView dgv
+        {
+            get { return dgvObrasIniciadas; }
         }
 
         private void ConfigurarDataGridView()
         {
-
             dgvObrasIniciadas.EnableHeadersVisualStyles = false;
             dgvObrasIniciadas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
             dgvObrasIniciadas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -37,6 +42,11 @@ namespace BRAHO_Project
 
             // Crear columnas para tus datos de clientes
             dgvObrasIniciadas.Columns.Clear();
+
+            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
+            colNombre.Name = "Nombre";
+            colNombre.HeaderText = "NOMBRE";
+            colNombre.FillWeight = 20;
 
             DataGridViewTextBoxColumn colTipo = new DataGridViewTextBoxColumn();
             colTipo.Name = "TipoObra";
@@ -58,12 +68,12 @@ namespace BRAHO_Project
             colFechaFinal.HeaderText = "FECHA FINAL";
             colFechaFinal.FillWeight = 20;
 
-            DataGridViewComboBoxColumn colEstado = new DataGridViewComboBoxColumn();
+            DataGridViewTextBoxColumn colEstado = new DataGridViewTextBoxColumn();
             colEstado.Name = "Estado";
             colEstado.HeaderText = "ESTADO";
             colEstado.FillWeight = 20;
-            colEstado.DefaultCellStyle.BackColor = Color.LightYellow;
-            colEstado.DefaultCellStyle.ForeColor = Color.DarkBlue;
+
+
 
             // Columnas de botones (usaremos imágenes)
             DataGridViewImageColumn colVer = new DataGridViewImageColumn();
@@ -84,28 +94,16 @@ namespace BRAHO_Project
             colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             colEliminar.FillWeight = 8;
 
-            // Añadir valores al ComboBox
-            colEstado.Items.Add("AGENDADO");
-            colEstado.Items.Add("INICIADO");
-            colEstado.Items.Add("TERMINADO");
-
-            // Asegurar que sea editable
-            colEstado.DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton;
-
-            // Insertar la columna donde quieras (antes de los botones)
-            //dgvObrasIniciadas.Columns.Insert(5, colEstado); // Insertar en posición 5 (antes de botones)
-
             // Agregar todas las columnas
             dgvObrasIniciadas.Columns.AddRange(new DataGridViewColumn[] {
-                colTipo, colUbicacion, colFechaInicio, colFechaFinal,
+                colNombre, colTipo, colUbicacion, colFechaInicio, colFechaFinal,
                 colEstado, colVer, colEditar, colEliminar
             });
         }
 
-
         public void MostrarObras()
         {
-            listaObras = ObrasDAL.Mostrar();
+            listaObras = ObrasDAL.MostrarIniciado();
 
             if (listaObras != null)
             {
@@ -119,27 +117,25 @@ namespace BRAHO_Project
             ActualizarDataGridView();
         }
 
+        public void ActualizarListaObras(List<Obras> Nuevalista)
+        {
+            listaObras = Nuevalista;
+        }
+
         public void ActualizarDataGridView()
         {
             dgvObrasIniciadas.Rows.Clear();
 
             foreach (var obra in listaObras)
             {
-                // Normalizar el estado (convertir a mayúsculas y quitar espacios)
-                string estadoNormalizado = (obra.Estado ?? "AGENDADO").ToUpper().Trim();
-
-                // Si el estado no está en la lista, usar uno por defecto
-                if (!new[] { "AGENDADO", "INICIADO", "TERMINADO" }.Contains(estadoNormalizado))
-                {
-                    estadoNormalizado = "AGENDADO";
-                }
 
                 int rowIndex = dgvObrasIniciadas.Rows.Add(
+                    obra.NombreObra,
                     obra.TipoObra,
                     obra.Ubicacion,
                     obra.FechaInicio,
                     obra.FechaFinal,
-                    estadoNormalizado
+                    obra.Estado
                 );
 
                 // Asignar imágenes a las columnas de botones
@@ -176,98 +172,53 @@ namespace BRAHO_Project
                 {
                     case "Ver":
                         break;
+                    //jodemos depue
 
                     case "Editar":
-                        //if (dgvObrasIniciadas.CurrentRow != null) // valida que haya fila seleccionada
-                        //{
-                        //    DataGridViewRow fila = dgvObrasIniciadas.CurrentRow;
+                        if (dgvObrasIniciadas.CurrentRow != null) // valida que haya fila seleccionada
+                        {
+                            DataGridViewRow fila = dgvObrasIniciadas.CurrentRow;
 
-                        //    // Crear el formulario destino
+                            // Crear el formulario destino
 
-                        //    FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvObrasIniciadas);
-                        //    Clientes clientes = new Clientes();
-
-
-                        //    // Pasar valores
-
-                        //    cliente.NombreApellido = fila.Cells["NombreApellido"].Value?.ToString();
-                        //    cliente.Telefono = fila.Cells["Telefono"].Value?.ToString();
-                        //    cliente.Email = fila.Cells["Email"].Value?.ToString();
-                        //    cliente.Direccion = fila.Cells["Direccion"].Value?.ToString();
-                        //    cliente.Cedula = fila.Cells["Cedula"].Value?.ToString();
-
-
-                        //    // Mostrar el formulario
-                        //    frm.ShowDialog();
-                        //    MostrarClientes(); // Refrescar la lista después de editar
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //}
+                            FrmEditarObra frm = new FrmEditarObra(obra, dgvObrasIniciadas);
+                            frm.ShowDialog();
+                            MostrarObras(); // Refrescar la lista después de editar
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
 
 
 
                         break;
 
                     case "Eliminar":
-                        //if (MessageBox.Show($"¿Está seguro que desea eliminar a {cliente.NombreApellido}?",
-                        //    "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        //{
-                        //    // Eliminar de la base de datos
-                        //    int resultado = ClientesDAL.EliminarCliente(cliente.IDCliente);
+                        if (MessageBox.Show($"¿Está seguro que desea eliminar esta obra?",
+                            "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            // Eliminar de la base de datos
+                            int resultado = ObrasDAL.EliminarObra(obra.IdObra);
 
-                        //    if (resultado > 0)
-                        //    {
-                        //        MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    }
-                        //    else
-                        //    {
-                        //        MessageBox.Show("Error al eliminar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //        return;
-                        //    }
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Obra eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar la obra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
 
-                        //    listaClientes.RemoveAt(e.RowIndex);
-                        //    ActualizarDataGridView();
-                        //}
+                            listaObras.RemoveAt(e.RowIndex);
+                            ActualizarDataGridView();
+                        }
                         break;
                 }
             }
         }
 
-        private void dgvObrasIniciadas_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (dgvObrasIniciadas.CurrentCell.ColumnIndex == dgvObrasIniciadas.Columns["Estado"].Index)
-            {
-                if (e.Control is ComboBox combo)
-                {
-                    // Aquí puedes llenar dinámicamente el ComboBox según la fila
-                    combo.Items.Clear();
-                    combo.Items.Add("AGENDADO");
-                    combo.Items.Add("INACTIVO");
-                    combo.Items.Add("PENDIENTE");
-                }
-            }
-        }
 
-        private void dgvObrasIniciadas_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                string columnName = dgvObrasIniciadas.Columns[e.ColumnIndex].Name;
-
-                if (columnName == "Estado")
-                {
-                    var selectedValue = dgvObrasIniciadas.Rows[e.RowIndex].Cells["Estado"].Value?.ToString();
-                    var obra = listaObras[e.RowIndex];
-
-                    // Actualizar el estado de la obra
-                    obra.Estado = selectedValue;
-
-                    // Aquí puedes actualizar en la base de datos si lo deseas
-                    // ObrasDAL.ActualizarEstado(obra.IDObra, selectedValue);
-                }
-            }
-        }
     }
 }

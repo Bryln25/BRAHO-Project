@@ -13,6 +13,8 @@ namespace BRAHO_Project
 {
     public partial class FrmObras : Form
     {
+        private List<Obras> listaObras;
+        private List<Obras> listaObrasOriginal = new List<Obras>();
         public FrmObras()
         {
             InitializeComponent();
@@ -63,10 +65,83 @@ namespace BRAHO_Project
 
             if (frmAgendado != null)
             {
-                frmAgendado.MostrarObras(); 
+                frmAgendado.MostrarObras();
             }
         }
 
+        private bool barraExpandida = false;
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (barraExpandida)
+            {
+                txtBuscar.Width -= 20;
+                if (txtBuscar.Width <= 0)
+                {
+                    txtBuscar.Width = 0;
+                    txtBuscar.ActiveControl = null;
+                    barraExpandida = false;
+                    timer1.Stop();
+                }
+            }
+            else
+            {
+                txtBuscar.Visible = true;
+                txtBuscar.Width += 20;
+                if (txtBuscar.Width >= 347)
+                {
+                    txtBuscar.Width = 347;
+                    barraExpandida = true;
+                    timer1.Stop();
+                }
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void txtBuscar__TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Texts.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                listaObras = new List<Obras>(listaObrasOriginal);
+            }
+            else
+            {
+                listaObras = listaObrasOriginal.Where(c =>
+                    (c.NombreObra?.ToLower() ?? "").Contains(filtro)
+
+                ).ToList();
+            }
+
+            FrmAgendado frmAgendado = Application.OpenForms["FrmAgendado"] as FrmAgendado;
+
+            if (frmAgendado != null)
+            {
+                frmAgendado.ActualizarListaObras(listaObras);
+                frmAgendado.ActualizarDataGridView();
+            }
+
+            FrmIniciado frmIniciado = Application.OpenForms["FrmIniciado"] as FrmIniciado;
+
+            if (frmIniciado != null)
+            {
+                frmIniciado.ActualizarListaObras(listaObras);
+
+                frmIniciado.ActualizarDataGridView();
+            }
+
+            FrmTerminado frmTerminado = Application.OpenForms["FrmTerminado"] as FrmTerminado;
+
+            if (frmTerminado != null)
+            {
+                frmTerminado.ActualizarListaObras(listaObras);
+                frmTerminado.ActualizarDataGridView();
+            }
+        }
     }
 }

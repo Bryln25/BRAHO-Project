@@ -465,7 +465,7 @@
             cbTipo.Location = new Point(78, 376);
             cbTipo.MinimumSize = new Size(200, 30);
             cbTipo.Name = "cbTipo";
-            cbTipo.Padding = new Padding(4, 4, 4, 4);
+            cbTipo.Padding = new Padding(4);
             cbTipo.Size = new Size(344, 46);
             cbTipo.TabIndex = 45;
             cbTipo.Texts = "";
@@ -511,7 +511,7 @@
             cbCliente.Location = new Point(81, 254);
             cbCliente.MinimumSize = new Size(200, 30);
             cbCliente.Name = "cbCliente";
-            cbCliente.Padding = new Padding(4, 4, 4, 4);
+            cbCliente.Padding = new Padding(4);
             cbCliente.Size = new Size(344, 46);
             cbCliente.TabIndex = 48;
             cbCliente.Texts = "";
@@ -537,13 +537,13 @@
             cbEstado.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
             cbEstado.ForeColor = Color.Gainsboro;
             cbEstado.IconColor = Color.White;
-            cbEstado.Items.AddRange(new object[] { "Iniciado", "Terminado" });
+            cbEstado.Items.AddRange(new object[] { "Agendado", "Iniciado", "Terminado" });
             cbEstado.ListBackColor = Color.FromArgb(230, 228, 245);
             cbEstado.ListTextColor = Color.DimGray;
             cbEstado.Location = new Point(639, 622);
             cbEstado.MinimumSize = new Size(200, 30);
             cbEstado.Name = "cbEstado";
-            cbEstado.Padding = new Padding(4, 4, 4, 4);
+            cbEstado.Padding = new Padding(4);
             cbEstado.Size = new Size(344, 46);
             cbEstado.TabIndex = 51;
             cbEstado.Texts = "";

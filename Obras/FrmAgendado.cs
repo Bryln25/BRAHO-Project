@@ -105,7 +105,7 @@ namespace BRAHO_Project
 
         public void MostrarObras()
         {
-            listaObras = ObrasDAL.Mostrar();
+            listaObras = ObrasDAL.MostrarAgendado();
 
             if (listaObras != null)
             {
@@ -119,6 +119,12 @@ namespace BRAHO_Project
             ActualizarDataGridView();
         }
 
+        public void ActualizarListaObras(List < Obras > Nuevalista)
+        {
+            listaObras = Nuevalista;
+        }
+
+        
         public void ActualizarDataGridView()
         {
             dgvObrasAgendadas.Rows.Clear();
