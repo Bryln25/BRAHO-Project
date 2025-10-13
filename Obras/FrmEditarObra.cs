@@ -53,7 +53,7 @@ namespace BRAHO_Project
         private void btnEditarObra_Click(object sender, EventArgs e)
         {
             Obras obra = new Obras();
-            
+
             obra.IdObra = obras.IdObra;
             obra.IDCliente = (int)cbCliente.SelectedValue;
             obra.NombreObra = txtNombre.Texts.Trim();
@@ -71,7 +71,7 @@ namespace BRAHO_Project
             {
 
                 MessageBox.Show("Obra modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); 
+                this.Close();
             }
             else
             {
@@ -79,5 +79,46 @@ namespace BRAHO_Project
             }
         }
 
+        private void txtPresupuesto__Leave(object sender, EventArgs e)
+        {
+            double numero = Convert.ToDouble(txtPresupuesto.Texts.Trim());
+
+            txtPresupuesto.Texts = $"RD$ {numero:N2}";
+        }
+
+        private void txtPresupuesto__Enter(object sender, EventArgs e)
+        {
+            string numero = new string(txtPresupuesto.Texts.Replace(",", "").Replace("$", "").Replace(".00", "").Where(char.IsDigit).ToArray());
+
+            txtPresupuesto.Texts = numero;
+        }
+
+        private void txtMetros__Enter(object sender, EventArgs e)
+        {
+            string numero = new string(txtMetros.Texts.Replace("m²", "")).Trim();
+
+            txtMetros.Texts = numero;
+        }
+
+        private void txtMetros__Leave(object sender, EventArgs e)
+        {
+            double numero = Convert.ToDouble(txtMetros.Texts.Trim());
+
+            txtMetros.Texts = $"{numero:N2} m²";
+        }
+
+        private void txtMetros__KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow control keys (e.g., backspace), digits, and one dot
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            // Only allow one dot
+            if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -296,6 +296,8 @@
             txtPresupuesto.TabIndex = 35;
             txtPresupuesto.Texts = "";
             txtPresupuesto.UnderlinedStyle = true;
+            txtPresupuesto._Enter += txtPresupuesto__Enter;
+            txtPresupuesto._Leave += txtPresupuesto__Leave;
             // 
             // label5
             // 
@@ -324,13 +326,16 @@
             txtMetros.MaxLength = 32767;
             txtMetros.Multiline = false;
             txtMetros.Name = "txtMetros";
-            txtMetros.OnlyNumbers = true;
+            txtMetros.OnlyNumbers = false;
             txtMetros.Padding = new Padding(6, 5, 6, 5);
             txtMetros.PasswordChar = false;
             txtMetros.Size = new Size(347, 35);
             txtMetros.TabIndex = 33;
             txtMetros.Texts = "";
             txtMetros.UnderlinedStyle = true;
+            txtMetros._Enter += txtMetros__Enter;
+            txtMetros._Leave += txtMetros__Leave;
+            txtMetros._KeyPress += txtMetros__KeyPress;
             // 
             // label4
             // 

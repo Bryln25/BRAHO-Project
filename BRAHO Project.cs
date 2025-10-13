@@ -202,9 +202,5 @@ namespace BRAHO_Project
             boton.BackColor = Color.FromArgb(127, 127, 127);
         }
 
-        private void rJtextbox1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
