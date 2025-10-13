@@ -68,8 +68,8 @@
             dgvObrasTerminadas.DefaultCellStyle = dataGridViewCellStyle2;
             dgvObrasTerminadas.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvObrasTerminadas.EnableHeadersVisualStyles = false;
-            dgvObrasTerminadas.Location = new Point(12, 12);
-            dgvObrasTerminadas.Margin = new Padding(4);
+            dgvObrasTerminadas.Location = new Point(14, 14);
+            dgvObrasTerminadas.Margin = new Padding(5, 5, 5, 5);
             dgvObrasTerminadas.MultiSelect = false;
             dgvObrasTerminadas.Name = "dgvObrasTerminadas";
             dgvObrasTerminadas.ReadOnly = true;
@@ -92,19 +92,21 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dgvObrasTerminadas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvObrasTerminadas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvObrasTerminadas.Size = new Size(955, 447);
+            dgvObrasTerminadas.Size = new Size(1146, 536);
             dgvObrasTerminadas.TabIndex = 13;
             dgvObrasTerminadas.TabStop = false;
             dgvObrasTerminadas.CellClick += dgvObrasTerminadas_CellClick;
+            dgvObrasTerminadas.CellPainting += dgvObrasTerminadas_CellPainting;
             // 
             // FrmTerminado
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(979, 471);
+            ClientSize = new Size(1175, 565);
             Controls.Add(dgvObrasTerminadas);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FrmTerminado";
             Text = "FrmTerminado";
             ((System.ComponentModel.ISupportInitialize)dgvObrasTerminadas).EndInit();

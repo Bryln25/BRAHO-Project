@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -219,6 +220,48 @@ namespace BRAHO_Project
             }
         }
 
+        private void dgvObrasIniciadas_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                DataGridView dgv = (DataGridView)sender;
+                if (dgv.Columns[e.ColumnIndex].Name == "Estado")
+                {
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
 
+                    string texto = e.Value?.ToString() ?? "";
+                    Color colorFondo = Color.FromArgb(33, 150, 243);
+
+                    // Crear badge redondeado
+                    int padding = 8;
+                    Size textSize = TextRenderer.MeasureText(texto, e.CellStyle.Font);
+                    int badgeWidth = textSize.Width + padding * 2;
+                    int badgeHeight = textSize.Height + 4;
+
+                    Rectangle badgeRect = new Rectangle(
+                        e.CellBounds.X + (e.CellBounds.Width - badgeWidth) / 2,
+                        e.CellBounds.Y + (e.CellBounds.Height - badgeHeight) / 2,
+                        badgeWidth,
+                        badgeHeight
+                    );
+
+                    using (GraphicsPath path = Funciones.GetRoundedRectangle(badgeRect, 12))
+                    {
+                        e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                        using (Brush brush = new SolidBrush(colorFondo))
+                        {
+                            e.Graphics.FillPath(brush, path);
+                        }
+                    }
+
+                    TextRenderer.DrawText(e.Graphics, texto,
+                        new Font("Segoe UI", 8, FontStyle.Bold),
+                        badgeRect, Color.White,
+                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

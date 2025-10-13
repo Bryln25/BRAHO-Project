@@ -8,11 +8,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.RJControls;
 
 namespace BRAHO_Project
 {
     public partial class FrmObras : Form
     {
+        private RJButton botonActivo = null;
         private List<Obras> listaObrasAgendado;
         private List<Obras> listaObrasOriginalAgendado = new List<Obras>();
         private List<Obras> listaObrasIniciado;
@@ -23,7 +25,12 @@ namespace BRAHO_Project
         public FrmObras()
         {
             InitializeComponent();
-            abrirformhijo(new FrmAgendado());
+        }
+
+
+        private void FrmObras_Load(object sender, EventArgs e)
+        {
+            btnAgendado_Click(sender, e);
         }
 
         private Form formularioactivo = null;
@@ -41,21 +48,7 @@ namespace BRAHO_Project
             formulariohijo.Show();
         }
 
-        private void btnAgendado_Click(object sender, EventArgs e)
-        {
-            abrirformhijo(new FrmAgendado());
-        }
-
-        private void btnIniciado_Click(object sender, EventArgs e)
-        {
-            abrirformhijo(new FrmIniciado());
-        }
-
-        private void btnTerminado_Click(object sender, EventArgs e)
-        {
-            abrirformhijo(new FrmTerminado());
-        }
-
+        
         private void BotonCerr_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -150,8 +143,11 @@ namespace BRAHO_Project
             else
             {
                 listaObrasAgendado = listaObrasOriginalAgendado.Where(c =>
-                    (c.NombreObra?.ToLower() ?? "").Contains(filtro)
-
+                    (c.NombreObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.TipoObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Ubicacion?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaInicio?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaFinal?.ToLower() ?? "").Contains(filtro)
                 ).ToList();
             }
 
@@ -162,7 +158,11 @@ namespace BRAHO_Project
             else
             {
                 listaObrasIniciado = listaObrasOriginalIniciado.Where(c =>
-                    (c.NombreObra?.ToLower() ?? "").Contains(filtro)
+                    (c.NombreObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.TipoObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Ubicacion?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaInicio?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaFinal?.ToLower() ?? "").Contains(filtro)
                 ).ToList();
             }
 
@@ -173,7 +173,11 @@ namespace BRAHO_Project
             else
             {
                 listaObrasTerminado = listaObrasOriginalTerminado.Where(c =>
-                    (c.NombreObra?.ToLower() ?? "").Contains(filtro)
+                    (c.NombreObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.TipoObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Ubicacion?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaInicio?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaFinal?.ToLower() ?? "").Contains(filtro)
                 ).ToList();
             }
 
@@ -198,6 +202,46 @@ namespace BRAHO_Project
                 frmTerminado.ActualizarListaObras(listaObrasTerminado);
                 frmTerminado.ActualizarDataGridView();
             }
+        }
+
+        private void btnAgendado_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmAgendado());
+            ActivarBoton(btnAgendado);
+        }
+
+        private void btnIniciado_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmIniciado());
+            ActivarBoton(btnIniciado);
+        }
+
+        private void btnTerminado_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmTerminado());
+            ActivarBoton(btnTerminado);
+        }
+
+        private void ActivarBoton(RJButton boton)
+        {
+            if (botonActivo != null && botonActivo != boton)
+            {
+                DesactivarPropiedades(botonActivo);
+            }
+            ActivarPropiedades(boton);
+            botonActivo = boton;
+        }
+
+        private void ActivarPropiedades(RJButton boton)
+        {
+            boton.BorderSize = 5;
+            // Add other visual changes for active state if needed
+        }
+
+        private void DesactivarPropiedades(RJButton boton)
+        {
+            boton.BorderSize = 0;
+            // Restore other properties for inactive state if needed
         }
     }
 }

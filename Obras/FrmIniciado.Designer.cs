@@ -68,8 +68,8 @@
             dgvObrasIniciadas.DefaultCellStyle = dataGridViewCellStyle2;
             dgvObrasIniciadas.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvObrasIniciadas.EnableHeadersVisualStyles = false;
-            dgvObrasIniciadas.Location = new Point(12, 12);
-            dgvObrasIniciadas.Margin = new Padding(4);
+            dgvObrasIniciadas.Location = new Point(14, 14);
+            dgvObrasIniciadas.Margin = new Padding(5, 5, 5, 5);
             dgvObrasIniciadas.MultiSelect = false;
             dgvObrasIniciadas.Name = "dgvObrasIniciadas";
             dgvObrasIniciadas.ReadOnly = true;
@@ -92,19 +92,21 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dgvObrasIniciadas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvObrasIniciadas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvObrasIniciadas.Size = new Size(955, 447);
+            dgvObrasIniciadas.Size = new Size(1146, 536);
             dgvObrasIniciadas.TabIndex = 13;
             dgvObrasIniciadas.TabStop = false;
             dgvObrasIniciadas.CellClick += dgvObrasIniciadas_CellClick;
+            dgvObrasIniciadas.CellPainting += dgvObrasIniciadas_CellPainting;
             // 
             // FrmIniciado
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(979, 471);
+            ClientSize = new Size(1175, 565);
             Controls.Add(dgvObrasIniciadas);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FrmIniciado";
             Text = "FrmIniciado";
             ((System.ComponentModel.ISupportInitialize)dgvObrasIniciadas).EndInit();
