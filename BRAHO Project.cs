@@ -1,5 +1,6 @@
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using BRAHO_Project.RJControls;
 using Microsoft.Data.SqlClient;
 
 namespace BRAHO_Project
@@ -9,6 +10,8 @@ namespace BRAHO_Project
         private Usuario usuario;
         bool desplazar = false;
         bool menuExpandido = true;
+        private Button botonActivo = null;
+
 
         public PaginaPrincipal(Usuario usuarioLogueado)
         {
@@ -128,6 +131,8 @@ namespace BRAHO_Project
                 timer1.Start();
                 desplazar = true;
             }
+
+            ActivarBoton(BotonClientes);
         }
 
         private void BotonRegistrarObra_Click(object sender, EventArgs e)
@@ -139,6 +144,14 @@ namespace BRAHO_Project
                 timer1.Start();
                 desplazar = true;
             }
+
+            ActivarBoton(BotonRegistrarObra);
+        }
+
+
+        private void BotonVentas_Click(object sender, EventArgs e)
+        {
+            ActivarBoton(BotonVentas);
         }
 
         private void logouser_Click(object sender, EventArgs e)
@@ -167,6 +180,31 @@ namespace BRAHO_Project
             }
 
             Funciones.RedondearImagen(logouser);
+        }
+
+        private void ActivarBoton(Button boton)
+        {
+            if (botonActivo != null && botonActivo != boton)
+            {
+                DesactivarPropiedades(botonActivo);
+            }
+            ActivarPropiedades(boton);
+            botonActivo = boton;
+        }
+
+        private void ActivarPropiedades(Button boton)
+        {
+            boton.BackColor = Color.FromArgb(102, 102, 102);
+        }
+
+        private void DesactivarPropiedades(Button boton)
+        {
+            boton.BackColor = Color.FromArgb(127, 127, 127);
+        }
+
+        private void rJtextbox1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

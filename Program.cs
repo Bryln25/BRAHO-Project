@@ -14,7 +14,7 @@ namespace BRAHO_Project
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmObras());
+            Application.Run(new IniciodeSesion());
         }
     }
 }

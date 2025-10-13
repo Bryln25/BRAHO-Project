@@ -50,6 +50,7 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
+            label5 = new Label();
             rJtextbox3 = new BRAHO_Project.RJControls.RJtextbox();
             rJtextbox2 = new BRAHO_Project.RJControls.RJtextbox();
             rJtextbox1 = new BRAHO_Project.RJControls.RJtextbox();
@@ -94,7 +95,7 @@
             MenuVertical.Controls.Add(label4);
             MenuVertical.Dock = DockStyle.Left;
             MenuVertical.Location = new Point(0, 41);
-            MenuVertical.Margin = new Padding(4, 4, 4, 4);
+            MenuVertical.Margin = new Padding(4);
             MenuVertical.Name = "MenuVertical";
             MenuVertical.Size = new Size(312, 740);
             MenuVertical.TabIndex = 0;
@@ -130,7 +131,7 @@
             BotonSlide.Cursor = Cursors.Hand;
             BotonSlide.Image = (Image)resources.GetObject("BotonSlide.Image");
             BotonSlide.Location = new Point(14, 14);
-            BotonSlide.Margin = new Padding(4, 4, 4, 4);
+            BotonSlide.Margin = new Padding(4);
             BotonSlide.Name = "BotonSlide";
             BotonSlide.Size = new Size(42, 42);
             BotonSlide.SizeMode = PictureBoxSizeMode.Zoom;
@@ -143,7 +144,7 @@
             logouser.BackColor = Color.FromArgb(102, 102, 102);
             logouser.Image = (Image)resources.GetObject("logouser.Image");
             logouser.Location = new Point(97, 78);
-            logouser.Margin = new Padding(4, 4, 4, 4);
+            logouser.Margin = new Padding(4);
             logouser.Name = "logouser";
             logouser.Size = new Size(96, 96);
             logouser.SizeMode = PictureBoxSizeMode.Zoom;
@@ -174,7 +175,7 @@
             BotonCerrarSesion.Image = (Image)resources.GetObject("BotonCerrarSesion.Image");
             BotonCerrarSesion.ImageAlign = ContentAlignment.MiddleLeft;
             BotonCerrarSesion.Location = new Point(0, 666);
-            BotonCerrarSesion.Margin = new Padding(4, 4, 4, 4);
+            BotonCerrarSesion.Margin = new Padding(4);
             BotonCerrarSesion.Name = "BotonCerrarSesion";
             BotonCerrarSesion.Size = new Size(300, 62);
             BotonCerrarSesion.TabIndex = 5;
@@ -192,12 +193,13 @@
             BotonVentas.Image = (Image)resources.GetObject("BotonVentas.Image");
             BotonVentas.ImageAlign = ContentAlignment.MiddleLeft;
             BotonVentas.Location = new Point(1, 533);
-            BotonVentas.Margin = new Padding(4, 4, 4, 4);
+            BotonVentas.Margin = new Padding(4);
             BotonVentas.Name = "BotonVentas";
             BotonVentas.Size = new Size(307, 62);
             BotonVentas.TabIndex = 4;
             BotonVentas.Text = "Ventas";
             BotonVentas.UseVisualStyleBackColor = true;
+            BotonVentas.Click += BotonVentas_Click;
             // 
             // BotonRegistrarObra
             // 
@@ -209,7 +211,7 @@
             BotonRegistrarObra.Image = (Image)resources.GetObject("BotonRegistrarObra.Image");
             BotonRegistrarObra.ImageAlign = ContentAlignment.MiddleLeft;
             BotonRegistrarObra.Location = new Point(1, 445);
-            BotonRegistrarObra.Margin = new Padding(4, 4, 4, 4);
+            BotonRegistrarObra.Margin = new Padding(4);
             BotonRegistrarObra.Name = "BotonRegistrarObra";
             BotonRegistrarObra.Size = new Size(307, 62);
             BotonRegistrarObra.TabIndex = 2;
@@ -227,7 +229,7 @@
             BotonClientes.Image = (Image)resources.GetObject("BotonClientes.Image");
             BotonClientes.ImageAlign = ContentAlignment.MiddleLeft;
             BotonClientes.Location = new Point(1, 358);
-            BotonClientes.Margin = new Padding(4, 4, 4, 4);
+            BotonClientes.Margin = new Padding(4);
             BotonClientes.Name = "BotonClientes";
             BotonClientes.Size = new Size(307, 62);
             BotonClientes.TabIndex = 3;
@@ -239,7 +241,7 @@
             // 
             pictureBox3.BackColor = Color.FromArgb(102, 102, 102);
             pictureBox3.Location = new Point(0, 64);
-            pictureBox3.Margin = new Padding(4, 4, 4, 4);
+            pictureBox3.Margin = new Padding(4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(317, 205);
             pictureBox3.TabIndex = 1;
@@ -298,7 +300,7 @@
             pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(162, 4);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(859, 102);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -312,7 +314,7 @@
             BarraTitulo.Controls.Add(BotonCerrar);
             BarraTitulo.Dock = DockStyle.Top;
             BarraTitulo.Location = new Point(0, 0);
-            BarraTitulo.Margin = new Padding(4, 4, 4, 4);
+            BarraTitulo.Margin = new Padding(4);
             BarraTitulo.Name = "BarraTitulo";
             BarraTitulo.Size = new Size(1561, 41);
             BarraTitulo.TabIndex = 1;
@@ -324,7 +326,7 @@
             BotonMininizar.Cursor = Cursors.Hand;
             BotonMininizar.Image = (Image)resources.GetObject("BotonMininizar.Image");
             BotonMininizar.Location = new Point(1465, 4);
-            BotonMininizar.Margin = new Padding(4, 4, 4, 4);
+            BotonMininizar.Margin = new Padding(4);
             BotonMininizar.Name = "BotonMininizar";
             BotonMininizar.Size = new Size(35, 34);
             BotonMininizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -338,7 +340,7 @@
             BotonCerrar.Cursor = Cursors.Hand;
             BotonCerrar.Image = (Image)resources.GetObject("BotonCerrar.Image");
             BotonCerrar.Location = new Point(1512, 4);
-            BotonCerrar.Margin = new Padding(4, 4, 4, 4);
+            BotonCerrar.Margin = new Padding(4);
             BotonCerrar.Name = "BotonCerrar";
             BotonCerrar.Size = new Size(35, 34);
             BotonCerrar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -349,6 +351,7 @@
             // Contenedor
             // 
             Contenedor.BackColor = Color.FromArgb(64, 64, 64);
+            Contenedor.Controls.Add(label5);
             Contenedor.Controls.Add(rJtextbox3);
             Contenedor.Controls.Add(rJtextbox2);
             Contenedor.Controls.Add(rJtextbox1);
@@ -361,10 +364,22 @@
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Contenedor.Location = new Point(312, 41);
-            Contenedor.Margin = new Padding(4, 4, 4, 4);
+            Contenedor.Margin = new Padding(4);
             Contenedor.Name = "Contenedor";
             Contenedor.Size = new Size(1249, 740);
             Contenedor.TabIndex = 2;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top;
+            label5.AutoSize = true;
+            label5.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(245, 216);
+            label5.Name = "label5";
+            label5.Size = new Size(885, 26);
+            label5.TabIndex = 9;
+            label5.Text = "Ser exitosos y distintivos, enfocados en crecimiento sostenido y ganancias justas. ";
             // 
             // rJtextbox3
             // 
@@ -380,12 +395,12 @@
             rJtextbox3.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox3.ForeColor = Color.White;
             rJtextbox3.Location = new Point(245, 548);
-            rJtextbox3.Margin = new Padding(4, 4, 4, 4);
+            rJtextbox3.Margin = new Padding(4);
             rJtextbox3.MaxLength = 32767;
             rJtextbox3.Multiline = false;
             rJtextbox3.Name = "rJtextbox3";
             rJtextbox3.OnlyNumbers = false;
-            rJtextbox3.Padding = new Padding(8, 8, 8, 8);
+            rJtextbox3.Padding = new Padding(8);
             rJtextbox3.PasswordChar = false;
             rJtextbox3.Size = new Size(872, 43);
             rJtextbox3.TabIndex = 8;
@@ -406,12 +421,12 @@
             rJtextbox2.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox2.ForeColor = Color.White;
             rJtextbox2.Location = new Point(245, 376);
-            rJtextbox2.Margin = new Padding(4, 4, 4, 4);
+            rJtextbox2.Margin = new Padding(4);
             rJtextbox2.MaxLength = 32767;
             rJtextbox2.Multiline = false;
             rJtextbox2.Name = "rJtextbox2";
             rJtextbox2.OnlyNumbers = false;
-            rJtextbox2.Padding = new Padding(8, 8, 8, 8);
+            rJtextbox2.Padding = new Padding(8);
             rJtextbox2.PasswordChar = false;
             rJtextbox2.Size = new Size(872, 43);
             rJtextbox2.TabIndex = 7;
@@ -432,24 +447,25 @@
             rJtextbox1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rJtextbox1.ForeColor = Color.White;
             rJtextbox1.Location = new Point(245, 208);
-            rJtextbox1.Margin = new Padding(4, 4, 4, 4);
+            rJtextbox1.Margin = new Padding(4);
             rJtextbox1.MaxLength = 32767;
             rJtextbox1.Multiline = false;
             rJtextbox1.Name = "rJtextbox1";
             rJtextbox1.OnlyNumbers = false;
-            rJtextbox1.Padding = new Padding(8, 8, 8, 8);
+            rJtextbox1.Padding = new Padding(8);
             rJtextbox1.PasswordChar = false;
             rJtextbox1.Size = new Size(872, 43);
             rJtextbox1.TabIndex = 6;
-            rJtextbox1.Texts = "Ser exitosos y distintivos, enfocados en crecimiento sostenido y ganancias justas. ";
+            rJtextbox1.Texts = "";
             rJtextbox1.UnderlinedStyle = false;
+            rJtextbox1.Load += rJtextbox1_Load;
             // 
             // pictureBox5
             // 
             pictureBox5.Anchor = AnchorStyles.Top;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(162, 535);
-            pictureBox5.Margin = new Padding(4, 4, 4, 4);
+            pictureBox5.Margin = new Padding(4);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(76, 68);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -461,7 +477,7 @@
             pictureBox4.Anchor = AnchorStyles.Top;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(162, 364);
-            pictureBox4.Margin = new Padding(4, 4, 4, 4);
+            pictureBox4.Margin = new Padding(4);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(76, 68);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -473,7 +489,7 @@
             pictureBox2.Anchor = AnchorStyles.Top;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(162, 194);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(76, 68);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -495,11 +511,11 @@
             // 
             // lblHora
             // 
-            lblHora.Anchor = AnchorStyles.None;
+            lblHora.Anchor = AnchorStyles.Right;
             lblHora.AutoSize = true;
             lblHora.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblHora.ForeColor = Color.FromArgb(255, 165, 11);
-            lblHora.Location = new Point(1074, 704);
+            lblHora.Location = new Point(1096, 704);
             lblHora.Margin = new Padding(5, 0, 5, 0);
             lblHora.Name = "lblHora";
             lblHora.Size = new Size(82, 24);
@@ -527,7 +543,7 @@
             Controls.Add(BarraTitulo);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "PaginaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio - BRAHO Project";
@@ -581,5 +597,6 @@
         private RJControls.RJtextbox rJtextbox1;
         private RJControls.RJtextbox rJtextbox2;
         private RJControls.RJtextbox rJtextbox3;
+        private Label label5;
     }
 }
