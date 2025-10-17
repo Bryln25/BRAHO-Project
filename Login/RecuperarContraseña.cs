@@ -47,28 +47,31 @@ namespace BRAHO_Project
             this.Close();
         }
 
-        private string ObtenerContrasenaPorCorreo(string email)
+        private (string Usuario, string Contrasena) ObtenerUsuarioYContrasenaPorCorreo(string email)
         {
+            string usuario = null;
             string contrasena = null;
 
             using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
-                string query = "SELECT Contraseña FROM Usuarios WHERE Email = @Email";
+                string query = "SELECT Usuario, Contraseña FROM Usuarios WHERE Email = @Email";
                 SqlCommand cmd = new SqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@Email", email);
 
-                object resultado = cmd.ExecuteScalar();
-
-                if (resultado != null)
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    contrasena = resultado.ToString();
+                    if (reader.Read())
+                    {
+                        usuario = reader["Usuario"]?.ToString();
+                        contrasena = reader["Contraseña"]?.ToString();
+                    }
                 }
             }
 
-            return contrasena;
+            return (usuario, contrasena);
         }
 
-        private void EnviarCorreo(string destino, string contrasena)
+        private void EnviarCorreo(string destino, string contrasena, string usuario)
         {
             try
             {
@@ -80,11 +83,12 @@ namespace BRAHO_Project
                 mail.Subject = "Recuperación de contraseña";
 
                 string html = @"
-            <h2>Recuperación de contraseña de <b>BRAHO Project</b></h2>
-            <p>Tu contraseña es: <b>" + contrasena + @"</b></p>
-            <br/>
-            <img src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oAoRhPLqEQ4Tvh6z5D9L/media/66dc7d98ab806e4461387ba4.png' width='200'/>
-        ";
+                <h2>Recuperación de contraseña de <b>BRAHO Project</b></h2>
+                <p>Tu usuario es: <b>" + usuario + @"</b></p>
+                <p>Tu contraseña es: <b>" + contrasena + @"</b></p>
+                <br/>
+                <img src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oAoRhPLqEQ4Tvh6z5D9L/media/66dc7d98ab806e4461387ba4.png' width='200'/>
+                ";
 
                 mail.Body = html;
                 mail.IsBodyHtml = true; // ✅ MUY IMPORTANTE
@@ -95,14 +99,14 @@ namespace BRAHO_Project
 
                 servidor.Send(mail);
 
-                MessageBox.Show("✅ Se envió la contraseña al correo registrado.");
+                MessageBox.Show("Se envió la contraseña al correo registrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form iniciodesesion = new IniciodeSesion();
                 iniciodesesion.Show();
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Error al enviar correo: " + ex.Message);
+                MessageBox.Show("Error al enviar correo: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -111,15 +115,16 @@ namespace BRAHO_Project
         {
             string email = txtRecuperarcion.Texts.Trim();
 
-            string contrasena = ObtenerContrasenaPorCorreo(email);
+            var (usuario, contrasena) = ObtenerUsuarioYContrasenaPorCorreo(email);
 
             if (contrasena != null)
             {
-                EnviarCorreo(email, contrasena);
+                string hash = Funciones.HashPassword(contrasena);
+                EnviarCorreo(email, hash, usuario);
             }
             else
             {
-                MessageBox.Show("❌ El correo no está registrado en el sistema.");
+                MessageBox.Show("El correo no está registrado en el sistema.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

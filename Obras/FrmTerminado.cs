@@ -116,9 +116,34 @@ namespace BRAHO_Project
             ActualizarDataGridView();
         }
 
-        public void ActualizarListaObras(List<Obras> Nuevalista)
+        public void FiltarDataGridView(string filtro)
         {
-            listaObras = Nuevalista;
+            listaObras = ObrasDAL.MostrarTerminado();
+            if (listaObras != null)
+            {
+                listaObrasOriginal = new List<Obras>(listaObras);
+            }
+            else
+            {
+                listaObrasOriginal = new List<Obras>();
+            }
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                listaObras = new List<Obras>(listaObrasOriginal);
+            }
+            else
+            {
+                listaObras = listaObrasOriginal.Where(c =>
+                    (c.NombreObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.TipoObra?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Ubicacion?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaInicio?.ToLower() ?? "").Contains(filtro) ||
+                    (c.FechaFinal?.ToLower() ?? "").Contains(filtro)
+                ).ToList();
+            }
+
+            ActualizarDataGridView();
         }
 
         public void ActualizarDataGridView()

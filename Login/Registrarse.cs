@@ -105,6 +105,7 @@ namespace BRAHO_Project
             try
             {
                 int retorna = 0;
+                string hash = Funciones.HashPassword(txtContraseña.Texts.Trim());
 
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
@@ -115,7 +116,7 @@ namespace BRAHO_Project
 
                     comando.Parameters.AddWithValue("@Usuario", txtUsuario.Texts.Trim());
                     comando.Parameters.AddWithValue("@NombreApellido", txtNombreApellido.Texts.Trim());
-                    comando.Parameters.AddWithValue("@Contraseña", txtContraseña.Texts.Trim());
+                    comando.Parameters.AddWithValue("@Contraseña", hash);
                     comando.Parameters.AddWithValue("@Email", txtCorreo.Texts.Trim());
 
                     // Ejecutar la inserción
@@ -124,14 +125,14 @@ namespace BRAHO_Project
 
                 if (retorna > 0)
                 {
-                    MessageBox.Show("✅ Usuario registrado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Usuario registrado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Form iniciodesesion = new IniciodeSesion();
                     iniciodesesion.Show();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("❌ No se insertó el usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se pudo crear el usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)

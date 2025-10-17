@@ -15,12 +15,6 @@ namespace BRAHO_Project
     public partial class FrmObras : Form
     {
         private RJButton botonActivo = null;
-        private List<Obras> listaObrasAgendado;
-        private List<Obras> listaObrasOriginalAgendado = new List<Obras>();
-        private List<Obras> listaObrasIniciado;
-        private List<Obras> listaObrasOriginalIniciado = new List<Obras>();
-        private List<Obras> listaObrasTerminado;
-        private List<Obras> listaObrasOriginalTerminado = new List<Obras>();
 
         public FrmObras()
         {
@@ -102,106 +96,32 @@ namespace BRAHO_Project
         private void txtBuscar__TextChanged(object sender, EventArgs e)
         {
             string filtro = txtBuscar.Texts.Trim().ToLower();
-            FrmAgendado frmAgendado = Application.OpenForms["FrmAgendado"] as FrmAgendado;
-            FrmIniciado frmIniciado = Application.OpenForms["FrmIniciado"] as FrmIniciado;
-            FrmTerminado frmTerminado = Application.OpenForms["FrmTerminado"] as FrmTerminado;
 
-            listaObrasAgendado = ObrasDAL.MostrarAgendado();
-            if (listaObrasAgendado != null)
+            if (btnAgendado.BorderSize == 5)
             {
-                listaObrasOriginalAgendado = new List<Obras>(listaObrasAgendado);
-            }
-            else
-            {
-                listaObrasOriginalAgendado = new List<Obras>();
-            }
+                FrmAgendado frmAgendado = Application.OpenForms["FrmAgendado"] as FrmAgendado;
+                if (frmAgendado != null)
+                {
+                    frmAgendado.FiltarDataGridView(filtro);
+                }
 
-            listaObrasIniciado = ObrasDAL.MostrarIniciado();
-            if (listaObrasIniciado != null)
-            {
-                listaObrasOriginalIniciado = new List<Obras>(listaObrasIniciado);
             }
-            else
+            else if (btnIniciado.BorderSize == 5)
             {
-                listaObrasOriginalIniciado = new List<Obras>();
+                FrmIniciado frmIniciado = Application.OpenForms["FrmIniciado"] as FrmIniciado;
+                if (frmIniciado != null)
+                {
+                    frmIniciado.FiltarDataGridView(filtro);
+                }
             }
-
-            listaObrasTerminado = ObrasDAL.MostrarTerminado();
-            if (listaObrasTerminado != null)
+            else if (btnTerminado.BorderSize == 5)
             {
-                listaObrasOriginalTerminado = new List<Obras>(listaObrasTerminado);
-            }
-            else
-            {
-                listaObrasOriginalTerminado = new List<Obras>();
-            }
-
-            if (string.IsNullOrEmpty(filtro))
-            {
-                listaObrasAgendado = new List<Obras>(listaObrasOriginalAgendado);
-            }
-            else
-            {
-                listaObrasAgendado = listaObrasOriginalAgendado.Where(c =>
-                    (c.NombreObra?.ToLower() ?? "").Contains(filtro) ||
-                    (c.TipoObra?.ToLower() ?? "").Contains(filtro) ||
-                    (c.Ubicacion?.ToLower() ?? "").Contains(filtro) ||
-                    (c.FechaInicio?.ToLower() ?? "").Contains(filtro) ||
-                    (c.FechaFinal?.ToLower() ?? "").Contains(filtro)
-                ).ToList();
-            }
-
-            if (string.IsNullOrEmpty(filtro))
-            {
-                listaObrasIniciado = new List<Obras>(listaObrasOriginalIniciado);
-            }
-            else
-            {
-                listaObrasIniciado = listaObrasOriginalIniciado.Where(c =>
-                    (c.NombreObra?.ToLower() ?? "").Contains(filtro) ||
-                    (c.TipoObra?.ToLower() ?? "").Contains(filtro) ||
-                    (c.Ubicacion?.ToLower() ?? "").Contains(filtro) ||
-                    (c.FechaInicio?.ToLower() ?? "").Contains(filtro) ||
-                    (c.FechaFinal?.ToLower() ?? "").Contains(filtro)
-                ).ToList();
-            }
-
-            if (string.IsNullOrEmpty(filtro))
-            {
-                listaObrasTerminado = new List<Obras>(listaObrasOriginalTerminado);
-            }
-            else
-            {
-                listaObrasTerminado = listaObrasOriginalTerminado.Where(c =>
-                    (c.NombreObra?.ToLower() ?? "").Contains(filtro) ||
-                    (c.TipoObra?.ToLower() ?? "").Contains(filtro) ||
-                    (c.Ubicacion?.ToLower() ?? "").Contains(filtro) ||
-                    (c.FechaInicio?.ToLower() ?? "").Contains(filtro) ||
-                    (c.FechaFinal?.ToLower() ?? "").Contains(filtro)
-                ).ToList();
-            }
-
-
-            if (frmAgendado != null)
-            {
-                frmAgendado.ActualizarListaObras(listaObrasAgendado);
-                frmAgendado.ActualizarDataGridView();
-            }
-
-
-            if (frmIniciado != null)
-            {
-                frmIniciado.ActualizarListaObras(listaObrasIniciado);
-
-                frmIniciado.ActualizarDataGridView();
-            }
-
-
-            if (frmTerminado != null)
-            {
-                frmTerminado.ActualizarListaObras(listaObrasTerminado);
-                frmTerminado.ActualizarDataGridView();
-            }
+                FrmTerminado frmTerminado = Application.OpenForms["FrmTerminado"] as FrmTerminado;
+                if (frmTerminado != null)
+                {
+                    frmTerminado.FiltarDataGridView(filtro);
+                }
+            }            
         }
 
         private void btnAgendado_Click(object sender, EventArgs e)

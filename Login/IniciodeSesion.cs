@@ -56,6 +56,8 @@ namespace BRAHO_Project
                 return;
             }
 
+            string hash = Funciones.HashPassword(txtContraseña.Texts.Trim());
+
             try
             {
                 using (SqlConnection cn = ConexionBRAHOBD.ObtenerConexion())
@@ -64,7 +66,7 @@ namespace BRAHO_Project
 
                     SqlCommand cm = new SqlCommand(query, cn);
                     cm.Parameters.AddWithValue("@usuario", txtUsuario.Texts.Trim());
-                    cm.Parameters.AddWithValue("@contraseña", txtContraseña.Texts.Trim());
+                    cm.Parameters.AddWithValue("@contraseña", hash);
 
                     SqlDataReader dr = cm.ExecuteReader();
 

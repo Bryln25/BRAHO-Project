@@ -169,7 +169,7 @@
             txtBuscar.CaretColor = Color.Black;
             txtBuscar.CaretCustom = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtBuscar.ForeColor = Color.Black;
+            txtBuscar.ForeColor = Color.Gainsboro;
             txtBuscar.Location = new Point(740, 32);
             txtBuscar.Margin = new Padding(2, 4, 2, 4);
             txtBuscar.MaxLength = 32767;

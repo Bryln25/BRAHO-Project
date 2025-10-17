@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace BRAHO_Project
     {
         public Funciones() { }
 
+        // Método para redondear las esquinas de un formulario
         public static void RedondearForm(Form form)
         {
             int radio = 30; // Ajusta el nivel de redondeado
@@ -30,6 +32,7 @@ namespace BRAHO_Project
             }
         }
 
+        // Método para permitir mover el formulario arrastrando cualquier parte de él
         public static void MoverForm(Form form)
         {
             //Codigo para mover el formulario
@@ -41,6 +44,7 @@ namespace BRAHO_Project
             SendMessage(form.Handle, 0x112, 0xf012, 0);
         }
 
+        // Métodos para redondear una imagen en un PictureBox
         public static void RedondearImagen(PictureBox pictureBox)
         {
             if (pictureBox.Image == null) return;
@@ -109,6 +113,7 @@ namespace BRAHO_Project
             return circular;
         }
 
+        // Método para obtener un rectángulo redondeado
         public static GraphicsPath GetRoundedRectangle(Rectangle rect, int radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -118,6 +123,19 @@ namespace BRAHO_Project
             path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
             path.CloseFigure();
             return path;
+        }
+
+        // Método para hashear una contraseña
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                    builder.Append(b.ToString("x2"));
+                return builder.ToString();
+            }
         }
     }
 }
