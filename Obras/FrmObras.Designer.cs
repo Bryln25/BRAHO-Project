@@ -45,6 +45,7 @@
             panel2 = new Panel();
             label6 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            txtOculto = new BRAHO_Project.RJControls.RJtextbox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
@@ -276,12 +277,36 @@
             timer1.Interval = 10;
             timer1.Tick += timer1_Tick;
             // 
+            // txtOculto
+            // 
+            txtOculto.BackColor = Color.FromArgb(64, 64, 64);
+            txtOculto.BorderColor = Color.FromArgb(255, 165, 11);
+            txtOculto.BorderFocusColor = SystemColors.HotTrack;
+            txtOculto.BorderSize = 6;
+            txtOculto.CaretColor = Color.Black;
+            txtOculto.CaretCustom = false;
+            txtOculto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtOculto.ForeColor = Color.Gainsboro;
+            txtOculto.Location = new Point(1228, 13);
+            txtOculto.Margin = new Padding(2, 4, 2, 4);
+            txtOculto.MaxLength = 32767;
+            txtOculto.Multiline = false;
+            txtOculto.Name = "txtOculto";
+            txtOculto.OnlyNumbers = false;
+            txtOculto.Padding = new Padding(7, 6, 7, 6);
+            txtOculto.PasswordChar = false;
+            txtOculto.Size = new Size(0, 39);
+            txtOculto.TabIndex = 20;
+            txtOculto.Texts = "";
+            txtOculto.UnderlinedStyle = true;
+            // 
             // FrmObras
             // 
             AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1249, 740);
+            Controls.Add(txtOculto);
             Controls.Add(label6);
             Controls.Add(panel1);
             Controls.Add(BotonCerr);
@@ -319,5 +344,6 @@
         private RJControls.RJtextbox txtBuscar;
         private Label label6;
         private System.Windows.Forms.Timer timer1;
+        private RJControls.RJtextbox txtOculto;
     }
 }

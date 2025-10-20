@@ -119,8 +119,8 @@ namespace BRAHO_Project
 
             if (contrasena != null)
             {
-                string hash = Funciones.HashPassword(contrasena);
-                EnviarCorreo(email, hash, usuario);
+                //string hash = Funciones.HashPassword(contrasena);
+                EnviarCorreo(email, contrasena, usuario);
             }
             else
             {

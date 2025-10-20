@@ -91,6 +91,15 @@ namespace BRAHO_Project
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             timer1.Start();
+            if (!barraExpandida)
+            {
+                txtBuscar.Focus();
+            }
+            else
+            {
+                txtBuscar.Texts = string.Empty;
+                txtOculto.Focus();
+            }
         }
 
         private void txtBuscar__TextChanged(object sender, EventArgs e)

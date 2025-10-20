@@ -264,6 +264,15 @@ namespace BRAHO_Project
         private void btnLupa_Click(object sender, EventArgs e)
         {
             timer1.Start();
+            if (!barraExpandida)
+            {
+                txtBuscar.Focus();
+            }
+            else
+            {
+                txtBuscar.Texts = string.Empty;
+                txtOculto.Focus();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -56,7 +56,18 @@ namespace BRAHO_Project
                 return;
             }
 
-            string hash = Funciones.HashPassword(txtContraseña.Texts.Trim());
+            //string hash = Funciones.HashPassword(txtContraseña.Texts.Trim());
+
+            //metodo para actualizar contreseña
+            //using (SqlConnection cn = ConexionBRAHOBD.ObtenerConexion())
+            //{
+            //    string query = "UPDATE Usuarios SET Contraseña = @contraseña WHERE Usuario = @usuario";
+            //    SqlCommand comando = new SqlCommand(query, cn);
+
+            //    comando.Parameters.AddWithValue("@usuario", txtUsuario.Texts.Trim());
+            //    comando.Parameters.AddWithValue("@contraseña", txtContraseña.Texts.Trim());
+            //    comando.ExecuteNonQuery();
+            //}
 
             try
             {
@@ -66,7 +77,7 @@ namespace BRAHO_Project
 
                     SqlCommand cm = new SqlCommand(query, cn);
                     cm.Parameters.AddWithValue("@usuario", txtUsuario.Texts.Trim());
-                    cm.Parameters.AddWithValue("@contraseña", hash);
+                    cm.Parameters.AddWithValue("@contraseña", txtContraseña.Texts.Trim());
 
                     SqlDataReader dr = cm.ExecuteReader();
 
