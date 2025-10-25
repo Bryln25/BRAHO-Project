@@ -56,7 +56,7 @@ namespace BRAHO_Project
                 while (reader.Read())
                 {
                     Clientes clientes = new Clientes();
-                   clientes.IDCliente = reader.GetInt32(0);
+                    clientes.IDCliente = reader.GetInt32(0);
                     clientes.NombreApellido = reader.GetString(1);
                     clientes.Telefono = reader.GetString(2);
                     clientes.Email = reader.GetString(3);

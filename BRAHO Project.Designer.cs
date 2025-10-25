@@ -37,7 +37,7 @@
             logouser = new PictureBox();
             lblNombre = new Label();
             BotonCerrarSesion = new Button();
-            BotonVentas = new Button();
+            BotonGastos = new Button();
             BotonRegistrarObra = new Button();
             BotonClientes = new Button();
             pictureBox3 = new PictureBox();
@@ -87,7 +87,7 @@
             MenuVertical.Controls.Add(logouser);
             MenuVertical.Controls.Add(lblNombre);
             MenuVertical.Controls.Add(BotonCerrarSesion);
-            MenuVertical.Controls.Add(BotonVentas);
+            MenuVertical.Controls.Add(BotonGastos);
             MenuVertical.Controls.Add(BotonRegistrarObra);
             MenuVertical.Controls.Add(BotonClientes);
             MenuVertical.Controls.Add(pictureBox3);
@@ -178,22 +178,22 @@
             BotonCerrarSesion.UseVisualStyleBackColor = true;
             BotonCerrarSesion.Click += BotonCerrarSesion_Click;
             // 
-            // BotonVentas
+            // BotonGastos
             // 
-            BotonVentas.FlatAppearance.BorderSize = 0;
-            BotonVentas.FlatAppearance.MouseOverBackColor = Color.FromArgb(102, 102, 102);
-            BotonVentas.FlatStyle = FlatStyle.Flat;
-            BotonVentas.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BotonVentas.ForeColor = Color.White;
-            BotonVentas.Image = (Image)resources.GetObject("BotonVentas.Image");
-            BotonVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonVentas.Location = new Point(1, 444);
-            BotonVentas.Name = "BotonVentas";
-            BotonVentas.Size = new Size(256, 52);
-            BotonVentas.TabIndex = 4;
-            BotonVentas.Text = "Ventas";
-            BotonVentas.UseVisualStyleBackColor = true;
-            BotonVentas.Click += BotonVentas_Click;
+            BotonGastos.FlatAppearance.BorderSize = 0;
+            BotonGastos.FlatAppearance.MouseOverBackColor = Color.FromArgb(102, 102, 102);
+            BotonGastos.FlatStyle = FlatStyle.Flat;
+            BotonGastos.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BotonGastos.ForeColor = Color.White;
+            BotonGastos.Image = (Image)resources.GetObject("BotonGastos.Image");
+            BotonGastos.ImageAlign = ContentAlignment.MiddleLeft;
+            BotonGastos.Location = new Point(1, 444);
+            BotonGastos.Name = "BotonGastos";
+            BotonGastos.Size = new Size(256, 52);
+            BotonGastos.TabIndex = 4;
+            BotonGastos.Text = "Gastos";
+            BotonGastos.UseVisualStyleBackColor = true;
+            BotonGastos.Click += BotonVentas_Click;
             // 
             // BotonRegistrarObra
             // 
@@ -410,7 +410,7 @@
             rJtextbox3.Multiline = true;
             rJtextbox3.Name = "rJtextbox3";
             rJtextbox3.OnlyNumbers = false;
-            rJtextbox3.Padding = new Padding(7);
+            rJtextbox3.Padding = new Padding(7, 7, 7, 7);
             rJtextbox3.PasswordChar = false;
             rJtextbox3.Size = new Size(753, 59);
             rJtextbox3.TabIndex = 8;
@@ -435,7 +435,7 @@
             rJtextbox2.Multiline = false;
             rJtextbox2.Name = "rJtextbox2";
             rJtextbox2.OnlyNumbers = false;
-            rJtextbox2.Padding = new Padding(7);
+            rJtextbox2.Padding = new Padding(7, 7, 7, 7);
             rJtextbox2.PasswordChar = false;
             rJtextbox2.Size = new Size(753, 37);
             rJtextbox2.TabIndex = 7;
@@ -460,7 +460,7 @@
             rJtextbox1.Multiline = false;
             rJtextbox1.Name = "rJtextbox1";
             rJtextbox1.OnlyNumbers = false;
-            rJtextbox1.Padding = new Padding(7);
+            rJtextbox1.Padding = new Padding(7, 7, 7, 7);
             rJtextbox1.PasswordChar = false;
             rJtextbox1.Size = new Size(753, 37);
             rJtextbox1.TabIndex = 6;
@@ -578,7 +578,7 @@
         private PictureBox BotonMininizar;
         private Button BotonRegistrarObra;
         private Button BotonClientes;
-        private Button BotonVentas;
+        private Button BotonGastos;
         private System.Windows.Forms.Timer timer1;
         private Button BotonCerrarSesion;
         private PictureBox logouser;

@@ -11,12 +11,12 @@ using Microsoft.Data.SqlClient;
 
 namespace BRAHO_Project
 {
-    public partial class FrmClientes : Form
+    public partial class FrmGastos : Form
     {
         private List<Clientes> listaClientes;
         private List<Clientes> listaClientesOriginal = new List<Clientes>();
 
-        public FrmClientes()
+        public FrmGastos()
         {
             InitializeComponent();
             ConfigurarDataGridView();
@@ -129,8 +129,6 @@ namespace BRAHO_Project
                     eliminarCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 }
             }
-
-
         }
 
         private void dgvBuscar_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -201,10 +199,10 @@ namespace BRAHO_Project
             this.Close();
         }
 
-        private void BotonAgregarCliente_Click(object sender, EventArgs e)
+        private void BotonAgregarGastos_Click(object sender, EventArgs e)
         {
-            FrmAgregarClientes formularioAgregar = new FrmAgregarClientes(dgvBuscar);
-            formularioAgregar.ShowDialog();
+            FrmAgregarGasto frmAgregarGasto = new FrmAgregarGasto();
+            frmAgregarGasto.ShowDialog();
             MostrarClientes(); // Refrescar la lista después de agregar
         }
 

@@ -151,7 +151,15 @@ namespace BRAHO_Project
 
         private void BotonVentas_Click(object sender, EventArgs e)
         {
-            ActivarBoton(BotonVentas);
+            abrirformhijo(new FrmGastos());
+
+            if (!desplazar)
+            {
+                timer1.Start();
+                desplazar = true;
+            }
+
+            ActivarBoton(BotonGastos);
         }
 
         private void logouser_Click(object sender, EventArgs e)
