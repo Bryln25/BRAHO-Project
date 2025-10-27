@@ -78,7 +78,7 @@
             txtNombre.CaretCustom = false;
             txtNombre.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtNombre.ForeColor = Color.Gainsboro;
-            txtNombre.Location = new Point(111, 120);
+            txtNombre.Location = new Point(75, 122);
             txtNombre.Margin = new Padding(2, 3, 2, 3);
             txtNombre.MaxLength = 32767;
             txtNombre.Multiline = false;
@@ -96,7 +96,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(108, 86);
+            label1.Location = new Point(72, 88);
             label1.Name = "label1";
             label1.Size = new Size(222, 27);
             label1.TabIndex = 5;
@@ -113,7 +113,7 @@
             txtTelefono.CaretCustom = false;
             txtTelefono.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTelefono.ForeColor = Color.Gainsboro;
-            txtTelefono.Location = new Point(108, 230);
+            txtTelefono.Location = new Point(72, 232);
             txtTelefono.Margin = new Padding(2, 3, 2, 3);
             txtTelefono.MaxLength = 10;
             txtTelefono.Multiline = false;
@@ -133,7 +133,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(105, 196);
+            label2.Location = new Point(69, 198);
             label2.Name = "label2";
             label2.Size = new Size(154, 27);
             label2.TabIndex = 7;
@@ -150,7 +150,7 @@
             txtEmail.CaretCustom = false;
             txtEmail.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtEmail.ForeColor = Color.Gainsboro;
-            txtEmail.Location = new Point(111, 342);
+            txtEmail.Location = new Point(75, 344);
             txtEmail.Margin = new Padding(2, 3, 2, 3);
             txtEmail.MaxLength = 50;
             txtEmail.Multiline = false;
@@ -168,7 +168,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(111, 312);
+            label3.Location = new Point(75, 314);
             label3.Name = "label3";
             label3.Size = new Size(74, 27);
             label3.TabIndex = 9;
@@ -185,7 +185,7 @@
             txtDireccion.CaretCustom = false;
             txtDireccion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDireccion.ForeColor = Color.Gainsboro;
-            txtDireccion.Location = new Point(557, 120);
+            txtDireccion.Location = new Point(521, 122);
             txtDireccion.Margin = new Padding(2, 3, 2, 3);
             txtDireccion.MaxLength = 32767;
             txtDireccion.Multiline = false;
@@ -203,7 +203,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(554, 86);
+            label4.Location = new Point(518, 88);
             label4.Name = "label4";
             label4.Size = new Size(122, 27);
             label4.TabIndex = 11;
@@ -220,7 +220,7 @@
             txtCedula.CaretCustom = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtCedula.ForeColor = Color.Gainsboro;
-            txtCedula.Location = new Point(557, 230);
+            txtCedula.Location = new Point(521, 232);
             txtCedula.Margin = new Padding(2, 3, 2, 3);
             txtCedula.MaxLength = 11;
             txtCedula.Multiline = false;
@@ -240,7 +240,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(554, 196);
+            label5.Location = new Point(518, 198);
             label5.Name = "label5";
             label5.Size = new Size(142, 27);
             label5.TabIndex = 13;
@@ -271,7 +271,7 @@
             btnAgregarCliente.FlatStyle = FlatStyle.Flat;
             btnAgregarCliente.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgregarCliente.ForeColor = Color.White;
-            btnAgregarCliente.Location = new Point(694, 337);
+            btnAgregarCliente.Location = new Point(674, 326);
             btnAgregarCliente.Margin = new Padding(3, 4, 3, 4);
             btnAgregarCliente.Name = "btnAgregarCliente";
             btnAgregarCliente.Size = new Size(194, 53);
@@ -293,7 +293,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(691, 413);
+            btnCancelar.Location = new Point(671, 402);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(197, 53);

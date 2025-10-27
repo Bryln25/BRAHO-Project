@@ -102,10 +102,10 @@
             BotonAgendarObra.FlatStyle = FlatStyle.Flat;
             BotonAgendarObra.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonAgendarObra.ForeColor = Color.White;
-            BotonAgendarObra.Location = new Point(1273, 534);
-            BotonAgendarObra.Margin = new Padding(4, 5, 4, 5);
+            BotonAgendarObra.Location = new Point(1061, 445);
+            BotonAgendarObra.Margin = new Padding(3, 4, 3, 4);
             BotonAgendarObra.Name = "BotonAgendarObra";
-            BotonAgendarObra.Size = new Size(181, 64);
+            BotonAgendarObra.Size = new Size(151, 53);
             BotonAgendarObra.TabIndex = 12;
             BotonAgendarObra.Text = "Agregar";
             BotonAgendarObra.TextColor = Color.White;
@@ -124,10 +124,10 @@
             BotonCerr.FlatStyle = FlatStyle.Flat;
             BotonCerr.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonCerr.ForeColor = Color.White;
-            BotonCerr.Location = new Point(1273, 641);
-            BotonCerr.Margin = new Padding(4, 5, 4, 5);
+            BotonCerr.Location = new Point(1061, 534);
+            BotonCerr.Margin = new Padding(3, 4, 3, 4);
             BotonCerr.Name = "BotonCerr";
-            BotonCerr.Size = new Size(181, 64);
+            BotonCerr.Size = new Size(151, 53);
             BotonCerr.TabIndex = 13;
             BotonCerr.Text = "Cerrar";
             BotonCerr.TextColor = Color.White;
@@ -142,20 +142,18 @@
             panel1.Controls.Add(btnIniciado);
             panel1.Controls.Add(btnAgendado);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(35, 72);
-            panel1.Margin = new Padding(4);
+            panel1.Location = new Point(29, 60);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1175, 632);
+            panel1.Size = new Size(979, 527);
             panel1.TabIndex = 14;
             // 
             // pictureBox3
             // 
             pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(686, 26);
-            pictureBox3.Margin = new Padding(4);
+            pictureBox3.Location = new Point(572, 22);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(48, 49);
+            pictureBox3.Size = new Size(40, 41);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 19;
             pictureBox3.TabStop = false;
@@ -171,15 +169,15 @@
             txtBuscar.CaretCustom = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtBuscar.ForeColor = Color.Gainsboro;
-            txtBuscar.Location = new Point(740, 32);
-            txtBuscar.Margin = new Padding(2, 4, 2, 4);
+            txtBuscar.Location = new Point(617, 27);
+            txtBuscar.Margin = new Padding(2, 3, 2, 3);
             txtBuscar.MaxLength = 32767;
             txtBuscar.Multiline = false;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.OnlyNumbers = false;
-            txtBuscar.Padding = new Padding(7, 6, 7, 6);
+            txtBuscar.Padding = new Padding(6, 5, 6, 5);
             txtBuscar.PasswordChar = false;
-            txtBuscar.Size = new Size(0, 39);
+            txtBuscar.Size = new Size(0, 35);
             txtBuscar.TabIndex = 18;
             txtBuscar.Texts = "";
             txtBuscar.UnderlinedStyle = true;
@@ -197,10 +195,10 @@
             btnTerminado.FlatStyle = FlatStyle.Flat;
             btnTerminado.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTerminado.ForeColor = Color.White;
-            btnTerminado.Location = new Point(391, 11);
-            btnTerminado.Margin = new Padding(4, 5, 4, 5);
+            btnTerminado.Location = new Point(326, 9);
+            btnTerminado.Margin = new Padding(3, 4, 3, 4);
             btnTerminado.Name = "btnTerminado";
-            btnTerminado.Size = new Size(181, 64);
+            btnTerminado.Size = new Size(151, 53);
             btnTerminado.TabIndex = 13;
             btnTerminado.Text = "Terminado";
             btnTerminado.TextColor = Color.White;
@@ -219,10 +217,10 @@
             btnIniciado.FlatStyle = FlatStyle.Flat;
             btnIniciado.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnIniciado.ForeColor = Color.White;
-            btnIniciado.Location = new Point(203, 11);
-            btnIniciado.Margin = new Padding(4, 5, 4, 5);
+            btnIniciado.Location = new Point(169, 9);
+            btnIniciado.Margin = new Padding(3, 4, 3, 4);
             btnIniciado.Name = "btnIniciado";
-            btnIniciado.Size = new Size(181, 64);
+            btnIniciado.Size = new Size(151, 53);
             btnIniciado.TabIndex = 14;
             btnIniciado.Text = "Iniciado";
             btnIniciado.TextColor = Color.White;
@@ -241,10 +239,10 @@
             btnAgendado.FlatStyle = FlatStyle.Flat;
             btnAgendado.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgendado.ForeColor = Color.White;
-            btnAgendado.Location = new Point(14, 11);
-            btnAgendado.Margin = new Padding(4, 5, 4, 5);
+            btnAgendado.Location = new Point(12, 9);
+            btnAgendado.Margin = new Padding(3, 4, 3, 4);
             btnAgendado.Name = "btnAgendado";
-            btnAgendado.Size = new Size(181, 64);
+            btnAgendado.Size = new Size(151, 53);
             btnAgendado.TabIndex = 13;
             btnAgendado.Text = "Agendado";
             btnAgendado.TextColor = Color.White;
@@ -253,10 +251,9 @@
             // 
             // panel2
             // 
-            panel2.Location = new Point(0, 83);
-            panel2.Margin = new Padding(4);
+            panel2.Location = new Point(0, 69);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1175, 565);
+            panel2.Size = new Size(979, 471);
             panel2.TabIndex = 0;
             // 
             // label6
@@ -264,10 +261,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(14, 11);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(12, 9);
             label6.Name = "label6";
-            label6.Size = new Size(169, 24);
+            label6.Size = new Size(143, 21);
             label6.TabIndex = 15;
             label6.Text = "Gestionar obras";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -287,32 +283,31 @@
             txtOculto.CaretCustom = false;
             txtOculto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtOculto.ForeColor = Color.Gainsboro;
-            txtOculto.Location = new Point(1228, 13);
-            txtOculto.Margin = new Padding(2, 4, 2, 4);
+            txtOculto.Location = new Point(1023, 11);
+            txtOculto.Margin = new Padding(2, 3, 2, 3);
             txtOculto.MaxLength = 32767;
             txtOculto.Multiline = false;
             txtOculto.Name = "txtOculto";
             txtOculto.OnlyNumbers = false;
-            txtOculto.Padding = new Padding(7, 6, 7, 6);
+            txtOculto.Padding = new Padding(6, 5, 6, 5);
             txtOculto.PasswordChar = false;
-            txtOculto.Size = new Size(0, 39);
+            txtOculto.Size = new Size(0, 35);
             txtOculto.TabIndex = 20;
             txtOculto.Texts = "";
             txtOculto.UnderlinedStyle = true;
             // 
             // FrmObras
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1249, 740);
+            ClientSize = new Size(1041, 617);
             Controls.Add(txtOculto);
             Controls.Add(label6);
             Controls.Add(panel1);
             Controls.Add(BotonCerr);
             Controls.Add(BotonAgendarObra);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "FrmObras";
             Text = "FrmClientes";
             Load += FrmObras_Load;

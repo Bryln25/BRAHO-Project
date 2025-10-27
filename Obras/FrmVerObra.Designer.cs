@@ -64,6 +64,9 @@
             txtEstado = new BRAHO_Project.RJControls.RJtextbox();
             btnSalir = new BRAHO_Project.RJControls.RJButton();
             cbCliente = new ComboBox();
+            txtEncargado = new BRAHO_Project.RJControls.RJtextbox();
+            label2 = new Label();
+            cbEncargado = new ComboBox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -121,7 +124,7 @@
             panel2.Dock = DockStyle.Right;
             panel2.Location = new Point(1050, 10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(10, 855);
+            panel2.Size = new Size(10, 920);
             panel2.TabIndex = 21;
             // 
             // pictureBox3
@@ -156,7 +159,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 10);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 855);
+            panel1.Size = new Size(10, 920);
             panel1.TabIndex = 22;
             // 
             // pictureBox1
@@ -189,7 +192,7 @@
             Diseñito.Controls.Add(BotonMininizar);
             Diseñito.Controls.Add(BotonCerrar);
             Diseñito.Dock = DockStyle.Bottom;
-            Diseñito.Location = new Point(10, 855);
+            Diseñito.Location = new Point(10, 920);
             Diseñito.Name = "Diseñito";
             Diseñito.Size = new Size(1040, 10);
             Diseñito.TabIndex = 23;
@@ -241,7 +244,7 @@
             txtPresupuesto.Enabled = false;
             txtPresupuesto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtPresupuesto.ForeColor = Color.Gainsboro;
-            txtPresupuesto.Location = new Point(85, 596);
+            txtPresupuesto.Location = new Point(85, 666);
             txtPresupuesto.Margin = new Padding(2, 3, 2, 3);
             txtPresupuesto.MaxLength = 11;
             txtPresupuesto.Multiline = false;
@@ -259,7 +262,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(82, 561);
+            label5.Location = new Point(82, 631);
             label5.Name = "label5";
             label5.Size = new Size(148, 27);
             label5.TabIndex = 36;
@@ -277,7 +280,7 @@
             txtMetros.Enabled = false;
             txtMetros.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMetros.ForeColor = Color.Gainsboro;
-            txtMetros.Location = new Point(85, 477);
+            txtMetros.Location = new Point(85, 553);
             txtMetros.Margin = new Padding(2, 3, 2, 3);
             txtMetros.MaxLength = 32767;
             txtMetros.Multiline = false;
@@ -295,7 +298,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(82, 444);
+            label4.Location = new Point(82, 520);
             label4.Name = "label4";
             label4.Size = new Size(284, 27);
             label4.TabIndex = 34;
@@ -313,7 +316,7 @@
             txtUbicacion.Enabled = false;
             txtUbicacion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtUbicacion.ForeColor = Color.Gainsboro;
-            txtUbicacion.Location = new Point(85, 712);
+            txtUbicacion.Location = new Point(85, 782);
             txtUbicacion.Margin = new Padding(2, 3, 2, 3);
             txtUbicacion.MaxLength = 50;
             txtUbicacion.Multiline = true;
@@ -331,7 +334,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(85, 669);
+            label3.Location = new Point(85, 739);
             label3.Name = "label3";
             label3.Size = new Size(131, 27);
             label3.TabIndex = 32;
@@ -343,7 +346,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(82, 326);
+            label1.Location = new Point(82, 400);
             label1.Name = "label1";
             label1.Size = new Size(157, 27);
             label1.TabIndex = 28;
@@ -355,7 +358,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(639, 101);
+            label7.Location = new Point(639, 75);
             label7.Name = "label7";
             label7.Size = new Size(188, 27);
             label7.TabIndex = 38;
@@ -367,7 +370,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(639, 207);
+            label8.Location = new Point(639, 189);
             label8.Name = "label8";
             label8.Size = new Size(175, 27);
             label8.TabIndex = 40;
@@ -415,7 +418,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(82, 207);
+            label11.Location = new Point(82, 284);
             label11.Name = "label11";
             label11.Size = new Size(208, 27);
             label11.TabIndex = 49;
@@ -445,7 +448,7 @@
             txtNombre.Enabled = false;
             txtNombre.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtNombre.ForeColor = Color.Gainsboro;
-            txtNombre.Location = new Point(82, 131);
+            txtNombre.Location = new Point(82, 105);
             txtNombre.Margin = new Padding(2, 3, 2, 3);
             txtNombre.MaxLength = 50;
             txtNombre.Multiline = false;
@@ -463,7 +466,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.White;
-            label12.Location = new Point(82, 101);
+            label12.Location = new Point(82, 75);
             label12.Name = "label12";
             label12.Size = new Size(229, 27);
             label12.TabIndex = 54;
@@ -481,7 +484,7 @@
             txtCliente.Enabled = false;
             txtCliente.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtCliente.ForeColor = Color.Gainsboro;
-            txtCliente.Location = new Point(82, 248);
+            txtCliente.Location = new Point(82, 325);
             txtCliente.Margin = new Padding(2, 3, 2, 3);
             txtCliente.MaxLength = 50;
             txtCliente.Multiline = false;
@@ -505,7 +508,7 @@
             txtTipo.Enabled = false;
             txtTipo.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTipo.ForeColor = Color.Gainsboro;
-            txtTipo.Location = new Point(82, 366);
+            txtTipo.Location = new Point(82, 440);
             txtTipo.Margin = new Padding(2, 3, 2, 3);
             txtTipo.MaxLength = 50;
             txtTipo.Multiline = false;
@@ -529,7 +532,7 @@
             txtFechaInicio.Enabled = false;
             txtFechaInicio.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtFechaInicio.ForeColor = Color.Gainsboro;
-            txtFechaInicio.Location = new Point(639, 131);
+            txtFechaInicio.Location = new Point(639, 105);
             txtFechaInicio.Margin = new Padding(2, 3, 2, 3);
             txtFechaInicio.MaxLength = 50;
             txtFechaInicio.Multiline = false;
@@ -553,7 +556,7 @@
             txtFechaFinal.Enabled = false;
             txtFechaFinal.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtFechaFinal.ForeColor = Color.Gainsboro;
-            txtFechaFinal.Location = new Point(639, 248);
+            txtFechaFinal.Location = new Point(639, 230);
             txtFechaFinal.Margin = new Padding(2, 3, 2, 3);
             txtFechaFinal.MaxLength = 50;
             txtFechaFinal.Multiline = false;
@@ -615,17 +618,64 @@
             // cbCliente
             // 
             cbCliente.FormattingEnabled = true;
-            cbCliente.Location = new Point(994, 24);
+            cbCliente.Location = new Point(1035, 22);
             cbCliente.Name = "cbCliente";
-            cbCliente.Size = new Size(10, 28);
+            cbCliente.Size = new Size(0, 28);
             cbCliente.TabIndex = 60;
+            // 
+            // txtEncargado
+            // 
+            txtEncargado.BackColor = Color.FromArgb(64, 64, 64);
+            txtEncargado.BorderColor = Color.FromArgb(255, 165, 11);
+            txtEncargado.BorderFocusColor = SystemColors.HotTrack;
+            txtEncargado.BorderSize = 6;
+            txtEncargado.CaretColor = Color.Black;
+            txtEncargado.CaretCustom = false;
+            txtEncargado.Enabled = false;
+            txtEncargado.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtEncargado.ForeColor = Color.Gainsboro;
+            txtEncargado.Location = new Point(82, 212);
+            txtEncargado.Margin = new Padding(2, 3, 2, 3);
+            txtEncargado.MaxLength = 50;
+            txtEncargado.Multiline = false;
+            txtEncargado.Name = "txtEncargado";
+            txtEncargado.OnlyNumbers = false;
+            txtEncargado.Padding = new Padding(6, 5, 6, 5);
+            txtEncargado.PasswordChar = false;
+            txtEncargado.Size = new Size(347, 35);
+            txtEncargado.TabIndex = 62;
+            txtEncargado.Texts = "";
+            txtEncargado.UnderlinedStyle = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(82, 171);
+            label2.Name = "label2";
+            label2.Size = new Size(263, 27);
+            label2.TabIndex = 61;
+            label2.Text = "Encargado de la obra";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // cbEncargado
+            // 
+            cbEncargado.FormattingEnabled = true;
+            cbEncargado.Location = new Point(987, 24);
+            cbEncargado.Name = "cbEncargado";
+            cbEncargado.Size = new Size(0, 28);
+            cbEncargado.TabIndex = 63;
             // 
             // FrmVerObra
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1060, 865);
+            ClientSize = new Size(1060, 930);
+            Controls.Add(cbEncargado);
+            Controls.Add(txtEncargado);
+            Controls.Add(label2);
             Controls.Add(cbCliente);
             Controls.Add(txtEstado);
             Controls.Add(txtFechaFinal);
@@ -712,5 +762,8 @@
         private RJControls.RJtextbox txtEstado;
         private RJControls.RJButton btnSalir;
         private ComboBox cbCliente;
+        private RJControls.RJtextbox txtEncargado;
+        private Label label2;
+        private ComboBox cbEncargado;
     }
 }

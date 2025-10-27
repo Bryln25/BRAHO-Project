@@ -18,11 +18,16 @@ namespace BRAHO_Project
             InitializeComponent();
             Funciones.RedondearForm(this);
 
-
             cbCliente.DataSource = ObrasDAL.CargarClientes();
             cbCliente.DisplayMember = "NombreApellido";
             cbCliente.ValueMember = "IDCliente";
             cbCliente.SelectedIndex = -1;
+
+            cbEncargado.DataSource = ObrasDAL.CargarEncargados();
+            cbEncargado.DisplayMember = "NombreApellido";
+            cbEncargado.ValueMember = "IdUsuario";
+            cbEncargado.SelectedIndex = -1;
+
             this.obras = obras;
             txtNombre.Texts = obras.NombreObra;
             cbCliente.SelectedValue = obras.IDCliente;
@@ -34,10 +39,12 @@ namespace BRAHO_Project
             dtpFechaFinal.Value = DateTime.Parse(obras.FechaFinal);
             txtRecordatorio.Texts = obras.Recordatorio;
             cbEstado.Texts = obras.Estado;
+            cbEncargado.SelectedValue = obras.IdUsuario;
         }
 
         private void FrmEditarObra_Load(object sender, EventArgs e)
         {
+
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)
@@ -52,6 +59,20 @@ namespace BRAHO_Project
 
         private void btnEditarObra_Click(object sender, EventArgs e)
         {
+            if (cbCliente.SelectedValue == null || string.IsNullOrEmpty(cbEncargado.Texts) || string.IsNullOrEmpty(cbTipo.Texts) ||
+               string.IsNullOrEmpty(txtNombre.Texts) || string.IsNullOrEmpty(txtUbicacion.Texts) || string.IsNullOrEmpty(txtMetros.Texts) || string.IsNullOrEmpty(txtPresupuesto.Texts))
+
+            {
+                MessageBox.Show("Por favor, complete los campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (dtpFechaInicio.Value > dtpFechaFinal.Value)
+            {
+                MessageBox.Show("La Fecha Inicial no puede ser mayor que la Fecha Final", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             Obras obra = new Obras();
 
             obra.IdObra = obras.IdObra;
@@ -65,6 +86,7 @@ namespace BRAHO_Project
             obra.FechaFinal = dtpFechaFinal.Value.ToString("dd/MM/yyyy").Trim();
             obra.Recordatorio = txtRecordatorio.Texts.Trim();
             obra.Estado = cbEstado.Texts.Trim();
+            obra.IdUsuario = (int)cbEncargado.SelectedValue;
             int resultado = ObrasDAL.EditarObras(obra);
 
             if (resultado > 0)

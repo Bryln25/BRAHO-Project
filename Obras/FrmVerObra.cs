@@ -18,12 +18,16 @@ namespace BRAHO_Project
             InitializeComponent();
             Funciones.RedondearForm(this);
 
-            cbCliente.Visible = false;
             cbCliente.DataSource = ObrasDAL.CargarClientes();
             cbCliente.DisplayMember = "NombreApellido";
             cbCliente.ValueMember = "IDCliente";
             cbCliente.SelectedValue = obras.IDCliente;
-            txtCliente.Texts = cbCliente.Text;
+
+            cbEncargado.DataSource = ObrasDAL.CargarEncargados();
+            cbEncargado.DisplayMember = "NombreApellido";
+            cbEncargado.ValueMember = "IdUsuario";
+            cbEncargado.SelectedValue = obras.IdUsuario;
+
             txtNombre.Texts = obras.NombreObra;
             txtTipo.Texts = obras.TipoObra;
             txtUbicacion.Texts = obras.Ubicacion;
@@ -37,6 +41,8 @@ namespace BRAHO_Project
 
         private void FrmEditarObra_Load(object sender, EventArgs e)
         {
+            txtCliente.Texts = cbCliente.Text;
+            txtEncargado.Texts = cbEncargado.Text;
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)

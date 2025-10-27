@@ -195,8 +195,21 @@ namespace BRAHO_Project
                 switch (dgvObrasTerminadas.Columns[e.ColumnIndex].Name)
                 {
                     case "Ver":
+                        if (dgvObrasTerminadas.CurrentRow != null) // valida que haya fila seleccionada
+                        {
+                            DataGridViewRow fila = dgvObrasTerminadas.CurrentRow;
+
+                            // Crear el formulario destino
+
+                            FrmVerObra frm = new FrmVerObra(obra, dgvObrasTerminadas);
+                            frm.ShowDialog();
+                            MostrarObras();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione una fila antes de visualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         break;
-                    //jodemos depue
 
                     case "Editar":
                         if (dgvObrasTerminadas.CurrentRow != null) // valida que haya fila seleccionada

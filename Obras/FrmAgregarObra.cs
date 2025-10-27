@@ -26,6 +26,11 @@ namespace BRAHO_Project
             cbCliente.DisplayMember = "NombreApellido";
             cbCliente.ValueMember = "IDCliente";
             cbCliente.SelectedIndex = -1;
+
+            cbEncargado.DataSource = ObrasDAL.CargarEncargados();
+            cbEncargado.DisplayMember = "NombreApellido";
+            cbEncargado.ValueMember = "IdUsuario";
+            cbEncargado.SelectedIndex = -1;
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)
@@ -40,39 +45,43 @@ namespace BRAHO_Project
 
         private void btnAgregarObra_Click(object sender, EventArgs e)
         {
-
             Obras obra = new Obras();
 
-            if (cbCliente.SelectedValue == null)
+            if (cbCliente.SelectedValue == null || string.IsNullOrEmpty(cbEncargado.Texts) || string.IsNullOrEmpty(cbTipo.Texts) ||
+               string.IsNullOrEmpty(txtNombre.Texts) || string.IsNullOrEmpty(txtUbicacion.Texts) || string.IsNullOrEmpty(txtMetros.Texts) || string.IsNullOrEmpty(txtPresupuesto.Texts) )
+
             {
-                MessageBox.Show("Debe seleccionar un cliente antes de agregar la obra.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete los campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
+            }
+
+            if (dtpFechaInicio.Value > dtpFechaFinal.Value)
+            {
+                MessageBox.Show("La Fecha Inicial no puede ser mayor que la Fecha Final", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            obra.IDCliente = (int)cbCliente.SelectedValue;
+            obra.NombreObra = txtNombre.Texts.Trim();
+            obra.TipoObra = cbTipo.Texts.Trim();
+            obra.Ubicacion = txtUbicacion.Texts.Trim();
+            obra.MetrosCuadrados = txtMetros.Texts.Trim();
+            obra.Presupuesto = txtPresupuesto.Texts.Trim();
+            obra.FechaInicio = dtpFechaInicio.Value.ToString("dd/MM/yyyy").Trim();
+            obra.FechaFinal = dtpFechaFinal.Value.ToString("dd/MM/yyyy").Trim();
+            obra.Recordatorio = txtRecordatorio.Texts.Trim();
+            obra.IdUsuario = (int)cbEncargado.SelectedValue;
+
+            int resultado = ObrasDAL.AgregarObra(obra);
+
+            if (resultado > 0)
+            {
+                MessageBox.Show("Obra agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
-                obra.IDCliente = (int)cbCliente.SelectedValue;
-                obra.NombreObra = txtNombre.Texts.Trim();
-                obra.TipoObra = cbTipo.Texts.Trim();
-                obra.Ubicacion = txtUbicacion.Texts.Trim();
-                obra.MetrosCuadrados = txtMetros.Texts.Trim();
-                obra.Presupuesto = txtPresupuesto.Texts.Trim();
-                obra.FechaInicio = dtpFechaInicio.Value.ToString("dd/MM/yyyy").Trim();
-                obra.FechaFinal = dtpFechaFinal.Value.ToString("dd/MM/yyyy").Trim();
-                obra.Recordatorio = txtRecordatorio.Texts.Trim();
-
-                int resultado = ObrasDAL.AgregarObra(obra);
-
-                if (resultado > 0)
-                {
-                    MessageBox.Show("Obra agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error al agregar la Obra. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
+                MessageBox.Show("Error al agregar la Obra. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

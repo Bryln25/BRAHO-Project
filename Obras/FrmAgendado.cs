@@ -136,6 +136,7 @@ namespace BRAHO_Project
             {
                 listaObras = new List<Obras>(listaObrasOriginal);
             }
+
             else
             {
                 listaObras = listaObrasOriginal.Where(c =>

@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace BRAHO_Project
 {
@@ -36,6 +37,49 @@ namespace BRAHO_Project
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtCedula.Texts) || string.IsNullOrEmpty(txtDireccion.Texts) || string.IsNullOrEmpty(txtEmail.Texts) ||
+                string.IsNullOrEmpty(txtNombre.Texts) || string.IsNullOrEmpty(txtTelefono.Texts))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Verificar si el telefono ya existe en la base de datos
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                string query = "SELECT COUNT(*) FROM Clientes WHERE Telefono = @Telefono";
+
+                SqlCommand comando = new SqlCommand(query, conexion);
+
+                comando.Parameters.AddWithValue("@Telefono", txtTelefono.Texts.Trim());
+
+                int result = Convert.ToInt32(comando.ExecuteScalar());
+                if (result == 1)
+                {
+                    MessageBox.Show("El telefono ya existe. Por favor, elija otro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtTelefono.Texts = string.Empty;
+                    txtTelefono.Focus();
+                    return;
+                }
+            }
+
+            // Verficar si la cedula ya existe en la base de datos
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                string query = "SELECT COUNT(*) FROM Clientes WHERE Cedula = @Cedula";
+                SqlCommand comando = new SqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@Cedula", txtCedula.Texts.Trim());
+                int result = Convert.ToInt32(comando.ExecuteScalar());
+                if (result == 1)
+                {
+                    MessageBox.Show("La cédula ya existe. Por favor, elija otra.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtCedula.Texts = string.Empty;
+                    txtCedula.Focus();
+                    return;
+                }
+            }
+
+
             Clientes cliente = new Clientes();
 
             cliente.NombreApellido = txtNombre.Texts.Trim();

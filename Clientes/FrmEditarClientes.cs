@@ -45,6 +45,13 @@ namespace BRAHO_Project
 
         private void btnEditarCliente_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtCedula.Texts) || string.IsNullOrEmpty(txtDireccion.Texts) || string.IsNullOrEmpty(txtEmail.Texts) ||
+               string.IsNullOrEmpty(txtNombre.Texts) || string.IsNullOrEmpty(txtTelefono.Texts))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             Clientes cliente = new Clientes();
 
             cliente.IDCliente = clientes.IDCliente;

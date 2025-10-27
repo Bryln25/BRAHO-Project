@@ -19,6 +19,7 @@ namespace BRAHO_Project
         public string FechaFinal { get; set; }
         public string Recordatorio { get; set; }
         public string Estado { get; set; } = "Agendado";
+        public int IdUsuario { get; set; }
 
 
 
@@ -26,7 +27,7 @@ namespace BRAHO_Project
         {
         }
 
-        public Obras(int idobra, int idCliente, string nombreObra, string tipoobra, string ubicacion, string metroscuadrados, string presupuesto, string fechaInicio, string fechaFinal, string recordatorio, string estado)
+        public Obras(int idobra, int idCliente, string nombreObra, string tipoobra, string ubicacion, string metroscuadrados, string presupuesto, string fechaInicio, string fechaFinal, string recordatorio, string estado, int idUsuario)
         {
             IdObra = idobra;
             IDCliente = idCliente;
@@ -39,6 +40,7 @@ namespace BRAHO_Project
             FechaFinal = fechaFinal;           
             Recordatorio = recordatorio;
             Estado = estado;
+            IdUsuario = idUsuario;
         }
     }
 }

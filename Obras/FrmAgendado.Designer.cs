@@ -69,7 +69,7 @@
             dgvObrasAgendadas.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvObrasAgendadas.EnableHeadersVisualStyles = false;
             dgvObrasAgendadas.Location = new Point(12, 12);
-            dgvObrasAgendadas.Margin = new Padding(4, 4, 4, 4);
+            dgvObrasAgendadas.Margin = new Padding(4);
             dgvObrasAgendadas.MultiSelect = false;
             dgvObrasAgendadas.Name = "dgvObrasAgendadas";
             dgvObrasAgendadas.ReadOnly = true;

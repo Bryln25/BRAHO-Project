@@ -142,40 +142,25 @@ namespace BRAHO_Project
                 switch (dgvBuscar.Columns[e.ColumnIndex].Name)
                 {
                     case "Editar":
-                        // dale tu puede
-                        if (dgvBuscar.CurrentRow != null) // valida que haya fila seleccionada
+                        if (dgvBuscar.CurrentRow != null) 
                         {
                             DataGridViewRow fila = dgvBuscar.CurrentRow;
 
-                            // Crear el formulario destino
 
                             FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar);
-                            //Clientes clientes = new Clientes();
-
-
-                            // Pasar valores
-
-                            
-
-
-                            // Mostrar el formulario
                             frm.ShowDialog();
-                            MostrarClientes(); // Refrescar la lista después de editar
+                            MostrarClientes(); 
                         }
                         else
                         {
                             MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
-
-
                         break;
 
                     case "Eliminar":
                         if (MessageBox.Show($"¿Está seguro que desea eliminar a {cliente.NombreApellido}?",
                             "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            // Eliminar de la base de datos
                             int resultado = ClientesDAL.EliminarCliente(cliente.IDCliente);
 
                             if (resultado > 0)
@@ -330,8 +315,6 @@ namespace BRAHO_Project
                     timer1.Stop();
                 }
             }
-
-
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
