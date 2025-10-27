@@ -164,6 +164,9 @@ namespace BRAHO_Project
 
         private void logouser_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show($"¿Desea cambiar la foto de perfil?", "Confirmar Cambiar Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif";
 

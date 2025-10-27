@@ -78,8 +78,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvBuscar.DefaultCellStyle = dataGridViewCellStyle2;
             dgvBuscar.EnableHeadersVisualStyles = false;
-            dgvBuscar.Location = new Point(41, 120);
-            dgvBuscar.Margin = new Padding(5);
+            dgvBuscar.Location = new Point(34, 100);
+            dgvBuscar.Margin = new Padding(4);
             dgvBuscar.Name = "dgvBuscar";
             dgvBuscar.ReadOnly = true;
             dgvBuscar.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -101,7 +101,7 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvBuscar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBuscar.Size = new Size(1166, 577);
+            dgvBuscar.Size = new Size(972, 481);
             dgvBuscar.TabIndex = 11;
             dgvBuscar.TabStop = false;
             dgvBuscar.CellClick += dgvBuscar_CellClick;
@@ -120,10 +120,10 @@
             BotonCerr.FlatStyle = FlatStyle.Flat;
             BotonCerr.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonCerr.ForeColor = Color.White;
-            BotonCerr.Location = new Point(1266, 634);
-            BotonCerr.Margin = new Padding(4, 5, 4, 5);
+            BotonCerr.Location = new Point(1055, 528);
+            BotonCerr.Margin = new Padding(3, 4, 3, 4);
             BotonCerr.Name = "BotonCerr";
-            BotonCerr.Size = new Size(181, 64);
+            BotonCerr.Size = new Size(151, 53);
             BotonCerr.TabIndex = 15;
             BotonCerr.Text = "Cerrar";
             BotonCerr.TextColor = Color.White;
@@ -142,10 +142,10 @@
             BotonAgregarCliente.FlatStyle = FlatStyle.Flat;
             BotonAgregarCliente.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonAgregarCliente.ForeColor = Color.White;
-            BotonAgregarCliente.Location = new Point(1266, 532);
-            BotonAgregarCliente.Margin = new Padding(4, 5, 4, 5);
+            BotonAgregarCliente.Location = new Point(1055, 443);
+            BotonAgregarCliente.Margin = new Padding(3, 4, 3, 4);
             BotonAgregarCliente.Name = "BotonAgregarCliente";
-            BotonAgregarCliente.Size = new Size(181, 64);
+            BotonAgregarCliente.Size = new Size(151, 53);
             BotonAgregarCliente.TabIndex = 14;
             BotonAgregarCliente.Text = "Agregar";
             BotonAgregarCliente.TextColor = Color.White;
@@ -162,15 +162,15 @@
             txtBuscar.CaretCustom = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtBuscar.ForeColor = Color.Gainsboro;
-            txtBuscar.Location = new Point(791, 59);
-            txtBuscar.Margin = new Padding(2, 4, 2, 4);
+            txtBuscar.Location = new Point(657, 49);
+            txtBuscar.Margin = new Padding(2, 3, 2, 3);
             txtBuscar.MaxLength = 32767;
             txtBuscar.Multiline = false;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.OnlyNumbers = false;
-            txtBuscar.Padding = new Padding(7, 6, 7, 6);
+            txtBuscar.Padding = new Padding(6, 5, 6, 5);
             txtBuscar.PasswordChar = false;
-            txtBuscar.Size = new Size(0, 39);
+            txtBuscar.Size = new Size(0, 35);
             txtBuscar.TabIndex = 16;
             txtBuscar.Texts = "";
             txtBuscar.UnderlinedStyle = true;
@@ -180,10 +180,9 @@
             // 
             btnLupa.Cursor = Cursors.Hand;
             btnLupa.Image = (Image)resources.GetObject("btnLupa.Image");
-            btnLupa.Location = new Point(733, 52);
-            btnLupa.Margin = new Padding(4);
+            btnLupa.Location = new Point(609, 43);
             btnLupa.Name = "btnLupa";
-            btnLupa.Size = new Size(52, 56);
+            btnLupa.Size = new Size(43, 47);
             btnLupa.SizeMode = PictureBoxSizeMode.Zoom;
             btnLupa.TabIndex = 17;
             btnLupa.TabStop = false;
@@ -194,10 +193,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(14, 11);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(12, 9);
             label6.Name = "label6";
-            label6.Size = new Size(191, 24);
+            label6.Size = new Size(159, 21);
             label6.TabIndex = 18;
             label6.Text = "Gestionar clientes";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -217,25 +215,25 @@
             txtOculto.CaretCustom = false;
             txtOculto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtOculto.ForeColor = Color.Gainsboro;
-            txtOculto.Location = new Point(1228, 11);
-            txtOculto.Margin = new Padding(2, 4, 2, 4);
+            txtOculto.Location = new Point(1023, 9);
+            txtOculto.Margin = new Padding(2, 3, 2, 3);
             txtOculto.MaxLength = 32767;
             txtOculto.Multiline = false;
             txtOculto.Name = "txtOculto";
             txtOculto.OnlyNumbers = false;
-            txtOculto.Padding = new Padding(7, 6, 7, 6);
+            txtOculto.Padding = new Padding(6, 5, 6, 5);
             txtOculto.PasswordChar = false;
-            txtOculto.Size = new Size(0, 39);
+            txtOculto.Size = new Size(0, 35);
             txtOculto.TabIndex = 19;
             txtOculto.Texts = "";
             txtOculto.UnderlinedStyle = true;
             // 
             // FrmClientes
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1249, 740);
+            ClientSize = new Size(1041, 617);
             Controls.Add(txtOculto);
             Controls.Add(label6);
             Controls.Add(btnLupa);
@@ -245,7 +243,6 @@
             Controls.Add(dgvBuscar);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "FrmClientes";
             Text = "FrmClientes";
             Load += FrmClientes_Load;

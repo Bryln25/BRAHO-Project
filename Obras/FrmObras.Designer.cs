@@ -151,7 +151,7 @@
             // 
             pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(572, 22);
+            pictureBox3.Location = new Point(573, 22);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(40, 41);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -169,7 +169,7 @@
             txtBuscar.CaretCustom = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtBuscar.ForeColor = Color.Gainsboro;
-            txtBuscar.Location = new Point(617, 27);
+            txtBuscar.Location = new Point(618, 27);
             txtBuscar.Margin = new Padding(2, 3, 2, 3);
             txtBuscar.MaxLength = 32767;
             txtBuscar.Multiline = false;

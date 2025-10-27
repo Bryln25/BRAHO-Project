@@ -87,6 +87,9 @@ namespace BRAHO_Project
 
         private void txtPresupuesto__Leave(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtPresupuesto.Texts))
+                return;
+
             double numero = Convert.ToDouble(txtPresupuesto.Texts.Trim());
 
             txtPresupuesto.Texts = $"RD$ {numero:N2}";
@@ -101,6 +104,7 @@ namespace BRAHO_Project
 
         private void txtMetros__Enter(object sender, EventArgs e)
         {
+
             string numero = new string(txtMetros.Texts.Replace("m²", "")).Trim();
 
             txtMetros.Texts = numero;
@@ -108,6 +112,9 @@ namespace BRAHO_Project
 
         private void txtMetros__Leave(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtMetros.Texts))
+                return;
+
             double numero = Convert.ToDouble(txtMetros.Texts.Trim());
 
             txtMetros.Texts = $"{numero:N2} m²";
