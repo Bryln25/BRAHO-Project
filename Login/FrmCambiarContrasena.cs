@@ -42,35 +42,6 @@ namespace BRAHO_Project
             this.Close();
         }
 
-        private void rjButton1_Click(object sender, EventArgs e)
-        {
-            // Validar que las contraseñas coincidan
-            if (txtNuevaContraseña.Texts.Trim() != txtConfirmarContraseña.Texts.Trim())
-            {
-                MessageBox.Show("Las contraseñas no coinciden.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtNuevaContraseña.Texts = string.Empty;
-                txtConfirmarContraseña.Texts = string.Empty;
-                txtNuevaContraseña.Focus();
-
-                return;
-            }
-
-            string nuevaContrasena = txtNuevaContraseña.Texts.Trim();
-            string hash = Funciones.HashPassword(nuevaContrasena);
-
-            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
-            {
-                string query = "UPDATE Usuarios SET Contraseña = @Contrasena WHERE Email = @Email";
-                SqlCommand cmd = new SqlCommand(query, conexion);
-                cmd.Parameters.AddWithValue("@Contrasena", hash);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.ExecuteNonQuery();
-            }
-
-            MessageBox.Show("Contraseña actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
-        }
-
         private void BtnVerContraseña1_Click(object sender, EventArgs e)
         {
             if (txtNuevaContraseña.PasswordChar)
@@ -101,6 +72,35 @@ namespace BRAHO_Project
                 txtConfirmarContraseña.PasswordChar = true;
                 BtnVerContraseña2.Image = Properties.Resources.visible; // Cambia a imagen de ojo abierto
             }
+        }
+
+        private void BotonActualizar_Click(object sender, EventArgs e)
+        {
+            // Validar que las contraseñas coincidan
+            if (txtNuevaContraseña.Texts.Trim() != txtConfirmarContraseña.Texts.Trim())
+            {
+                MessageBox.Show("Las contraseñas no coinciden.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNuevaContraseña.Texts = string.Empty;
+                txtConfirmarContraseña.Texts = string.Empty;
+                txtNuevaContraseña.Focus();
+
+                return;
+            }
+
+            string nuevaContrasena = txtNuevaContraseña.Texts.Trim();
+            string hash = Funciones.HashPassword(nuevaContrasena);
+
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                string query = "UPDATE Usuarios SET Contraseña = @Contrasena WHERE Email = @Email";
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@Contrasena", hash);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.ExecuteNonQuery();
+            }
+
+            MessageBox.Show("Contraseña actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

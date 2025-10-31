@@ -34,7 +34,7 @@
             BotonCerrar = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            BotonEnviarCodigo = new BRAHO_Project.RJControls.RJButton();
+            BotonActualizar = new BRAHO_Project.RJControls.RJButton();
             rjButton1 = new BRAHO_Project.RJControls.RJButton();
             BtnVerContraseña2 = new PictureBox();
             BtnVerContraseña1 = new PictureBox();
@@ -108,25 +108,26 @@
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
             // 
-            // BotonEnviarCodigo
+            // BotonActualizar
             // 
-            BotonEnviarCodigo.BackColor = Color.FromArgb(255, 165, 11);
-            BotonEnviarCodigo.BackgroundColor = Color.FromArgb(255, 165, 11);
-            BotonEnviarCodigo.BorderColor = Color.PaleVioletRed;
-            BotonEnviarCodigo.BorderRadius = 20;
-            BotonEnviarCodigo.BorderSize = 0;
-            BotonEnviarCodigo.FlatAppearance.BorderSize = 0;
-            BotonEnviarCodigo.FlatStyle = FlatStyle.Flat;
-            BotonEnviarCodigo.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BotonEnviarCodigo.ForeColor = Color.White;
-            BotonEnviarCodigo.Location = new Point(231, 508);
-            BotonEnviarCodigo.Margin = new Padding(3, 4, 3, 4);
-            BotonEnviarCodigo.Name = "BotonEnviarCodigo";
-            BotonEnviarCodigo.Size = new Size(145, 53);
-            BotonEnviarCodigo.TabIndex = 2;
-            BotonEnviarCodigo.Text = "Actualizar";
-            BotonEnviarCodigo.TextColor = Color.White;
-            BotonEnviarCodigo.UseVisualStyleBackColor = false;
+            BotonActualizar.BackColor = Color.FromArgb(255, 165, 11);
+            BotonActualizar.BackgroundColor = Color.FromArgb(255, 165, 11);
+            BotonActualizar.BorderColor = Color.PaleVioletRed;
+            BotonActualizar.BorderRadius = 20;
+            BotonActualizar.BorderSize = 0;
+            BotonActualizar.FlatAppearance.BorderSize = 0;
+            BotonActualizar.FlatStyle = FlatStyle.Flat;
+            BotonActualizar.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BotonActualizar.ForeColor = Color.White;
+            BotonActualizar.Location = new Point(231, 508);
+            BotonActualizar.Margin = new Padding(3, 4, 3, 4);
+            BotonActualizar.Name = "BotonActualizar";
+            BotonActualizar.Size = new Size(145, 53);
+            BotonActualizar.TabIndex = 2;
+            BotonActualizar.Text = "Actualizar";
+            BotonActualizar.TextColor = Color.White;
+            BotonActualizar.UseVisualStyleBackColor = false;
+            BotonActualizar.Click += BotonActualizar_Click;
             // 
             // rjButton1
             // 
@@ -258,7 +259,7 @@
             Controls.Add(label4);
             Controls.Add(txtNuevaContraseña);
             Controls.Add(rjButton1);
-            Controls.Add(BotonEnviarCodigo);
+            Controls.Add(BotonActualizar);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(MoverVentanaRecuperarContraseña);
@@ -285,7 +286,7 @@
         private PictureBox BotonCerrar;
         private Label label1;
         private PictureBox pictureBox1;
-        private RJControls.RJButton BotonEnviarCodigo;
+        private RJControls.RJButton BotonActualizar;
         private RJControls.RJButton rjButton1;
         private PictureBox BtnVerContraseña2;
         private PictureBox BtnVerContraseña1;
