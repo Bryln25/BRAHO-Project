@@ -65,7 +65,7 @@ namespace BRAHO_Project
                 if (reader.Read())
                 {
                     // Código válido
-                    MessageBox.Show("Código verificado correctamente. Ahora puedes cambiar tu contraseña.", "Información");
+                    MessageBox.Show("Código verificado correctamente. Ahora puedes cambiar tu contraseña.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Form cambiar = new FrmCambiarContrasena(email);
                     cambiar.Show();
                     this.Close();

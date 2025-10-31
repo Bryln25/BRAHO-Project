@@ -41,7 +41,7 @@
             label5 = new Label();
             txtConfirmarContraseña = new BRAHO_Project.RJControls.RJtextbox();
             label4 = new Label();
-            txtContraseña = new BRAHO_Project.RJControls.RJtextbox();
+            txtNuevaContraseña = new BRAHO_Project.RJControls.RJtextbox();
             MoverVentanaRecuperarContraseña.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
@@ -153,32 +153,34 @@
             // 
             BtnVerContraseña2.Cursor = Cursors.Hand;
             BtnVerContraseña2.Image = Properties.Resources.visible1;
-            BtnVerContraseña2.Location = new Point(320, 369);
+            BtnVerContraseña2.Location = new Point(323, 369);
             BtnVerContraseña2.Margin = new Padding(3, 4, 3, 4);
             BtnVerContraseña2.Name = "BtnVerContraseña2";
             BtnVerContraseña2.Size = new Size(40, 47);
             BtnVerContraseña2.SizeMode = PictureBoxSizeMode.Zoom;
             BtnVerContraseña2.TabIndex = 32;
             BtnVerContraseña2.TabStop = false;
+            BtnVerContraseña2.Click += BtnVerContraseña2_Click;
             // 
             // BtnVerContraseña1
             // 
             BtnVerContraseña1.Cursor = Cursors.Hand;
             BtnVerContraseña1.Image = Properties.Resources.visible1;
-            BtnVerContraseña1.Location = new Point(320, 251);
+            BtnVerContraseña1.Location = new Point(323, 251);
             BtnVerContraseña1.Margin = new Padding(3, 4, 3, 4);
             BtnVerContraseña1.Name = "BtnVerContraseña1";
             BtnVerContraseña1.Size = new Size(40, 47);
             BtnVerContraseña1.SizeMode = PictureBoxSizeMode.Zoom;
             BtnVerContraseña1.TabIndex = 31;
             BtnVerContraseña1.TabStop = false;
+            BtnVerContraseña1.Click += BtnVerContraseña1_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(61, 345);
+            label5.Location = new Point(64, 345);
             label5.Name = "label5";
             label5.Size = new Size(260, 27);
             label5.TabIndex = 30;
@@ -195,7 +197,7 @@
             txtConfirmarContraseña.CaretCustom = false;
             txtConfirmarContraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtConfirmarContraseña.ForeColor = Color.Black;
-            txtConfirmarContraseña.Location = new Point(61, 381);
+            txtConfirmarContraseña.Location = new Point(64, 381);
             txtConfirmarContraseña.Margin = new Padding(2, 3, 2, 3);
             txtConfirmarContraseña.MaxLength = 32767;
             txtConfirmarContraseña.Multiline = false;
@@ -213,35 +215,35 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(61, 227);
+            label4.Location = new Point(64, 227);
             label4.Name = "label4";
             label4.Size = new Size(228, 27);
             label4.TabIndex = 29;
             label4.Text = "Nueva Contraseña";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtContraseña
+            // txtNuevaContraseña
             // 
-            txtContraseña.BackColor = Color.FromArgb(127, 127, 127);
-            txtContraseña.BorderColor = Color.FromArgb(255, 165, 11);
-            txtContraseña.BorderFocusColor = SystemColors.HotTrack;
-            txtContraseña.BorderSize = 6;
-            txtContraseña.CaretColor = Color.Black;
-            txtContraseña.CaretCustom = false;
-            txtContraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtContraseña.ForeColor = Color.Black;
-            txtContraseña.Location = new Point(61, 263);
-            txtContraseña.Margin = new Padding(2, 3, 2, 3);
-            txtContraseña.MaxLength = 32767;
-            txtContraseña.Multiline = false;
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.OnlyNumbers = false;
-            txtContraseña.Padding = new Padding(6, 5, 6, 5);
-            txtContraseña.PasswordChar = true;
-            txtContraseña.Size = new Size(241, 35);
-            txtContraseña.TabIndex = 27;
-            txtContraseña.Texts = "";
-            txtContraseña.UnderlinedStyle = true;
+            txtNuevaContraseña.BackColor = Color.FromArgb(127, 127, 127);
+            txtNuevaContraseña.BorderColor = Color.FromArgb(255, 165, 11);
+            txtNuevaContraseña.BorderFocusColor = SystemColors.HotTrack;
+            txtNuevaContraseña.BorderSize = 6;
+            txtNuevaContraseña.CaretColor = Color.Black;
+            txtNuevaContraseña.CaretCustom = false;
+            txtNuevaContraseña.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtNuevaContraseña.ForeColor = Color.Black;
+            txtNuevaContraseña.Location = new Point(64, 263);
+            txtNuevaContraseña.Margin = new Padding(2, 3, 2, 3);
+            txtNuevaContraseña.MaxLength = 32767;
+            txtNuevaContraseña.Multiline = false;
+            txtNuevaContraseña.Name = "txtNuevaContraseña";
+            txtNuevaContraseña.OnlyNumbers = false;
+            txtNuevaContraseña.Padding = new Padding(6, 5, 6, 5);
+            txtNuevaContraseña.PasswordChar = true;
+            txtNuevaContraseña.Size = new Size(241, 35);
+            txtNuevaContraseña.TabIndex = 27;
+            txtNuevaContraseña.Texts = "";
+            txtNuevaContraseña.UnderlinedStyle = true;
             // 
             // FrmCambiarContrasena
             // 
@@ -254,7 +256,7 @@
             Controls.Add(label5);
             Controls.Add(txtConfirmarContraseña);
             Controls.Add(label4);
-            Controls.Add(txtContraseña);
+            Controls.Add(txtNuevaContraseña);
             Controls.Add(rjButton1);
             Controls.Add(BotonEnviarCodigo);
             Controls.Add(pictureBox1);
@@ -290,6 +292,6 @@
         private Label label5;
         private RJControls.RJtextbox txtConfirmarContraseña;
         private Label label4;
-        private RJControls.RJtextbox txtContraseña;
+        private RJControls.RJtextbox txtNuevaContraseña;
     }
 }
