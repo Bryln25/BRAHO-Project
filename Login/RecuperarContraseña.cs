@@ -71,7 +71,27 @@ namespace BRAHO_Project
             return (usuario, contrasena);
         }
 
-        private void EnviarCorreo(string destino, string contrasena, string usuario)
+        private string GenerarCodigoRecuperacion(string email)
+        {
+            Random random = new Random();
+            string codigo = random.Next(100000, 999999).ToString(); // 6 dígitos
+            DateTime expiracion = DateTime.Now.AddMinutes(10); // válido por 10 minutos
+
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                string query = @"INSERT INTO CodigosRecuperacion (Email, Codigo, FechaExpiracion)
+                         VALUES (@Email, @Codigo, @FechaExpiracion)";
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Codigo", codigo);
+                cmd.Parameters.AddWithValue("@FechaExpiracion", expiracion);
+                cmd.ExecuteNonQuery();
+            }
+
+            return codigo;
+        }
+
+        private void EnviarCorreoCodigo(string destino, string codigo)
         {
             try
             {
@@ -80,18 +100,19 @@ namespace BRAHO_Project
 
                 mail.From = new MailAddress("braylinnunez72@gmail.com", "BRAHO Project");
                 mail.To.Add(destino);
-                mail.Subject = "Recuperación de contraseña";
+                mail.Subject = "Código de recuperación de contraseña";
 
                 string html = @"
-                <h2>Recuperación de contraseña de <b>BRAHO Project</b></h2>
-                <p>Tu usuario es: <b>" + usuario + @"</b></p>
-                <p>Tu contraseña es: <b>" + contrasena + @"</b></p>
-                <br/>
-                <img src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oAoRhPLqEQ4Tvh6z5D9L/media/66dc7d98ab806e4461387ba4.png' width='200'/>
-                ";
+        <h2>Recuperación de contraseña de <b>BRAHO Project</b></h2>
+        <p>Tu código de verificación es:</p>
+        <h1 style='color: #007bff;'>" + codigo + @"</h1>
+        <p>Este código expirará en 10 minutos.</p>
+        <br/>
+        <img src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oAoRhPLqEQ4Tvh6z5D9L/media/66dc7d98ab806e4461387ba4.png' width='200'/>
+        ";
 
                 mail.Body = html;
-                mail.IsBodyHtml = true; // ✅ MUY IMPORTANTE
+                mail.IsBodyHtml = true;
 
                 servidor.Port = 587;
                 servidor.Credentials = new NetworkCredential("braylinnunez72@gmail.com", "gatz zyty ktxr peti");
@@ -99,10 +120,7 @@ namespace BRAHO_Project
 
                 servidor.Send(mail);
 
-                MessageBox.Show("Se envió la contraseña al correo registrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form iniciodesesion = new IniciodeSesion();
-                iniciodesesion.Show();
-                this.Close();
+                MessageBox.Show("Se envió el código de recuperación al correo.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -111,21 +129,28 @@ namespace BRAHO_Project
         }
 
 
+
         private void BotonEnviarCodigo_Click(object sender, EventArgs e)
         {
             string email = txtRecuperarcion.Texts.Trim();
 
-            var (usuario, contrasena) = ObtenerUsuarioYContrasenaPorCorreo(email);
+            var (usuario, _) = ObtenerUsuarioYContrasenaPorCorreo(email);
 
-            if (contrasena != null)
+            if (usuario != null)
             {
-                //string hash = Funciones.HashPassword(contrasena);
-                EnviarCorreo(email, contrasena, usuario);
+                string codigo = GenerarCodigoRecuperacion(email);
+                EnviarCorreoCodigo(email, codigo);
+
+                // Abre formulario para ingresar el código
+                   Form ingresarCodigo = new FrmVerificarCodigo(email);
+                   ingresarCodigo.Show();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("El correo no está registrado en el sistema.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
     }
 }
