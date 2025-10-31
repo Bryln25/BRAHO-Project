@@ -48,7 +48,7 @@ namespace BRAHO_Project
             Obras obra = new Obras();
 
             if (cbCliente.SelectedValue == null || string.IsNullOrEmpty(cbEncargado.Texts) || string.IsNullOrEmpty(cbTipo.Texts) ||
-               string.IsNullOrEmpty(txtNombre.Texts) || string.IsNullOrEmpty(txtUbicacion.Texts) || string.IsNullOrEmpty(txtMetros.Texts) || string.IsNullOrEmpty(txtPresupuesto.Texts) )
+               string.IsNullOrEmpty(txtNombre.Texts) || string.IsNullOrEmpty(txtUbicacion.Texts) || string.IsNullOrEmpty(txtMetros.Texts) || string.IsNullOrEmpty(txtPresupuesto.Texts))
 
             {
                 MessageBox.Show("Por favor, complete los campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -97,7 +97,7 @@ namespace BRAHO_Project
 
         private void txtPresupuesto__Enter(object sender, EventArgs e)
         {
-            string numero = new string(txtPresupuesto.Texts.Replace(",", "").Replace("$", "").Replace(".00", "").Where(char.IsDigit).ToArray());
+            string numero = new string(txtPresupuesto.Texts.Replace("RD$", "")).Replace(",", "").Trim();
 
             txtPresupuesto.Texts = numero;
         }
@@ -128,6 +128,18 @@ namespace BRAHO_Project
                 e.Handled = true;
             }
             // Only allow one dot
+            if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPresupuesto__KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
             {
                 e.Handled = true;

@@ -115,7 +115,7 @@ namespace BRAHO_Project
             foreach (var gastos in listaGastos)
             {
                 int rowIndex = dgvBuscar.Rows.Add(
-                    GastosDAL.BuscarNombreObraPorId(gastos.IdObra),
+                    GastosDAL.ObtenerNombreObraPorId(gastos.IdObra),
                     gastos.Fecha,
                     gastos.TipoGasto,
                     gastos.Monto,
@@ -153,22 +153,20 @@ namespace BRAHO_Project
 
                 switch (dgvBuscar.Columns[e.ColumnIndex].Name)
                 {
-                    //case "Ver":
-                    //    if (dgvBuscar.CurrentRow != null) // valida que haya fila seleccionada
-                    //    {
-                    //        DataGridViewRow fila = dgvBuscar.CurrentRow;
+                    case "Ver":
+                        if (dgvBuscar.CurrentRow != null)
+                        {
+                            DataGridViewRow fila = dgvBuscar.CurrentRow;
 
-                    //        // Crear el formulario destino
-
-                    //        FrmVerObra frm = new FrmVerObra(obra, dgvBuscar);
-                    //        frm.ShowDialog();
-                    //        MostrarObras();
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("Seleccione una fila antes de visualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    }
-                    //    break;
+                            FrmVerGastos frm = new FrmVerGastos(gastos, dgvBuscar);
+                            frm.ShowDialog();
+                            MostrarGastos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione una fila antes de visualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        break;
 
                     case "Editar":
                         if (dgvBuscar.CurrentRow != null) 
@@ -266,6 +264,7 @@ namespace BRAHO_Project
                 {
 
                     bool encontrado =
+                        FuerzaBruta(GastosDAL.ObtenerNombreObraPorId(gastos.IdObra).ToLower(), patron) ||
                         FuerzaBruta(gastos.Fecha?.ToLower(), patron) ||
                         FuerzaBruta(gastos.TipoGasto?.ToLower().Replace(" ", "").Replace(")", ""), patron) ||
                         FuerzaBruta(gastos.Monto?.ToLower(), patron) ||

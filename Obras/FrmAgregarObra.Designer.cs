@@ -293,7 +293,7 @@
             txtPresupuesto.ForeColor = Color.Gainsboro;
             txtPresupuesto.Location = new Point(93, 839);
             txtPresupuesto.Margin = new Padding(2, 3, 2, 3);
-            txtPresupuesto.MaxLength = 11;
+            txtPresupuesto.MaxLength = 20;
             txtPresupuesto.Multiline = false;
             txtPresupuesto.Name = "txtPresupuesto";
             txtPresupuesto.OnlyNumbers = false;
@@ -305,6 +305,7 @@
             txtPresupuesto.UnderlinedStyle = true;
             txtPresupuesto._Enter += txtPresupuesto__Enter;
             txtPresupuesto._Leave += txtPresupuesto__Leave;
+            txtPresupuesto._KeyPress += txtPresupuesto__KeyPress;
             // 
             // label5
             // 
@@ -330,7 +331,7 @@
             txtMetros.ForeColor = Color.Gainsboro;
             txtMetros.Location = new Point(93, 722);
             txtMetros.Margin = new Padding(2, 3, 2, 3);
-            txtMetros.MaxLength = 32767;
+            txtMetros.MaxLength = 20;
             txtMetros.Multiline = false;
             txtMetros.Name = "txtMetros";
             txtMetros.OnlyNumbers = false;

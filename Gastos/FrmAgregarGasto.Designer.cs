@@ -283,7 +283,7 @@
             txtMonto.MaxLength = 11;
             txtMonto.Multiline = false;
             txtMonto.Name = "txtMonto";
-            txtMonto.OnlyNumbers = true;
+            txtMonto.OnlyNumbers = false;
             txtMonto.Padding = new Padding(6, 5, 6, 5);
             txtMonto.PasswordChar = false;
             txtMonto.Size = new Size(347, 35);
@@ -292,6 +292,7 @@
             txtMonto.UnderlinedStyle = true;
             txtMonto._Enter += txtMonto__Enter;
             txtMonto._Leave += txtMonto__Leave;
+            txtMonto._KeyPress += txtMonto__KeyPress;
             // 
             // label5
             // 

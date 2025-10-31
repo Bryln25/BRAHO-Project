@@ -42,7 +42,7 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             label6 = new Label();
-            txtPresupuesto = new BRAHO_Project.RJControls.RJtextbox();
+            txtPresupuestoInicial = new BRAHO_Project.RJControls.RJtextbox();
             label5 = new Label();
             txtMetros = new BRAHO_Project.RJControls.RJtextbox();
             label4 = new Label();
@@ -67,6 +67,10 @@
             txtEncargado = new BRAHO_Project.RJControls.RJtextbox();
             label2 = new Label();
             cbEncargado = new ComboBox();
+            txtTotal = new BRAHO_Project.RJControls.RJtextbox();
+            label13 = new Label();
+            txtPresupuestoActual = new BRAHO_Project.RJControls.RJtextbox();
+            label14 = new Label();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -124,7 +128,7 @@
             panel2.Dock = DockStyle.Right;
             panel2.Location = new Point(1050, 10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(10, 920);
+            panel2.Size = new Size(10, 1025);
             panel2.TabIndex = 21;
             // 
             // pictureBox3
@@ -159,7 +163,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 10);
             panel1.Name = "panel1";
-            panel1.Size = new Size(10, 920);
+            panel1.Size = new Size(10, 1025);
             panel1.TabIndex = 22;
             // 
             // pictureBox1
@@ -192,7 +196,7 @@
             Diseñito.Controls.Add(BotonMininizar);
             Diseñito.Controls.Add(BotonCerrar);
             Diseñito.Dock = DockStyle.Bottom;
-            Diseñito.Location = new Point(10, 920);
+            Diseñito.Location = new Point(10, 1025);
             Diseñito.Name = "Diseñito";
             Diseñito.Size = new Size(1040, 10);
             Diseñito.TabIndex = 23;
@@ -233,29 +237,29 @@
             label6.Text = "Ver obra";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtPresupuesto
+            // txtPresupuestoInicial
             // 
-            txtPresupuesto.BackColor = Color.FromArgb(64, 64, 64);
-            txtPresupuesto.BorderColor = Color.FromArgb(255, 165, 11);
-            txtPresupuesto.BorderFocusColor = SystemColors.HotTrack;
-            txtPresupuesto.BorderSize = 6;
-            txtPresupuesto.CaretColor = Color.Black;
-            txtPresupuesto.CaretCustom = false;
-            txtPresupuesto.Enabled = false;
-            txtPresupuesto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtPresupuesto.ForeColor = Color.Gainsboro;
-            txtPresupuesto.Location = new Point(85, 666);
-            txtPresupuesto.Margin = new Padding(2, 3, 2, 3);
-            txtPresupuesto.MaxLength = 11;
-            txtPresupuesto.Multiline = false;
-            txtPresupuesto.Name = "txtPresupuesto";
-            txtPresupuesto.OnlyNumbers = true;
-            txtPresupuesto.Padding = new Padding(6, 5, 6, 5);
-            txtPresupuesto.PasswordChar = false;
-            txtPresupuesto.Size = new Size(347, 35);
-            txtPresupuesto.TabIndex = 35;
-            txtPresupuesto.Texts = "";
-            txtPresupuesto.UnderlinedStyle = true;
+            txtPresupuestoInicial.BackColor = Color.FromArgb(64, 64, 64);
+            txtPresupuestoInicial.BorderColor = Color.FromArgb(255, 165, 11);
+            txtPresupuestoInicial.BorderFocusColor = SystemColors.HotTrack;
+            txtPresupuestoInicial.BorderSize = 6;
+            txtPresupuestoInicial.CaretColor = Color.Black;
+            txtPresupuestoInicial.CaretCustom = false;
+            txtPresupuestoInicial.Enabled = false;
+            txtPresupuestoInicial.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPresupuestoInicial.ForeColor = Color.Gainsboro;
+            txtPresupuestoInicial.Location = new Point(85, 666);
+            txtPresupuestoInicial.Margin = new Padding(2, 3, 2, 3);
+            txtPresupuestoInicial.MaxLength = 11;
+            txtPresupuestoInicial.Multiline = false;
+            txtPresupuestoInicial.Name = "txtPresupuestoInicial";
+            txtPresupuestoInicial.OnlyNumbers = true;
+            txtPresupuestoInicial.Padding = new Padding(6, 5, 6, 5);
+            txtPresupuestoInicial.PasswordChar = false;
+            txtPresupuestoInicial.Size = new Size(347, 35);
+            txtPresupuestoInicial.TabIndex = 35;
+            txtPresupuestoInicial.Texts = "";
+            txtPresupuestoInicial.UnderlinedStyle = true;
             // 
             // label5
             // 
@@ -264,9 +268,9 @@
             label5.ForeColor = Color.White;
             label5.Location = new Point(82, 631);
             label5.Name = "label5";
-            label5.Size = new Size(148, 27);
+            label5.Size = new Size(223, 27);
             label5.TabIndex = 36;
-            label5.Text = "Presupuesto";
+            label5.Text = "Presupuesto inicial";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtMetros
@@ -280,7 +284,7 @@
             txtMetros.Enabled = false;
             txtMetros.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMetros.ForeColor = Color.Gainsboro;
-            txtMetros.Location = new Point(85, 553);
+            txtMetros.Location = new Point(85, 554);
             txtMetros.Margin = new Padding(2, 3, 2, 3);
             txtMetros.MaxLength = 32767;
             txtMetros.Multiline = false;
@@ -298,7 +302,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(82, 520);
+            label4.Location = new Point(82, 521);
             label4.Name = "label4";
             label4.Size = new Size(284, 27);
             label4.TabIndex = 34;
@@ -316,7 +320,7 @@
             txtUbicacion.Enabled = false;
             txtUbicacion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtUbicacion.ForeColor = Color.Gainsboro;
-            txtUbicacion.Location = new Point(85, 782);
+            txtUbicacion.Location = new Point(640, 653);
             txtUbicacion.Margin = new Padding(2, 3, 2, 3);
             txtUbicacion.MaxLength = 50;
             txtUbicacion.Multiline = true;
@@ -324,7 +328,7 @@
             txtUbicacion.OnlyNumbers = false;
             txtUbicacion.Padding = new Padding(6, 5, 6, 5);
             txtUbicacion.PasswordChar = false;
-            txtUbicacion.Size = new Size(347, 104);
+            txtUbicacion.Size = new Size(347, 91);
             txtUbicacion.TabIndex = 31;
             txtUbicacion.Texts = "";
             txtUbicacion.UnderlinedStyle = false;
@@ -334,7 +338,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(85, 739);
+            label3.Location = new Point(640, 610);
             label3.Name = "label3";
             label3.Size = new Size(131, 27);
             label3.TabIndex = 32;
@@ -388,7 +392,7 @@
             txtRecordatorio.Enabled = false;
             txtRecordatorio.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtRecordatorio.ForeColor = Color.Gainsboro;
-            txtRecordatorio.Location = new Point(642, 368);
+            txtRecordatorio.Location = new Point(642, 354);
             txtRecordatorio.Margin = new Padding(2, 3, 2, 3);
             txtRecordatorio.MaxLength = 5000;
             txtRecordatorio.Multiline = true;
@@ -406,7 +410,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(639, 326);
+            label10.Location = new Point(639, 312);
             label10.Name = "label10";
             label10.Size = new Size(170, 27);
             label10.TabIndex = 44;
@@ -430,7 +434,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(639, 619);
+            label9.Location = new Point(639, 793);
             label9.Name = "label9";
             label9.Size = new Size(88, 27);
             label9.TabIndex = 52;
@@ -580,7 +584,7 @@
             txtEstado.Enabled = false;
             txtEstado.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtEstado.ForeColor = Color.Gainsboro;
-            txtEstado.Location = new Point(639, 658);
+            txtEstado.Location = new Point(639, 832);
             txtEstado.Margin = new Padding(2, 3, 2, 3);
             txtEstado.MaxLength = 50;
             txtEstado.Multiline = false;
@@ -605,7 +609,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(843, 816);
+            btnSalir.Location = new Point(846, 922);
             btnSalir.Margin = new Padding(3, 4, 3, 4);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(143, 53);
@@ -667,12 +671,88 @@
             cbEncargado.Size = new Size(0, 28);
             cbEncargado.TabIndex = 63;
             // 
+            // txtTotal
+            // 
+            txtTotal.BackColor = Color.FromArgb(64, 64, 64);
+            txtTotal.BorderColor = Color.FromArgb(255, 165, 11);
+            txtTotal.BorderFocusColor = SystemColors.HotTrack;
+            txtTotal.BorderSize = 6;
+            txtTotal.CaretColor = Color.Black;
+            txtTotal.CaretCustom = false;
+            txtTotal.Enabled = false;
+            txtTotal.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtTotal.ForeColor = Color.Gainsboro;
+            txtTotal.Location = new Point(85, 783);
+            txtTotal.Margin = new Padding(2, 3, 2, 3);
+            txtTotal.MaxLength = 11;
+            txtTotal.Multiline = false;
+            txtTotal.Name = "txtTotal";
+            txtTotal.OnlyNumbers = true;
+            txtTotal.Padding = new Padding(6, 5, 6, 5);
+            txtTotal.PasswordChar = false;
+            txtTotal.Size = new Size(347, 35);
+            txtTotal.TabIndex = 64;
+            txtTotal.Texts = "";
+            txtTotal.UnderlinedStyle = true;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.White;
+            label13.Location = new Point(82, 748);
+            label13.Name = "label13";
+            label13.Size = new Size(169, 27);
+            label13.TabIndex = 65;
+            label13.Text = "Total gastado";
+            label13.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtPresupuestoActual
+            // 
+            txtPresupuestoActual.BackColor = Color.FromArgb(64, 64, 64);
+            txtPresupuestoActual.BorderColor = Color.FromArgb(255, 165, 11);
+            txtPresupuestoActual.BorderFocusColor = SystemColors.HotTrack;
+            txtPresupuestoActual.BorderSize = 6;
+            txtPresupuestoActual.CaretColor = Color.Black;
+            txtPresupuestoActual.CaretCustom = false;
+            txtPresupuestoActual.Enabled = false;
+            txtPresupuestoActual.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPresupuestoActual.ForeColor = Color.Gainsboro;
+            txtPresupuestoActual.Location = new Point(88, 894);
+            txtPresupuestoActual.Margin = new Padding(2, 3, 2, 3);
+            txtPresupuestoActual.MaxLength = 11;
+            txtPresupuestoActual.Multiline = false;
+            txtPresupuestoActual.Name = "txtPresupuestoActual";
+            txtPresupuestoActual.OnlyNumbers = true;
+            txtPresupuestoActual.Padding = new Padding(6, 5, 6, 5);
+            txtPresupuestoActual.PasswordChar = false;
+            txtPresupuestoActual.Size = new Size(347, 35);
+            txtPresupuestoActual.TabIndex = 66;
+            txtPresupuestoActual.Texts = "";
+            txtPresupuestoActual.UnderlinedStyle = true;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(85, 859);
+            label14.Name = "label14";
+            label14.Size = new Size(229, 27);
+            label14.TabIndex = 67;
+            label14.Text = "Presupuesto actual";
+            label14.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // FrmVerObra
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1060, 930);
+            ClientSize = new Size(1060, 1035);
+            Controls.Add(txtPresupuestoActual);
+            Controls.Add(label14);
+            Controls.Add(txtTotal);
+            Controls.Add(label13);
             Controls.Add(cbEncargado);
             Controls.Add(txtEncargado);
             Controls.Add(label2);
@@ -690,7 +770,7 @@
             Controls.Add(label10);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(txtPresupuesto);
+            Controls.Add(txtPresupuestoInicial);
             Controls.Add(label5);
             Controls.Add(txtMetros);
             Controls.Add(label4);
@@ -740,7 +820,7 @@
         private PictureBox BotonMininizar;
         private PictureBox BotonCerrar;
         private Label label6;
-        private RJControls.RJtextbox txtPresupuesto;
+        private RJControls.RJtextbox txtPresupuestoInicial;
         private Label label5;
         private RJControls.RJtextbox txtMetros;
         private Label label4;
@@ -765,5 +845,9 @@
         private RJControls.RJtextbox txtEncargado;
         private Label label2;
         private ComboBox cbEncargado;
+        private RJControls.RJtextbox txtTotal;
+        private Label label13;
+        private RJControls.RJtextbox txtPresupuestoActual;
+        private Label label14;
     }
 }

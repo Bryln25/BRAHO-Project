@@ -144,7 +144,7 @@ namespace BRAHO_Project
             }
         }
 
-        public static string BuscarNombreObraPorId(int idObra)
+        public static string ObtenerNombreObraPorId(int idObra)
         {
             string nombreObra = string.Empty;
             try
@@ -166,6 +166,31 @@ namespace BRAHO_Project
                 MessageBox.Show(ex.Message, "Error en la base de datos");
             }
             return nombreObra;
+        }
+
+        public static double CalcularTotalGastosPorObra(int idObra)
+        {
+            double totalGastos = 0;
+            try
+            {
+                using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+                {
+                    string query = "SELECT SUM(CAST(REPLACE(REPLACE(Monto, 'RD$', ''), ',', '') AS DECIMAL(18,2))) AS TotalGastos FROM GastosObra WHERE IdObra = @IdObra";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@IdObra", idObra);
+                    object resultado = comando.ExecuteScalar();
+                    if (resultado != DBNull.Value && resultado != null)
+                    {
+                        totalGastos = Convert.ToDouble(resultado);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en la base de datos");
+            }
+            return totalGastos;
         }
     }
 }

@@ -32,17 +32,26 @@ namespace BRAHO_Project
             txtTipo.Texts = obras.TipoObra;
             txtUbicacion.Texts = obras.Ubicacion;
             txtMetros.Texts = obras.MetrosCuadrados;
-            txtPresupuesto.Texts = obras.Presupuesto;
             txtFechaInicio.Texts = obras.FechaInicio;
             txtFechaFinal.Texts = obras.FechaFinal;
             txtRecordatorio.Texts = obras.Recordatorio;
             txtEstado.Texts = obras.Estado;
+            txtTotal.Texts = GastosDAL.CalcularTotalGastosPorObra(obras.IdObra).ToString("F2");
+            txtPresupuestoInicial.Texts = obras.Presupuesto;
         }
 
         private void FrmEditarObra_Load(object sender, EventArgs e)
         {
             txtCliente.Texts = cbCliente.Text;
             txtEncargado.Texts = cbEncargado.Text;
+
+            string numero = new string(txtPresupuestoInicial.Texts.Replace("RD$", "")).Replace(",", "").Trim();
+            double presupuestoInicial = Convert.ToDouble(numero);
+            double totalGastos = Convert.ToDouble(txtTotal.Texts);
+            double presupuestoActual = (presupuestoInicial - totalGastos);
+
+            txtTotal.Texts = $"RD$ {totalGastos:N2}";
+            txtPresupuestoActual.Texts = $"RD$ {presupuestoActual:N2}";
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)

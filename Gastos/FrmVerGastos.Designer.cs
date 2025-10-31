@@ -1,6 +1,6 @@
 ﻿namespace BRAHO_Project
 {
-    partial class FrmEditarGastos
+    partial class FrmVerGastos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarGastos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVerGastos));
             panel3 = new Panel();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -43,21 +43,16 @@
             BotonCerrar = new PictureBox();
             label6 = new Label();
             label2 = new Label();
-            cbObras = new BRAHO_Project.RJControls.RJComboBox();
             dtpFecha = new BRAHO_Project.RJControls.RJDatePick();
-            cbTipoGasto = new BRAHO_Project.RJControls.RJComboBox();
             txtDescripcion = new BRAHO_Project.RJControls.RJtextbox();
             label10 = new Label();
             label7 = new Label();
             txtMonto = new BRAHO_Project.RJControls.RJtextbox();
             label5 = new Label();
             label1 = new Label();
-            btnEditarGasto = new BRAHO_Project.RJControls.RJButton();
-            btnCancelar = new BRAHO_Project.RJControls.RJButton();
-            label18 = new Label();
-            label19 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            btnSalir = new BRAHO_Project.RJControls.RJButton();
+            txtObra = new BRAHO_Project.RJControls.RJtextbox();
+            txtTipoGasto = new BRAHO_Project.RJControls.RJtextbox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -219,9 +214,9 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(21, 20);
             label6.Name = "label6";
-            label6.Size = new Size(111, 21);
+            label6.Size = new Size(92, 21);
             label6.TabIndex = 26;
-            label6.Text = "Editar gasto";
+            label6.Text = "Ver gasto";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -236,30 +231,11 @@
             label2.Text = "Selecciona la obra";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cbObras
-            // 
-            cbObras.BackColor = Color.FromArgb(64, 64, 64);
-            cbObras.BorderColor = Color.FromArgb(255, 165, 11);
-            cbObras.BorderSize = 4;
-            cbObras.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbObras.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-            cbObras.ForeColor = Color.Gainsboro;
-            cbObras.IconColor = Color.White;
-            cbObras.Items.AddRange(new object[] { "Casa", "Complejo", "Residencial" });
-            cbObras.ListBackColor = Color.FromArgb(230, 228, 245);
-            cbObras.ListTextColor = Color.DimGray;
-            cbObras.Location = new Point(71, 120);
-            cbObras.MinimumSize = new Size(200, 30);
-            cbObras.Name = "cbObras";
-            cbObras.Padding = new Padding(4);
-            cbObras.Size = new Size(344, 41);
-            cbObras.TabIndex = 74;
-            cbObras.Texts = "";
-            // 
             // dtpFecha
             // 
             dtpFecha.BorderColor = Color.FromArgb(255, 165, 11);
             dtpFecha.BorderSize = 2;
+            dtpFecha.Enabled = false;
             dtpFecha.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
             dtpFecha.Location = new Point(71, 460);
             dtpFecha.MinimumSize = new Size(4, 35);
@@ -267,27 +243,7 @@
             dtpFecha.Size = new Size(340, 35);
             dtpFecha.SkinColor = Color.FromArgb(64, 64, 64);
             dtpFecha.TabIndex = 73;
-            dtpFecha.TextColor = Color.White;
-            // 
-            // cbTipoGasto
-            // 
-            cbTipoGasto.BackColor = Color.FromArgb(64, 64, 64);
-            cbTipoGasto.BorderColor = Color.FromArgb(255, 165, 11);
-            cbTipoGasto.BorderSize = 4;
-            cbTipoGasto.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTipoGasto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-            cbTipoGasto.ForeColor = Color.Gainsboro;
-            cbTipoGasto.IconColor = Color.White;
-            cbTipoGasto.Items.AddRange(new object[] { "Materiales", "Mano de obra", "Transporte", "Servicios" });
-            cbTipoGasto.ListBackColor = Color.FromArgb(230, 228, 245);
-            cbTipoGasto.ListTextColor = Color.DimGray;
-            cbTipoGasto.Location = new Point(71, 230);
-            cbTipoGasto.MinimumSize = new Size(200, 30);
-            cbTipoGasto.Name = "cbTipoGasto";
-            cbTipoGasto.Padding = new Padding(4);
-            cbTipoGasto.Size = new Size(344, 43);
-            cbTipoGasto.TabIndex = 72;
-            cbTipoGasto.Texts = "";
+            dtpFecha.TextColor = Color.Gray;
             // 
             // txtDescripcion
             // 
@@ -297,6 +253,7 @@
             txtDescripcion.BorderSize = 6;
             txtDescripcion.CaretColor = Color.Black;
             txtDescripcion.CaretCustom = false;
+            txtDescripcion.Enabled = false;
             txtDescripcion.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDescripcion.ForeColor = Color.Gainsboro;
             txtDescripcion.Location = new Point(502, 129);
@@ -317,7 +274,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(499, 83);
+            label10.Location = new Point(501, 80);
             label10.Name = "label10";
             label10.Size = new Size(259, 27);
             label10.TabIndex = 71;
@@ -344,6 +301,7 @@
             txtMonto.BorderSize = 6;
             txtMonto.CaretColor = Color.Black;
             txtMonto.CaretCustom = false;
+            txtMonto.Enabled = false;
             txtMonto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMonto.ForeColor = Color.Gainsboro;
             txtMonto.Location = new Point(71, 347);
@@ -351,16 +309,13 @@
             txtMonto.MaxLength = 11;
             txtMonto.Multiline = false;
             txtMonto.Name = "txtMonto";
-            txtMonto.OnlyNumbers = false;
+            txtMonto.OnlyNumbers = true;
             txtMonto.Padding = new Padding(6, 5, 6, 5);
             txtMonto.PasswordChar = false;
             txtMonto.Size = new Size(347, 35);
             txtMonto.TabIndex = 67;
             txtMonto.Texts = "";
             txtMonto.UnderlinedStyle = true;
-            txtMonto._Enter += txtMonto__Enter;
-            txtMonto._Leave += txtMonto__Leave;
-            txtMonto._KeyPress += txtMonto__KeyPress;
             // 
             // label5
             // 
@@ -386,123 +341,100 @@
             label1.Text = "Tipo de gasto";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnEditarGasto
+            // btnSalir
             // 
-            btnEditarGasto.BackColor = Color.FromArgb(255, 165, 11);
-            btnEditarGasto.BackgroundColor = Color.FromArgb(255, 165, 11);
-            btnEditarGasto.BorderColor = Color.PaleVioletRed;
-            btnEditarGasto.BorderRadius = 20;
-            btnEditarGasto.BorderSize = 0;
-            btnEditarGasto.Cursor = Cursors.Hand;
-            btnEditarGasto.FlatAppearance.BorderSize = 0;
-            btnEditarGasto.FlatStyle = FlatStyle.Flat;
-            btnEditarGasto.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEditarGasto.ForeColor = Color.White;
-            btnEditarGasto.Location = new Point(640, 363);
-            btnEditarGasto.Margin = new Padding(3, 4, 3, 4);
-            btnEditarGasto.Name = "btnEditarGasto";
-            btnEditarGasto.Size = new Size(203, 53);
-            btnEditarGasto.TabIndex = 65;
-            btnEditarGasto.Text = "Guardar cambios";
-            btnEditarGasto.TextColor = Color.White;
-            btnEditarGasto.UseVisualStyleBackColor = false;
-            btnEditarGasto.Click += btnEditarGasto_Click;
+            btnSalir.BackColor = Color.FromArgb(255, 165, 11);
+            btnSalir.BackgroundColor = Color.FromArgb(255, 165, 11);
+            btnSalir.BorderColor = Color.PaleVioletRed;
+            btnSalir.BorderRadius = 20;
+            btnSalir.BorderSize = 0;
+            btnSalir.Cursor = Cursors.Hand;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(706, 442);
+            btnSalir.Margin = new Padding(3, 4, 3, 4);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(143, 53);
+            btnSalir.TabIndex = 78;
+            btnSalir.Text = "Salir";
+            btnSalir.TextColor = Color.White;
+            btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
             // 
-            // btnCancelar
+            // txtObra
             // 
-            btnCancelar.BackColor = Color.Transparent;
-            btnCancelar.BackgroundColor = Color.Transparent;
-            btnCancelar.BorderColor = Color.PaleVioletRed;
-            btnCancelar.BorderRadius = 20;
-            btnCancelar.BorderSize = 0;
-            btnCancelar.Cursor = Cursors.Hand;
-            btnCancelar.FlatAppearance.BorderSize = 0;
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(642, 445);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(197, 53);
-            btnCancelar.TabIndex = 64;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.TextColor = Color.White;
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click_1;
+            txtObra.BackColor = Color.FromArgb(64, 64, 64);
+            txtObra.BorderColor = Color.FromArgb(255, 165, 11);
+            txtObra.BorderFocusColor = SystemColors.HotTrack;
+            txtObra.BorderSize = 6;
+            txtObra.CaretColor = Color.Black;
+            txtObra.CaretCustom = false;
+            txtObra.Enabled = false;
+            txtObra.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtObra.ForeColor = Color.Gainsboro;
+            txtObra.Location = new Point(71, 118);
+            txtObra.Margin = new Padding(2, 3, 2, 3);
+            txtObra.MaxLength = 11;
+            txtObra.Multiline = false;
+            txtObra.Name = "txtObra";
+            txtObra.OnlyNumbers = true;
+            txtObra.Padding = new Padding(6, 5, 6, 5);
+            txtObra.PasswordChar = false;
+            txtObra.Size = new Size(347, 35);
+            txtObra.TabIndex = 79;
+            txtObra.Texts = "";
+            txtObra.UnderlinedStyle = true;
             // 
-            // label18
+            // txtTipoGasto
             // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label18.ForeColor = Color.Red;
-            label18.Location = new Point(39, 72);
-            label18.Name = "label18";
-            label18.Size = new Size(26, 35);
-            label18.TabIndex = 62;
-            label18.Text = "*";
+            txtTipoGasto.BackColor = Color.FromArgb(64, 64, 64);
+            txtTipoGasto.BorderColor = Color.FromArgb(255, 165, 11);
+            txtTipoGasto.BorderFocusColor = SystemColors.HotTrack;
+            txtTipoGasto.BorderSize = 6;
+            txtTipoGasto.CaretColor = Color.Black;
+            txtTipoGasto.CaretCustom = false;
+            txtTipoGasto.Enabled = false;
+            txtTipoGasto.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtTipoGasto.ForeColor = Color.Gainsboro;
+            txtTipoGasto.Location = new Point(74, 232);
+            txtTipoGasto.Margin = new Padding(2, 3, 2, 3);
+            txtTipoGasto.MaxLength = 11;
+            txtTipoGasto.Multiline = false;
+            txtTipoGasto.Name = "txtTipoGasto";
+            txtTipoGasto.OnlyNumbers = true;
+            txtTipoGasto.Padding = new Padding(6, 5, 6, 5);
+            txtTipoGasto.PasswordChar = false;
+            txtTipoGasto.Size = new Size(347, 35);
+            txtTipoGasto.TabIndex = 80;
+            txtTipoGasto.Texts = "";
+            txtTipoGasto.UnderlinedStyle = true;
             // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label19.ForeColor = Color.Red;
-            label19.Location = new Point(39, 187);
-            label19.Name = "label19";
-            label19.Size = new Size(26, 35);
-            label19.TabIndex = 63;
-            label19.Text = "*";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label3.ForeColor = Color.Red;
-            label3.Location = new Point(39, 304);
-            label3.Name = "label3";
-            label3.Size = new Size(26, 35);
-            label3.TabIndex = 76;
-            label3.Text = "*";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label4.ForeColor = Color.Red;
-            label4.Location = new Point(467, 75);
-            label4.Name = "label4";
-            label4.Size = new Size(26, 35);
-            label4.TabIndex = 77;
-            label4.Text = "*";
-            // 
-            // FrmEditarGastos
+            // FrmVerGastos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(936, 574);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(txtTipoGasto);
+            Controls.Add(txtObra);
+            Controls.Add(btnSalir);
             Controls.Add(label2);
-            Controls.Add(cbObras);
             Controls.Add(dtpFecha);
-            Controls.Add(cbTipoGasto);
             Controls.Add(txtDescripcion);
             Controls.Add(label10);
             Controls.Add(label7);
             Controls.Add(txtMonto);
             Controls.Add(label5);
             Controls.Add(label1);
-            Controls.Add(btnEditarGasto);
-            Controls.Add(btnCancelar);
-            Controls.Add(label19);
-            Controls.Add(label18);
             Controls.Add(label6);
             Controls.Add(Diseñito);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FrmEditarGastos";
+            Name = "FrmVerGastos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar una obra - BRAHO Project";
             MouseDown += FrmEditarGastos_MouseDown;
@@ -538,20 +470,15 @@
         private PictureBox BotonCerrar;
         private Label label6;
         private Label label2;
-        private RJControls.RJComboBox cbObras;
         private RJControls.RJDatePick dtpFecha;
-        private RJControls.RJComboBox cbTipoGasto;
         private RJControls.RJtextbox txtDescripcion;
         private Label label10;
         private Label label7;
         private RJControls.RJtextbox txtMonto;
         private Label label5;
         private Label label1;
-        private RJControls.RJButton btnEditarGasto;
-        private RJControls.RJButton btnCancelar;
-        private Label label18;
-        private Label label19;
-        private Label label3;
-        private Label label4;
+        private RJControls.RJButton btnSalir;
+        private RJControls.RJtextbox txtObra;
+        private RJControls.RJtextbox txtTipoGasto;
     }
 }

@@ -37,23 +37,6 @@ namespace BRAHO_Project
             Funciones.MoverForm(this);
         }
 
-        private void txtMonto__Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtMonto.Texts))
-                return;
-
-            double numero = Convert.ToDouble(txtMonto.Texts.Trim());
-
-            txtMonto.Texts = $"RD$ {numero:N2}";
-        }
-
-        private void txtMonto__Enter(object sender, EventArgs e)
-        {
-            string numero = new string(txtMonto.Texts.Replace(",", "").Replace("$", "").Replace(".00", "").Where(char.IsDigit).ToArray());
-
-            txtMonto.Texts = numero;
-        }
-
         private void btnEditarGasto_Click(object sender, EventArgs e)
         {
             if (cbObras.SelectedValue == null || string.IsNullOrEmpty(txtDescripcion.Texts) || string.IsNullOrEmpty(txtMonto.Texts) ||
@@ -91,6 +74,35 @@ namespace BRAHO_Project
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtMonto__Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMonto.Texts))
+                return;
+
+            double numero = Convert.ToDouble(txtMonto.Texts.Trim());
+
+            txtMonto.Texts = $"RD$ {numero:N2}";
+        }
+
+        private void txtMonto__Enter(object sender, EventArgs e)
+        {
+            string numero = new string(txtMonto.Texts.Replace("RD$", "")).Replace(",", "").Trim();
+
+            txtMonto.Texts = numero;
+        }
+
+        private void txtMonto__KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

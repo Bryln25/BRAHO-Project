@@ -113,16 +113,13 @@ namespace BRAHO_Project
 
         private void txtPresupuesto__Enter(object sender, EventArgs e)
         {
-            string numero = new string(txtPresupuesto.Texts.Replace(",", "").Replace("$", "").Replace(".00", "").Where(char.IsDigit).ToArray());
+            string numero = new string(txtPresupuesto.Texts.Replace("RD$", "")).Replace(",", "").Trim();
 
             txtPresupuesto.Texts = numero;
         }
 
         private void txtMetros__Enter(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMetros.Texts))
-                return;
-
             string numero = new string(txtMetros.Texts.Replace("m²", "")).Trim();
 
             txtMetros.Texts = numero;
@@ -130,6 +127,9 @@ namespace BRAHO_Project
 
         private void txtMetros__Leave(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtMetros.Texts))
+                return;
+
             double numero = Convert.ToDouble(txtMetros.Texts.Trim());
 
             txtMetros.Texts = $"{numero:N2} m²";
@@ -137,12 +137,22 @@ namespace BRAHO_Project
 
         private void txtMetros__KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Allow control keys (e.g., backspace), digits, and one dot
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
-            // Only allow one dot
+            if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPresupuesto__KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
             {
                 e.Handled = true;

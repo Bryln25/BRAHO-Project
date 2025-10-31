@@ -105,7 +105,7 @@ namespace BRAHO_Project
             try
             {
                 int retorna = 0;
-                //string hash = Funciones.HashPassword(txtContraseña.Texts.Trim());
+                string hash = Funciones.HashPassword(txtContraseña.Texts.Trim());
 
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
@@ -116,7 +116,7 @@ namespace BRAHO_Project
 
                     comando.Parameters.AddWithValue("@Usuario", txtUsuario.Texts.Trim());
                     comando.Parameters.AddWithValue("@NombreApellido", txtNombreApellido.Texts.Trim());
-                    comando.Parameters.AddWithValue("@Contraseña", txtContraseña.Texts.Trim());
+                    comando.Parameters.AddWithValue("@Contraseña", hash);
                     comando.Parameters.AddWithValue("@Email", txtCorreo.Texts.Trim());
 
                     // Ejecutar la inserción

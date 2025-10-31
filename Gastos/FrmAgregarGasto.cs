@@ -27,7 +27,7 @@ namespace BRAHO_Project
             cbObras.ValueMember = "IdObra";
             cbObras.SelectedIndex = -1;
 
-          
+
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)
@@ -48,7 +48,7 @@ namespace BRAHO_Project
             {
                 MessageBox.Show("Debe seleccionar una obra antes de agregar un gasto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }  
+            }
 
             gasto.IdGasto = (int)cbObras.SelectedValue;
             gasto.IdObra = (int)cbObras.SelectedValue;
@@ -82,9 +82,21 @@ namespace BRAHO_Project
 
         private void txtMonto__Enter(object sender, EventArgs e)
         {
-            string numero = new string(txtMonto.Texts.Replace(",", "").Replace("$", "").Replace(".00", "").Where(char.IsDigit).ToArray());
+            string numero = new string(txtMonto.Texts.Replace("RD$", "")).Replace(",", "").Trim();
 
             txtMonto.Texts = numero;
+        }
+
+        private void txtMonto__KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -32,6 +32,9 @@
 		<Compile Update="Gastos\FrmAgregarGasto.cs">
 		  <SubType>Form</SubType>
 		</Compile>
+		<Compile Update="Gastos\FrmVerGastos.cs">
+		  <SubType>Form</SubType>
+		</Compile>
 		<Compile Update="Gastos\FrmEditarGastos.cs">
 		  <SubType>Form</SubType>
 		</Compile>
