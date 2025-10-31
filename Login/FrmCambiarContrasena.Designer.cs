@@ -148,7 +148,6 @@
             rjButton1.Text = "Cancelar";
             rjButton1.TextColor = Color.White;
             rjButton1.UseVisualStyleBackColor = false;
-            rjButton1.Click += rjButton1_Click;
             // 
             // BtnVerContraseña2
             // 

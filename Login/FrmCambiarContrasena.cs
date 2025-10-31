@@ -97,9 +97,13 @@ namespace BRAHO_Project
                 cmd.Parameters.AddWithValue("@Contrasena", hash);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.ExecuteNonQuery();
+              
             }
 
             MessageBox.Show("Contraseña actualizada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
+            Form iniciodesesion = new IniciodeSesion();
+            iniciodesesion.Show();
             this.Close();
         }
     }
