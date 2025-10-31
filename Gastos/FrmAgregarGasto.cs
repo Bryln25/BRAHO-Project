@@ -22,10 +22,10 @@ namespace BRAHO_Project
         }
         private void FrmAgregarObra_Load(object sender, EventArgs e)
         {
-            cbGastos.DataSource = GastosDAL.CargarObras();
-            cbGastos.DisplayMember = "NombreObra";
-            cbGastos.ValueMember = "IdObra";
-            cbGastos.SelectedIndex = -1;
+            cbObras.DataSource = GastosDAL.CargarObras();
+            cbObras.DisplayMember = "NombreObra";
+            cbObras.ValueMember = "IdObra";
+            cbObras.SelectedIndex = -1;
 
           
         }
@@ -42,67 +42,49 @@ namespace BRAHO_Project
 
         private void btnAgregarObra_Click(object sender, EventArgs e)
         {
-
             Gastos gasto = new Gastos();
 
-            if (cbGastos.SelectedValue == null)
+            if (cbObras.SelectedValue == null)
             {
                 MessageBox.Show("Debe seleccionar una obra antes de agregar un gasto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }  
+
+            gasto.IdGasto = (int)cbObras.SelectedValue;
+            gasto.IdObra = (int)cbObras.SelectedValue;
+            gasto.Fecha = dtpFecha.Value.ToString("dd/MM/yyyy").Trim();
+            gasto.Descripcion = txtDescripcion.Texts.Trim();
+            gasto.TipoGasto = cbTipoGasto.Texts.Trim();
+            gasto.Monto = txtMonto.Texts.Trim();
+
+            int resultado = GastosDAL.AgregarGasto(gasto);
+
+            if (resultado > 0)
+            {
+                MessageBox.Show("Gasto agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
-                gasto.IdGasto = (int)cbGastos.SelectedValue;
-
-
-                int resultado = GastosDAL.AgregarGasto(gasto);
-
-                if (resultado > 0)
-                {
-                    MessageBox.Show("Obra agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error al agregar la Obra. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
+                MessageBox.Show("Error al agregar el Gasto. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void txtPresupuesto__Leave(object sender, EventArgs e)
+        private void txtMonto__Leave(object sender, EventArgs e)
         {
-            double numero = Convert.ToDouble(txtPresupuesto.Texts.Trim());
+            if (string.IsNullOrEmpty(txtMonto.Texts))
+                return;
 
-            txtPresupuesto.Texts = $"RD$ {numero:N2}";
+            double numero = Convert.ToDouble(txtMonto.Texts.Trim());
+
+            txtMonto.Texts = $"RD$ {numero:N2}";
         }
 
-        private void txtPresupuesto__Enter(object sender, EventArgs e)
+        private void txtMonto__Enter(object sender, EventArgs e)
         {
-            string numero = new string(txtPresupuesto.Texts.Replace(",", "").Replace("$", "").Replace(".00", "").Where(char.IsDigit).ToArray());
+            string numero = new string(txtMonto.Texts.Replace(",", "").Replace("$", "").Replace(".00", "").Where(char.IsDigit).ToArray());
 
-            txtPresupuesto.Texts = numero;
+            txtMonto.Texts = numero;
         }
-
-
-
-
-
-
-
-        //private void txtMetros__KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    // Allow control keys (e.g., backspace), digits, and one dot
-        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-        //    {
-        //        e.Handled = true;
-        //    }
-        //    // Only allow one dot
-        //    if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
     }
 }

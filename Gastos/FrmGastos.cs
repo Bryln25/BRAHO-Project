@@ -39,6 +39,11 @@ namespace BRAHO_Project
             // Crear columnas para tus datos de clientes
             dgvBuscar.Columns.Clear();
 
+            DataGridViewTextBoxColumn colObra = new DataGridViewTextBoxColumn();
+            colObra.Name = "Obra";
+            colObra.HeaderText = "OBRA";
+            colObra.FillWeight = 20;
+
             DataGridViewTextBoxColumn colFecha = new DataGridViewTextBoxColumn();
             colFecha.Name = "Fecha";
             colFecha.HeaderText = "FECHA";
@@ -62,6 +67,12 @@ namespace BRAHO_Project
 
 
             // Columnas de botones (usaremos imágenes)
+            DataGridViewImageColumn colVer = new DataGridViewImageColumn();
+            colVer.Name = "Ver";
+            colVer.HeaderText = "";
+            colVer.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            colVer.FillWeight = 8;
+
             DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
             colEditar.Name = "Editar";
             colEditar.HeaderText = "";
@@ -76,8 +87,8 @@ namespace BRAHO_Project
 
             // Agregar todas las columnas
             dgvBuscar.Columns.AddRange(new DataGridViewColumn[] {
-                colFecha, colTipo, colMonto, colDescripcion,
-                colEditar, colEliminar
+                colObra, colFecha, colTipo, colMonto, colDescripcion,
+                colVer, colEditar, colEliminar
             });
         }
 
@@ -104,6 +115,7 @@ namespace BRAHO_Project
             foreach (var gastos in listaGastos)
             {
                 int rowIndex = dgvBuscar.Rows.Add(
+                    GastosDAL.BuscarNombreObraPorId(gastos.IdObra),
                     gastos.Fecha,
                     gastos.TipoGasto,
                     gastos.Monto,
@@ -111,6 +123,12 @@ namespace BRAHO_Project
                 );
 
                 // Asignar imágenes a las columnas de botones
+                if (dgvBuscar.Rows[rowIndex].Cells["Ver"] is DataGridViewImageCell verCell)
+                {
+                    dgvBuscar.Cursor = Cursors.Hand;
+                    verCell.Value = Properties.Resources.visible; // Tu imagen de ver
+                    verCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                }
                 if (dgvBuscar.Rows[rowIndex].Cells["Editar"] is DataGridViewImageCell editarCell)
                 {
                     dgvBuscar.Cursor = Cursors.Hand;
@@ -135,26 +153,32 @@ namespace BRAHO_Project
 
                 switch (dgvBuscar.Columns[e.ColumnIndex].Name)
                 {
+                    //case "Ver":
+                    //    if (dgvBuscar.CurrentRow != null) // valida que haya fila seleccionada
+                    //    {
+                    //        DataGridViewRow fila = dgvBuscar.CurrentRow;
+
+                    //        // Crear el formulario destino
+
+                    //        FrmVerObra frm = new FrmVerObra(obra, dgvBuscar);
+                    //        frm.ShowDialog();
+                    //        MostrarObras();
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("Seleccione una fila antes de visualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    }
+                    //    break;
+
                     case "Editar":
-                        // dale tu puede
-                        if (dgvBuscar.CurrentRow != null) // valida que haya fila seleccionada
+                        if (dgvBuscar.CurrentRow != null) 
                         {
                             DataGridViewRow fila = dgvBuscar.CurrentRow;
 
-                            // Crear el formulario destino
-
-                           // FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar);
-                            //Clientes clientes = new Clientes();
-
-
-                            // Pasar valores
-
-                            
-
-
-                            // Mostrar el formulario
-                       //     frm.ShowDialog();
-                            MostrarGastos(); // Refrescar la lista después de editar
+                            FrmEditarGastos frm = new FrmEditarGastos(gastos, dgvBuscar);
+                            Clientes clientes = new Clientes();
+                            frm.ShowDialog();
+                            MostrarGastos(); 
                         }
                         else
                         {
@@ -166,25 +190,24 @@ namespace BRAHO_Project
                         break;
 
                     case "Eliminar":
-                        //if (MessageBox.Show($"¿Está seguro que desea eliminar a {cliente.NombreApellido}?",
-                        //    "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        //{
-                        //    // Eliminar de la base de datos
-                        //    int resultado = ClientesDAL.EliminarCliente(cliente.IDCliente);
+                        if (MessageBox.Show($"¿Está seguro que desea eliminar el gasto?",
+                            "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int resultado = GastosDAL.EliminarGasto(gastos.IdGasto);
 
-                        //    if (resultado > 0)
-                        //    {
-                        //        MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    }
-                        //    else
-                        //    {
-                        //        MessageBox.Show("Error al eliminar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //        return;
-                        //    }
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Gasto eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar el gasto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
 
-                        //    listaClientes.RemoveAt(e.RowIndex);
-                        //    ActualizarDataGridView();
-                        //}
+                            listaGastos.RemoveAt(e.RowIndex);
+                            ActualizarDataGridView();
+                        }
                         break;
                 }
             }
@@ -227,8 +250,6 @@ namespace BRAHO_Project
                 }
             }
         }
-
-
 
         private void txtBuscar__TextChanged(object sender, EventArgs e)
         {

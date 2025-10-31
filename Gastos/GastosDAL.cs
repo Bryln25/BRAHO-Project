@@ -18,7 +18,7 @@ namespace BRAHO_Project
 
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "INSERT INTO GastosGastos (IdObra, Fecha, Descripcion, TipoGasto, Monto) " +
+                    string query = "INSERT INTO GastosObra (IdObra, Fecha, Descripcion, TipoGasto, Monto) " +
                                    "VALUES (@IdObra, @Fecha, @Descripcion, @TipoGasto, @Monto)";
 
                     SqlCommand comando = new SqlCommand(query, conexion);
@@ -69,17 +69,17 @@ namespace BRAHO_Project
             }
 
         }
-        public static int EditarGastos(Gastos Gastos)
+        public static int EditarGasto(Gastos Gastos)
         {
             try
             {
                 int retorna = 0;
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "UPDATE Gastos SET IdObra = @IdObra, Fecha = @Fecha, Descripcion = @Descripcion, TipoGasto = @TipoGasto, Monto = @Monto, Presupuesto = @Presupuesto, FechaInicio = @FechaInicio, FechaFinal = @FechaFinal, Recordatorio = @Recordatorio, Estado = @Estado WHERE IdObra = @IdObra";
+                    string query = "UPDATE GastosObra SET IdObra = @IdObra, Fecha = @Fecha, Descripcion = @Descripcion, TipoGasto = @TipoGasto, Monto = @Monto WHERE IdGasto = @IdGasto";
                     SqlCommand comando = new SqlCommand(query, conexion);
 
-                    comando.Parameters.AddWithValue("@IdObra", Gastos.IdObra);
+                    comando.Parameters.AddWithValue("@IdGasto", Gastos.IdGasto);
                     comando.Parameters.AddWithValue("@Fecha", Gastos.Fecha);
                     comando.Parameters.AddWithValue("@IdObra", Gastos.IdObra);
                     comando.Parameters.AddWithValue("@Descripcion", Gastos.Descripcion);
@@ -97,14 +97,14 @@ namespace BRAHO_Project
             }
         }
 
-        public static int EliminarObra(int Id)
+        public static int EliminarGasto(int Id)
         {
             try
             {
                 int retorna = 0;
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "DELETE FROM GastosObras WHERE IdGasto = @IdGasto";
+                    string query = "DELETE FROM GastosObra WHERE IdGasto = @IdGasto";
                     SqlCommand comando = new SqlCommand(query, conexion);
                     comando.Parameters.AddWithValue("@IdGasto", Id);
                     retorna = comando.ExecuteNonQuery();
@@ -142,6 +142,30 @@ namespace BRAHO_Project
 
                 return tb;
             }
+        }
+
+        public static string BuscarNombreObraPorId(int idObra)
+        {
+            string nombreObra = string.Empty;
+            try
+            {
+                using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+                {
+                    string query = "SELECT NombreObra FROM Obras WHERE IdObra = @IdObra";
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@IdObra", idObra);
+                    object resultado = comando.ExecuteScalar();
+                    if (resultado != null)
+                    {
+                        nombreObra = resultado.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en la base de datos");
+            }
+            return nombreObra;
         }
     }
 }
