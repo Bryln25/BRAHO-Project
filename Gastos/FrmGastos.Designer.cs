@@ -245,7 +245,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmGastos";
             Text = "FrmGastos";
-            Load += FrmClientes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).EndInit();
             ResumeLayout(false);

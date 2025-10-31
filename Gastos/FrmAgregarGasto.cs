@@ -26,6 +26,8 @@ namespace BRAHO_Project
             cbGastos.DisplayMember = "NombreObra";
             cbGastos.ValueMember = "IdObra";
             cbGastos.SelectedIndex = -1;
+
+          
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)
@@ -51,7 +53,7 @@ namespace BRAHO_Project
             else
             {
                 gasto.IdGasto = (int)cbGastos.SelectedValue;
-                
+
 
                 int resultado = GastosDAL.AgregarGasto(gasto);
 
@@ -83,32 +85,24 @@ namespace BRAHO_Project
             txtPresupuesto.Texts = numero;
         }
 
-        private void txtMetros__Enter(object sender, EventArgs e)
-        {
-            string numero = new string(txtMetros.Texts.Replace("m²", "")).Trim();
 
-            txtMetros.Texts = numero;
-        }
 
-        private void txtMetros__Leave(object sender, EventArgs e)
-        {
-            double numero = Convert.ToDouble(txtMetros.Texts.Trim());
 
-            txtMetros.Texts = $"{numero:N2} m²";
-        }
 
-        private void txtMetros__KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allow control keys (e.g., backspace), digits, and one dot
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-            // Only allow one dot
-            if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
-            {
-                e.Handled = true;
-            }
-        }
+
+
+        //private void txtMetros__KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    // Allow control keys (e.g., backspace), digits, and one dot
+        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+        //    {
+        //        e.Handled = true;
+        //    }
+        //    // Only allow one dot
+        //    if (e.KeyChar == '.' && ((sender as Control).Text.Contains(".")))
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
     }
 }

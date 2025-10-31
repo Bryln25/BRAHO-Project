@@ -298,7 +298,7 @@
             txtPresupuesto.MaxLength = 11;
             txtPresupuesto.Multiline = false;
             txtPresupuesto.Name = "txtPresupuesto";
-            txtPresupuesto.OnlyNumbers = true;
+            txtPresupuesto.OnlyNumbers = false;
             txtPresupuesto.Padding = new Padding(6, 5, 6, 5);
             txtPresupuesto.PasswordChar = false;
             txtPresupuesto.Size = new Size(347, 35);

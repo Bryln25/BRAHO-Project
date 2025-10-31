@@ -46,7 +46,7 @@ namespace BRAHO_Project
             List<Gastos> Lista = new List<Gastos>();
             using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
-                string query = "SELECT *FROM GastosGastos";
+                string query = "SELECT *FROM GastosObra";
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 SqlDataReader reader = comando.ExecuteReader();

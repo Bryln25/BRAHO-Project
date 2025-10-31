@@ -296,7 +296,7 @@
             txtPresupuesto.MaxLength = 11;
             txtPresupuesto.Multiline = false;
             txtPresupuesto.Name = "txtPresupuesto";
-            txtPresupuesto.OnlyNumbers = true;
+            txtPresupuesto.OnlyNumbers = false;
             txtPresupuesto.Padding = new Padding(6, 5, 6, 5);
             txtPresupuesto.PasswordChar = false;
             txtPresupuesto.Size = new Size(347, 35);
@@ -333,7 +333,7 @@
             txtMetros.MaxLength = 32767;
             txtMetros.Multiline = false;
             txtMetros.Name = "txtMetros";
-            txtMetros.OnlyNumbers = true;
+            txtMetros.OnlyNumbers = false;
             txtMetros.Padding = new Padding(6, 5, 6, 5);
             txtMetros.PasswordChar = false;
             txtMetros.Size = new Size(347, 35);

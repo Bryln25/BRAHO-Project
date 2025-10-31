@@ -13,14 +13,14 @@ namespace BRAHO_Project
 {
     public partial class FrmGastos : Form
     {
-        private List<Clientes> listaClientes;
-        private List<Clientes> listaClientesOriginal = new List<Clientes>();
+        private List<Gastos> listaGastos;
+        private List<Gastos> listaGastosOriginal = new List<Gastos>();
 
         public FrmGastos()
         {
             InitializeComponent();
             ConfigurarDataGridView();
-            MostrarClientes();
+            MostrarGastos();
         }
 
         private void ConfigurarDataGridView()
@@ -39,30 +39,27 @@ namespace BRAHO_Project
             // Crear columnas para tus datos de clientes
             dgvBuscar.Columns.Clear();
 
-            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
-            colNombre.Name = "NombreApellido";
-            colNombre.HeaderText = "NOMBRE";
-            colNombre.FillWeight = 20;
+            DataGridViewTextBoxColumn colFecha = new DataGridViewTextBoxColumn();
+            colFecha.Name = "Fecha";
+            colFecha.HeaderText = "FECHA";
+            colFecha.FillWeight = 20;
 
-            DataGridViewTextBoxColumn colTelefono = new DataGridViewTextBoxColumn();
-            colTelefono.Name = "Telefono";
-            colTelefono.HeaderText = "TELÉFONO";
-            colTelefono.FillWeight = 18;
+            DataGridViewTextBoxColumn colTipo = new DataGridViewTextBoxColumn();
+            colTipo.Name = "TipoGasto";
+            colTipo.HeaderText = "TIPO GASTO";
+            colTipo.FillWeight = 18;
 
-            DataGridViewTextBoxColumn colEmail = new DataGridViewTextBoxColumn();
-            colEmail.Name = "Email";
-            colEmail.HeaderText = "EMAIL";
-            colEmail.FillWeight = 20;
+            DataGridViewTextBoxColumn colMonto = new DataGridViewTextBoxColumn();
+            colMonto.Name = "Monto";
+            colMonto.HeaderText = "MONTO";
+            colMonto.FillWeight = 20;
 
-            DataGridViewTextBoxColumn colDireccion = new DataGridViewTextBoxColumn();
-            colDireccion.Name = "Direccion";
-            colDireccion.HeaderText = "DIRECCIÓN";
-            colDireccion.FillWeight = 20;
+            DataGridViewTextBoxColumn colDescripcion = new DataGridViewTextBoxColumn();
+            colDescripcion.Name = "Descripcion";
+            colDescripcion.HeaderText = "DESCRIPCION";
+            colDescripcion.FillWeight = 20;
 
-            DataGridViewTextBoxColumn colCedula = new DataGridViewTextBoxColumn();
-            colCedula.Name = "Cedula";
-            colCedula.HeaderText = "CÉDULA";
-            colCedula.FillWeight = 13;
+
 
             // Columnas de botones (usaremos imágenes)
             DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
@@ -79,22 +76,22 @@ namespace BRAHO_Project
 
             // Agregar todas las columnas
             dgvBuscar.Columns.AddRange(new DataGridViewColumn[] {
-                colNombre, colTelefono, colEmail, colDireccion, colCedula,
+                colFecha, colTipo, colMonto, colDescripcion,
                 colEditar, colEliminar
             });
         }
 
-        public void MostrarClientes()
+        public void MostrarGastos()
         {
-            listaClientes = ClientesDAL.Mostrar();
+            listaGastos = GastosDAL.MostrarGastos();
 
-            if (listaClientes != null)
+            if (listaGastos != null)
             {
-                listaClientesOriginal = new List<Clientes>(listaClientes);
+                listaGastosOriginal = new List<Gastos>(listaGastos);
             }
             else
             {
-                listaClientesOriginal = new List<Clientes>();
+                listaGastosOriginal = new List<Gastos>();
             }
 
             ActualizarDataGridView();
@@ -104,14 +101,13 @@ namespace BRAHO_Project
         {
             dgvBuscar.Rows.Clear();
 
-            foreach (var cliente in listaClientes)
+            foreach (var gastos in listaGastos)
             {
                 int rowIndex = dgvBuscar.Rows.Add(
-                    cliente.NombreApellido,
-                    cliente.Telefono,
-                    cliente.Email,
-                    cliente.Direccion,
-                    cliente.Cedula
+                    gastos.Fecha,
+                    gastos.TipoGasto,
+                    gastos.Monto,
+                    gastos.Descripcion
                 );
 
                 // Asignar imágenes a las columnas de botones
@@ -135,7 +131,7 @@ namespace BRAHO_Project
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var cliente = listaClientes[e.RowIndex];
+                var gastos = listaGastos[e.RowIndex];
 
                 switch (dgvBuscar.Columns[e.ColumnIndex].Name)
                 {
@@ -147,7 +143,7 @@ namespace BRAHO_Project
 
                             // Crear el formulario destino
 
-                            FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar);
+                           // FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar);
                             //Clientes clientes = new Clientes();
 
 
@@ -157,8 +153,8 @@ namespace BRAHO_Project
 
 
                             // Mostrar el formulario
-                            frm.ShowDialog();
-                            MostrarClientes(); // Refrescar la lista después de editar
+                       //     frm.ShowDialog();
+                            MostrarGastos(); // Refrescar la lista después de editar
                         }
                         else
                         {
@@ -170,25 +166,25 @@ namespace BRAHO_Project
                         break;
 
                     case "Eliminar":
-                        if (MessageBox.Show($"¿Está seguro que desea eliminar a {cliente.NombreApellido}?",
-                            "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            // Eliminar de la base de datos
-                            int resultado = ClientesDAL.EliminarCliente(cliente.IDCliente);
+                        //if (MessageBox.Show($"¿Está seguro que desea eliminar a {cliente.NombreApellido}?",
+                        //    "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        //{
+                        //    // Eliminar de la base de datos
+                        //    int resultado = ClientesDAL.EliminarCliente(cliente.IDCliente);
 
-                            if (resultado > 0)
-                            {
-                                MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error al eliminar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                        //    if (resultado > 0)
+                        //    {
+                        //        MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    }
+                        //    else
+                        //    {
+                        //        MessageBox.Show("Error al eliminar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //        return;
+                        //    }
 
-                            listaClientes.RemoveAt(e.RowIndex);
-                            ActualizarDataGridView();
-                        }
+                        //    listaClientes.RemoveAt(e.RowIndex);
+                        //    ActualizarDataGridView();
+                        //}
                         break;
                 }
             }
@@ -203,7 +199,7 @@ namespace BRAHO_Project
         {
             FrmAgregarGasto frmAgregarGasto = new FrmAgregarGasto();
             frmAgregarGasto.ShowDialog();
-            MostrarClientes(); // Refrescar la lista después de agregar
+            MostrarGastos(); // Refrescar la lista después de agregar
         }
 
         private void dgvBuscar_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -237,26 +233,24 @@ namespace BRAHO_Project
         private void txtBuscar__TextChanged(object sender, EventArgs e)
         {
             string patron = txtBuscar.Texts.Trim().ToLower();
-            listaClientes = new List<Clientes>();
+            listaGastos = new List<Gastos>();
 
             if (string.IsNullOrEmpty(patron))
             {
-                listaClientes = new List<Clientes>(listaClientesOriginal);
+                listaGastos = new List<Gastos>(listaGastosOriginal);
             }
             else
             {
-                foreach (var cliente in listaClientesOriginal)
+                foreach (var gastos in listaGastosOriginal)
                 {
-                    
+
                     bool encontrado =
-                        FuerzaBruta(cliente.NombreApellido?.ToLower(), patron) ||
-                        FuerzaBruta(cliente.Telefono?.ToLower().Replace(" ", "").Replace(")", ""), patron) ||
-                        FuerzaBruta(cliente.Email?.ToLower(), patron) ||
-                        FuerzaBruta(cliente.Direccion?.ToLower(), patron) ||
-                        FuerzaBruta(cliente.Cedula?.ToLower().Replace("-", ""), patron);
-                    
+                        FuerzaBruta(gastos.Fecha?.ToLower(), patron) ||
+                        FuerzaBruta(gastos.TipoGasto?.ToLower().Replace(" ", "").Replace(")", ""), patron) ||
+                        FuerzaBruta(gastos.Monto?.ToLower(), patron) ||
+                        FuerzaBruta(gastos.Descripcion?.ToLower(), patron);                    
                     if (encontrado)
-                        listaClientes.Add(cliente);
+                        listaGastos.Add(gastos);
                 }
             }
 
@@ -332,9 +326,5 @@ namespace BRAHO_Project
 
         }
 
-        private void FrmClientes_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
