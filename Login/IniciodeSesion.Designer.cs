@@ -39,8 +39,8 @@
             txtContraseña = new BRAHO_Project.RJControls.RJtextbox();
             linkLabel1 = new LinkLabel();
             BotonLoguear = new BRAHO_Project.RJControls.RJButton();
-            BotonRegistrarse = new BRAHO_Project.RJControls.RJButton();
             BtnVerContraseña = new PictureBox();
+            BotonRegistrarse = new BRAHO_Project.RJControls.RJButton();
             MoverVentanaInicioSesion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
@@ -201,6 +201,19 @@
             BotonLoguear.UseVisualStyleBackColor = false;
             BotonLoguear.Click += BotonLoguear_Click;
             // 
+            // BtnVerContraseña
+            // 
+            BtnVerContraseña.Cursor = Cursors.Hand;
+            BtnVerContraseña.Image = Properties.Resources.visible1;
+            BtnVerContraseña.Location = new Point(413, 360);
+            BtnVerContraseña.Margin = new Padding(3, 4, 3, 4);
+            BtnVerContraseña.Name = "BtnVerContraseña";
+            BtnVerContraseña.Size = new Size(40, 47);
+            BtnVerContraseña.SizeMode = PictureBoxSizeMode.Zoom;
+            BtnVerContraseña.TabIndex = 16;
+            BtnVerContraseña.TabStop = false;
+            BtnVerContraseña.Click += BtnVerContraseña_Click;
+            // 
             // BotonRegistrarse
             // 
             BotonRegistrarse.BackColor = Color.Transparent;
@@ -222,19 +235,6 @@
             BotonRegistrarse.TextColor = Color.White;
             BotonRegistrarse.UseVisualStyleBackColor = false;
             BotonRegistrarse.Click += BotonRegistrarse_Click;
-            // 
-            // BtnVerContraseña
-            // 
-            BtnVerContraseña.Cursor = Cursors.Hand;
-            BtnVerContraseña.Image = Properties.Resources.visible1;
-            BtnVerContraseña.Location = new Point(413, 360);
-            BtnVerContraseña.Margin = new Padding(3, 4, 3, 4);
-            BtnVerContraseña.Name = "BtnVerContraseña";
-            BtnVerContraseña.Size = new Size(40, 47);
-            BtnVerContraseña.SizeMode = PictureBoxSizeMode.Zoom;
-            BtnVerContraseña.TabIndex = 16;
-            BtnVerContraseña.TabStop = false;
-            BtnVerContraseña.Click += BtnVerContraseña_Click;
             // 
             // IniciodeSesion
             // 
@@ -279,7 +279,7 @@
         private RJControls.RJtextbox txtContraseña;
         private LinkLabel linkLabel1;
         private RJControls.RJButton BotonLoguear;
-        private RJControls.RJButton BotonRegistrarse;
         private PictureBox BtnVerContraseña;
+        private RJControls.RJButton BotonRegistrarse;
     }
 }

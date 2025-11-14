@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaginaPrincipal));
             MenuVertical = new Panel();
+            btnControlUsuarios = new Button();
             lblEmail = new Label();
             lblPuesto = new Label();
             BotonSlide = new PictureBox();
@@ -45,6 +46,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            label8 = new Label();
             pictureBox1 = new PictureBox();
             BarraTitulo = new Panel();
             BotonMininizar = new PictureBox();
@@ -81,6 +83,7 @@
             // MenuVertical
             // 
             MenuVertical.BackColor = Color.FromArgb(127, 127, 127);
+            MenuVertical.Controls.Add(btnControlUsuarios);
             MenuVertical.Controls.Add(lblEmail);
             MenuVertical.Controls.Add(lblPuesto);
             MenuVertical.Controls.Add(BotonSlide);
@@ -95,11 +98,30 @@
             MenuVertical.Controls.Add(label2);
             MenuVertical.Controls.Add(label3);
             MenuVertical.Controls.Add(label4);
+            MenuVertical.Controls.Add(label8);
             MenuVertical.Dock = DockStyle.Left;
             MenuVertical.Location = new Point(0, 34);
             MenuVertical.Name = "MenuVertical";
             MenuVertical.Size = new Size(260, 617);
             MenuVertical.TabIndex = 0;
+            // 
+            // btnControlUsuarios
+            // 
+            btnControlUsuarios.FlatAppearance.BorderSize = 0;
+            btnControlUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(102, 102, 102);
+            btnControlUsuarios.FlatStyle = FlatStyle.Flat;
+            btnControlUsuarios.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnControlUsuarios.ForeColor = Color.White;
+            btnControlUsuarios.Image = (Image)resources.GetObject("btnControlUsuarios.Image");
+            btnControlUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
+            btnControlUsuarios.Location = new Point(1, 481);
+            btnControlUsuarios.Name = "btnControlUsuarios";
+            btnControlUsuarios.Size = new Size(256, 52);
+            btnControlUsuarios.TabIndex = 9;
+            btnControlUsuarios.Text = "        Control Usuarios";
+            btnControlUsuarios.UseVisualStyleBackColor = true;
+            btnControlUsuarios.Visible = false;
+            btnControlUsuarios.Click += btnControlUsuarios_Click;
             // 
             // lblEmail
             // 
@@ -187,7 +209,7 @@
             BotonGastos.ForeColor = Color.White;
             BotonGastos.Image = (Image)resources.GetObject("BotonGastos.Image");
             BotonGastos.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonGastos.Location = new Point(1, 444);
+            BotonGastos.Location = new Point(1, 408);
             BotonGastos.Name = "BotonGastos";
             BotonGastos.Size = new Size(256, 52);
             BotonGastos.TabIndex = 4;
@@ -204,7 +226,7 @@
             BotonRegistrarObra.ForeColor = Color.White;
             BotonRegistrarObra.Image = (Image)resources.GetObject("BotonRegistrarObra.Image");
             BotonRegistrarObra.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonRegistrarObra.Location = new Point(1, 371);
+            BotonRegistrarObra.Location = new Point(1, 335);
             BotonRegistrarObra.Name = "BotonRegistrarObra";
             BotonRegistrarObra.Size = new Size(256, 52);
             BotonRegistrarObra.TabIndex = 2;
@@ -221,7 +243,7 @@
             BotonClientes.ForeColor = Color.White;
             BotonClientes.Image = (Image)resources.GetObject("BotonClientes.Image");
             BotonClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            BotonClientes.Location = new Point(1, 298);
+            BotonClientes.Location = new Point(1, 262);
             BotonClientes.Name = "BotonClientes";
             BotonClientes.Size = new Size(256, 52);
             BotonClientes.TabIndex = 3;
@@ -242,7 +264,7 @@
             // 
             label1.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(102, 102, 102);
-            label1.Location = new Point(-16, 238);
+            label1.Location = new Point(-16, 202);
             label1.Name = "label1";
             label1.Size = new Size(299, 54);
             label1.TabIndex = 1;
@@ -253,7 +275,7 @@
             // 
             label2.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(102, 102, 102);
-            label2.Location = new Point(-16, 311);
+            label2.Location = new Point(-16, 275);
             label2.Name = "label2";
             label2.Size = new Size(299, 54);
             label2.TabIndex = 7;
@@ -264,7 +286,7 @@
             // 
             label3.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(102, 102, 102);
-            label3.Location = new Point(-16, 384);
+            label3.Location = new Point(-16, 348);
             label3.Name = "label3";
             label3.Size = new Size(299, 54);
             label3.TabIndex = 8;
@@ -275,12 +297,24 @@
             // 
             label4.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(102, 102, 102);
-            label4.Location = new Point(-16, 457);
+            label4.Location = new Point(-16, 421);
             label4.Name = "label4";
             label4.Size = new Size(299, 54);
             label4.TabIndex = 8;
             label4.Text = "_____________";
             label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(102, 102, 102);
+            label8.Location = new Point(-16, 494);
+            label8.Name = "label8";
+            label8.Size = new Size(299, 54);
+            label8.TabIndex = 10;
+            label8.Text = "_____________";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            label8.Visible = false;
             // 
             // pictureBox1
             // 
@@ -410,7 +444,7 @@
             rJtextbox3.Multiline = true;
             rJtextbox3.Name = "rJtextbox3";
             rJtextbox3.OnlyNumbers = false;
-            rJtextbox3.Padding = new Padding(7, 7, 7, 7);
+            rJtextbox3.Padding = new Padding(7);
             rJtextbox3.PasswordChar = false;
             rJtextbox3.Size = new Size(753, 59);
             rJtextbox3.TabIndex = 8;
@@ -435,7 +469,7 @@
             rJtextbox2.Multiline = false;
             rJtextbox2.Name = "rJtextbox2";
             rJtextbox2.OnlyNumbers = false;
-            rJtextbox2.Padding = new Padding(7, 7, 7, 7);
+            rJtextbox2.Padding = new Padding(7);
             rJtextbox2.PasswordChar = false;
             rJtextbox2.Size = new Size(753, 37);
             rJtextbox2.TabIndex = 7;
@@ -460,7 +494,7 @@
             rJtextbox1.Multiline = false;
             rJtextbox1.Name = "rJtextbox1";
             rJtextbox1.OnlyNumbers = false;
-            rJtextbox1.Padding = new Padding(7, 7, 7, 7);
+            rJtextbox1.Padding = new Padding(7);
             rJtextbox1.PasswordChar = false;
             rJtextbox1.Size = new Size(753, 37);
             rJtextbox1.TabIndex = 6;
@@ -603,5 +637,7 @@
         private Label label5;
         private Label label7;
         private Label label6;
+        private Button btnControlUsuarios;
+        private Label label8;
     }
 }

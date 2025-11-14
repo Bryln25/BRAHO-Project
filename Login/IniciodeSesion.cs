@@ -62,7 +62,7 @@ namespace BRAHO_Project
             {
                 using (SqlConnection cn = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "SELECT IdUsuario, NombreApellido, Email, Rol, FotoPerfil FROM Usuarios WHERE Usuario = @usuario AND Contraseña = @contraseña";
+                    string query = "SELECT IdUsuario, NombreApellido, Email, Rol, FotoPerfil FROM Usuarios WHERE Usuario = @usuario AND Contraseña = @contraseña AND Rol IS NOT NULL";
 
                     SqlCommand cm = new SqlCommand(query, cn);
                     cm.Parameters.AddWithValue("@usuario", txtUsuario.Texts.Trim());

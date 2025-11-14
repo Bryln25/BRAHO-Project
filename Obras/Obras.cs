@@ -22,7 +22,6 @@ namespace BRAHO_Project
         public int IdUsuario { get; set; }
 
 
-
         public Obras()
         {
         }

@@ -19,6 +19,12 @@ namespace BRAHO_Project
             this.AutoScaleMode = AutoScaleMode.Dpi;
             Funciones.RedondearForm(this);
             usuario = usuarioLogueado;
+
+            if (usuario.Puesto == "Admin" || usuario.Puesto == "TI")
+            {
+                btnControlUsuarios.Visible = true;
+                label8.Visible = true;
+            }
         }
 
         private void PaginaPrincipal_Load(object sender, EventArgs e)
@@ -162,6 +168,19 @@ namespace BRAHO_Project
             ActivarBoton(BotonGastos);
         }
 
+        private void btnControlUsuarios_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmTickets());
+
+            if (!desplazar)
+            {
+                timer1.Start();
+                desplazar = true;
+            }
+
+            ActivarBoton(btnControlUsuarios);
+        }
+
         private void logouser_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show($"¿Desea cambiar la foto de perfil?", "Confirmar Cambiar Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -212,6 +231,5 @@ namespace BRAHO_Project
         {
             boton.BackColor = Color.FromArgb(127, 127, 127);
         }
-
     }
 }
