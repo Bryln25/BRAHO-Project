@@ -168,48 +168,48 @@ namespace BRAHO_Project
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var obra = listaUsuarios[e.RowIndex];
+                var usuario = listaUsuarios[e.RowIndex];
 
                 switch (dgvProcesados.Columns[e.ColumnIndex].Name)
-                {                   
-                    //case "Editar":
-                    //    if (dgvNuevos.CurrentRow != null) // valida que haya fila seleccionada
-                    //    {
-                    //        DataGridViewRow fila = dgvNuevos.CurrentRow;
+                {
+                    case "Editar":
+                        if (dgvProcesados.CurrentRow != null) // valida que haya fila seleccionada
+                        {
+                            DataGridViewRow fila = dgvProcesados.CurrentRow;
 
-                    //        // Crear el formulario destino
+                            // Crear el formulario destino
 
-                    //        FrmEditarObra frm = new FrmEditarObra(obra, dgvNuevos);
-                    //        frm.ShowDialog();
-                    //        MostrarUsuarios(); // Refrescar la lista después de editar
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    }
-                    //    break;
+                            FrmEditarUsuario frm = new FrmEditarUsuario(usuario, dgvProcesados);
+                            frm.ShowDialog();
+                            MostrarUsuarios(); // Refrescar la lista después de editar
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        break;
 
-                    //case "Eliminar":
-                    //    if (MessageBox.Show($"¿Está seguro que desea eliminar esta obra?",
-                    //        "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    //    {
-                    //        // Eliminar de la base de datos
-                    //        int resultado = UsuariosDAL.EliminarObra(obra.IdObra);
+                    case "Eliminar":
+                        if (MessageBox.Show($"¿Está seguro que desea eliminar este usuario?",
+                            "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            // Eliminar de la base de datos
+                            int resultado = UsuarioDAL.EliminarUsuario(usuario.IdUsuario);
 
-                    //        if (resultado > 0)
-                    //        {
-                    //            MessageBox.Show("Obra eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //        }
-                    //        else
-                    //        {
-                    //            MessageBox.Show("Error al eliminar la obra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //            return;
-                    //        }
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Usuario eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al eliminar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
 
-                    //        listaUsuarios.RemoveAt(e.RowIndex);
-                    //        ActualizarDataGridView();
-                    //    }
-                    //    break;
+                            listaUsuarios.RemoveAt(e.RowIndex);
+                            ActualizarDataGridView();
+                        }
+                        break;
                 }
             }
         }

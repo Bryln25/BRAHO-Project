@@ -1,6 +1,6 @@
 ﻿namespace BRAHO_Project
 {
-    partial class FrmTickets
+    partial class FrmUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTickets));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuarios));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             BotonMininizar = new PictureBox();

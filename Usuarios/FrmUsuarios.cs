@@ -12,11 +12,11 @@ using BRAHO_Project.RJControls;
 
 namespace BRAHO_Project
 {
-    public partial class FrmTickets : Form
+    public partial class FrmUsuarios : Form
     {
         private RJButton botonActivo = null;
 
-        public FrmTickets()
+        public FrmUsuarios()
         {
             InitializeComponent();
         }

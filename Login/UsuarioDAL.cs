@@ -14,7 +14,7 @@ namespace BRAHO_Project.Login
             List<Usuario> Lista = new List<Usuario>();
             using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
-                string query = "SELECT IdUsuario, Usuario, NombreApellido, Email FROM Usuarios WHERE Rol IS NULL";
+                string query = "SELECT IdUsuario, Usuario, NombreApellido, Rol, Email FROM Usuarios WHERE Rol = 'Sin Rol'";
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -25,7 +25,8 @@ namespace BRAHO_Project.Login
                     usuario.IdUsuario = reader.GetInt32(0);
                     usuario.UsuarioNombre = reader.GetString(1);
                     usuario.Nombre = reader.GetString(2);
-                    usuario.Email = reader.GetString(3);
+                    usuario.Puesto = reader.GetString(3);
+                    usuario.Email = reader.GetString(4);
                     Lista.Add(usuario);
                 }
 
@@ -39,7 +40,7 @@ namespace BRAHO_Project.Login
             List<Usuario> Lista = new List<Usuario>();
             using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
-                string query = "SELECT IdUsuario, Usuario, NombreApellido, Rol, Email FROM Usuarios WHERE Rol IS NOT NULL";
+                string query = "SELECT IdUsuario, Usuario, NombreApellido, Rol, Email FROM Usuarios WHERE Rol != 'Sin Rol'";
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -67,7 +68,7 @@ namespace BRAHO_Project.Login
                 int retorna = 0;
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "UPDATE Usuario SET Usuario = @Usuario, NombreApellido = @NombreApellido, Rol = @Rol, Email = @Email WHERE IdUsuario = @IdUsuario";
+                    string query = "UPDATE Usuarios SET Usuario = @Usuario, NombreApellido = @NombreApellido, Rol = @Rol, Email = @Email WHERE IdUsuario = @IdUsuario";
                     SqlCommand comando = new SqlCommand(query, conexion);
 
                     comando.Parameters.AddWithValue("@IdUsuario", usuario.IdUsuario);

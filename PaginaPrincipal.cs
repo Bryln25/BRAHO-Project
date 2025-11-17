@@ -20,7 +20,7 @@ namespace BRAHO_Project
             Funciones.RedondearForm(this);
             usuario = usuarioLogueado;
 
-            if (usuario.Puesto == "Admin" || usuario.Puesto == "TI")
+            if (usuario.Puesto == "Administrador" || usuario.Puesto == "TI")
             {
                 btnControlUsuarios.Visible = true;
                 label8.Visible = true;
@@ -170,7 +170,7 @@ namespace BRAHO_Project
 
         private void btnControlUsuarios_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmTickets());
+            abrirformhijo(new FrmUsuarios());
 
             if (!desplazar)
             {

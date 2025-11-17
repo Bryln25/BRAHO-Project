@@ -68,13 +68,16 @@
 			<AutoGen>True</AutoGen>
 			<DependentUpon>Resources.resx</DependentUpon>
 		</Compile>
-		<Compile Update="Tickets\FrmProcesados.cs">
+		<Compile Update="Usuarios\FrmEditarUsuario.cs">
 		  <SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Tickets\FrmNuevos.cs">
+		<Compile Update="Usuarios\FrmProcesados.cs">
 		  <SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Tickets\FrmTickets.cs">
+		<Compile Update="Usuarios\FrmNuevos.cs">
+		  <SubType>Form</SubType>
+		</Compile>
+		<Compile Update="Usuarios\FrmUsuarios.cs">
 		  <SubType>Form</SubType>
 		</Compile>
 	</ItemGroup>

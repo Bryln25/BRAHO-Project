@@ -168,33 +168,33 @@ namespace BRAHO_Project
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var obra = listaUsuarios[e.RowIndex];
+                var usuario = listaUsuarios[e.RowIndex];
 
                 switch (dgvNuevos.Columns[e.ColumnIndex].Name)
                 {
-                    //case "Editar":
-                    //    if (dgvNuevos.CurrentRow != null) // valida que haya fila seleccionada
-                    //    {
-                    //        DataGridViewRow fila = dgvNuevos.CurrentRow;
+                    case "Editar":
+                        if (dgvNuevos.CurrentRow != null) // valida que haya fila seleccionada
+                        {
+                            DataGridViewRow fila = dgvNuevos.CurrentRow;
 
-                    //        // Crear el formulario destino
+                            // Crear el formulario destino
 
-                    //        FrmEditarObra frm = new FrmEditarObra(obra, dgvNuevos);
-                    //        frm.ShowDialog();
-                    //        MostrarUsuarios(); // Refrescar la lista después de editar
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //    }
-                    //    break;
+                            FrmEditarUsuario frm = new FrmEditarUsuario(usuario, dgvNuevos);
+                            frm.ShowDialog();
+                            MostrarUsuarios();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        break;
 
                     case "Eliminar":
-                        if (MessageBox.Show($"¿Está seguro que desea eliminar esta obra?",
+                        if (MessageBox.Show($"¿Está seguro que desea eliminar este usuario?",
                             "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             // Eliminar de la base de datos
-                            int resultado = UsuarioDAL.EliminarUsuario(obra.IdUsuario);
+                            int resultado = UsuarioDAL.EliminarUsuario(usuario.IdUsuario);
 
                             if (resultado > 0)
                             {

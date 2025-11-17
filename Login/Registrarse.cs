@@ -109,8 +109,8 @@ namespace BRAHO_Project
 
                 using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
                 {
-                    string query = "INSERT INTO Usuarios (Usuario, NombreApellido, Contraseña, Email) " +
-                                   "VALUES (@Usuario, @NombreApellido, @Contraseña, @Email)";
+                    string query = "INSERT INTO Usuarios (Usuario, NombreApellido, Contraseña, Email, Rol) " +
+                                   "VALUES (@Usuario, @NombreApellido, @Contraseña, @Email, @Rol)";
 
                     SqlCommand comando = new SqlCommand(query, conexion);
 
@@ -118,6 +118,7 @@ namespace BRAHO_Project
                     comando.Parameters.AddWithValue("@NombreApellido", txtNombreApellido.Texts.Trim());
                     comando.Parameters.AddWithValue("@Contraseña", hash);
                     comando.Parameters.AddWithValue("@Email", txtCorreo.Texts.Trim());
+                    comando.Parameters.AddWithValue("@Rol", "Sin Rol"); // Asignar rol predeterminado
 
                     // Ejecutar la inserción
                     retorna = comando.ExecuteNonQuery();
