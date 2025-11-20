@@ -18,12 +18,13 @@ namespace BRAHO_Project
 
         private List<Usuario> listaUsuarios;
         private List<Usuario> listaUsuariosOriginal = new List<Usuario>();
-
-        public FrmProcesados()
+        private Usuario usuarioLog;
+        public FrmProcesados(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarUsuarios();
+            usuarioLog = usuarioLogueado;
         }
 
         public DataGridView dgv
@@ -126,7 +127,8 @@ namespace BRAHO_Project
                 listaUsuarios = listaUsuariosOriginal.Where(c =>
                     (c.UsuarioNombre?.ToLower() ?? "").Contains(filtro) ||
                     (c.Nombre?.ToLower() ?? "").Contains(filtro) ||
-                    (c.Email?.ToLower() ?? "").Contains(filtro)
+                    (c.Email?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Puesto?.ToLower() ?? "").Contains(filtro)
                 ).ToList();
             }
 
@@ -173,7 +175,7 @@ namespace BRAHO_Project
                 switch (dgvProcesados.Columns[e.ColumnIndex].Name)
                 {
                     case "Editar":
-                        if (dgvProcesados.CurrentRow != null) // valida que haya fila seleccionada
+                        if (usuarioLog.IdUsuario != usuario.IdUsuario) // valida que haya fila seleccionada
                         {
                             DataGridViewRow fila = dgvProcesados.CurrentRow;
 
@@ -185,30 +187,37 @@ namespace BRAHO_Project
                         }
                         else
                         {
-                            MessageBox.Show("Seleccione una fila antes de editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("No puedes editarte a ti mismo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
 
                     case "Eliminar":
-                        if (MessageBox.Show($"¿Está seguro que desea eliminar este usuario?",
-                            "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (usuarioLog.IdUsuario != usuario.IdUsuario) // valida que haya fila seleccionada
                         {
-                            // Eliminar de la base de datos
-                            int resultado = UsuarioDAL.EliminarUsuario(usuario.IdUsuario);
-
-                            if (resultado > 0)
+                            if (MessageBox.Show($"¿Está seguro que desea eliminar este usuario?",
+                            "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
-                                MessageBox.Show("Usuario eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error al eliminar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                                // Eliminar de la base de datos
+                                int resultado = UsuarioDAL.EliminarUsuario(usuario.IdUsuario);
 
-                            listaUsuarios.RemoveAt(e.RowIndex);
-                            ActualizarDataGridView();
+                                if (resultado > 0)
+                                {
+                                    MessageBox.Show("Usuario eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error al eliminar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+
+                                listaUsuarios.RemoveAt(e.RowIndex);
+                                ActualizarDataGridView();
+                            }
                         }
+                        else
+                        {
+                            MessageBox.Show("No puedes eliminarte a ti mismo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }                        
                         break;
                 }
             }

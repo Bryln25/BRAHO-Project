@@ -15,10 +15,12 @@ namespace BRAHO_Project
     public partial class FrmUsuarios : Form
     {
         private RJButton botonActivo = null;
+        private Usuario usuario;
 
-        public FrmUsuarios()
+        public FrmUsuarios(Usuario usuarioLogueado)
         {
             InitializeComponent();
+            usuario = usuarioLogueado;
         }
 
 
@@ -94,22 +96,20 @@ namespace BRAHO_Project
         private void txtBuscar__TextChanged(object sender, EventArgs e)
         {
             string filtro = txtBuscar.Texts.Trim().ToLower();
-
             if (btnNuevo.BorderSize == 5)
             {
-                FrmAgendado frmAgendado = Application.OpenForms["FrmAgendado"] as FrmAgendado;
-                if (frmAgendado != null)
+                FrmNuevos frmNuevos = Application.OpenForms["FrmNuevos"] as FrmNuevos;
+                if (frmNuevos != null)
                 {
-                    frmAgendado.FiltarDataGridView(filtro);
+                    frmNuevos.FiltarDataGridView(filtro);
                 }
-
             }
             else if (btnProcesado.BorderSize == 5)
             {
-                FrmTerminado frmTerminado = Application.OpenForms["FrmTerminado"] as FrmTerminado;
-                if (frmTerminado != null)
+                FrmProcesados frmProcesados = Application.OpenForms["FrmProcesados"] as FrmProcesados;
+                if (frmProcesados != null)
                 {
-                    frmTerminado.FiltarDataGridView(filtro);
+                    frmProcesados.FiltarDataGridView(filtro);
                 }
             }
         }
@@ -128,7 +128,7 @@ namespace BRAHO_Project
 
         private void btnProcesado_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmProcesados());
+            abrirformhijo(new FrmProcesados(usuario));
             ActivarBoton(btnProcesado);
         }
 

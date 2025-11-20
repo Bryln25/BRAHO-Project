@@ -170,7 +170,7 @@ namespace BRAHO_Project
 
         private void btnControlUsuarios_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmUsuarios());
+            abrirformhijo(new FrmUsuarios(usuario));
 
             if (!desplazar)
             {
