@@ -16,7 +16,7 @@ namespace BRAHO_Project
             //);
 
             SqlConnection conexion = new SqlConnection(
-               @"workstation id=BrahoDB.mssql.somee.com;packet size=4096;user id=AndrewsH_SQLLogin_1;pwd=6k2wgo4tjq;data source=BrahoDB.mssql.somee.com;persist security info=False;initial catalog=BrahoDB;TrustServerCertificate=True;"
+               @"workstation id=BrahoDB.mssql.somee.com;packet size=4096;user id=AndrewsH_SQLLogin_1;pwd=Andrews12345;data source=BrahoDB.mssql.somee.com;persist security info=False;initial catalog=BrahoDB;TrustServerCertificate=True;"
             );
 
             try
