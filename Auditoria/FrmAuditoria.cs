@@ -47,13 +47,13 @@ namespace BRAHO_Project
 
             DataGridViewTextBoxColumn colAccion = new DataGridViewTextBoxColumn();
             colAccion.Name = "Acción";
-            colAccion.HeaderText = "ACCIÖN";
+            colAccion.HeaderText = "ACCIÓN";
             colAccion.FillWeight = 20;
 
             DataGridViewTextBoxColumn colDetalle = new DataGridViewTextBoxColumn();
             colDetalle.Name = "Detalle";
             colDetalle.HeaderText = "DETALLE";
-            colDetalle.FillWeight = 18;
+            colDetalle.FillWeight = 45;
 
             DataGridViewTextBoxColumn colFecha = new DataGridViewTextBoxColumn();
             colFecha.Name = "Fecha";
@@ -63,20 +63,14 @@ namespace BRAHO_Project
             DataGridViewTextBoxColumn colEquipo = new DataGridViewTextBoxColumn();
             colEquipo.Name = "Equipo";
             colEquipo.HeaderText = "EQUIPO";
-            colEquipo.FillWeight = 20;
+            colEquipo.FillWeight = 15;
 
 
 
-            // Columnas de botones (usaremos imágenes)
-            DataGridViewImageColumn colVer = new DataGridViewImageColumn();
-            colVer.Name = "Ver";
-            colVer.HeaderText = "";
-            colVer.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            colVer.FillWeight = 8;
 
             // Agregar todas las columnas
             dgvBuscar.Columns.AddRange(new DataGridViewColumn[] {
-                colUsuario, colAccion, colDetalle, colFecha, colEquipo,colVer
+                colUsuario, colAccion, colDetalle, colFecha, colEquipo
             });
         }
 
@@ -103,49 +97,17 @@ namespace BRAHO_Project
             foreach (var log in listaLog)
             {
                 int rowIndex = dgvBuscar.Rows.Add(
-                    
+
                     log.Usuario,
                     log.Accion,
                     log.Detalle,
                     log.Fecha,
                     log.Equipo
                 );
-
-                // Asignar imágenes a las columnas de botones
-                if (dgvBuscar.Rows[rowIndex].Cells["Ver"] is DataGridViewImageCell verCell)
-                {
-                    dgvBuscar.Cursor = Cursors.Hand;
-                    verCell.Value = Properties.Resources.visible; // Tu imagen de ver
-                    verCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                }
             }
         }
 
-        private void dgvBuscar_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            //{
-            //    var log = listaLog[e.RowIndex];
 
-            //    switch (dgvBuscar.Columns[e.ColumnIndex].Name)
-            //    {
-            //        case "Ver":
-            //            if (dgvBuscar.CurrentRow != null)
-            //            {
-            //                DataGridViewRow fila = dgvBuscar.CurrentRow;
-
-            //                FrmVerGastos frm = new FrmVerGastos(log, dgvBuscar);
-            //                frm.ShowDialog();
-            //                MostrarGastos();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Seleccione una fila antes de visualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //            break;
-            //    }
-            //}
-        }
 
         private void BotonCerr_Click(object sender, EventArgs e)
         {
@@ -175,12 +137,13 @@ namespace BRAHO_Project
 
                 if (columnName == "Ver")
                 {
-                    dgvBuscar.Cursor = Cursors.Default; 
+                    dgvBuscar.Cursor = Cursors.Default;
                 }
             }
         }
 
-  
+
+
 
         private bool FuerzaBruta(string texto, string patron)
         {
@@ -251,5 +214,38 @@ namespace BRAHO_Project
 
         }
 
+        private void FrmAuditoria_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuscar__TextChanged(object sender, EventArgs e)
+        {
+            string patron = txtBuscar.Texts.Trim().ToLower();
+            listaLog = new List<Log>();
+
+            if (string.IsNullOrEmpty(patron))
+            {
+                listaLog = new List<Log>(listaLogOriginal);
+            }
+            else
+            {
+                foreach (var log in listaLogOriginal)
+                {
+
+                    bool encontrado =
+                        FuerzaBruta(log.Usuario?.ToLower(), patron) ||
+                        FuerzaBruta(log.Accion?.ToLower().Replace(" ", "").Replace(")", ""), patron) ||
+                        FuerzaBruta(log.Detalle?.ToLower(), patron) ||
+                        FuerzaBruta(log.Fecha?.ToLower(), patron) ||
+                        FuerzaBruta(log.Equipo?.ToLower().Replace("-", ""), patron);
+
+                    if (encontrado)
+                        listaLog.Add(log);
+                }
+            }
+
+            ActualizarDataGridView();
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace BRAHO_Project.Auditoria
             List<Log> Lista = new List<Log>();
             using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
             {
-                string query = "SELECT *FROM Auditoria";
+                string query = "SELECT *FROM Auditoria ORDER BY Fecha DESC";
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -51,14 +51,15 @@ namespace BRAHO_Project.Auditoria
             using (SqlConnection cn = ConexionBRAHOBD.ObtenerConexion())
             {
 
-                string query = @"INSERT INTO Auditoria (Usuario, Accion, Detalle, Equipo)
-                             VALUES (@Usuario, @Accion, @Detalle, @Equipo)";
+                string query = @"INSERT INTO Auditoria (Usuario, Accion, Detalle, Fecha, Equipo)
+                             VALUES (@Usuario, @Accion, @Detalle, @Fecha, @Equipo)";
 
                 using (SqlCommand cmd = new SqlCommand(query, cn))
                 {
                     cmd.Parameters.AddWithValue("@Usuario", usuario.Nombre);
                     cmd.Parameters.AddWithValue("@Accion", accion);
                     cmd.Parameters.AddWithValue("@Detalle", detalle);
+                    cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
                     cmd.Parameters.AddWithValue("@Equipo", Dns.GetHostName());
                     cmd.ExecuteNonQuery();
                 }

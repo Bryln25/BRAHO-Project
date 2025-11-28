@@ -134,7 +134,7 @@ namespace BRAHO_Project
 
         private void BotonClientes_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmClientes());
+            abrirformhijo(new FrmClientes(usuario));
 
             if (!desplazar)
             {

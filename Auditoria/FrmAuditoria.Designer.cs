@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAuditoria));
             dgvBuscar = new DataGridView();
             BotonCerr = new BRAHO_Project.RJControls.RJButton();
@@ -58,53 +58,51 @@
             dgvBuscar.BorderStyle = BorderStyle.None;
             dgvBuscar.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBuscar.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle5.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvBuscar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvBuscar.ColumnHeadersHeight = 35;
             dgvBuscar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvBuscar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvBuscar.DefaultCellStyle = dataGridViewCellStyle6;
             dgvBuscar.EnableHeadersVisualStyles = false;
-            dgvBuscar.Location = new Point(28, 106);
+            dgvBuscar.Location = new Point(10, 106);
             dgvBuscar.Margin = new Padding(4);
             dgvBuscar.Name = "dgvBuscar";
             dgvBuscar.ReadOnly = true;
             dgvBuscar.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Transparent;
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Transparent;
+            dataGridViewCellStyle7.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvBuscar.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvBuscar.RowHeadersVisible = false;
             dgvBuscar.RowHeadersWidth = 51;
             dgvBuscar.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(102, 102, 102);
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 165, 11);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(102, 102, 102);
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 165, 11);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dgvBuscar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBuscar.Size = new Size(972, 481);
+            dgvBuscar.Size = new Size(1018, 481);
             dgvBuscar.TabIndex = 11;
             dgvBuscar.TabStop = false;
-            dgvBuscar.CellClick += dgvBuscar_CellClick;
-            dgvBuscar.CellMouseEnter += dgvBuscar_CellMouseEnter;
             dgvBuscar.CellMouseLeave += dgvBuscar_CellMouseLeave;
             // 
             // BotonCerr
@@ -119,10 +117,10 @@
             BotonCerr.FlatStyle = FlatStyle.Flat;
             BotonCerr.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BotonCerr.ForeColor = Color.White;
-            BotonCerr.Location = new Point(1055, 528);
+            BotonCerr.Location = new Point(1088, 552);
             BotonCerr.Margin = new Padding(3, 4, 3, 4);
             BotonCerr.Name = "BotonCerr";
-            BotonCerr.Size = new Size(151, 53);
+            BotonCerr.Size = new Size(103, 35);
             BotonCerr.TabIndex = 15;
             BotonCerr.Text = "Cerrar";
             BotonCerr.TextColor = Color.White;
@@ -151,6 +149,7 @@
             txtBuscar.TabIndex = 16;
             txtBuscar.Texts = "";
             txtBuscar.UnderlinedStyle = true;
+            txtBuscar._TextChanged += txtBuscar__TextChanged;
             // 
             // btnLupa
             // 
@@ -171,9 +170,9 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(12, 9);
             label6.Name = "label6";
-            label6.Size = new Size(155, 21);
+            label6.Size = new Size(86, 21);
             label6.TabIndex = 18;
-            label6.Text = "Gestionar Gastos";
+            label6.Text = "Auditoria";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // timer1
@@ -210,16 +209,17 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1041, 617);
+            Controls.Add(BotonCerr);
             Controls.Add(txtOculto);
             Controls.Add(label6);
             Controls.Add(btnLupa);
             Controls.Add(txtBuscar);
-            Controls.Add(BotonCerr);
             Controls.Add(dgvBuscar);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmAuditoria";
             Text = "FrmGastos";
+            Load += FrmAuditoria_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).EndInit();
             ResumeLayout(false);

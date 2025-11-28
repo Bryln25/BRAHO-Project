@@ -9,7 +9,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
+using Microsoft.VisualBasic.Logging;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BRAHO_Project
@@ -17,12 +20,15 @@ namespace BRAHO_Project
     public partial class FrmAgregarClientes : Form
     {
         private DataGridView dgvBuscar;
+        private Usuario usuario;
 
-        public FrmAgregarClientes(DataGridView dataGridView)
+
+        public FrmAgregarClientes(DataGridView dataGridView, Usuario usuarioLogueado)
         {
             dgvBuscar = dataGridView;
             InitializeComponent();
             Funciones.RedondearForm(this);
+            usuario = usuarioLogueado;
         }
 
         // Codigo para mover el formulario
@@ -59,6 +65,10 @@ namespace BRAHO_Project
             {
                 MessageBox.Show("Error al agregar el cliente. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            string detalle = $"El usuario {usuario.Nombre}, agregó el cliente {txtNombre.Texts}";
+            AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+            auditoria.RAuditoria("Agregar", detalle);
         }
 
         private void txtTelefono_Leave(object sender, EventArgs e)

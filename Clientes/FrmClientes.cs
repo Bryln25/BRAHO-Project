@@ -15,12 +15,16 @@ namespace BRAHO_Project
     {
         private List<Clientes> listaClientes;
         private List<Clientes> listaClientesOriginal = new List<Clientes>();
+        private Usuario usuario;
 
-        public FrmClientes()
+
+        public FrmClientes(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarClientes();
+            usuario = usuarioLogueado;
+
         }
 
         private void ConfigurarDataGridView()
@@ -188,7 +192,7 @@ namespace BRAHO_Project
 
         private void BotonAgregarCliente_Click(object sender, EventArgs e)
         {
-            FrmAgregarClientes formularioAgregar = new FrmAgregarClientes(dgvBuscar);
+            FrmAgregarClientes formularioAgregar = new FrmAgregarClientes(dgvBuscar, usuario);
             formularioAgregar.ShowDialog();
             MostrarClientes(); // Refrescar la lista después de agregar
         }
