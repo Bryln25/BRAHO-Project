@@ -1,5 +1,6 @@
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using BRAHO_Project.Auditoria;
 using BRAHO_Project.RJControls;
 using Microsoft.Data.SqlClient;
 
@@ -43,6 +44,9 @@ namespace BRAHO_Project
             lblNombre.Text = $"Bienvenido, {usuario.Nombre}";
             lblPuesto.Text = $"Rol: {usuario.Puesto}";
             lblEmail.Text = $"Email: {usuario.Email}";
+
+            AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+            auditoria.RAuditoria("Inicio de Sesión", $"El usuario {usuario.Nombre} ha iniciado sesión.");
         }
 
         //Codigo para mover el formulario
@@ -230,6 +234,19 @@ namespace BRAHO_Project
         private void DesactivarPropiedades(Button boton)
         {
             boton.BackColor = Color.FromArgb(127, 127, 127);
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            abrirformhijo(new FrmAuditoria());
+
+            if (!desplazar)
+            {
+                timer1.Start();
+                desplazar = true;
+            }
+
+            ActivarBoton(BotonGastos);
         }
     }
 }

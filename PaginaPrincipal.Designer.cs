@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaginaPrincipal));
             MenuVertical = new Panel();
+            pictureBox6 = new PictureBox();
             btnControlUsuarios = new Button();
             lblEmail = new Label();
             lblPuesto = new Label();
@@ -67,6 +68,7 @@
             timer2 = new System.Windows.Forms.Timer(components);
             horaFecha = new System.Windows.Forms.Timer(components);
             MenuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logouser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -83,6 +85,7 @@
             // MenuVertical
             // 
             MenuVertical.BackColor = Color.FromArgb(127, 127, 127);
+            MenuVertical.Controls.Add(pictureBox6);
             MenuVertical.Controls.Add(btnControlUsuarios);
             MenuVertical.Controls.Add(lblEmail);
             MenuVertical.Controls.Add(lblPuesto);
@@ -104,6 +107,18 @@
             MenuVertical.Name = "MenuVertical";
             MenuVertical.Size = new Size(260, 617);
             MenuVertical.TabIndex = 0;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.Transparent;
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(210, 4);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(44, 43);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 11;
+            pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // btnControlUsuarios
             // 
@@ -586,6 +601,7 @@
             Text = "Inicio - BRAHO Project";
             Load += PaginaPrincipal_Load;
             MenuVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)BotonSlide).EndInit();
             ((System.ComponentModel.ISupportInitialize)logouser).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -639,5 +655,6 @@
         private Label label6;
         private Button btnControlUsuarios;
         private Label label8;
+        private PictureBox pictureBox6;
     }
 }

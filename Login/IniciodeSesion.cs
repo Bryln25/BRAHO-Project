@@ -17,6 +17,7 @@ namespace BRAHO_Project
 {
     public partial class IniciodeSesion : Form
     {
+        
         public IniciodeSesion()
         {
             InitializeComponent();
@@ -106,6 +107,8 @@ namespace BRAHO_Project
         private void BotonLoguear_Click(object sender, EventArgs e)
         {
             logueo();
+
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
