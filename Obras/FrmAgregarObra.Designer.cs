@@ -369,7 +369,7 @@
             txtUbicacion.ForeColor = Color.Gainsboro;
             txtUbicacion.Location = new Point(93, 604);
             txtUbicacion.Margin = new Padding(2, 3, 2, 3);
-            txtUbicacion.MaxLength = 50;
+            txtUbicacion.MaxLength = 11111;
             txtUbicacion.Multiline = false;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.OnlyNumbers = false;
