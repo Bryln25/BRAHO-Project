@@ -59,16 +59,17 @@ namespace BRAHO_Project
             if (resultado > 0)
             {
                 MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string detalle = $"El usuario {usuario.Nombre}, agregó el cliente {txtNombre.Texts.Trim()}";
+                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                auditoria.RAuditoria("Agregar", detalle);
+
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Error al agregar el cliente. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            string detalle = $"El usuario {usuario.Nombre}, agregó el cliente {txtNombre.Texts}";
-            AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
-            auditoria.RAuditoria("Agregar", detalle);
         }
 
         private void txtTelefono_Leave(object sender, EventArgs e)

@@ -14,11 +14,14 @@ namespace BRAHO_Project
 {
     public partial class FrmObras : Form
     {
+        private Usuario usuario;
+
         private RJButton botonActivo = null;
 
-        public FrmObras()
+        public FrmObras(Usuario usuarioLogueado)
         {
             InitializeComponent();
+            usuario = usuarioLogueado;
         }
 
 
@@ -50,7 +53,7 @@ namespace BRAHO_Project
 
         private void BotonAgendarObra_Click(object sender, EventArgs e)
         {
-            FrmAgregarObra frmAgregarObra = new FrmAgregarObra();
+            FrmAgregarObra frmAgregarObra = new FrmAgregarObra(usuario);
             frmAgregarObra.ShowDialog();
             FrmAgendado frmAgendado = Application.OpenForms["FrmAgendado"] as FrmAgendado;
 
@@ -135,19 +138,19 @@ namespace BRAHO_Project
 
         private void btnAgendado_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmAgendado());
+            abrirformhijo(new FrmAgendado(usuario));
             ActivarBoton(btnAgendado);
         }
 
         private void btnIniciado_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmIniciado());
+            abrirformhijo(new FrmIniciado(usuario));
             ActivarBoton(btnIniciado);
         }
 
         private void btnTerminado_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmTerminado());
+            abrirformhijo(new FrmTerminado(usuario));
             ActivarBoton(btnTerminado);
         }
 

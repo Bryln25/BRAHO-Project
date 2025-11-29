@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using Microsoft.Data.SqlClient;
 
 namespace BRAHO_Project
@@ -15,12 +16,14 @@ namespace BRAHO_Project
     {
         private List<Gastos> listaGastos;
         private List<Gastos> listaGastosOriginal = new List<Gastos>();
+        private Usuario usuario;
 
-        public FrmGastos()
+        public FrmGastos(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarGastos();
+            usuario = usuarioLogueado;
         }
 
         private void ConfigurarDataGridView()
@@ -173,7 +176,7 @@ namespace BRAHO_Project
                         {
                             DataGridViewRow fila = dgvBuscar.CurrentRow;
 
-                            FrmEditarGastos frm = new FrmEditarGastos(gastos, dgvBuscar);
+                            FrmEditarGastos frm = new FrmEditarGastos(gastos, dgvBuscar, usuario);
                             Clientes clientes = new Clientes();
                             frm.ShowDialog();
                             MostrarGastos(); 
@@ -196,6 +199,10 @@ namespace BRAHO_Project
                             if (resultado > 0)
                             {
                                 MessageBox.Show("Gasto eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                string detalle = $"El usuario {usuario.Nombre}, eliminó un gasto de la obra {GastosDAL.ObtenerNombreObraPorId(gastos.IdObra)}";
+                                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                                auditoria.RAuditoria("Eliminar", detalle);
                             }
                             else
                             {
@@ -218,7 +225,7 @@ namespace BRAHO_Project
 
         private void BotonAgregarGastos_Click(object sender, EventArgs e)
         {
-            FrmAgregarGasto frmAgregarGasto = new FrmAgregarGasto();
+            FrmAgregarGasto frmAgregarGasto = new FrmAgregarGasto(usuario);
             frmAgregarGasto.ShowDialog();
             MostrarGastos(); // Refrescar la lista después de agregar
         }

@@ -8,19 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 
 namespace BRAHO_Project
 {
+    
+
     public partial class FrmIniciado : Form
     {
+        private Usuario usuario;
         private List<Obras> listaObras;
         private List<Obras> listaObrasOriginal = new List<Obras>();
 
-        public FrmIniciado()
+        public FrmIniciado(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarObras();
+
+            usuario = usuarioLogueado;
 
         }
 
@@ -218,7 +224,7 @@ namespace BRAHO_Project
 
                             // Crear el formulario destino
 
-                            FrmEditarObra frm = new FrmEditarObra(obra, dgvObrasIniciadas);
+                            FrmEditarObra frm = new FrmEditarObra(obra, dgvObrasIniciadas, usuario);
                             frm.ShowDialog();
                             MostrarObras(); // Refrescar la lista después de editar
                         }
@@ -241,6 +247,10 @@ namespace BRAHO_Project
                             if (resultado > 0)
                             {
                                 MessageBox.Show("Obra eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                string detalle = $"El usuario {usuario.Nombre}, eliminó la obra iniciada: {obra.NombreObra}";
+                                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                                auditoria.RAuditoria("Eliminar", detalle);
                             }
                             else
                             {

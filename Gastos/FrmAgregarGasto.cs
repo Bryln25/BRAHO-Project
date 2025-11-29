@@ -7,27 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BRAHO_Project
 {
     public partial class FrmAgregarGasto : Form
     {
+        private Usuario usuario;
 
-        public FrmAgregarGasto()
+        public FrmAgregarGasto(Usuario usuarioLogueado)
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
-
+            usuario = usuarioLogueado;
         }
+
         private void FrmAgregarObra_Load(object sender, EventArgs e)
         {
             cbObras.DataSource = GastosDAL.CargarObras();
             cbObras.DisplayMember = "NombreObra";
             cbObras.ValueMember = "IdObra";
             cbObras.SelectedIndex = -1;
-
-
         }
 
         private void FrmAgregarObra_MouseDown(object sender, MouseEventArgs e)
@@ -62,6 +63,11 @@ namespace BRAHO_Project
             if (resultado > 0)
             {
                 MessageBox.Show("Gasto agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string detalle = $"El usuario {usuario.Nombre}, agregó un gasto de la obra {cbObras.Texts.Trim()}";
+                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                auditoria.RAuditoria("Agregar", detalle);
+
                 this.Close();
             }
             else

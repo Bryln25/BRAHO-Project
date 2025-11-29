@@ -23,7 +23,7 @@ namespace BRAHO_Project.Login
                 {
                     Usuario usuario = new Usuario();
                     usuario.IdUsuario = reader.GetInt32(0);
-                    usuario.UsuarioNombre = reader.GetString(1);
+                    usuario.Usuarioo = reader.GetString(1);
                     usuario.Nombre = reader.GetString(2);
                     usuario.Puesto = reader.GetString(3);
                     usuario.Email = reader.GetString(4);
@@ -49,7 +49,7 @@ namespace BRAHO_Project.Login
                 {
                     Usuario usuario = new Usuario();
                     usuario.IdUsuario = reader.GetInt32(0);
-                    usuario.UsuarioNombre = reader.GetString(1);
+                    usuario.Usuarioo = reader.GetString(1);
                     usuario.Nombre = reader.GetString(2);
                     usuario.Puesto = reader.GetString(3);
                     usuario.Email = reader.GetString(4);
@@ -72,7 +72,7 @@ namespace BRAHO_Project.Login
                     SqlCommand comando = new SqlCommand(query, conexion);
 
                     comando.Parameters.AddWithValue("@IdUsuario", usuario.IdUsuario);
-                    comando.Parameters.AddWithValue("@Usuario", usuario.UsuarioNombre);
+                    comando.Parameters.AddWithValue("@Usuario", usuario.Usuarioo);
                     comando.Parameters.AddWithValue("@NombreApellido", usuario.Nombre);
                     comando.Parameters.AddWithValue("@Rol", usuario.Puesto);
                     comando.Parameters.AddWithValue("@Email", usuario.Email);

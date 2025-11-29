@@ -116,7 +116,7 @@ namespace BRAHO_Project
 
         private void btnAgendado_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmNuevos());
+            abrirformhijo(new FrmNuevos(usuario));
             ActivarBoton(btnNuevo);
         }
 

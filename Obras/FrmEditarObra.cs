@@ -7,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 
 namespace BRAHO_Project
 {
     public partial class FrmEditarObra : Form
     {
         Obras obras = new Obras();
-        public FrmEditarObra(Obras obras, DataGridView dataGridView)
+        private Usuario usuario;
+
+        public FrmEditarObra(Obras obras, DataGridView dataGridView, Usuario usuariologueado)
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
+
+            usuario = usuariologueado;
 
             cbCliente.DataSource = ObrasDAL.CargarClientes();
             cbCliente.DisplayMember = "NombreApellido";
@@ -40,6 +45,8 @@ namespace BRAHO_Project
             txtRecordatorio.Texts = obras.Recordatorio;
             cbEstado.Texts = obras.Estado;
             cbEncargado.SelectedValue = obras.IdUsuario;
+            this.usuario = usuario;
+
         }
 
         private void FrmEditarObra_Load(object sender, EventArgs e)
@@ -93,6 +100,11 @@ namespace BRAHO_Project
             {
 
                 MessageBox.Show("Obra modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string detalle = $"El usuario {usuario.Nombre}, modificó una obra con el nombre de: {txtNombre.Texts.Trim()}";
+                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                auditoria.RAuditoria("Modificar", detalle);
+
                 this.Close();
             }
             else

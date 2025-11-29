@@ -14,7 +14,8 @@ using BRAHO_Project.RJControls;
 namespace BRAHO_Project
 {
     public partial class FrmProcesados : Form
-    {
+    {     
+
 
         private List<Usuario> listaUsuarios;
         private List<Usuario> listaUsuariosOriginal = new List<Usuario>();
@@ -125,7 +126,7 @@ namespace BRAHO_Project
             else
             {
                 listaUsuarios = listaUsuariosOriginal.Where(c =>
-                    (c.UsuarioNombre?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Usuarioo?.ToLower() ?? "").Contains(filtro) ||
                     (c.Nombre?.ToLower() ?? "").Contains(filtro) ||
                     (c.Email?.ToLower() ?? "").Contains(filtro) ||
                     (c.Puesto?.ToLower() ?? "").Contains(filtro)
@@ -143,7 +144,7 @@ namespace BRAHO_Project
             foreach (var usuario in listaUsuarios)
             {
                 int rowIndex = dgvProcesados.Rows.Add(
-                    usuario.UsuarioNombre,
+                    usuario.Usuarioo,
                     usuario.Nombre,
                     usuario.Email,
                     usuario.Puesto
@@ -181,7 +182,7 @@ namespace BRAHO_Project
 
                             // Crear el formulario destino
 
-                            FrmEditarUsuario frm = new FrmEditarUsuario(usuario, dgvProcesados);
+                            FrmEditarUsuario frm = new FrmEditarUsuario(usuario, dgvProcesados, usuarioLog);
                             frm.ShowDialog();
                             MostrarUsuarios(); // Refrescar la lista después de editar
                         }

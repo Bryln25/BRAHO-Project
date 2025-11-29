@@ -7,17 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BRAHO_Project
 {
     public partial class FrmAgregarObra : Form
     {
+        private Usuario usuario;
 
-        public FrmAgregarObra()
+
+        public FrmAgregarObra(Usuario usuarioLogueado)
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
+            usuario = usuarioLogueado;
+
 
         }
         private void FrmAgregarObra_Load(object sender, EventArgs e)
@@ -77,6 +82,11 @@ namespace BRAHO_Project
             if (resultado > 0)
             {
                 MessageBox.Show("Obra agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string detalle = $"El usuario {usuario.Nombre}, agregó una obra con el nombre de: {txtNombre.Texts.Trim()}";
+                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                auditoria.RAuditoria("Agregar", detalle);
+
                 this.Close();
             }
             else

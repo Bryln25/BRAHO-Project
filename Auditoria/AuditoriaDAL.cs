@@ -46,6 +46,8 @@ namespace BRAHO_Project.Auditoria
 
         }
 
+
+
         public void RAuditoria(string accion, string detalle)
         {
             using (SqlConnection cn = ConexionBRAHOBD.ObtenerConexion())
@@ -54,9 +56,10 @@ namespace BRAHO_Project.Auditoria
                 string query = @"INSERT INTO Auditoria (Usuario, Accion, Detalle, Fecha, Equipo)
                              VALUES (@Usuario, @Accion, @Detalle, @Fecha, @Equipo)";
 
+
                 using (SqlCommand cmd = new SqlCommand(query, cn))
                 {
-                    cmd.Parameters.AddWithValue("@Usuario", usuario.Nombre);
+                    cmd.Parameters.AddWithValue("@Usuario", usuario.Usuarioo);
                     cmd.Parameters.AddWithValue("@Accion", accion);
                     cmd.Parameters.AddWithValue("@Detalle", detalle);
                     cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);

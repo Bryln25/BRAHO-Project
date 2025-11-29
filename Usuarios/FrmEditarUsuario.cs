@@ -10,6 +10,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using BRAHO_Project.Login;
 using BRAHO_Project.RJControls;
 using Microsoft.Data.SqlClient;
@@ -21,16 +22,28 @@ namespace BRAHO_Project
     {
         Usuario usuario = new Usuario();
         private DataGridView dgvBuscar;
-        public FrmEditarUsuario(Usuario usuario, DataGridView dataGridView)
+        private Usuario usuarioLogueado;
+        string viejoUsuario;
+        string viejoNombre;
+        string viejoEmail;
+        string viejoPuesto;
+
+        public FrmEditarUsuario(Usuario usuario, DataGridView dataGridView, Usuario UsuarioLogueado)
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
-            this.usuario = usuario;
+            usuarioLogueado = UsuarioLogueado;
 
-            txtUsuario.Texts = usuario.UsuarioNombre;
+            this.usuario = usuario;
+            txtUsuario.Texts = usuario.Usuarioo;
             txtNombre.Texts = usuario.Nombre;
             cbRol.Texts = usuario.Puesto;
             txtEmail.Texts = usuario.Email;
+
+            viejoUsuario = usuario.Usuarioo;
+            viejoNombre = usuario.Nombre;
+            viejoEmail = usuario.Email;
+            viejoPuesto = usuario.Puesto;
         }
 
         private void FrmEditarUsuario_Load(object sender, EventArgs e)
@@ -40,7 +53,7 @@ namespace BRAHO_Project
                 string query = "SELECT FotoPerfil FROM Usuarios WHERE Usuario = @usuario";
 
                 SqlCommand cm = new SqlCommand(query, cn);
-                cm.Parameters.AddWithValue("@usuario", usuario.UsuarioNombre);
+                cm.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
 
                 SqlDataReader dr = cm.ExecuteReader();
 
@@ -77,32 +90,78 @@ namespace BRAHO_Project
 
         private void btnEditarUsuario_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUsuario.Texts) || string.IsNullOrEmpty(cbRol.Texts) || string.IsNullOrEmpty(txtEmail.Texts) ||
-               string.IsNullOrEmpty(txtNombre.Texts))
+            if (string.IsNullOrEmpty(txtUsuario.Texts) || string.IsNullOrEmpty(cbRol.Texts) ||
+                string.IsNullOrEmpty(txtEmail.Texts) || string.IsNullOrEmpty(txtNombre.Texts))
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por favor, complete todos los campos.", "Advertencia",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
+            // Valores nuevos
+            string nuevoUsuario = txtUsuario.Texts.Trim();
+            string nuevoNombre = txtNombre.Texts.Trim();
+            string nuevoEmail = txtEmail.Texts.Trim();
+            string nuevoPuesto = cbRol.Texts.Trim();
+
+            // Valores viejos del usuario cargado originalmente
+            string viejoUsuario = this.usuario.Usuarioo;
+            string viejoNombre = this.usuario.Nombre;
+            string viejoEmail = this.usuario.Email;
+            string viejoPuesto = this.usuario.Puesto;
+
+            // Comparaciones CORRECTAS
+            bool cambioUsuario = viejoUsuario != nuevoUsuario;
+            bool cambioNombre = viejoNombre != nuevoNombre;
+            bool cambioEmail = viejoEmail != nuevoEmail;
+            bool cambioPuesto = viejoPuesto != nuevoPuesto;
+
             Usuario usuario = new Usuario();
             usuario.IdUsuario = this.usuario.IdUsuario;
-            usuario.UsuarioNombre = txtUsuario.Texts.Trim();
-            usuario.Nombre = txtNombre.Texts.Trim();
-            usuario.Email = txtEmail.Texts.Trim();
-            usuario.Puesto = cbRol.Texts.Trim();
+            usuario.Usuarioo = nuevoUsuario;
+            usuario.Nombre = nuevoNombre;
+            usuario.Email = nuevoEmail;
+            usuario.Puesto = nuevoPuesto;
 
             int resultado = UsuarioDAL.EditarUsuario(usuario);
 
             if (resultado > 0)
             {
+                AuditoriaDAL auditoria = new AuditoriaDAL(usuarioLogueado);
+
+                if (cambioUsuario)
+                {
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el usuario de {usuario.Usuarioo} de {viejoUsuario} a {nuevoUsuario}";
+                    auditoria.RAuditoria("Modificar", detalle);
+                }
+
+                if (cambioNombre)
+                {
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el nombre de {usuario.Usuarioo} de {viejoNombre} a {nuevoNombre}";
+                    auditoria.RAuditoria("Modificar", detalle);
+                }
+
+                if (cambioEmail)
+                {
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el email de {usuario.Usuarioo} de {viejoEmail} a {nuevoEmail}";
+                    auditoria.RAuditoria("Modificar", detalle);
+                }
+
+                if (cambioPuesto)
+                {
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el puesto de {usuario.Usuarioo} de {viejoPuesto} a {nuevoPuesto}";
+                    auditoria.RAuditoria("Modificar", detalle);
+                }
+
                 MessageBox.Show("Usuario modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); 
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Error al editar el Usuario. Por favor, intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void logouser_Click(object sender, EventArgs e)
         {

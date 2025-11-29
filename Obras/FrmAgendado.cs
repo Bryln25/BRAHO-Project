@@ -8,21 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using BRAHO_Project.RJControls;
 
 namespace BRAHO_Project
 {
     public partial class FrmAgendado : Form
     {
+        private Usuario usuario;
+
 
         private List<Obras> listaObras;
         private List<Obras> listaObrasOriginal = new List<Obras>();
 
-        public FrmAgendado()
+        public FrmAgendado(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarObras();
+            usuario = usuarioLogueado;
         }
 
         public DataGridView dgv
@@ -224,7 +228,7 @@ namespace BRAHO_Project
 
                             // Crear el formulario destino
 
-                            FrmEditarObra frm = new FrmEditarObra(obra, dgvObrasAgendadas);
+                            FrmEditarObra frm = new FrmEditarObra(obra, dgvObrasAgendadas, usuario);
                             frm.ShowDialog();
                             MostrarObras(); // Refrescar la lista después de editar
                         }
@@ -244,6 +248,10 @@ namespace BRAHO_Project
                             if (resultado > 0)
                             {
                                 MessageBox.Show("Obra eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                string detalle = $"El usuario {usuario.Nombre}, eliminó la obra agendada: {obra.NombreObra}";
+                                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                                auditoria.RAuditoria("Eliminar", detalle);
                             }
                             else
                             {

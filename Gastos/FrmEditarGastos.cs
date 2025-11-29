@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 
 namespace BRAHO_Project
 {
     public partial class FrmEditarGastos : Form
     {
         Gastos gastos = new Gastos();
+        private Usuario usuario;
 
-        public FrmEditarGastos(Gastos gastos, DataGridView dataGridView)
+        public FrmEditarGastos(Gastos gastos, DataGridView dataGridView, Usuario usuarioLogueado)
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
+            usuario = usuarioLogueado;
 
             cbObras.DataSource = GastosDAL.CargarObras();
             cbObras.DisplayMember = "NombreObra";
@@ -60,8 +63,12 @@ namespace BRAHO_Project
 
             if (resultado > 0)
             {
-
                 MessageBox.Show("Gasto modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string detalle = $"El usuario {usuario.Nombre}, editó un gasto de la obra {cbObras.Texts.Trim()}";
+                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                auditoria.RAuditoria("Modificar", detalle);
+
                 this.Close();
             }
             else

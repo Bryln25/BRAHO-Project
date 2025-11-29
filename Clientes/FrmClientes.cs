@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using Microsoft.Data.SqlClient;
 
 namespace BRAHO_Project
@@ -151,7 +152,7 @@ namespace BRAHO_Project
                             DataGridViewRow fila = dgvBuscar.CurrentRow;
 
 
-                            FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar);
+                            FrmEditarClientes frm = new FrmEditarClientes(cliente, dgvBuscar, usuario);
                             frm.ShowDialog();
                             MostrarClientes(); 
                         }
@@ -170,6 +171,10 @@ namespace BRAHO_Project
                             if (resultado > 0)
                             {
                                 MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                string detalle = $"El usuario {usuario.Nombre}, eliminó el cliente {cliente.NombreApellido}";
+                                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                                auditoria.RAuditoria("Eliminar", detalle);
                             }
                             else
                             {

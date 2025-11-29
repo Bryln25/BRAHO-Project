@@ -79,7 +79,8 @@ namespace BRAHO_Project
                         string email = dr["Email"].ToString();
                         byte[] fotoBytes = dr["FotoPerfil"] as byte[];
 
-                        Usuario usuarioLogueado = new Usuario(id, nombre, puesto, email, fotoBytes);
+                        string usuario = txtUsuario.Texts.Trim();
+                        Usuario usuarioLogueado = new Usuario(id, usuario, nombre, puesto, email, fotoBytes);
 
                         PaginaPrincipal m = new PaginaPrincipal(usuarioLogueado);
                         this.Hide();

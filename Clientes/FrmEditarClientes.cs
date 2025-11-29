@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using BRAHO_Project.RJControls;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -18,7 +19,8 @@ namespace BRAHO_Project
     {
         Clientes clientes = new Clientes();
         private DataGridView dgvBuscar;
-        public FrmEditarClientes(Clientes clientes, DataGridView dataGridView)
+        private Usuario usuario;
+        public FrmEditarClientes(Clientes clientes, DataGridView dataGridView, Usuario usuarioLogueado)
         {
             InitializeComponent();
             Funciones.RedondearForm(this);
@@ -28,6 +30,7 @@ namespace BRAHO_Project
             txtEmail.Texts = clientes.Email;
             txtDireccion.Texts = clientes.Direccion;
             txtCedula.Texts = clientes.Cedula;
+            usuario = usuarioLogueado;
 
             dgvBuscar = dataGridView;
         }
@@ -67,6 +70,10 @@ namespace BRAHO_Project
 
                 MessageBox.Show("Cliente modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close(); // Cierra el formulario después de agregar el cliente
+
+                string detalle = $"El usuario {usuario.Nombre}, editó el cliente {txtNombre.Texts.Trim()}";
+                AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
+                auditoria.RAuditoria("Modificar", detalle);
             }
             else
             {

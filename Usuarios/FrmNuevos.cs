@@ -15,15 +15,18 @@ namespace BRAHO_Project
 {
     public partial class FrmNuevos : Form
     {
+        private Usuario usuarioLogueado;
+
 
         private List<Usuario> listaUsuarios;
         private List<Usuario> listaUsuariosOriginal = new List<Usuario>();
 
-        public FrmNuevos()
+        public FrmNuevos(Usuario UsuarioLogueado)
         {
             InitializeComponent();
             ConfigurarDataGridView();
             MostrarUsuarios();
+            usuarioLogueado = UsuarioLogueado;
         }
 
         public DataGridView dgv
@@ -124,7 +127,7 @@ namespace BRAHO_Project
             else
             {
                 listaUsuarios = listaUsuariosOriginal.Where(c =>
-                    (c.UsuarioNombre?.ToLower() ?? "").Contains(filtro) ||
+                    (c.Usuarioo?.ToLower() ?? "").Contains(filtro) ||
                     (c.Nombre?.ToLower() ?? "").Contains(filtro) ||
                     (c.Email?.ToLower() ?? "").Contains(filtro)
                 ).ToList();
@@ -141,7 +144,7 @@ namespace BRAHO_Project
             foreach (var usuario in listaUsuarios)
             {
                 int rowIndex = dgvNuevos.Rows.Add(
-                    usuario.UsuarioNombre,
+                    usuario.Usuarioo,
                     usuario.Nombre,
                     usuario.Email,
                     usuario.Puesto
@@ -179,7 +182,7 @@ namespace BRAHO_Project
 
                             // Crear el formulario destino
 
-                            FrmEditarUsuario frm = new FrmEditarUsuario(usuario, dgvNuevos);
+                            FrmEditarUsuario frm = new FrmEditarUsuario(usuario, dgvNuevos, usuarioLogueado);
                             frm.ShowDialog();
                             MostrarUsuarios();
                         }

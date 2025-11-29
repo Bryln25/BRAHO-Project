@@ -46,8 +46,7 @@ namespace BRAHO_Project
             lblEmail.Text = $"Email: {usuario.Email}";
 
             AuditoriaDAL auditoria = new AuditoriaDAL(usuario);
-            auditoria.RAuditoria("Inicio de Sesión", $"El usuario {usuario.Nombre} ha iniciado sesión.");
-        }
+            auditoria.RAuditoria("Inicio de Sesión", $"El usuario {usuario.Nombre} ha iniciado sesión.");        }
 
         //Codigo para mover el formulario
         private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
@@ -147,7 +146,7 @@ namespace BRAHO_Project
 
         private void BotonRegistrarObra_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmObras());
+            abrirformhijo(new FrmObras(usuario));
 
             if (!desplazar)
             {
@@ -161,7 +160,7 @@ namespace BRAHO_Project
 
         private void BotonVentas_Click(object sender, EventArgs e)
         {
-            abrirformhijo(new FrmGastos());
+            abrirformhijo(new FrmGastos(usuario));
 
             if (!desplazar)
             {
