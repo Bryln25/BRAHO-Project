@@ -98,19 +98,16 @@ namespace BRAHO_Project
                 return;
             }
 
-            // Valores nuevos
             string nuevoUsuario = txtUsuario.Texts.Trim();
             string nuevoNombre = txtNombre.Texts.Trim();
             string nuevoEmail = txtEmail.Texts.Trim();
             string nuevoPuesto = cbRol.Texts.Trim();
 
-            // Valores viejos del usuario cargado originalmente
             string viejoUsuario = this.usuario.Usuarioo;
             string viejoNombre = this.usuario.Nombre;
             string viejoEmail = this.usuario.Email;
             string viejoPuesto = this.usuario.Puesto;
 
-            // Comparaciones CORRECTAS
             bool cambioUsuario = viejoUsuario != nuevoUsuario;
             bool cambioNombre = viejoNombre != nuevoNombre;
             bool cambioEmail = viejoEmail != nuevoEmail;
