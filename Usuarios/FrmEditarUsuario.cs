@@ -128,25 +128,25 @@ namespace BRAHO_Project
 
                 if (cambioUsuario)
                 {
-                    string detalle = $"{usuarioLogueado.Nombre}, editó el usuario de {usuario.Usuarioo} de {viejoUsuario} a {nuevoUsuario}";
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el usuario de {usuario.Nombre} de {viejoUsuario} a {nuevoUsuario}";
                     auditoria.RAuditoria("Modificar", detalle);
                 }
 
                 if (cambioNombre)
                 {
-                    string detalle = $"{usuarioLogueado.Nombre}, editó el nombre de {usuario.Usuarioo} de {viejoNombre} a {nuevoNombre}";
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el nombre de {viejoNombre} a {nuevoNombre}";
                     auditoria.RAuditoria("Modificar", detalle);
                 }
 
                 if (cambioEmail)
                 {
-                    string detalle = $"{usuarioLogueado.Nombre}, editó el email de {usuario.Usuarioo} de {viejoEmail} a {nuevoEmail}";
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el email de {usuario.Nombre} de {viejoEmail} a {nuevoEmail}";
                     auditoria.RAuditoria("Modificar", detalle);
                 }
 
                 if (cambioPuesto)
                 {
-                    string detalle = $"{usuarioLogueado.Nombre}, editó el puesto de {usuario.Usuarioo} de {viejoPuesto} a {nuevoPuesto}";
+                    string detalle = $"{usuarioLogueado.Nombre}, editó el puesto de {usuario.Nombre} de {viejoPuesto} a {nuevoPuesto}";
                     auditoria.RAuditoria("Modificar", detalle);
                 }
 

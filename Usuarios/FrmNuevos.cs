@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BRAHO_Project.Auditoria;
 using BRAHO_Project.Login;
 using BRAHO_Project.RJControls;
 
@@ -202,6 +203,10 @@ namespace BRAHO_Project
                             if (resultado > 0)
                             {
                                 MessageBox.Show("Usuario eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                string detalle = $"{usuarioLogueado.Nombre}, eliminó el usuario {usuario.Usuarioo} con el nombre de: {usuario.Nombre}";
+                                AuditoriaDAL auditoria = new AuditoriaDAL(usuarioLogueado);
+                                auditoria.RAuditoria("Eliminar", detalle);
                             }
                             else
                             {
