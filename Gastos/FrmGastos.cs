@@ -18,10 +18,18 @@ namespace BRAHO_Project
         private List<Gastos> listaGastosOriginal = new List<Gastos>();
         private Usuario usuario;
 
+        private Dictionary<int, string> obraCache = new Dictionary<int, string>();
+        private System.Windows.Forms.Timer searchTimer;
+
         public FrmGastos(Usuario usuarioLogueado)
         {
             InitializeComponent();
             ConfigurarDataGridView();
+
+            searchTimer = new System.Windows.Forms.Timer();
+            searchTimer.Interval = 300;
+            searchTimer.Tick += SearchTimer_Tick;
+
             MostrarGastos();
             usuario = usuarioLogueado;
         }
@@ -97,52 +105,94 @@ namespace BRAHO_Project
 
         public void MostrarGastos()
         {
-            listaGastos = GastosDAL.MostrarGastos();
+            listaGastos = GastosDAL.MostrarGastos() ?? new List<Gastos>();
 
-            if (listaGastos != null)
+            obraCache.Clear();
+            foreach (var g in listaGastos)
             {
-                listaGastosOriginal = new List<Gastos>(listaGastos);
-            }
-            else
-            {
-                listaGastosOriginal = new List<Gastos>();
+                if (!obraCache.ContainsKey(g.IdObra))
+                {
+                    obraCache[g.IdObra] = GastosDAL.ObtenerNombreObraPorId(g.IdObra) ?? string.Empty;
+                }
             }
 
+            listaGastosOriginal = new List<Gastos>(listaGastos);
             ActualizarDataGridView();
+        }
+
+        private void txtBuscar__TextChanged(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            searchTimer.Start();
+        }
+
+        private void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+
+            string patron = txtBuscar.Texts?.Trim() ?? string.Empty;
+            if (string.IsNullOrEmpty(patron))
+            {
+                listaGastos = new List<Gastos>(listaGastosOriginal);
+                ActualizarDataGridView();
+                return;
+            }
+
+            string patronLocal = patron;
+            Task.Run(() =>
+            {
+                var res = new List<Gastos>();
+                foreach (var g in listaGastosOriginal)
+                {
+                    obraCache.TryGetValue(g.IdObra, out var nombreObra);
+                    nombreObra ??= string.Empty;
+
+                    bool encontrado =
+                        nombreObra.Contains(patronLocal, StringComparison.OrdinalIgnoreCase) ||
+                        (g.Fecha?.Contains(patronLocal, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                        (g.TipoGasto?.Replace(" ", "").Replace(")", "").Contains(patronLocal, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                        (g.Monto?.Contains(patronLocal, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                        (g.Descripcion?.Contains(patronLocal, StringComparison.OrdinalIgnoreCase) ?? false);
+
+                    if (encontrado) res.Add(g);
+                }
+                return res;
+            }).ContinueWith(t =>
+            {
+                listaGastos = t.Result;
+                ActualizarDataGridView();
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         public void ActualizarDataGridView()
         {
             dgvBuscar.Rows.Clear();
 
+            dgvBuscar.Cursor = Cursors.Default;
+
             foreach (var gastos in listaGastos)
             {
                 int rowIndex = dgvBuscar.Rows.Add(
-                    GastosDAL.ObtenerNombreObraPorId(gastos.IdObra),
+                    obraCache.TryGetValue(gastos.IdObra, out var nombre) ? nombre : string.Empty,
                     gastos.Fecha,
                     gastos.TipoGasto,
                     gastos.Monto,
                     gastos.Descripcion
                 );
 
-                // Asignar imágenes a las columnas de botones
                 if (dgvBuscar.Rows[rowIndex].Cells["Ver"] is DataGridViewImageCell verCell)
                 {
-                    dgvBuscar.Cursor = Cursors.Hand;
-                    verCell.Value = Properties.Resources.visible; // Tu imagen de ver
+                    verCell.Value = Properties.Resources.visible;
                     verCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 }
                 if (dgvBuscar.Rows[rowIndex].Cells["Editar"] is DataGridViewImageCell editarCell)
                 {
-                    dgvBuscar.Cursor = Cursors.Hand;
-                    editarCell.Value = Properties.Resources.editar; // Tu imagen de editar
+                    editarCell.Value = Properties.Resources.editar;
                     editarCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 }
-
                 if (dgvBuscar.Rows[rowIndex].Cells["Eliminar"] is DataGridViewImageCell eliminarCell)
                 {
-                    dgvBuscar.Cursor = Cursors.Hand;
-                    eliminarCell.Value = Properties.Resources.cerrar; // Tu imagen de eliminar
+                    eliminarCell.Value = Properties.Resources.cerrar;
                     eliminarCell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 }
             }
@@ -227,18 +277,18 @@ namespace BRAHO_Project
         {
             FrmAgregarGasto frmAgregarGasto = new FrmAgregarGasto(usuario);
             frmAgregarGasto.ShowDialog();
-            MostrarGastos(); // Refrescar la lista después de agregar
+            MostrarGastos(); 
         }
 
         private void dgvBuscar_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Evita encabezados
+            if (e.RowIndex >= 0) 
             {
                 string columnName = dgvBuscar.Columns[e.ColumnIndex].Name;
 
                 if (columnName == "Editar" || columnName == "Eliminar")
                 {
-                    dgvBuscar.Cursor = Cursors.Hand; // cambia a mano SOLO en esas celdas
+                    dgvBuscar.Cursor = Cursors.Hand; 
                 }
             }
         }
@@ -254,59 +304,6 @@ namespace BRAHO_Project
                     dgvBuscar.Cursor = Cursors.Default; 
                 }
             }
-        }
-
-        private void txtBuscar__TextChanged(object sender, EventArgs e)
-        {
-            string patron = txtBuscar.Texts.Trim().ToLower();
-            listaGastos = new List<Gastos>();
-
-            if (string.IsNullOrEmpty(patron))
-            {
-                listaGastos = new List<Gastos>(listaGastosOriginal);
-            }
-            else
-            {
-                foreach (var gastos in listaGastosOriginal)
-                {
-
-                    bool encontrado =
-                        FuerzaBruta(GastosDAL.ObtenerNombreObraPorId(gastos.IdObra).ToLower(), patron) ||
-                        FuerzaBruta(gastos.Fecha?.ToLower(), patron) ||
-                        FuerzaBruta(gastos.TipoGasto?.ToLower().Replace(" ", "").Replace(")", ""), patron) ||
-                        FuerzaBruta(gastos.Monto?.ToLower(), patron) ||
-                        FuerzaBruta(gastos.Descripcion?.ToLower(), patron);                    
-                    if (encontrado)
-                        listaGastos.Add(gastos);
-                }
-            }
-
-            ActualizarDataGridView();
-        }
-
-        private bool FuerzaBruta(string texto, string patron)
-        {
-            if (string.IsNullOrEmpty(texto) || string.IsNullOrEmpty(patron))
-                return false;
-
-            int n = texto.Length;
-            int m = patron.Length;
-
-            for (int i = 0; i <= n - m; i++)
-            {
-                int j;
-
-                for (j = 0; j < m; j++)
-                {
-                    if (texto[i + j] != patron[j])
-                        break;
-                }
-
-                if (j == m)
-                    return true;
-            }
-
-            return false;
         }
 
         private bool barraExpandida = false;
@@ -349,8 +346,6 @@ namespace BRAHO_Project
                     timer1.Stop();
                 }
             }
-
-
         }
 
     }
