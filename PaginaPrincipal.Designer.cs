@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaginaPrincipal));
             MenuVertical = new Panel();
+            btnLOG = new BRAHO_Project.RJControls.RJButton();
             pictureBox6 = new PictureBox();
             btnControlUsuarios = new Button();
             lblEmail = new Label();
@@ -87,6 +88,7 @@
             // MenuVertical
             // 
             MenuVertical.BackColor = Color.FromArgb(127, 127, 127);
+            MenuVertical.Controls.Add(btnLOG);
             MenuVertical.Controls.Add(pictureBox6);
             MenuVertical.Controls.Add(btnControlUsuarios);
             MenuVertical.Controls.Add(lblEmail);
@@ -109,6 +111,24 @@
             MenuVertical.Name = "MenuVertical";
             MenuVertical.Size = new Size(260, 617);
             MenuVertical.TabIndex = 0;
+            // 
+            // btnLOG
+            // 
+            btnLOG.BackColor = Color.MediumSlateBlue;
+            btnLOG.BackgroundColor = Color.MediumSlateBlue;
+            btnLOG.BorderColor = Color.PaleVioletRed;
+            btnLOG.BorderRadius = 0;
+            btnLOG.BorderSize = 0;
+            btnLOG.FlatAppearance.BorderSize = 0;
+            btnLOG.FlatStyle = FlatStyle.Flat;
+            btnLOG.ForeColor = Color.White;
+            btnLOG.Location = new Point(120, 9);
+            btnLOG.Name = "btnLOG";
+            btnLOG.Size = new Size(0, 0);
+            btnLOG.TabIndex = 13;
+            btnLOG.Text = "rjButton1";
+            btnLOG.TextColor = Color.White;
+            btnLOG.UseVisualStyleBackColor = false;
             // 
             // pictureBox6
             // 
@@ -407,7 +427,8 @@
             // 
             // btnCreditos
             // 
-            btnCreditos.Anchor = AnchorStyles.Top;
+            btnCreditos.Anchor = AnchorStyles.Right;
+            btnCreditos.Cursor = Cursors.Hand;
             btnCreditos.Image = (Image)resources.GetObject("btnCreditos.Image");
             btnCreditos.Location = new Point(997, 11);
             btnCreditos.Name = "btnCreditos";
@@ -474,7 +495,7 @@
             rJtextbox3.Multiline = true;
             rJtextbox3.Name = "rJtextbox3";
             rJtextbox3.OnlyNumbers = false;
-            rJtextbox3.Padding = new Padding(7, 7, 7, 7);
+            rJtextbox3.Padding = new Padding(7);
             rJtextbox3.PasswordChar = false;
             rJtextbox3.Size = new Size(753, 59);
             rJtextbox3.TabIndex = 8;
@@ -499,7 +520,7 @@
             rJtextbox2.Multiline = false;
             rJtextbox2.Name = "rJtextbox2";
             rJtextbox2.OnlyNumbers = false;
-            rJtextbox2.Padding = new Padding(7, 7, 7, 7);
+            rJtextbox2.Padding = new Padding(7);
             rJtextbox2.PasswordChar = false;
             rJtextbox2.Size = new Size(753, 37);
             rJtextbox2.TabIndex = 7;
@@ -524,7 +545,7 @@
             rJtextbox1.Multiline = false;
             rJtextbox1.Name = "rJtextbox1";
             rJtextbox1.OnlyNumbers = false;
-            rJtextbox1.Padding = new Padding(7, 7, 7, 7);
+            rJtextbox1.Padding = new Padding(7);
             rJtextbox1.PasswordChar = false;
             rJtextbox1.Size = new Size(753, 37);
             rJtextbox1.TabIndex = 6;
@@ -673,5 +694,6 @@
         private Label label8;
         private PictureBox pictureBox6;
         private PictureBox btnCreditos;
+        private RJControls.RJButton btnLOG;
     }
 }

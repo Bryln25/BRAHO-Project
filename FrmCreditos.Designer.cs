@@ -74,7 +74,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(111, 123);
+            label1.Location = new Point(111, 109);
             label1.Name = "label1";
             label1.Size = new Size(179, 69);
             label1.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             fotoAndrews.BackColor = Color.Transparent;
             fotoAndrews.Image = (Image)resources.GetObject("fotoAndrews.Image");
-            fotoAndrews.Location = new Point(25, 123);
+            fotoAndrews.Location = new Point(25, 109);
             fotoAndrews.Name = "fotoAndrews";
             fotoAndrews.Size = new Size(80, 80);
             fotoAndrews.SizeMode = PictureBoxSizeMode.Zoom;
@@ -98,7 +98,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(25, 61);
+            label2.Location = new Point(25, 42);
             label2.Name = "label2";
             label2.Size = new Size(161, 23);
             label2.TabIndex = 6;
@@ -109,7 +109,7 @@
             // 
             label4.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(102, 102, 102);
-            label4.Location = new Point(25, 166);
+            label4.Location = new Point(25, 165);
             label4.Name = "label4";
             label4.Size = new Size(286, 54);
             label4.TabIndex = 8;
@@ -120,7 +120,7 @@
             // 
             fotoBraylin.BackColor = Color.Transparent;
             fotoBraylin.Image = (Image)resources.GetObject("fotoBraylin.Image");
-            fotoBraylin.Location = new Point(341, 123);
+            fotoBraylin.Location = new Point(341, 109);
             fotoBraylin.Name = "fotoBraylin";
             fotoBraylin.Size = new Size(80, 80);
             fotoBraylin.SizeMode = PictureBoxSizeMode.Zoom;
@@ -132,7 +132,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(427, 123);
+            label5.Location = new Point(427, 109);
             label5.Name = "label5";
             label5.Size = new Size(160, 69);
             label5.TabIndex = 9;
@@ -143,7 +143,7 @@
             // 
             label6.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(102, 102, 102);
-            label6.Location = new Point(341, 166);
+            label6.Location = new Point(341, 165);
             label6.Name = "label6";
             label6.Size = new Size(277, 54);
             label6.TabIndex = 11;
@@ -155,7 +155,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(39, 251);
+            label8.Location = new Point(39, 245);
             label8.Name = "label8";
             label8.Size = new Size(102, 23);
             label8.TabIndex = 13;
@@ -167,7 +167,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(39, 293);
+            label9.Location = new Point(39, 287);
             label9.Name = "label9";
             label9.Size = new Size(283, 46);
             label9.TabIndex = 14;
@@ -179,7 +179,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(342, 293);
+            label10.Location = new Point(342, 287);
             label10.Name = "label10";
             label10.Size = new Size(276, 46);
             label10.TabIndex = 15;
@@ -364,7 +364,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmCreditos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Clave administrador";
+            Text = "Ayuda";
             MouseDown += FrmCreditos_MouseDown;
             ((System.ComponentModel.ISupportInitialize)fotoAndrews).EndInit();
             ((System.ComponentModel.ISupportInitialize)fotoBraylin).EndInit();

@@ -17,6 +17,7 @@ namespace BRAHO_Project
         public FrmAdmin()
         {
             InitializeComponent();
+            Funciones.RedondearForm(this);
         }
 
         //Codigo para mover el formulario

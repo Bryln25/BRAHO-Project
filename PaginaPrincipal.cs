@@ -246,7 +246,7 @@ namespace BRAHO_Project
                 desplazar = true;
             }
 
-            ActivarBoton(BotonGastos);
+            ActivarBoton(btnLOG);
         }
 
         private void btnCreditos_Click(object sender, EventArgs e)
