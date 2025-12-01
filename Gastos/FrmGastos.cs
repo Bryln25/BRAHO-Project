@@ -222,14 +222,14 @@ namespace BRAHO_Project
                         break;
 
                     case "Editar":
-                        if (dgvBuscar.CurrentRow != null) 
+                        if (dgvBuscar.CurrentRow != null)
                         {
                             DataGridViewRow fila = dgvBuscar.CurrentRow;
 
                             FrmEditarGastos frm = new FrmEditarGastos(gastos, dgvBuscar, usuario);
                             Clientes clientes = new Clientes();
                             frm.ShowDialog();
-                            MostrarGastos(); 
+                            MostrarGastos();
                         }
                         else
                         {
@@ -277,18 +277,18 @@ namespace BRAHO_Project
         {
             FrmAgregarGasto frmAgregarGasto = new FrmAgregarGasto(usuario);
             frmAgregarGasto.ShowDialog();
-            MostrarGastos(); 
+            MostrarGastos();
         }
 
         private void dgvBuscar_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) 
+            if (e.RowIndex >= 0)
             {
                 string columnName = dgvBuscar.Columns[e.ColumnIndex].Name;
 
                 if (columnName == "Editar" || columnName == "Eliminar")
                 {
-                    dgvBuscar.Cursor = Cursors.Hand; 
+                    dgvBuscar.Cursor = Cursors.Hand;
                 }
             }
         }
@@ -301,7 +301,7 @@ namespace BRAHO_Project
 
                 if (columnName == "Editar" || columnName == "Eliminar")
                 {
-                    dgvBuscar.Cursor = Cursors.Default; 
+                    dgvBuscar.Cursor = Cursors.Default;
                 }
             }
         }
@@ -348,5 +348,35 @@ namespace BRAHO_Project
             }
         }
 
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            string mes = cbMes.Texts;
+            string mesNumero = ObtenerNumeroMes(mes);
+
+            string año = cbAño.Texts;
+            txtBuscar.Texts = $"{mesNumero}/{año}";
+        }
+
+        public string ObtenerNumeroMes(string mes)
+        {
+            switch (mes.ToLower())
+            {
+                case "enero": return "01";
+                case "febrero": return "02";
+                case "marzo": return "03";
+                case "abril": return "04";
+                case "mayo": return "05";
+                case "junio": return "06";
+                case "julio": return "07";
+                case "agosto": return "08";
+                case "septiembre": return "09";
+                case "octubre": return "10";
+                case "noviembre": return "11";
+                case "diciembre": return "12";
+
+                default:
+                    throw new ArgumentException("El nombre del mes no es válido.");
+            }
+        }
     }
 }

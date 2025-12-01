@@ -43,6 +43,11 @@
             timer1 = new System.Windows.Forms.Timer(components);
             mover = new System.Windows.Forms.Timer(components);
             txtOculto = new BRAHO_Project.RJControls.RJtextbox();
+            cbMes = new BRAHO_Project.RJControls.RJComboBox();
+            cbAño = new BRAHO_Project.RJControls.RJComboBox();
+            label1 = new Label();
+            label2 = new Label();
+            btnFiltrar = new BRAHO_Project.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).BeginInit();
             SuspendLayout();
@@ -228,12 +233,103 @@
             txtOculto.Texts = "";
             txtOculto.UnderlinedStyle = true;
             // 
+            // cbMes
+            // 
+            cbMes.BackColor = Color.FromArgb(64, 64, 64);
+            cbMes.BorderColor = Color.FromArgb(255, 165, 11);
+            cbMes.BorderSize = 4;
+            cbMes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbMes.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+            cbMes.ForeColor = Color.Gainsboro;
+            cbMes.IconColor = Color.White;
+            cbMes.Items.AddRange(new object[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" });
+            cbMes.ListBackColor = Color.FromArgb(230, 228, 245);
+            cbMes.ListTextColor = Color.DimGray;
+            cbMes.Location = new Point(1023, 144);
+            cbMes.MinimumSize = new Size(200, 30);
+            cbMes.Name = "cbMes";
+            cbMes.Padding = new Padding(4);
+            cbMes.Size = new Size(200, 41);
+            cbMes.TabIndex = 53;
+            cbMes.Texts = "";
+            // 
+            // cbAño
+            // 
+            cbAño.BackColor = Color.FromArgb(64, 64, 64);
+            cbAño.BorderColor = Color.FromArgb(255, 165, 11);
+            cbAño.BorderSize = 4;
+            cbAño.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbAño.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+            cbAño.ForeColor = Color.Gainsboro;
+            cbAño.IconColor = Color.White;
+            cbAño.Items.AddRange(new object[] { "2025" });
+            cbAño.ListBackColor = Color.FromArgb(230, 228, 245);
+            cbAño.ListTextColor = Color.DimGray;
+            cbAño.Location = new Point(1023, 234);
+            cbAño.MinimumSize = new Size(200, 30);
+            cbAño.Name = "cbAño";
+            cbAño.Padding = new Padding(4);
+            cbAño.Size = new Size(200, 41);
+            cbAño.TabIndex = 54;
+            cbAño.Texts = "";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(1023, 106);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 21);
+            label1.TabIndex = 55;
+            label1.Text = "Mes";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(1024, 201);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 21);
+            label2.TabIndex = 56;
+            label2.Text = "Año";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.FromArgb(255, 165, 11);
+            btnFiltrar.BackgroundColor = Color.FromArgb(255, 165, 11);
+            btnFiltrar.BorderColor = Color.PaleVioletRed;
+            btnFiltrar.BorderRadius = 10;
+            btnFiltrar.BorderSize = 0;
+            btnFiltrar.Cursor = Cursors.Hand;
+            btnFiltrar.FlatAppearance.BorderSize = 0;
+            btnFiltrar.FlatStyle = FlatStyle.Flat;
+            btnFiltrar.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(1055, 308);
+            btnFiltrar.Margin = new Padding(3, 4, 3, 4);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(134, 40);
+            btnFiltrar.TabIndex = 57;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.TextColor = Color.White;
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
             // FrmGastos
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1041, 617);
+            ClientSize = new Size(1271, 617);
+            Controls.Add(btnFiltrar);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(cbAño);
+            Controls.Add(cbMes);
             Controls.Add(txtOculto);
             Controls.Add(label6);
             Controls.Add(btnLupa);
@@ -262,5 +358,10 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer mover;
         private RJControls.RJtextbox txtOculto;
+        private RJControls.RJComboBox cbMes;
+        private RJControls.RJComboBox cbAño;
+        private Label label1;
+        private Label label2;
+        private RJControls.RJButton btnFiltrar;
     }
 }
