@@ -44,5 +44,10 @@ namespace BRAHO_Project
         {
 
         }
+
+        private void FrmCreditos_MouseDown(object sender, MouseEventArgs e)
+        {
+            Funciones.MoverForm(this);
+        }
     }
 }

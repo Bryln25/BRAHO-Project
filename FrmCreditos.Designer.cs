@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreditos));
-            MoverVentana = new Panel();
-            BtnMinimizar = new PictureBox();
-            BtnSalir = new PictureBox();
             label1 = new Label();
             fotoAndrews = new PictureBox();
             label2 = new Label();
@@ -42,49 +39,35 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            MoverVentana.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)BtnMinimizar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)BtnSalir).BeginInit();
+            panel2 = new Panel();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            panel3 = new Panel();
+            pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            Diseñito = new Panel();
+            BotonMininizar = new PictureBox();
+            BotonCerrar = new PictureBox();
+            BtnSalir = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)fotoAndrews).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fotoBraylin).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            Diseñito.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BtnSalir).BeginInit();
             SuspendLayout();
-            // 
-            // MoverVentana
-            // 
-            MoverVentana.BackColor = Color.FromArgb(102, 102, 102);
-            MoverVentana.Controls.Add(BtnMinimizar);
-            MoverVentana.Controls.Add(BtnSalir);
-            MoverVentana.Dock = DockStyle.Top;
-            MoverVentana.Location = new Point(0, 0);
-            MoverVentana.Name = "MoverVentana";
-            MoverVentana.Size = new Size(660, 45);
-            MoverVentana.TabIndex = 2;
-            MoverVentana.MouseDown += MoverVentana_MouseDown;
-            // 
-            // BtnMinimizar
-            // 
-            BtnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnMinimizar.Cursor = Cursors.Hand;
-            BtnMinimizar.Image = (Image)resources.GetObject("BtnMinimizar.Image");
-            BtnMinimizar.Location = new Point(577, 7);
-            BtnMinimizar.Name = "BtnMinimizar";
-            BtnMinimizar.Size = new Size(29, 33);
-            BtnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
-            BtnMinimizar.TabIndex = 6;
-            BtnMinimizar.TabStop = false;
-            // 
-            // BtnSalir
-            // 
-            BtnSalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnSalir.Cursor = Cursors.Hand;
-            BtnSalir.Image = (Image)resources.GetObject("BtnSalir.Image");
-            BtnSalir.Location = new Point(620, 7);
-            BtnSalir.Name = "BtnSalir";
-            BtnSalir.Size = new Size(29, 33);
-            BtnSalir.SizeMode = PictureBoxSizeMode.Zoom;
-            BtnSalir.TabIndex = 5;
-            BtnSalir.TabStop = false;
-            BtnSalir.Click += BtnSalir_Click;
             // 
             // label1
             // 
@@ -136,6 +119,7 @@
             // fotoBraylin
             // 
             fotoBraylin.BackColor = Color.Transparent;
+            fotoBraylin.Image = (Image)resources.GetObject("fotoBraylin.Image");
             fotoBraylin.Location = new Point(341, 123);
             fotoBraylin.Name = "fotoBraylin";
             fotoBraylin.Size = new Size(80, 80);
@@ -202,12 +186,170 @@
             label10.Text = "(829) 263-2599\r\nbraylinnunez72@gmail.com\r\n";
             label10.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(255, 165, 11);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Controls.Add(pictureBox4);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(650, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(10, 381);
+            panel2.TabIndex = 20;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(660, 9);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(29, 33);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox4.Cursor = Cursors.Hand;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(696, 7);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(29, 33);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 1;
+            pictureBox4.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(255, 165, 11);
+            panel3.Controls.Add(pictureBox5);
+            panel3.Controls.Add(pictureBox6);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(650, 10);
+            panel3.TabIndex = 21;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox5.Cursor = Cursors.Hand;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(2237, 9);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(29, 33);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 2;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox6.Cursor = Cursors.Hand;
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(2273, 7);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(29, 33);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 1;
+            pictureBox6.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(255, 165, 11);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 10);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(10, 371);
+            panel1.TabIndex = 22;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(660, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(29, 33);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(696, 7);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(29, 33);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            // 
+            // Diseñito
+            // 
+            Diseñito.BackColor = Color.FromArgb(255, 165, 11);
+            Diseñito.Controls.Add(BotonMininizar);
+            Diseñito.Controls.Add(BotonCerrar);
+            Diseñito.Dock = DockStyle.Bottom;
+            Diseñito.Location = new Point(10, 371);
+            Diseñito.Name = "Diseñito";
+            Diseñito.Size = new Size(640, 10);
+            Diseñito.TabIndex = 23;
+            // 
+            // BotonMininizar
+            // 
+            BotonMininizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BotonMininizar.Cursor = Cursors.Hand;
+            BotonMininizar.Image = (Image)resources.GetObject("BotonMininizar.Image");
+            BotonMininizar.Location = new Point(2252, 9);
+            BotonMininizar.Name = "BotonMininizar";
+            BotonMininizar.Size = new Size(29, 33);
+            BotonMininizar.SizeMode = PictureBoxSizeMode.Zoom;
+            BotonMininizar.TabIndex = 2;
+            BotonMininizar.TabStop = false;
+            // 
+            // BotonCerrar
+            // 
+            BotonCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BotonCerrar.Cursor = Cursors.Hand;
+            BotonCerrar.Image = (Image)resources.GetObject("BotonCerrar.Image");
+            BotonCerrar.Location = new Point(2288, 7);
+            BotonCerrar.Name = "BotonCerrar";
+            BotonCerrar.Size = new Size(29, 33);
+            BotonCerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            BotonCerrar.TabIndex = 1;
+            BotonCerrar.TabStop = false;
+            // 
+            // BtnSalir
+            // 
+            BtnSalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnSalir.Cursor = Cursors.Hand;
+            BtnSalir.Image = (Image)resources.GetObject("BtnSalir.Image");
+            BtnSalir.Location = new Point(615, 16);
+            BtnSalir.Name = "BtnSalir";
+            BtnSalir.Size = new Size(29, 33);
+            BtnSalir.SizeMode = PictureBoxSizeMode.Zoom;
+            BtnSalir.TabIndex = 5;
+            BtnSalir.TabStop = false;
+            BtnSalir.Click += BtnSalir_Click;
+            // 
             // FrmCreditos
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(660, 381);
+            Controls.Add(Diseñito);
+            Controls.Add(BtnSalir);
+            Controls.Add(panel1);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -217,27 +359,33 @@
             Controls.Add(label2);
             Controls.Add(fotoAndrews);
             Controls.Add(label1);
-            Controls.Add(MoverVentana);
             Controls.Add(label4);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmCreditos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clave administrador";
-            MoverVentana.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)BtnMinimizar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)BtnSalir).EndInit();
+            MouseDown += FrmCreditos_MouseDown;
             ((System.ComponentModel.ISupportInitialize)fotoAndrews).EndInit();
             ((System.ComponentModel.ISupportInitialize)fotoBraylin).EndInit();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            Diseñito.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)BotonMininizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BtnSalir).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel MoverVentana;
-        private PictureBox BtnMinimizar;
-        private PictureBox BtnSalir;
         private Label label1;
         private PictureBox fotoAndrews;
         private Label label2;
@@ -248,5 +396,18 @@
         private Label label8;
         private Label label9;
         private Label label10;
+        private Panel panel2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private Panel panel3;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox6;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Panel Diseñito;
+        private PictureBox BotonMininizar;
+        private PictureBox BotonCerrar;
+        private PictureBox BtnSalir;
     }
 }
