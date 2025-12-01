@@ -32,6 +32,9 @@
 		<Compile Update="Clientes\FrmEditarClientes.cs">
 		  <SubType>Form</SubType>
 		</Compile>
+		<Compile Update="FrmCreditos.cs">
+		  <SubType>Form</SubType>
+		</Compile>
 		<Compile Update="Gastos\FrmAgregarGasto.cs">
 		  <SubType>Form</SubType>
 		</Compile>

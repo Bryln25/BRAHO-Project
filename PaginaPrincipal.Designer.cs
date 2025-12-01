@@ -53,6 +53,7 @@
             BotonMininizar = new PictureBox();
             BotonCerrar = new PictureBox();
             Contenedor = new Panel();
+            btnCreditos = new PictureBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -77,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)BotonMininizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).BeginInit();
             Contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnCreditos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -383,6 +385,7 @@
             // Contenedor
             // 
             Contenedor.BackColor = Color.FromArgb(64, 64, 64);
+            Contenedor.Controls.Add(btnCreditos);
             Contenedor.Controls.Add(label7);
             Contenedor.Controls.Add(label6);
             Contenedor.Controls.Add(label5);
@@ -401,6 +404,18 @@
             Contenedor.Name = "Contenedor";
             Contenedor.Size = new Size(1041, 617);
             Contenedor.TabIndex = 2;
+            // 
+            // btnCreditos
+            // 
+            btnCreditos.Anchor = AnchorStyles.Top;
+            btnCreditos.Image = (Image)resources.GetObject("btnCreditos.Image");
+            btnCreditos.Location = new Point(997, 11);
+            btnCreditos.Name = "btnCreditos";
+            btnCreditos.Size = new Size(41, 33);
+            btnCreditos.SizeMode = PictureBoxSizeMode.Zoom;
+            btnCreditos.TabIndex = 12;
+            btnCreditos.TabStop = false;
+            btnCreditos.Click += btnCreditos_Click;
             // 
             // label7
             // 
@@ -459,7 +474,7 @@
             rJtextbox3.Multiline = true;
             rJtextbox3.Name = "rJtextbox3";
             rJtextbox3.OnlyNumbers = false;
-            rJtextbox3.Padding = new Padding(7);
+            rJtextbox3.Padding = new Padding(7, 7, 7, 7);
             rJtextbox3.PasswordChar = false;
             rJtextbox3.Size = new Size(753, 59);
             rJtextbox3.TabIndex = 8;
@@ -484,7 +499,7 @@
             rJtextbox2.Multiline = false;
             rJtextbox2.Name = "rJtextbox2";
             rJtextbox2.OnlyNumbers = false;
-            rJtextbox2.Padding = new Padding(7);
+            rJtextbox2.Padding = new Padding(7, 7, 7, 7);
             rJtextbox2.PasswordChar = false;
             rJtextbox2.Size = new Size(753, 37);
             rJtextbox2.TabIndex = 7;
@@ -509,7 +524,7 @@
             rJtextbox1.Multiline = false;
             rJtextbox1.Name = "rJtextbox1";
             rJtextbox1.OnlyNumbers = false;
-            rJtextbox1.Padding = new Padding(7);
+            rJtextbox1.Padding = new Padding(7, 7, 7, 7);
             rJtextbox1.PasswordChar = false;
             rJtextbox1.Size = new Size(753, 37);
             rJtextbox1.TabIndex = 6;
@@ -611,6 +626,7 @@
             ((System.ComponentModel.ISupportInitialize)BotonCerrar).EndInit();
             Contenedor.ResumeLayout(false);
             Contenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnCreditos).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -656,5 +672,6 @@
         private Button btnControlUsuarios;
         private Label label8;
         private PictureBox pictureBox6;
+        private PictureBox btnCreditos;
     }
 }
