@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGastos));
             dgvBuscar = new DataGridView();
             BotonCerr = new BRAHO_Project.RJControls.RJButton();
@@ -43,11 +43,12 @@
             timer1 = new System.Windows.Forms.Timer(components);
             mover = new System.Windows.Forms.Timer(components);
             txtOculto = new BRAHO_Project.RJControls.RJtextbox();
-            cbMes = new BRAHO_Project.RJControls.RJComboBox();
-            cbAño = new BRAHO_Project.RJControls.RJComboBox();
             label1 = new Label();
-            label2 = new Label();
             btnFiltrar = new BRAHO_Project.RJControls.RJButton();
+            lblTotalMontos = new Label();
+            dtpFechaInicio = new BRAHO_Project.RJControls.RJDatePick();
+            dtpFechaFinal = new BRAHO_Project.RJControls.RJDatePick();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvBuscar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnLupa).BeginInit();
             SuspendLayout();
@@ -64,47 +65,47 @@
             dgvBuscar.BorderStyle = BorderStyle.None;
             dgvBuscar.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBuscar.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(50, 50, 50);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle5.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(50, 50, 50);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvBuscar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvBuscar.ColumnHeadersHeight = 35;
             dgvBuscar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvBuscar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvBuscar.DefaultCellStyle = dataGridViewCellStyle6;
             dgvBuscar.EnableHeadersVisualStyles = false;
             dgvBuscar.Location = new Point(28, 106);
             dgvBuscar.Margin = new Padding(4);
             dgvBuscar.Name = "dgvBuscar";
             dgvBuscar.ReadOnly = true;
             dgvBuscar.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Transparent;
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvBuscar.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.Transparent;
+            dataGridViewCellStyle7.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvBuscar.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvBuscar.RowHeadersVisible = false;
             dgvBuscar.RowHeadersWidth = 51;
             dgvBuscar.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(102, 102, 102);
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 165, 11);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(102, 102, 102);
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 165, 11);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dgvBuscar.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dgvBuscar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBuscar.Size = new Size(972, 481);
             dgvBuscar.TabIndex = 11;
@@ -233,46 +234,6 @@
             txtOculto.Texts = "";
             txtOculto.UnderlinedStyle = true;
             // 
-            // cbMes
-            // 
-            cbMes.BackColor = Color.FromArgb(64, 64, 64);
-            cbMes.BorderColor = Color.FromArgb(255, 165, 11);
-            cbMes.BorderSize = 4;
-            cbMes.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbMes.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-            cbMes.ForeColor = Color.Gainsboro;
-            cbMes.IconColor = Color.White;
-            cbMes.Items.AddRange(new object[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" });
-            cbMes.ListBackColor = Color.FromArgb(230, 228, 245);
-            cbMes.ListTextColor = Color.DimGray;
-            cbMes.Location = new Point(1023, 144);
-            cbMes.MinimumSize = new Size(200, 30);
-            cbMes.Name = "cbMes";
-            cbMes.Padding = new Padding(4);
-            cbMes.Size = new Size(200, 41);
-            cbMes.TabIndex = 53;
-            cbMes.Texts = "";
-            // 
-            // cbAño
-            // 
-            cbAño.BackColor = Color.FromArgb(64, 64, 64);
-            cbAño.BorderColor = Color.FromArgb(255, 165, 11);
-            cbAño.BorderSize = 4;
-            cbAño.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbAño.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-            cbAño.ForeColor = Color.Gainsboro;
-            cbAño.IconColor = Color.White;
-            cbAño.Items.AddRange(new object[] { "2025" });
-            cbAño.ListBackColor = Color.FromArgb(230, 228, 245);
-            cbAño.ListTextColor = Color.DimGray;
-            cbAño.Location = new Point(1023, 234);
-            cbAño.MinimumSize = new Size(200, 30);
-            cbAño.Name = "cbAño";
-            cbAño.Padding = new Padding(4);
-            cbAño.Size = new Size(200, 41);
-            cbAño.TabIndex = 54;
-            cbAño.Texts = "";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -280,22 +241,10 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(1023, 106);
             label1.Name = "label1";
-            label1.Size = new Size(45, 21);
+            label1.Size = new Size(64, 21);
             label1.TabIndex = 55;
-            label1.Text = "Mes";
+            label1.Text = "Desde";
             label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(1024, 201);
-            label2.Name = "label2";
-            label2.Size = new Size(44, 21);
-            label2.TabIndex = 56;
-            label2.Text = "Año";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnFiltrar
             // 
@@ -319,17 +268,67 @@
             btnFiltrar.UseVisualStyleBackColor = false;
             btnFiltrar.Click += btnFiltrar_Click;
             // 
+            // lblTotalMontos
+            // 
+            lblTotalMontos.AutoSize = true;
+            lblTotalMontos.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalMontos.ForeColor = Color.White;
+            lblTotalMontos.Location = new Point(1024, 381);
+            lblTotalMontos.Name = "lblTotalMontos";
+            lblTotalMontos.Size = new Size(0, 21);
+            lblTotalMontos.TabIndex = 58;
+            lblTotalMontos.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // dtpFechaInicio
+            // 
+            dtpFechaInicio.BorderColor = Color.FromArgb(255, 165, 11);
+            dtpFechaInicio.BorderSize = 2;
+            dtpFechaInicio.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Bold);
+            dtpFechaInicio.Location = new Point(1023, 147);
+            dtpFechaInicio.MinimumSize = new Size(4, 35);
+            dtpFechaInicio.Name = "dtpFechaInicio";
+            dtpFechaInicio.Size = new Size(200, 35);
+            dtpFechaInicio.SkinColor = Color.FromArgb(64, 64, 64);
+            dtpFechaInicio.TabIndex = 59;
+            dtpFechaInicio.TextColor = Color.White;
+            // 
+            // dtpFechaFinal
+            // 
+            dtpFechaFinal.BorderColor = Color.FromArgb(255, 165, 11);
+            dtpFechaFinal.BorderSize = 2;
+            dtpFechaFinal.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Bold);
+            dtpFechaFinal.Location = new Point(1023, 237);
+            dtpFechaFinal.MinimumSize = new Size(4, 35);
+            dtpFechaFinal.Name = "dtpFechaFinal";
+            dtpFechaFinal.Size = new Size(200, 35);
+            dtpFechaFinal.SkinColor = Color.FromArgb(64, 64, 64);
+            dtpFechaFinal.TabIndex = 60;
+            dtpFechaFinal.TextColor = Color.White;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(1024, 201);
+            label2.Name = "label2";
+            label2.Size = new Size(60, 21);
+            label2.TabIndex = 56;
+            label2.Text = "Hasta";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // FrmGastos
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1271, 617);
+            Controls.Add(dtpFechaFinal);
+            Controls.Add(dtpFechaInicio);
+            Controls.Add(lblTotalMontos);
             Controls.Add(btnFiltrar);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(cbAño);
-            Controls.Add(cbMes);
             Controls.Add(txtOculto);
             Controls.Add(label6);
             Controls.Add(btnLupa);
@@ -358,10 +357,11 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer mover;
         private RJControls.RJtextbox txtOculto;
-        private RJControls.RJComboBox cbMes;
-        private RJControls.RJComboBox cbAño;
         private Label label1;
-        private Label label2;
         private RJControls.RJButton btnFiltrar;
+        private Label lblTotalMontos;
+        private RJControls.RJDatePick dtpFechaInicio;
+        private RJControls.RJDatePick dtpFechaFinal;
+        private Label label2;
     }
 }

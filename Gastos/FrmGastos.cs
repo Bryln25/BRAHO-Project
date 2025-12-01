@@ -350,11 +350,25 @@ namespace BRAHO_Project
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            string mes = cbMes.Texts;
-            string mesNumero = ObtenerNumeroMes(mes);
+            string fechaInicio = dtpFechaInicio.Value.ToString("dd/MM/yyyy");
+            string fechaFinal = dtpFechaFinal.Value.ToString("dd/MM/yyyy");
 
-            string año = cbAño.Texts;
-            txtBuscar.Texts = $"{mesNumero}/{año}";
+            listaGastos = GastosDAL.MostrarGastosPorRango(fechaInicio, fechaFinal) ?? new List<Gastos>();
+
+            obraCache.Clear();
+            foreach (var g in listaGastos)
+            {
+                if (!obraCache.ContainsKey(g.IdObra))
+                {
+                    obraCache[g.IdObra] = GastosDAL.ObtenerNombreObraPorId(g.IdObra) ?? string.Empty;
+                }
+            }
+
+            listaGastosOriginal = new List<Gastos>(listaGastos);
+            ActualizarDataGridView();
+
+            decimal sumaMontos = CalcularSumaMontos();
+            lblTotalMontos.Text = $"Total: {sumaMontos:C}";
         }
 
         public string ObtenerNumeroMes(string mes)
@@ -377,6 +391,25 @@ namespace BRAHO_Project
                 default:
                     throw new ArgumentException("El nombre del mes no es válido.");
             }
+        }
+
+        private decimal CalcularSumaMontos()
+        {
+            decimal sumaMontos = 0m;
+            foreach (DataGridViewRow row in dgvBuscar.Rows)
+            {
+                if (row.IsNewRow) continue;
+                var montoCell = row.Cells["Monto"].Value;
+                if (montoCell != null)
+                {
+                    string montoStr = montoCell.ToString().Replace("RD$", "").Replace(",", "").Trim();
+                    if (decimal.TryParse(montoStr, out decimal monto))
+                    {
+                        sumaMontos += monto;
+                    }
+                }
+            }
+            return sumaMontos;
         }
     }
 }

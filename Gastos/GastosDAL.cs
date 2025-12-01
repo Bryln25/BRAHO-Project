@@ -69,6 +69,44 @@ namespace BRAHO_Project
             }
 
         }
+        public static List<Gastos> MostrarGastosPorRango(string fechaInicio, string fechaFin)
+        {
+            List<Gastos> Lista = new List<Gastos>();
+            using (SqlConnection conexion = ConexionBRAHOBD.ObtenerConexion())
+            {
+                string query = @"
+            SELECT *
+            FROM GastosObra
+            WHERE 
+                TRY_CONVERT(date, Fecha, 103) IS NOT NULL AND
+                TRY_CONVERT(date, Fecha, 103) 
+                    BETWEEN TRY_CONVERT(date, @fechaInicio, 103) 
+                    AND TRY_CONVERT(date, @fechaFin, 103);
+        ";
+                SqlCommand comando = new SqlCommand(query, conexion);
+                comando.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                comando.Parameters.AddWithValue("@fechaFin", fechaFin);
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Gastos Gastos = new Gastos();
+                    Gastos.IdGasto = reader.GetInt32(0);
+                    Gastos.IdObra = reader.GetInt32(1);
+                    Gastos.Fecha = reader.GetString(2);
+                    Gastos.Descripcion = reader.GetString(3);
+                    Gastos.TipoGasto = reader.GetString(4);
+                    Gastos.Monto = reader.GetString(5);
+                    Lista.Add(Gastos);
+                }
+
+                conexion.Close();
+                return Lista;
+
+            }
+
+        }
         public static int EditarGasto(Gastos Gastos)
         {
             try
