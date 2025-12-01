@@ -31,8 +31,7 @@ namespace BRAHO_Project
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form iniciodesesion = new IniciodeSesion();
-            iniciodesesion.Show();
+            
         }
         private void BtnMinimizar_Click(object sender, EventArgs e)
         {
