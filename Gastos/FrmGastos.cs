@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BRAHO_Project.Auditoria;
 using Microsoft.Data.SqlClient;
+using SpreadsheetLight;
+using Excel = DocumentFormat.OpenXml.Spreadsheet;
 
 namespace BRAHO_Project
 {
@@ -369,28 +372,7 @@ namespace BRAHO_Project
 
             decimal sumaMontos = CalcularSumaMontos();
             lblTotalMontos.Text = $"Total: {sumaMontos:C}";
-        }
-
-        public string ObtenerNumeroMes(string mes)
-        {
-            switch (mes.ToLower())
-            {
-                case "enero": return "01";
-                case "febrero": return "02";
-                case "marzo": return "03";
-                case "abril": return "04";
-                case "mayo": return "05";
-                case "junio": return "06";
-                case "julio": return "07";
-                case "agosto": return "08";
-                case "septiembre": return "09";
-                case "octubre": return "10";
-                case "noviembre": return "11";
-                case "diciembre": return "12";
-
-                default:
-                    throw new ArgumentException("El nombre del mes no es válido.");
-            }
+            ExportarExcel(dgvBuscar, $"Registros_Gastos_{fechaInicio}_a_{fechaFinal}", sumaMontos);
         }
 
         private decimal CalcularSumaMontos()
@@ -410,6 +392,171 @@ namespace BRAHO_Project
                 }
             }
             return sumaMontos;
+        }
+
+        private static string filePath = AppDomain.CurrentDomain.BaseDirectory;
+        private static string folderPath = @$"{filePath}\Exportaciones";
+
+        public static void ExportarExcel(DataGridView dgvBuscar, string name, decimal sumaMontos)
+        {
+            if (dgvBuscar.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            string nombreSeguro = name.Replace("/", "-").Replace("\\", "-").Replace(":", "-");
+            string fileName = $"{nombreSeguro}.xlsx";
+            string filePath = Path.Combine(folderPath, fileName);
+
+            try
+            {
+                SLDocument sl = new SLDocument();
+
+                // Solo exportar las primeras columnas con información (no imágenes)
+                int columnasExportar = dgvBuscar.Columns.Count - 3;
+
+                sl.SetCellValue(1, 1, $"{name}");
+                sl.MergeWorksheetCells(1, 1, 1, columnasExportar);
+                sl.SetCellStyle(1, 1, GetTitleStyle());
+
+                for (int i = 0; i < columnasExportar; i++)
+                {
+                    sl.SetCellValue(3, i + 1, dgvBuscar.Columns[i].HeaderText);
+                    sl.SetCellStyle(3, i + 1, GetHeaderStyle());
+                }
+
+                for (int row = 0; row < dgvBuscar.Rows.Count; row++)
+                {
+                    for (int col = 0; col < columnasExportar; col++)
+                    {
+                        sl.SetCellValue(row + 4, col + 1, dgvBuscar.Rows[row].Cells[col].Value?.ToString());
+                        sl.SetCellStyle(row + 4, col + 1, GetDataStyle());
+                    }
+                }
+
+                // Fila Total
+                int totalRow = dgvBuscar.Rows.Count + 4;
+                sl.SetCellValue(totalRow, 1, "Total");
+                sl.SetCellStyle(totalRow, 1, GetHeaderStyle());
+                // Dejar celdas vacías hasta la columna de Monto
+                for (int col = 1; col < columnasExportar - 1; col++)
+                {
+                    sl.SetCellValue(totalRow, col + 1, "");
+                    sl.SetCellStyle(totalRow, col + 1, GetDataStyle());
+                }
+                // Colocar suma de montos en la columna de Monto
+                sl.SetCellValue(totalRow, columnasExportar - 1, $"RD$ {sumaMontos:N2}");
+                sl.SetCellStyle(totalRow, columnasExportar - 1, GetDataStyle());
+
+                // Ajustar solo las columnas exportadas
+                for (int col = 0; col < columnasExportar; col++)
+                {
+                    double maxColumnWidth = 0;
+                    double headerWidth = CalcularAnchoTexto(dgvBuscar.Columns[col].HeaderText);
+                    maxColumnWidth = Math.Max(maxColumnWidth, headerWidth);
+
+                    for (int row = 0; row < dgvBuscar.Rows.Count; row++)
+                    {
+                        string cellValue = dgvBuscar.Rows[row].Cells[col].Value?.ToString();
+                        double cellWidth = CalcularAnchoTexto(cellValue);
+                        maxColumnWidth = Math.Max(maxColumnWidth, cellWidth);
+                    }
+
+                    // Considerar ancho de la fila Total
+                    if (col == 0)
+                    {
+                        maxColumnWidth = Math.Max(maxColumnWidth, CalcularAnchoTexto("Total"));
+                    }
+                    if (col == columnasExportar - 1)
+                    {
+                        maxColumnWidth = Math.Max(maxColumnWidth, CalcularAnchoTexto(sumaMontos.ToString("C")));
+                    }
+
+                    sl.SetColumnWidth(col + 1, maxColumnWidth);
+                }
+
+                SLStyle borderStyle = new SLStyle();
+                borderStyle.SetBottomBorder(Excel.BorderStyleValues.Thin, SLThemeColorIndexValues.Dark1Color);
+                for (int row = 3; row <= dgvBuscar.Rows.Count + 4; row++)
+                {
+                    for (int col = 1; col <= columnasExportar; col++)
+                    {
+                        sl.SetCellStyle(row, col, borderStyle);
+                    }
+                }
+
+                sl.SaveAs(filePath);
+
+                Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al exportar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private static SLStyle GetTitleStyle()
+        {
+            SLStyle style = new SLStyle();
+            style.Font.FontName = "Arial";
+            style.Font.FontSize = 16;
+            style.Font.Bold = true;
+            style.Alignment.Horizontal = Excel.HorizontalAlignmentValues.Center;
+            style.Alignment.Vertical = Excel.VerticalAlignmentValues.Center;
+            return style;
+        }
+
+        private static SLStyle GetHeaderStyle()
+        {
+            SLStyle style = new SLStyle();
+            style.Font.FontName = "Century Gothic";
+            style.Font.FontSize = 12;
+            style.Font.Bold = true;
+            style.Fill.SetPattern(Excel.PatternValues.Solid, System.Drawing.Color.LightGray, System.Drawing.Color.Gray);
+            style.Alignment.Horizontal = Excel.HorizontalAlignmentValues.Center;
+            style.Alignment.Vertical = Excel.VerticalAlignmentValues.Center;
+            return style;
+        }
+
+        private static SLStyle GetDataStyle()
+        {
+            SLStyle style = new SLStyle();
+            style.Font.FontName = "Century Gothic";
+            style.Font.FontSize = 11;
+            return style;
+        }
+
+        private static void AjustarAnchoColumnas(SLDocument sl, DataGridView dgvBuscar)
+        {
+            for (int col = 0; col < dgvBuscar.Columns.Count; col++)
+            {
+                double maxColumnWidth = 0;
+
+                double headerWidth = CalcularAnchoTexto(dgvBuscar.Columns[col].HeaderText);
+                maxColumnWidth = Math.Max(maxColumnWidth, headerWidth);
+
+                for (int row = 0; row < dgvBuscar.Rows.Count; row++)
+                {
+                    string cellValue = dgvBuscar.Rows[row].Cells[col].Value?.ToString();
+                    double cellWidth = CalcularAnchoTexto(cellValue);
+                    maxColumnWidth = Math.Max(maxColumnWidth, cellWidth);
+                }
+
+                sl.SetColumnWidth(col + 1, maxColumnWidth);
+            }
+        }
+
+        private static double CalcularAnchoTexto(string texto)
+        {
+            if (string.IsNullOrEmpty(texto))
+            {
+                return 0;
+            }
+            return texto.Length * 1.5;
         }
     }
 }
